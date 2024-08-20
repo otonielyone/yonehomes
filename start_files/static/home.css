@@ -5,47 +5,6 @@ body {
     color: #ffffff; /* Set global text color to white */
 }
 
-/* Ensure header is on top of video */
-.site-header {
-    position: absolute; /* Allow it to float over the video */
-    top: 0;
-    left: 0;
-    width: 100%; /* Make sure header spans the full width */
-    padding: 10px 20px; /* Adjust padding as needed */
-    z-index: 10; /* Ensure header is above the video background */
-    background: none; /* Remove background color */
-    border: none; /* Remove border */
-}
-
-/* Navigation Bar */
-.menu-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    position: relative; /* Position relative to keep it over the video */
-}
-
-.menu-column {
-    display: flex;
-}
-
-.left-column {
-    gap: 20px; /* Space between menu items */
-}
-
-.menu-link {
-    color: #ffffff; /* Text color */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px;
-    font-weight: 100; /* Thin weight for menu links */
-    transition: text-decoration 0.3s; /* Smooth underline transition */
-}
-
-.menu-link:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
 /* Video Background Section */
 .video-background-wrapper {
     position: relative;
@@ -162,7 +121,7 @@ body {
     background: transparent;
     text-align: center;
     position: relative;
-    padding: 50px; /* Adjust padding for spacing */
+    padding: 80px; /* Adjust padding for spacing */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -184,7 +143,7 @@ body {
     background: none; /* Ensure background is transparent */
     color: #ffffff; /* Set default text color */
     border: 2px solid #ffffff; /* Set border color */
-    border-radius: 5px; /* Optional: adjust border-radius */
+    border-radius: 1px; /* Optional: adjust border-radius */
 }
 
 .custom-button-link:hover {
@@ -209,10 +168,7 @@ body {
 
 /* Specific background images for each icon */
 .custom-icon-home {
-    margin-top: 20px; /* Space between icon and button */
-    background-image: url('/static/icons/home.png');
-    width: 60px; /* Adjust width as needed */
-    height: 60px; /* Adjust height as needed */
+    background-image: url('/static/icons/search.png');
 }
 
 .custom-icon-head {
@@ -224,7 +180,7 @@ body {
 }
 
 .custom-icon-rentals {
-    background-image: url('/static/icons/hand.png'); /* Ensure this path is correct */
+    background-image: url('/static/icons/hand.png'); 
 }
 
 /* Responsive Adjustments for Smaller Screens */

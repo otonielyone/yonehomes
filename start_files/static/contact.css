@@ -1,59 +1,15 @@
-/* Global Styles for Text */
+/* Ensure the body takes up full height and has no margin */
 body {
     font-family: Arial, sans-serif; /* Ensure a consistent font-family across the site */
     font-weight: 100; /* Apply thin weight globally */
     color: #ffffff; /* Set global text color to white */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-}
-
-/* Ensure header is on top of video */
-.site-header {
-    position: absolute; /* Allow it to float over the video */
-    top: 0;
-    left: 0;
-    width: 100%; /* Make sure header spans the full width */
-    padding: 10px 20px; /* Adjust padding as needed */
-    z-index: 10; /* Ensure header is above the video background */
-    background: none; /* Remove background color */
-    border: none; /* Remove border */
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center header content horizontally */
-}
-
-/* Navigation Bar */
-.menu-bar {
-    display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space out menu items */
-    width: 100%; /* Ensure full width */
-    padding: 0 20px;
-    position: relative; /* Position relative to keep it over the video */
-}
-
-/* Menu Column */
-.menu-column {
-    display: flex;
-    gap: 20px; /* Space between menu items */
-}
-
-/* Menu links */
-.menu-link {
-    color: #ffffff; /* Text color */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px;
-    font-weight: 100; /* Thin weight for menu links */
-    transition: text-decoration 0.3s; /* Smooth underline transition */
-}
-
-.menu-link:hover {
-    text-decoration: underline; /* Underline on hover */
 }
 
 /* Full-Width Image Section */
 .contact-page .image-container {
     position: relative;
     width: 100%; /* Full width of the container */
+    height: 50vh; /* Set height to match the placeholder */
     overflow: hidden; /* Hide overflow to maintain aspect ratio */
 }
 
@@ -63,102 +19,39 @@ body {
     object-fit: cover; /* Cover the container while maintaining aspect ratio */
 }
 
+/* Overlay content positioning */
 .contact-page .overlay-content {
-    position: absolute;
+    position: absolute; /* Position it absolutely within the container */
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust position */
-    color: #ffffff;
-    text-align: center; /* Center text horizontally */
-    padding: 0 20px; /* Optional padding */
+    transform: translate(-50%, -50%); /* Adjust position to truly center the content */
+    color: #ffffff; /* Set text color */
+    text-align: center; /* Center align text horizontally */
+    padding: 0 20px; /* Optional padding for spacing */
 }
 
-.contact-page .custom-heading {
-    font-size: 2rem;
-    margin: 0;
+.main-heading, .sub-heading {
+    font-size: 36px;
+    margin: 10px 0;
     font-weight: 100; /* Thin weight for headings */
-    color: #ffffff; /* White text color */
-    background: none; /* Ensure no background */
+    background: none; /* Ensure no background color */
+    padding: 0; /* Remove padding if any */
 }
 
-/* Center Content */
-.center-content {
+.sub-heading {
+    font-size: 24px;
+    margin-top: 25px; /* Add margin on top to separate from main heading */
+    margin-bottom: 35px; /* Add margin on top to separate from main heading */
+}
+
+/* Button Group */
+.button-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack buttons vertically */
     align-items: center;
-    text-align: center;
-}
-
-/* Custom Section with Background Image */
-.custom-section {
-    background-image: url('/static/icons/getty.jpg'); /* Adjust the image path */
-    background-size: cover;
-    background-position: center;
-    width: 100%; /* Ensure section stretches full width */
-    margin: 0; /* Remove margins */
-    padding: 25px 0; /* Add padding below the section */
-    background-attachment: fixed; /* Ensure the background image stays in place */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-}
-
-
-/* Custom button link styles */
-.custom-button-link {
-    font-size: 14px;
-    line-height: 40px;
-    padding: 10px;
-    box-sizing: border-box;
-    margin-bottom: 20px; /* Space between button and bottom of column */
-    text-decoration: none; /* Ensure no underline */
-    background: none; /* Ensure background is transparent */
-    color: #ffffff; /* Set default text color */
-    border: 2px solid #ffffff; /* Set border color */
-    border-radius: 1px; /* Optional: adjust border-radius */
-}
-
-.custom-button-link:hover {
-    background-color: transparent; /* Keep background transparent */
-    text-decoration: none; /* Ensure no underline on hover */
-    color: #000000; /* Change text color on hover if needed */
-}
-
-
-/* Custom Container */
-.custom-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* Ensure container stretches full width */
-    padding: 0 20px; /* Optional padding */
-}
-
-/* Flexbox Layout for Custom Row */
-.custom-row {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping on medium screens */
-    gap: 20px; /* Space between columns */
-    width: 100%; /* Full width of container */
-    justify-content: center; /* Center columns horizontally */
-}
-
-/* Column Styling */
-.custom-column {
-    flex: 1; /* Allow columns to expand and fill the space */
-    min-width: 200px; /* Ensure columns do not get too narrow */
-    border: 1px solid #ffffff;
-    background: transparent;
-    text-align: center;
-    position: relative;
-    padding: 50px; /* Adjust padding for spacing */
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    margin-top: 50px; /* Adjust this margin as needed */
-    margin-bottom: 10px; /* Adjust this margin as needed */
+    gap: 20px; /* Space between buttons */
+    margin-top: 25px; /* Space between text and buttons */
+    margin-bottom: 25px; /* Add margin on top to separate from main heading */
 }
 
 .button-link {
@@ -181,19 +74,79 @@ body {
     color: #000000; /* Change text color on hover */
 }
 
-/* Style for additional-info with black text */
-.additional-info.black-text {
-    color: #000000; /* Set text color to black */
-    font-weight: normal; /* Reset font weight if needed */
-    background: none; /* Ensure no background color */
-    padding: 10px; /* Optional: add some padding if needed */
-    text-align: center; /* Center align text */
+/* Custom Section with Parallax Effect */
+.custom-section {
+    background-image: url('/static/icons/getty-1.jpg'); /* Adjust the image path */
+    background-size: cover;
+    background-position: center;
+    width: 100%; /* Ensure section stretches full width */
+    margin: 0; /* Remove margins */
+    padding: 25px; /* Remove padding to allow flex container to handle spacing */
+    background-attachment: fixed; /* Ensure the background image stays in place */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-end; /* Align items to the bottom */
+}
+
+/* Custom Container */
+.custom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure container stretches full width */
+    background: none; /* Ensure no background */
+
+}
+
+/* Flexbox Layout for Custom Row */
+.custom-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Space between columns */
+    width: 100%; /* Full width of container */
+    justify-content: center; /* Center align columns horizontally */
+    align-items: stretch; /* Stretch columns to be of equal height */
+}
+
+/* Column Styling */
+.custom-column {
+    flex: 1 1 200px; /* Allow columns to grow and shrink, with a base width */
+    max-width: 25%; /* Ensure 4 columns fit in a row (100% / 4 = 25%) */
+    border: 1px solid #ffffff;
+    background: transparent;
+    text-align: center;
+    position: relative;
+    padding: 40px; /* Adjust padding for spacing */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+/* Custom button link styles */
+.custom-button-link {
+    font-size: 14px;
+    line-height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-decoration: none; /* Ensure no underline */
+    background: none; /* Ensure background is transparent */
+    color: #ffffff; /* Set default text color */
+    border: 2px solid #ffffff; /* Set border color */
+    border-radius: 1px; /* Optional: adjust border-radius */
+    margin-top: 20px; /* Space between icon and button */
+}
+
+.custom-button-link:hover {
+    background-color: transparent; /* Keep background transparent */
 }
 
 /* Updated Icon Styling */
+.custom-icon-homepage, 
 .custom-icon-home, 
-.custom-icon-rentals, 
-.custom-icon-head {
+.custom-icon-head, 
+.custom-icon-rentals {
     background-size: contain; /* Ensure the image fits within the icon area */
     background-repeat: no-repeat; /* Prevent repeating the background image */
     filter: brightness(0) invert(1); /* Optional: adjust color if needed */
@@ -206,11 +159,14 @@ body {
 }
 
 /* Specific background images for each icon */
-.custom-icon-home {
+.custom-icon-homepage {
     background-image: url('/static/icons/home.png');
-    margin-top: 20px; /* Space between icon and button */
-    width: 60px; /* Adjust width as needed */
-    height: 60px; /* Adjust height as needed */
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+  }
+
+  .custom-icon-home {
+    background-image: url('/static/icons/search.png');
 }
 
 .custom-icon-head {
@@ -223,19 +179,20 @@ body {
 
 /* Responsive Adjustments for Smaller Screens */
 @media (max-width: 1024px) {
-  .custom-row {
-    flex-wrap: wrap; /* Allow wrapping on medium screens */
-  }
+    .custom-row {
+      flex-wrap: wrap; /* Allow wrapping on medium screens */
+    }
 }
 
 @media (max-width: 768px) {
-  .custom-row {
-    flex-direction: column; /* Stack columns vertically on smaller screens */
-  }
+    .custom-row {
+      flex-direction: column; /* Stack columns vertically on smaller screens */
+    }
 }
 
 @media (max-width: 480px) {
-  .custom-column {
-    min-width: 100%; /* Ensure columns fill the width on very small screens */
-  }
+    .custom-column {
+      min-width: 100%; /* Ensure columns fill the width on very small screens */
+      max-width: 100%; /* Ensure columns fill the width on very small screens */
+    }
 }

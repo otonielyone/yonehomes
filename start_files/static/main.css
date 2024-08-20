@@ -1,6 +1,20 @@
 /* Import Montserrat font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+/* Placeholder style */
+.placeholder {
+  width: 100%; /* Full width of the viewport */
+  height: 50vh; /* 25% of viewport height */
+  background-color: #ffffff; /* White background */
+  /* This will naturally push down any following content */
+}
+
+
+.left-column {
+  gap: 20px; /* Space between menu items */
+}
+
+
 /* General Body Styling */
 body {
   background: #fafafa;
