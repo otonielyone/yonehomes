@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %} - Tools</title>
+    <!-- Bootstrap CSS -->
+    <link type="text/css" rel="stylesheet" href="/static/bootstrap.min.css" />
+    <!-- Custom CSS -->
+    {% block head %}{% endblock %}
+
+</head>
+<body>
+
+    <!-- Main Content -->
+
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4 class="footer-heading">BROWSE</h4>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="/" class="nav-item current"><span class="nav-item-text">YONE.REALTOR</span></a></li>
+                        <li><a href="http://otonielyone.unitedrealestatewashingtondc.com" class="nav-item"><span class="nav-item-text">HOMES</span></a></li>
+                        <li><a href="/rentals" class="nav-item"><span class="nav-item-text">RENTALS</span></a></li>
+                        <li><a href="/resources" class="nav-item"><span class="nav-item-text">RESOURCES</span></a></li>
+                        <li><a href="/contact" class="nav-item"><span class="nav-item-text">CONTACT US</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">CONTACT</h4>
+                <div class="footer-info">
+                    <p class="footer-text"><span class="contact-title">Real Estate Agent, REALTOR®</span></p>
+                    <p class="footer-text"><span class="contact-name">Otoniel (Toni) Yone</span></p>
+                    <p class="footer-text"><span class="contact-email">toni@yone.realtor</span></p>
+                    <p class="footer-text"><span class="contact-phone">1-703-596-2121</span></p>
+                </div>
+            </div>
+            <div class="footer-column logo-column">
+                <img src="/static/icons/united.svg" alt="United Logo" class="footer-logo">
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/static/application.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+{% extends "template.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/main.css">
+<link rel="stylesheet" href="/static/rentals.css">
+{% endblock %}
+
+{% block body %}
+<header class="site-header">
+    <nav class="menu-bar">
+        <div class="menu-column left-column">
+            <a href="/" class="menu-link">HOME</a>
+            <a href="http://otonielyone.unitedrealestatewashingtondc.com" class="menu-link">BUYING</a>
+            <a href="/resources" class="menu-link">RESOURCES</a>
+            <a href="/contact" class="menu-link">CONTACT</a>
+        </div>
+        <div class="menu-column right-column">
+            <a href="#" class="language-icon">
+                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+            </a>
+        </div>
+    </nav>
+</header>
+
+<!-- Full-Width Image Section -->
+<div class="rentals-page">
+    <div class="image-container">
+        <img src="/static/icons/rentals.jpg" alt="Rentals" class="rental-image">
+        <div class="overlay-content">
+            <div class="text-content">
+                <h1 class="custom-heading">SEE BELOW FOR ROOMS AND APARTMENTS!</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leasing Qualifications Section -->
+    <div class="leasing-qualifications center-content">
+        <h2 class="section-heading">LEASING QUALIFICATIONS:</h2>
+        <p class="qualifications-text light-red-text">
+            Rooms may require an application fee ranging from $30 to $60. These applications assist landlords in assessing and comparing their options. Minimum requirements may include a credit score of at least 550, two years of stable employment, and proof of income equivalent to approximately three times the monthly rent. Additionally, many rooms may necessitate a security deposit equal to the first month's rent, which can vary depending on whether the property is privately owned or managed. Rooms may be furnished.
+        </p>
+        <p class="dark-red-text">
+            Note: If you do not meet these qualifications, the security deposit amount may be increased to facilitate approval.
+        </p>
+        <hr>
+
+        <!-- Call to Action Button -->
+        <div class="call-to-action">
+            <a class="cta-button" href="/contact">
+                <span class="text">Click here to request Availabilities!</span>
+            </a>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="additional-info black-text">
+            <p>New law specifies that Agents MUST enter into a signed agreement to view properties physically.</p>
+            <p>For transparency, We receive referral fees that are already covered for the listings we display.</p>
+            <p>Our services come at no cost to you.</p>
+        </div>
+
+        <!-- Download Rental Representation Agreement -->
+        <div class="cta-download">
+            <a class="cta-button" href="https://www.example.com/download">
+                Download Rental Representation Agreement
+            </a>
+        </div>
+    </div>
+    
+<!-- Custom Section with Parallax Effect -->
+<div class="custom-section" id="main-section">
+    <div class="custom-container">
+        <div class="custom-header">
+            <h2 class="custom-heading">WE ARE HERE TO HELP YOU</h2>
+        </div>
+        <div class="custom-row">
+            <div class="custom-column">
+                <div class="custom-box">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-home"></span>
+                    </div>
+                    <a class="custom-button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html">
+                        <span class="button-text">SEARCH HOMES</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="custom-column">
+                <div class="custom-box">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-head"></span>
+                    </div>
+                    <a class="custom-button-link" href="/resources">
+                        <span class="button-text">FIND RESOURCES</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="custom-column">
+                <div class="custom-box">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-contact"></span>
+                    </div>
+                    <a class="custom-button-link" href="/contact">
+                        <span class="button-text">SEND A MESSAGE</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

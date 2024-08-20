@@ -1,0 +1,76 @@
+{% extends "template.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/main.css">
+<link rel="stylesheet" href="/static/resources.css">
+{% endblock %}
+
+
+{% block body %}
+<header class="site-header">
+    <nav class="menu-bar">
+        <div class="menu-column left-column">
+            <a href="/" class="menu-link">HOME</a>
+            <a href="http://otonielyone.unitedrealestatewashingtondc.com" class="menu-link">BUYING</a>
+            <a href="/rentals" class="menu-link">RENTING</a>
+            <a href="/contact" class="menu-link">CONTACT</a>
+        </div>
+        <div class="menu-column right-column">
+            <a href="#" class="language-icon">
+                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+            </a>
+        </div>
+    </nav>
+</header>
+
+<!-- Custom Section with Full-Width Image -->
+<div class="resources-page">
+  <div class="image-container">
+      <img src="/static/icons/resources.jpg" alt="Resources" class="rental-image">
+      <div class="overlay-content">
+          <div class="text-content">
+              <h1 class="custom-heading">RESOURCES</h1>
+          </div>
+      </div>
+  </div>
+
+<!----> 
+
+
+<!-- Custom Section with Parallax Effect -->
+<div class="custom-section" id="main-section">
+    <div class="custom-container">
+        <div class="custom-header">
+            <h2 class="custom-heading">WE ARE HERE TO HELP YOU</h2>
+        </div>
+        <div class="custom-row">
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-home"></span>
+                </div>
+                <a class="custom-button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
+                    <span class="button-text">SEARCH HOMES</span>
+                </a>
+            </div>
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                  <span class="custom-icon-rentals"></span> <!-- Ensure this class is applied correctly -->
+                </div>
+                <a class="custom-button-link" href="/rentals">
+                  <span class="button-text">RENTALS</span>
+                </a>
+              </div>              
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-contact"></span>
+                </div>
+                <a class="custom-button-link" href="/contact">
+                    <span class="button-text">CONTACT US</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

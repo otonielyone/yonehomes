@@ -1,0 +1,269 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    font-weight: 100; /* Thin weight globally */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+/* Full-Width Image Section */
+.resources-page .image-container {
+    position: relative;
+    width: 100%; /* Full width of the container */
+    height: 50vh; /* Half the height of the viewport */
+    overflow: hidden; /* Hide overflow to maintain aspect ratio */
+}
+
+.resources-page .resource-image {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+}
+
+.resources-page .overlay-content {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position */
+    color: #ffffff;
+    text-align: center; /* Center text horizontally */
+    padding: 0 20px; /* Optional padding */
+}
+
+.resources-page .custom-heading {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 100; /* Thin weight for headings */
+    color: #ffffff; /* White text color */
+}
+
+/* Center Content */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Resource Information Section */
+.resource-information {
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 800px; /* Center the section */
+    text-align: center; /* Center text */
+}
+
+.resource-information .section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #c0392b; /* Dark red */
+    font-weight: 100; /* Thin weight for headings */
+}
+
+.resource-information .resource-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #c0392b; /* Dark red */
+    font-weight: 100; /* Thin weight for text */
+}
+
+.resource-information .dark-red-text {
+    color: #a91909; /* Light red */
+    font-weight: bold; /* Make text bold */
+}
+
+/* Call to Action Button */
+.call-to-action {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent; /* Remove background */
+    color: #007bff; /* Text color */
+    text-decoration: none;
+    border: 2px solid #007bff; /* Border color */
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 100; /* Thin weight for button text */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.cta-button:hover {
+    color: #0056b3; /* Darker text color on hover */
+    border-color: #0056b3; /* Darker border color on hover */
+}
+
+/* Additional Information */
+.additional-info {
+    background-color: transparent; /* Ensure no background color */
+    padding: 0; /* Removes padding to avoid any space that might appear as background */
+    margin-top: 20px; /* Adjust margin as needed */
+    text-align: center; /* Center the text horizontally */
+    border: none; /* Remove any border that might cause a background appearance */
+}
+
+.additional-info p {
+    margin: 10px 0; /* Adjust margin as needed */
+    color: #000; /* Black text color */
+    background: none; /* Ensure no background color for the text */
+}
+
+/* Download Resource Representation Agreement */
+.cta-download {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cta-download .cta-button {
+    background-color: transparent; /* Remove background */
+    color: #28a745; /* Text color */
+    border: 2px solid #28a745; /* Border color */
+}
+
+.cta-download .cta-button:hover {
+    color: #218838; /* Darker text color on hover */
+    border-color: #218838; /* Darker border color on hover */
+}
+
+/* Custom Section with Parallax Effect */
+.custom-section {
+    background-image: url('/static/icons/resource-background.jpg'); /* Adjust the image path */
+    background-size: cover;
+    background-position: center;
+    min-height: 150px; /* Adjust height as needed */
+    padding: 25px 0;
+}
+
+.custom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-header {
+    margin-bottom: 20px;
+}
+
+.custom-heading {
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: center; /* Center align text */
+}
+
+
+
+/* Flexbox Layout for Custom Row */
+.custom-row {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure all columns stay on one row */
+    gap: 20px; /* Space between columns */
+  }
+  
+  /* Column Styling */
+  .custom-column {
+    flex: 1; /* Allow columns to expand and fill the space */
+    min-width: 200px; /* Ensure columns do not get too narrow */
+    aspect-ratio: 1; /* Maintain square aspect ratio */
+    border: 1px solid #ffffff;
+    background: transparent;
+    text-align: center;
+    position: relative;
+    padding: 20px; /* Adjust padding for spacing */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+  }
+
+  .button-link {
+    text-decoration: none; /* Remove underline */
+    background: none; /* Remove background */
+    padding: 10px;
+    display: block; /* Make each button occupy the full width of its container */
+    width: 200px; /* Set a fixed width for buttons */
+    text-align: center; /* Center text within button */
+    border-radius: 1px;
+    color: #ffffff; /* Set text color if needed */
+    border: 2px solid #ffffff; /* Border color */
+    font-size: 16px; /* Adjust font size if needed */
+    font-weight: 200; /* Adjust font weight if needed */
+}
+
+.button-link:hover {
+    text-decoration: none; /* Remove underline on hover */
+    background-color: none; /* Change background on hover */
+    color: #000000; /* Change text color on hover */
+}
+
+
+  
+  /* Updated Icon Styling */
+  .custom-icon-home, 
+  .custom-icon-head, 
+  .custom-icon-rental,
+  .custom-icon-contact {
+    background-size: contain; /* Ensure the image fits within the icon area */
+    background-repeat: no-repeat; /* Prevent repeating the background image */
+    filter: brightness(0) invert(1); /* Optional: adjust color if needed */
+    width: 80px; /* Adjust width if needed */
+    height: 80px; /* Adjust height if needed */
+    display: flex;
+    align-items: center; /* Center icons vertically within the container */
+    justify-content: center; /* Center icons horizontally within the container */
+    margin: 0 auto; /* Center the icon container */
+  }
+  
+  /* Specific background images for each icon */
+  .custom-icon-home {
+    background-image: url('/static/icons/home.png');
+  }
+  
+  .custom-icon-head {
+    background-image: url('/static/icons/head.png');
+  }
+  
+  .custom-icon-contact {
+    background-image: url('/static/icons/contact.png');
+  }
+  
+/* Updated Icon Styling */
+.custom-icon-rentals {
+  background-image: url('/static/icons/hand.png'); /* Ensure this path is correct */
+  background-size: contain; /* Ensure the image fits within the icon area */
+  background-repeat: no-repeat; /* Prevent repeating the background image */
+  width: 65px; /* Adjust width if needed */
+  height: 65px; /* Adjust height if needed */
+  display: flex;
+  filter: brightness(0) invert(1); /* Optional: adjust color if needed */
+  align-items: center; /* Center icons vertically within the container */
+  justify-content: center; /* Center icons horizontally within the container */
+  margin: 0 auto; /* Center the icon container */
+}
+  
+  
+  /* Responsive Adjustments for Smaller Screens */
+  @media (max-width: 1024px) {
+    .custom-row {
+      flex-wrap: wrap; /* Allow wrapping on medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .custom-row {
+      flex-direction: column; /* Stack columns vertically on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .custom-column {
+      min-width: 100%; /* Ensure columns fill the width on very small screens */
+    }
+  }
+  

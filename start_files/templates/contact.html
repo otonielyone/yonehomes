@@ -1,0 +1,80 @@
+{% extends "template.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/main.css">
+<link rel="stylesheet" href="/static/contact.css">
+{% endblock %}
+
+{% block body %}
+<header class="site-header">
+    <nav class="menu-bar">
+        <div class="menu-column left-column">
+            <a href="/" class="menu-link">HOME</a>
+            <a href="http://otonielyone.unitedrealestatewashingtondc.com" class="menu-link">BUYING</a>
+            <a href="/rentals" class="menu-link">RENTING</a>
+            <a href="/resources" class="menu-link">RESOURCES</a>
+        </div>
+        <div class="menu-column right-column">
+            <a href="#" class="language-icon">
+                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+            </a>
+        </div>
+    </nav>
+</header>
+
+<!-- Full-Width Image Section -->
+<div class="contact-page">
+    <div class="image-container">
+        <img src="/static/icons/contact.jpg" alt="Contact" class="rental-image">
+        <div class="overlay-content">
+            <div class="text-content">
+                <h1 class="custom-heading">YOUR INVESTMENT MATTERS TO ME</h1>
+                <h3 class="custom-heading">Let's Discuss Next Steps</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Section with Parallax Effect -->
+<div class="custom-section" id="main-section">
+    <div class="custom-container">
+        <div class="custom-header">
+            <h2 class="custom-heading">WE ARE HERE TO HELP YOU</h2>
+        </div>
+        <div class="custom-row">
+            <div class="custom-column">
+                <div class="custom-box">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-home"></span>
+                    </div>
+                    <a class="custom-button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
+                        <span class="button-text">SEARCH HOMES</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="custom-column">
+                <div class="custom-box">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-rentals"></span>
+                    </div>
+                    <a class="custom-button-link" href="/rentals">
+                        <span class="button-text">FIND RENTALS</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="custom-column">
+                <div class="custom-box">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-head"></span>
+                    </div>
+                    <a class="custom-button-link" href="/resources">
+                        <span class="button-text">FIND RESOURCES</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

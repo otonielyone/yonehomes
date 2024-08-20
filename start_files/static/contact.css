@@ -1,0 +1,241 @@
+/* Global Styles for Text */
+body {
+    font-family: Arial, sans-serif; /* Ensure a consistent font-family across the site */
+    font-weight: 100; /* Apply thin weight globally */
+    color: #ffffff; /* Set global text color to white */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Ensure header is on top of video */
+.site-header {
+    position: absolute; /* Allow it to float over the video */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make sure header spans the full width */
+    padding: 10px 20px; /* Adjust padding as needed */
+    z-index: 10; /* Ensure header is above the video background */
+    background: none; /* Remove background color */
+    border: none; /* Remove border */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center header content horizontally */
+}
+
+/* Navigation Bar */
+.menu-bar {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out menu items */
+    width: 100%; /* Ensure full width */
+    padding: 0 20px;
+    position: relative; /* Position relative to keep it over the video */
+}
+
+/* Menu Column */
+.menu-column {
+    display: flex;
+    gap: 20px; /* Space between menu items */
+}
+
+/* Menu links */
+.menu-link {
+    color: #ffffff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px;
+    font-weight: 100; /* Thin weight for menu links */
+    transition: text-decoration 0.3s; /* Smooth underline transition */
+}
+
+.menu-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Full-Width Image Section */
+.contact-page .image-container {
+    position: relative;
+    width: 100%; /* Full width of the container */
+    overflow: hidden; /* Hide overflow to maintain aspect ratio */
+}
+
+.contact-page .contact-image {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+}
+
+.contact-page .overlay-content {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position */
+    color: #ffffff;
+    text-align: center; /* Center text horizontally */
+    padding: 0 20px; /* Optional padding */
+}
+
+.contact-page .custom-heading {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 100; /* Thin weight for headings */
+    color: #ffffff; /* White text color */
+    background: none; /* Ensure no background */
+}
+
+/* Center Content */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Custom Section with Background Image */
+.custom-section {
+    background-image: url('/static/icons/getty.jpg'); /* Adjust the image path */
+    background-size: cover;
+    background-position: center;
+    width: 100%; /* Ensure section stretches full width */
+    margin: 0; /* Remove margins */
+    padding: 25px 0; /* Add padding below the section */
+    background-attachment: fixed; /* Ensure the background image stays in place */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+
+/* Custom button link styles */
+.custom-button-link {
+    font-size: 14px;
+    line-height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Space between button and bottom of column */
+    text-decoration: none; /* Ensure no underline */
+    background: none; /* Ensure background is transparent */
+    color: #ffffff; /* Set default text color */
+    border: 2px solid #ffffff; /* Set border color */
+    border-radius: 1px; /* Optional: adjust border-radius */
+}
+
+.custom-button-link:hover {
+    background-color: transparent; /* Keep background transparent */
+    text-decoration: none; /* Ensure no underline on hover */
+    color: #000000; /* Change text color on hover if needed */
+}
+
+
+/* Custom Container */
+.custom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure container stretches full width */
+    padding: 0 20px; /* Optional padding */
+}
+
+/* Flexbox Layout for Custom Row */
+.custom-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on medium screens */
+    gap: 20px; /* Space between columns */
+    width: 100%; /* Full width of container */
+    justify-content: center; /* Center columns horizontally */
+}
+
+/* Column Styling */
+.custom-column {
+    flex: 1; /* Allow columns to expand and fill the space */
+    min-width: 200px; /* Ensure columns do not get too narrow */
+    border: 1px solid #ffffff;
+    background: transparent;
+    text-align: center;
+    position: relative;
+    padding: 50px; /* Adjust padding for spacing */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    margin-top: 50px; /* Adjust this margin as needed */
+    margin-bottom: 10px; /* Adjust this margin as needed */
+}
+
+.button-link {
+    text-decoration: none; /* Remove underline */
+    background: none; /* Remove background */
+    padding: 10px;
+    display: block; /* Make each button occupy the full width of its container */
+    width: 200px; /* Set a fixed width for buttons */
+    text-align: center; /* Center text within button */
+    border-radius: 1px;
+    color: #ffffff; /* Set text color if needed */
+    border: 2px solid #ffffff; /* Border color */
+    font-size: 16px; /* Adjust font size if needed */
+    font-weight: 200; /* Adjust font weight if needed */
+}
+
+.button-link:hover {
+    text-decoration: none; /* Remove underline on hover */
+    background-color: none; /* Change background on hover */
+    color: #000000; /* Change text color on hover */
+}
+
+/* Style for additional-info with black text */
+.additional-info.black-text {
+    color: #000000; /* Set text color to black */
+    font-weight: normal; /* Reset font weight if needed */
+    background: none; /* Ensure no background color */
+    padding: 10px; /* Optional: add some padding if needed */
+    text-align: center; /* Center align text */
+}
+
+/* Updated Icon Styling */
+.custom-icon-home, 
+.custom-icon-rentals, 
+.custom-icon-head {
+    background-size: contain; /* Ensure the image fits within the icon area */
+    background-repeat: no-repeat; /* Prevent repeating the background image */
+    filter: brightness(0) invert(1); /* Optional: adjust color if needed */
+    width: 80px; /* Adjust width as needed */
+    height: 80px; /* Adjust height as needed */
+    display: flex;
+    align-items: center; /* Center icons vertically within the container */
+    justify-content: center; /* Center icons horizontally within the container */
+    margin-bottom: 20px; /* Space between icon and button */
+}
+
+/* Specific background images for each icon */
+.custom-icon-home {
+    background-image: url('/static/icons/home.png');
+    margin-top: 20px; /* Space between icon and button */
+    width: 60px; /* Adjust width as needed */
+    height: 60px; /* Adjust height as needed */
+}
+
+.custom-icon-head {
+    background-image: url('/static/icons/head.png');
+}
+
+.custom-icon-rentals {
+    background-image: url('/static/icons/hand.png');
+}
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 1024px) {
+  .custom-row {
+    flex-wrap: wrap; /* Allow wrapping on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-row {
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-column {
+    min-width: 100%; /* Ensure columns fill the width on very small screens */
+  }
+}
