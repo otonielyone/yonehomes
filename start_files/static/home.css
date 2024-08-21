@@ -133,6 +133,10 @@ a {
     scrollbar-width: none; /* For Firefox */
 }
 
+.home-services h1 {
+    color: #000;
+}
+
 /* Wrapper to hold both image and text content */
 .home-services-wrapper {
     display: flex;
@@ -170,6 +174,7 @@ a {
     align-items: flex-start;
     overflow: hidden; /* Prevent content from overflowing */
     margin-bottom: 10px;
+    margin-right: 45px;
     white-space: normal; /* Allow text to wrap onto multiple lines */
 }
 
@@ -215,7 +220,7 @@ a {
 
 /* Container for image */
 .image {
-    height: 550px; /* Fixed height for image container */
+    height: 450px; /* Fixed height for image container */
     display: flex;
     justify-content: center;
     align-items: center;
