@@ -1,5 +1,5 @@
 /* Import Montserrat font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
 
 /* General Body Styling */
 body {
@@ -62,7 +62,6 @@ body {
   /* This will naturally push down any following content */
 }
 
-
 /* Custom Section with Background Image */
 .custom-section {
   background-image: url('/static/icons/getty.jpg');
@@ -114,6 +113,21 @@ body {
   overflow-y: hidden; /* Hide vertical scrollbar */
 }
 
+/* Hide scrollbar for webkit-based browsers (Chrome, Safari) */
+.custom-row::-webkit-scrollbar {
+  height: 0; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.custom-row {
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+/* Custom Scrollbar Styling for Edge and IE */
+.custom-row {
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+}
+
 /* Column Styling */
 .custom-column {
   flex: 0 0 368px; /* Fixed width for columns */
@@ -143,7 +157,7 @@ body {
   text-decoration: none;
   background: none;
   color: #ffffff;
-  border: 2px solid #ffffff;
+  border: 1px solid #ffffff;
   border-radius: 1px;
 }
 
@@ -195,62 +209,30 @@ body {
 
 /* Responsive Adjustments for Smaller Screens */
 @media (max-width: 1024px) {
-.custom-row {
-  flex-wrap: nowrap; /* Prevent wrapping */
-}
+  .custom-row {
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
 }
 
 @media (max-width: 768px) {
-.custom-column {
-  flex: 0 0 368px; /* Fixed width for columns */
-  min-width: 368px; /* Prevent columns from shrinking */
-}
+  .custom-column {
+    flex: 0 0 368px; /* Fixed width for columns */
+    min-width: 368px; /* Prevent columns from shrinking */
+  }
 
-.button-link {
-  width: auto;
-  padding: 10px 20px;
-}
+  .button-link {
+    width: auto;
+    padding: 10px 20px;
+  }
 
-.main-heading {
-  font-size: 24px;
-}
+  .main-heading {
+    font-size: 24px;
+  }
 
-.sub-heading {
-  font-size: 18px;
+  .sub-heading {
+    font-size: 18px;
+  }
 }
-}
-
-/* Custom Scrollbar Styling for Webkit Browsers (Chrome, Safari) */
-.custom-row::-webkit-scrollbar {
-  height: 8px; /* Adjust the height for a thinner scrollbar */
-}
-
-.custom-row::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1); /* Light track background */
-  border-radius: 10px; /* Rounded corners for the track */
-}
-
-.custom-row::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.6); /* Semi-transparent thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-  border: 2px solid rgba(0, 0, 0, 0.2); /* Subtle border around the thumb */
-}
-
-.custom-row::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.8); /* Lighter thumb on hover */
-}
-
-/* Custom Scrollbar Styling for Firefox */
-.custom-row {
-  scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color: rgba(255, 255, 255, 0.6) rgba(0, 0, 0, 0.1); /* Thumb and track colors */
-}
-
-/* Custom Scrollbar Styling for Edge and IE (requires additional work, not fully supported) */
-.custom-row {
-  -ms-overflow-style: scrollbar; /* Show scrollbar in IE and Edge */
-}
-
 
 /* Footer Styling */
 .footer {
