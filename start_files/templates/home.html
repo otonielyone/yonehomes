@@ -6,63 +6,69 @@
 {% endblock %}
 
 {% block body %}
-<!-- Header with Menu for Home Page -->
-<header class="site-header">
-    <nav class="menu-bar">
-        <div class="menu-column left-column">
-            <a href="http://otonielyone.unitedrealestatewashingtondc.com" class="menu-link">HOMES</a>
-            <a href="/rentals" class="menu-link">RENTALS</a>
-            <a href="/resources" class="menu-link">RESOURCES</a>
-            <a href="/contact" class="menu-link">CONTACT</a>
-        </div>
-        <div class="menu-column right-column">
-            <a href="#" class="language-icon">
-                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
-            </a>
-        </div>
-    </nav>
-</header>
+<!-- Image/Video Background Container -->
+<div class="image-header-container">
+    <!-- Header with Menu for Home Page -->
+    <header class="site-header">
+        <nav class="menu-bar">
+            <div class="menu-column left-column">
+                <a href="http://otonielyone.unitedrealestatewashingtondc.com" class="menu-link">BUYING</a>
+                <a href="/rentals" class="menu-link">RENTALS</a>
+                <a href="/resources" class="menu-link">RESOURCES</a>
+                <a href="/contact" class="menu-link">CONTACT</a>
+            </div>
+            <div class="menu-column right-column">
+                <a href="#" class="language-icon">
+                    <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+                </a>
+            </div>
+        </nav>
+    </header>
 
-<!-- Video Background Section -->
-<div class="video-background-wrapper">
-    <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
-    poster="https://lirp.cdn-website.com/94fbcdbc/dms3rep/multi/opt/eBDyby3ZSoyoF57tIbLK_NAR+VIDEO+.v2.0000000-1920w.jpg"
-    src="/static/icons/homevideo.mp4"
-    style="object-position: 50% 50%" id="video-background-frame"></video>
+    <!-- Video Background Section -->
+    <div class="video-background-wrapper">
+        <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+        poster="https://lirp.cdn-website.com/94fbcdbc/dms3rep/multi/opt/eBDyby3ZSoyoF57tIbLK_NAR+VIDEO+.v2.0000000-1920w.jpg"
+        src="/static/icons/homevideo.mp4"
+        style="object-position: 50% 50%" id="video-background-frame"></video>
 
-    <!-- Overlay Content Section -->
-    <div class="overlay-content">
-        <div class="text-content">
-            <h1 class="main-heading">Exceeding Expectations</h1>
-            <h1 class="main-heading">Is What We Do BEST</h1>
-            <h1 class="sub-heading">Gain What You DESERVE, Don't Settle For Less</h1>
-        </div>
+        <!-- Overlay Content Section -->
+        <div class="overlay-content">
+            <div class="text-content">
+                <h1 class="main-heading">Exceeding Expectations</h1>
+                <h1 class="main-heading">Is What We Do BEST</h1>
+                <h1 class="sub-heading">Gain What You DESERVE, Don't Settle For Less</h1>
+            </div>
 
-        <div class="button-group">
-            <a class="button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
-                SEARCH HOMES
-            </a>
-            <a class="button-link" href="/rentals" id="button-rentals">
-                RENTALS
-            </a>
-            <a class="button-link" href="/resources" id="button-pre-approved">
-                GET PRE-APPROVED
-            </a>
+            <div class="button-group">
+                <a class="button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
+                    SEARCH HOMES
+                </a>
+                <a class="button-link" href="/rentals" id="button-rentals">
+                    RENTALS
+                </a>
+                <a class="button-link" href="/resources" id="button-pre-approved">
+                    GET PRE-APPROVED
+                </a>
+            </div>
         </div>
     </div>
 </div>
 
 
+<!-- Placeholder Section -->
 <div class="placeholder"></div>
-
 
 <!-- Custom Section with Parallax Effect -->
 <div class="custom-section" id="main-section">
+    
+    <div class="custom-header">
+        <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+    </div>
+
     <div class="custom-container">
-        <div class="custom-header">
-            <h2 class="custom-heading">WE ARE HERE TO HELP YOU</h2>
-        </div>
         <div class="custom-row">
+
             <div class="custom-column">
                 <div class="custom-icon-widget">
                     <span class="custom-icon-home"></span>
@@ -77,7 +83,7 @@
                     <span class="custom-icon-rentals"></span>
                 </div>
                 <a class="custom-button-link" href="/rentals">
-                    <span class="button-text">RENTALS</span>
+                    <span class="button-text">FIND RENTALS</span>
                 </a>
             </div>
 
@@ -98,6 +104,7 @@
                     <span class="button-text">LEAVE A MESSAGE</span>
                 </a>
             </div>
+
         </div>
     </div>
 </div>
