@@ -9,7 +9,7 @@ body {
     box-sizing: border-box;
 }
 
-h1, h2, h3, p {
+h1, h2, p {
     margin: 0;
     padding: 0;
     overflow-wrap: break-word;
@@ -108,68 +108,91 @@ a {
 
 .button-link:hover {
     color: #cccccc;
+    text-decoration: none;
 }
 
 /* Home Services Section */
 .home-services {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    box-sizing: border-box;
+    flex-direction: column; /* Stack children vertically */
     padding: 20px;
-    background-color: #f9f9f9;
-    justify-content: center; /* Center horizontally */
-    margin-top: 20px; /* Add margin to ensure spacing from other sections */
+    background-color: none;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto; /* Center container horizontally */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+.home-services::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.home-services {
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    scrollbar-width: none; /* For Firefox */
 }
 
 /* Wrapper to hold both image and text content */
 .home-services-wrapper {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center; /* Center vertically within the wrapper */
-    width: 100%;
-    max-width: 1200px; /* Optional: Set a max-width for the content */
+    flex-direction: row; /* Ensure horizontal layout */
+    gap: 40px; /* Add space between items */
+    align-items: center; /* Center items vertically within the wrapper */
+    flex-wrap: nowrap; /* Prevent wrapping */
     box-sizing: border-box; /* Ensure padding and border are included in width */
-    overflow: hidden; /* Prevent content from overflowing */
     padding: 20px; /* Ensure there's space between the wrapper and its content */
+    width: max-content; /* Adjust width based on content to prevent wrapping */
+    min-width: 750px; /* Ensure minimum width for container */
 }
-
 /* Container for service items */
 .service-items-container {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1;
-    max-height: 550px; /* Set max-height to match the image height */
-    overflow: hidden; /* Prevent content from overflowing */
+    flex-direction: row; /* Ensure horizontal layout */
+    gap: 20px; /* Space between items */
     padding: 20px; /* Add padding to avoid touching edges */
     box-sizing: border-box; /* Ensure padding is included in width */
-}
-
-/* Heading styling */
-.service-items-container h1 {
-    display: block; /* Ensure heading is a block element */
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center; /* Center align heading text */
-    color: black; /* Set the color of the h1 text to black */
+    width: max-content; /* Adjust width based on content to prevent wrapping */
+    min-width: 750px; /* Ensure the container's width does not shrink below 750px */
 }
 
 /* Service item styling */
 .service-item {
+    width: 750px; /* Fixed width for each service item */
+    min-width: 750px; /* Ensure width does not shrink below 750px */
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #ddd;
-    min-width: 300px;
     color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     overflow: hidden; /* Prevent content from overflowing */
+    margin-bottom: 10px;
+    white-space: normal; /* Allow text to wrap onto multiple lines */
 }
 
+/* Heading styling */
+.service-item h1 {
+    font-size: 24px;
+    text-align: center; /* Center align heading text */
+    color: black; /* Set the color of the h1 text to black */
+}
+
+.service-item h2 {
+    font-size: 18px;
+    margin: 5px 0 0 0;
+    font-weight: 200;
+}
+
+.service-item p {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+    font-weight: 200;
+}
+
+/* Service item background colors */
 .service-item:nth-of-type(1) {
     background-color: #2a6d9a; /* Dark Blue */
     color: white;
@@ -185,19 +208,43 @@ a {
     color: white;
 }
 
-/* Image container styling */
+/* Remove background color for service section */
+.service-section {
+    background-color: none;
+}
+
+/* Container for image */
 .image {
-    flex: 0 0 550px; /* Fixed width for image container */
     height: 550px; /* Fixed height for image container */
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible; /* Ensure overflow content is visible */
+    width: 51%; /* Slightly increase width for more space */
+    position: relative; /* Required for positioning overlay image */
+    margin-right: 80px;
 }
 
-.image img {
-    height: 100%;
-    width: auto;
+/* Adjust main image styling */
+.main-image {
+    min-width: 800px; /* Ensure width does not shrink below 800px */
+    height: 100%; /* Ensure image height matches container height */
+    width: auto; /* Maintain aspect ratio */
     object-fit: cover; /* Ensure the image covers the container without distortion */
+    background-color: none;
+
+}
+
+/* Overlay image styling with 2:1 aspect ratio */
+.overlay-image {
+    position: absolute; /* Position relative to the parent container */
+    bottom: -75px; /* Move the overlay image 30px up from the bottom */
+    left: -35px; /* Align with the left edge of the parent container */
+    width: 2.5in; /* Set width to approximately 2 inches */
+    height: 1.5in; /* Set height to approximately 1 inch */
+    object-fit: cover; /* Ensure the overlay image covers its container without distortion */
+    z-index: 2; /* Ensure the overlay image is on top */
+    border: 3px solid orange; /* Add a thick orange border around the image */
 }
 
 /* Why Work With Us Section */
@@ -212,7 +259,7 @@ a {
 
 .why-us h1 {
     text-align: center;
-    font-size: 2em;
+    font-size: 24px;
     color: #333;
     margin-bottom: 20px;
     font-weight: 200;
@@ -220,7 +267,7 @@ a {
 
 .why-us p.sub-heading {
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     color: #333;
     margin: 10px auto 20px auto;
     max-width: 800px;
@@ -271,60 +318,12 @@ a {
     color: white;
 }
 
-.reason h3 {
-    font-size: 1.5em;
-    margin: 0;
-    letter-spacing: 1px;
-    font-weight: 200;
+.reason h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
 }
 
 .reason p {
-    font-size: 1em;
-    margin: 5px 0 0 0;
-    font-weight: 200;
-}
-
-/* Responsive Layout Adjustments */
-@media (max-width: 768px) {
-    .image-header-container {
-        flex-direction: column;
-        align-items: center; /* Center content horizontally for small screens */
-    }
-
-    .video-background-wrapper {
-        height: auto;
-    }
-
-    .overlay-content {
-        margin-left: 0; /* Remove margin for small screens */
-        padding: 20px; /* Ensure padding is consistent */
-    }
-
-    .home-services {
-        flex-direction: column;
-        align-items: center; /* Center content horizontally */
-    }
-
-    .home-services-wrapper {
-        flex-direction: column;
-        align-items: center; /* Center items horizontally */
-    }
-
-    .service-items-container {
-        flex-direction: column;
-        max-height: none; /* Remove max-height restriction */
-        align-items: center; /* Center items horizontally on small screens */
-        padding: 0; /* Remove padding if necessary for small screens */
-    }
-
-    .image {
-        width: 100%;
-        height: auto;
-        padding-left: 0;
-    }
-
-    .image img {
-        width: 100%;
-        height: auto;
-    }
+    font-size: 14px;
+    margin: 0;
 }

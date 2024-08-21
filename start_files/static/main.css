@@ -148,7 +148,10 @@ body {
 }
 
 /* Custom button link styles */
-.custom-button-link {
+.a{
+  font-size: 14px;
+}
+  .custom-button-link {
   font-size: 14px;
   line-height: 40px;
   padding: 0 10px;
@@ -232,6 +235,10 @@ body {
   .sub-heading {
     font-size: 18px;
   }
+}
+
+.custom-heading {
+  font-size: 24px;
 }
 
 /* Footer Styling */
