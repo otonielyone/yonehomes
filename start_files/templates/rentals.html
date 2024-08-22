@@ -3,6 +3,14 @@
 {% block head %}
 <link rel="stylesheet" href="/static/main.css">
 <link rel="stylesheet" href="/static/rentals.css">
+
+<style>
+    .custom-section {
+        background-image: url('/static/icons/rental-custom.jpg');
+    }
+</style>
+
+
 {% endblock %}
 
 {% block body %}
@@ -32,7 +40,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Leasing Qualifications Section -->
     <div class="leasing-qualifications center-content">
@@ -67,58 +74,55 @@
         </div>
     </div>
 
-<!-- Placeholder Section -->
-<div class="placeholder"></div>
+    <!-- Placeholder Section -->
+    <div class="placeholder"></div>
 
-<!-- Custom Section with Parallax Effect -->
-<div class="custom-section" id="main-section">
-    
-    <div class="custom-header">
-        <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
-    </div>
+    <!-- Custom Section with Parallax Effect -->
+    <div class="custom-section" id="main-section">
+        <div class="custom-header">
+            <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+        </div>
 
-    <div class="custom-container">
-        <div class="custom-row">
+        <div class="custom-container">
+            <div class="custom-row">
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-homepage"></span>
+                    </div>
+                    <a class="custom-button-link" href="/">
+                        <span class="button-text">HOME PAGE</span>
+                    </a>
+                </div>
 
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-homepage"></span>
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-home"></span>
+                    </div>
+                    <a class="custom-button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
+                        <span class="button-text">SEARCH HOMES</span>
+                    </a>
                 </div>
-                <a class="custom-button-link" href="/">
-                    <span class="button-text">HOME PAGE</span>
-                </a>
-            </div>
-                
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-home"></span>
-                </div>
-                <a class="custom-button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
-                    <span class="button-text">SEARCH HOMES</span>
-                </a>
-            </div>
-    
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-contact"></span>
-                </div>
-                <a class="custom-button-link" href="/contact">
-                    <span class="button-text">LEAVE A MESSAGE</span>
-                </a>
-            </div>
-            
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-head"></span>
-                </div>
-                <a class="custom-button-link" href="/resources">
-                    <span class="button-text">FIND RESOURCES</span>
-                </a>
-            </div>
 
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-contact"></span>
+                    </div>
+                    <a class="custom-button-link" href="/contact">
+                        <span class="button-text">LEAVE A MESSAGE</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-head"></span>
+                    </div>
+                    <a class="custom-button-link" href="/resources">
+                        <span class="button-text">FIND RESOURCES</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 
 {% endblock %}

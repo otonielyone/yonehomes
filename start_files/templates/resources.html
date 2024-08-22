@@ -3,7 +3,11 @@
 {% block head %}
 <link rel="stylesheet" href="/static/main.css">
 <link rel="stylesheet" href="/static/resources.css">
-{% endblock %}
+<style>
+    .custom-section {
+        background-image: url('/static/icons/resources-custom.jpg');
+    }
+</style>{% endblock %}
 
 
 {% block body %}
@@ -27,7 +31,7 @@
 <!-- Custom Section with Full-Width Image -->
 <div class="resources-page">
   <div class="image-container">
-      <img src="/static/icons/resources.jpg" alt="Resources" class="rental-image">
+      <img src="/static/icons/resources-custom.jpg" alt="Resources" class="rental-image">
       <div class="overlay-content">
           <div class="text-content">
               <h1 class="custom-heading">RESOURCES</h1>

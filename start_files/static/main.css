@@ -64,7 +64,6 @@ body {
 
 /* Custom Section with Background Image */
 .custom-section {
-  background-image: url('/static/icons/getty.jpg');
   background-size: cover;
   background-position: center;
   width: 100%;
