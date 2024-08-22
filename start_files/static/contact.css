@@ -1,28 +1,3 @@
-/* Full-Width Image Section */
-.contact-page .image-container {
-    position: relative;
-    width: 100%; /* Full width of the container */
-    height: 50vh; /* Set height to match the placeholder */
-    overflow: hidden; /* Hide overflow to maintain aspect ratio */
-}
-
-.contact-page .contact-image {
-    width: 100%; /* Full width of the container */
-    height: 100%; /* Full height of the container */
-    object-fit: cover; /* Cover the container while maintaining aspect ratio */
-}
-
-/* Overlay content positioning */
-.contact-page .overlay-content {
-    position: absolute; /* Position it absolutely within the container */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust position to truly center the content */
-    color: #ffffff; /* Set text color */
-    text-align: center; /* Center align text horizontally */
-    padding: 0 20px; /* Optional padding for spacing */
-}
-
 .main-heading, .sub-heading {
     font-size: 36px;
     margin: 10px 0;

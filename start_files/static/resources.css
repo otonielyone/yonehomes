@@ -1,26 +1,3 @@
-/* Full-Width Image Section */
-.resources-page .image-container {
-  position: relative;
-  width: 100%; /* Full width of the container */
-  height: 50vh; /* Half the height of the viewport */
-  overflow: hidden; /* Hide overflow to maintain aspect ratio */
-}
-
-.resources-page .resources-image {
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
-  object-fit: cover; /* Cover the container while maintaining aspect ratio */
-}
-
-.resources-page .overlay-content {
-  position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust position */
-  color: #ffffff;
-  text-align: center; /* Center text horizontally */
-  padding: 0 20px; /* Optional padding */
-}
 
 .resources-page .custom-heading {
   font-size: 1.5rem; /* Adjust font size as needed */

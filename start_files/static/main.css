@@ -54,6 +54,32 @@ body {
   width: 24px;
 }
 
+
+/* Full-Width Image Section */
+.h-image-container {
+  position: relative;
+  width: 100%; /* Full width of the container */
+  height: 50vh; /* Set height to match the placeholder */
+  overflow: hidden; /* Hide overflow to maintain aspect ratio */
+}
+
+.h-image {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Cover the container while maintaining aspect ratio */
+}
+
+/* Overlay content positioning */
+.h-overlay-content {
+  position: absolute; /* Position it absolutely within the container */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to truly center the content */
+  color: #ffffff; /* Set text color */
+  text-align: center; /* Center align text horizontally */
+  padding: 0 20px; /* Optional padding for spacing */
+}
+
 /* Placeholder style */
 .placeholder {
   display: flex; /* Use flexbox for centering */
@@ -137,7 +163,7 @@ body {
   background: transparent;
   text-align: center;
   position: relative;
-  padding: 80px; /* Padding for content spacing */
+  padding: 20px; /* Padding for content spacing */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -184,7 +210,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 /* Specific background images for each icon */

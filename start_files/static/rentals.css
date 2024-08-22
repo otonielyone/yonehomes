@@ -36,39 +36,6 @@
 }
 
 
-/* Full-Width Image Section */
-.rentals-page .image-container {
-    position: relative;
-    width: 100%; /* Full width of the container */
-    height: 50vh; /* Set height to 50% of the viewport height */
-    overflow: hidden; /* Hide overflow to maintain aspect ratio and prevent running off the page */
-}
-
-.rentals-page .rentals-image {
-    position: absolute; /* Position the image absolutely within the container */
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width of the container */
-    height: 100%; /* Full height of the container */
-    object-fit: cover; /* Cover the container while maintaining aspect ratio */
-    object-position: center; /* Center the image within the container */
-    background-attachment: fixed; /* Fix the background image in place */
-    background-size: cover; /* Ensure the image covers the container */
-    background-position: center; /* Center the image */
-}
-
-
-/* Overlay content positioning */
-.rentals-page .overlay-content {
-    position: absolute; /* Position it absolutely within the container */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust position to truly center the content */
-    color: #ffffff; /* Set text color */
-    text-align: center; /* Center align text horizontally */
-    padding: 0 20px; /* Optional padding for spacing */
-}
-
 
 /* Styling for the heading inside the overlay */
 .rentals-page .custom-heading {
