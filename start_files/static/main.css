@@ -56,12 +56,13 @@ body {
 
 /* Placeholder style */
 .placeholder {
-  width: 100%; /* Full width of the viewport */
-  height: 50vh; /* 50% of viewport height */
-  background-color: #ffffff; /* White background */
-  /* This will naturally push down any following content */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 50Vh; /* Take up the full viewport height */
+  width: 100vw; /* Take up the full viewport width */
+  text-align: center; /* Center text horizontally */
 }
-
 /* Custom Section with Background Image */
 .custom-section {
   background-size: cover;
@@ -294,4 +295,11 @@ body {
 
 .footer-logo {
   width: 100px;
+}
+
+.construction-text {
+  font-weight: bold; /* Make text bold */
+  color: #c0392b; /* Set text color to red */
+  text-transform: uppercase; /* Transform text to uppercase */
+  font-size: 24px; /* Optional: Adjust font size as needed */
 }
