@@ -12,8 +12,10 @@ body {
 h1, h2, p {
     margin: 0;
     padding: 0;
+    text-align: center; /* Center align heading text */
+    margin: 10px auto 10px auto; /* Match padding with common-subheading */
     overflow-wrap: break-word;
-    font-weight: 200;
+    font-weight: 300; /* Consistent font-weight */
 }
 
 a {
@@ -30,6 +32,7 @@ a {
     margin: 0;
     display: flex;
     align-items: center; /* Vertically center content */
+    justify-content: center; /* Center horizontally */
 }
 
 /* Video Background Section */
@@ -104,10 +107,12 @@ a {
     font-weight: 300;
     box-sizing: border-box;
     white-space: nowrap;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
 .button-link:hover {
-    color: #cccccc;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2); /* Slight background color change on hover */
     text-decoration: none;
 }
 
@@ -115,11 +120,9 @@ a {
 .home-services {
     display: flex;
     flex-direction: column; /* Stack children vertically */
-    padding: 20px;
     background-color: none;
     box-sizing: border-box;
     width: 100%;
-    margin: 0 auto; /* Center container horizontally */
     align-items: center; /* Center items horizontally */
 }
 
@@ -141,30 +144,35 @@ a {
 .home-services-wrapper {
     display: flex;
     flex-direction: row; /* Ensure horizontal layout */
-    gap: 40px; /* Add space between items */
+    gap: 20px; /* Add space between items */
     align-items: center; /* Center items vertically within the wrapper */
+    justify-content: center; /* Center the content within the container */
     flex-wrap: nowrap; /* Prevent wrapping */
     box-sizing: border-box; /* Ensure padding and border are included in width */
-    padding: 20px; /* Ensure there's space between the wrapper and its content */
-    width: max-content; /* Adjust width based on content to prevent wrapping */
-    min-width: 750px; /* Ensure minimum width for container */
+    width: 100%; /* Fill the entire width of the page */
+    margin-top: 10px; /* Add padding to avoid touching edges */
 }
+
 /* Container for service items */
 .service-items-container {
     display: flex;
     flex-direction: row; /* Ensure horizontal layout */
     gap: 20px; /* Space between items */
-    padding: 20px; /* Add padding to avoid touching edges */
+    padding-top: 20px; /* Add padding to avoid touching edges */
     box-sizing: border-box; /* Ensure padding is included in width */
-    width: max-content; /* Adjust width based on content to prevent wrapping */
-    min-width: 750px; /* Ensure the container's width does not shrink below 750px */
+    width: 100%; /* Fill the entire width of the page */
+    justify-content: center; /* Center the service items */
 }
+
+.service-items-container h1 {
+    margin-bottom: 20px;
+}
+
 
 /* Service item styling */
 .service-item {
-    width: 750px; /* Fixed width for each service item */
-    min-width: 750px; /* Ensure width does not shrink below 750px */
-    padding: 20px;
+    max-width: 750px; /* Fixed width for each service item */
+    padding: 40px 20px; /* Standardized padding */
     box-sizing: border-box;
     border: 1px solid #ddd;
     color: black;
@@ -173,28 +181,36 @@ a {
     justify-content: center;
     align-items: flex-start;
     overflow: hidden; /* Prevent content from overflowing */
-    margin-bottom: 10px;
-    margin-right: 45px;
+    margin-bottom: 20px;
     white-space: normal; /* Allow text to wrap onto multiple lines */
 }
 
-/* Heading styling */
+.service-item h1,
+.service-item h2,
+.service-item p {
+    margin: 0;
+    padding: 0;
+}
+
 .service-item h1 {
     font-size: 24px;
     text-align: center; /* Center align heading text */
-    color: black; /* Set the color of the h1 text to black */
+    color: black;
+    margin-bottom: 20px; /* Match padding with common-heading */
+    font-weight: 400; /* Match font weight with why-us */
 }
 
 .service-item h2 {
     font-size: 18px;
-    margin: 5px 0 0 0;
-    font-weight: 200;
+    text-align: center; /* Center align heading text */
+    margin: 10px auto 10px auto; /* Match padding with common-subheading */
+    font-weight: 400; /* Match font weight with why-us */
 }
 
 .service-item p {
     font-size: 14px;
-    margin: 5px 0 0 0;
-    font-weight: 200;
+    margin: 10px 0; /* Match padding with common-text */
+    font-weight: 300; /* Match font weight with why-us */
 }
 
 /* Service item background colors */
@@ -220,31 +236,30 @@ a {
 
 /* Container for image */
 .image {
-    height: 450px; /* Fixed height for image container */
+    height: auto; /* Adjust height for image container */
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: visible; /* Ensure overflow content is visible */
-    width: 51%; /* Slightly increase width for more space */
+    width: 100%; /* Fill the entire width of the container */
     position: relative; /* Required for positioning overlay image */
-    margin-right: 80px;
 }
 
 /* Adjust main image styling */
 .main-image {
-    min-width: 800px; /* Ensure width does not shrink below 800px */
-    height: 100%; /* Ensure image height matches container height */
-    width: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensure the image covers the container without distortion */
+    max-width: 800px; /* Set maximum width */
+    max-height: 600px; /* Set maximum height */
+    width: 100%; /* Fill the entire width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible without being cut off */
     background-color: none;
-
 }
-
-/* Overlay image styling with 2:1 aspect ratio */
+/* Overlay image styling */
 .overlay-image {
     position: absolute; /* Position relative to the parent container */
-    bottom: -75px; /* Move the overlay image 30px up from the bottom */
-    left: -35px; /* Align with the left edge of the parent container */
+    bottom: -75px; /* Move the overlay image up from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the overlay image */
     width: 2.5in; /* Set width to approximately 2 inches */
     height: 1.5in; /* Set height to approximately 1 inch */
     object-fit: cover; /* Ensure the overlay image covers its container without distortion */
@@ -252,31 +267,38 @@ a {
     border: 3px solid orange; /* Add a thick orange border around the image */
 }
 
+/* Responsive Design for viewports less than 500px */
+@media (max-width: 100px) {
+    .overlay-image {
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center the overlay image */
+        bottom: -50px; /* Adjust vertical position if needed */
+    }
+}
+
+
 /* Why Work With Us Section */
 .why-us {
     background-color: #fff;
-    padding: 40px 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center horizontally */
 }
 
 .why-us h1 {
-    text-align: center;
     font-size: 24px;
     color: #333;
-    margin-bottom: 20px;
-    font-weight: 200;
+    margin-bottom: 20px; /* Standardized margin for heading */
+    font-weight: 400; /* Match font weight with service-items */
 }
 
 .why-us p.sub-heading {
-    text-align: center;
     font-size: 16px;
     color: #333;
-    margin: 10px auto 20px auto;
+    margin: 10px auto 20px auto; /* Standardized margin for sub-heading */
     max-width: 800px;
-    font-weight: 200;
+    font-weight: 300; /* Match font weight with service-items */
 }
 
 .why-us-container {
@@ -303,10 +325,11 @@ a {
 
 .reason {
     flex: 0 0 300px;
-    padding: 20px;
+    padding: 40px 20px; /* Standardized padding */
     margin-bottom: 20px;
     background-color: #e2e2e2;
     color: black;
+    text-align: center; /* Center align reason text */
 }
 
 .reason:nth-of-type(2) {
@@ -325,10 +348,51 @@ a {
 
 .reason h2 {
     font-size: 18px;
-    margin: 0 0 10px;
+    text-align: center; /* Center align heading text */
+    margin: 10px auto 10px auto; /* Match padding with common-subheading */
+    font-weight: 400; /* Match font weight with service-items */
 }
 
 .reason p {
     font-size: 14px;
-    margin: 0;
+    text-align: center; /* Center align heading text */
+    margin: 10px auto 10px auto; /* Match padding with common-subheading */
+    font-weight: 300; /* Match font weight with service-items */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-services-wrapper, .service-items-container {
+        flex-direction: column;
+        align-items: center;
+        min-width: 100%;
+    }
+
+    .image {
+        width: auto;
+        margin-right: 0;
+        height: auto;
+    }
+
+    .main-image {
+        min-width: auto;
+        height: auto;
+    }
+
+    .overlay-image {
+        bottom: -50px;
+        left: 0;
+        width: 2in;
+        height: 1in;
+    }
+
+    .why-us-container {
+        min-width: 100%;
+        flex-direction: column;
+    }
+
+    .reason {
+        flex: 1;
+        max-width: 100%;
+    }
 }
