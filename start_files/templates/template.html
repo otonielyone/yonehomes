@@ -36,10 +36,10 @@
                 <nav class="footer-nav">
                     <ul>
                         <li><a href="/" class="nav-item current"><span class="nav-item-text">HOME</span></a></li>
-                        <li><a href="http://otonielyone.unitedrealestatewashingtondc.com" class="nav-item"><span class="nav-item-text">BUYING</span></a></li>
+                        <li><a href="/buying" class="nav-item"><span class="nav-item-text">BUYING</span></a></li>
                         <li><a href="/rentals" class="nav-item"><span class="nav-item-text">RENTALS</span></a></li>
                         <li><a href="/resources" class="nav-item"><span class="nav-item-text">RESOURCES</span></a></li>
-                        <li><a href="/contact" class="nav-item"><span class="nav-item-text">CONTACT US</span></a></li>
+                        <li><a href="/contact" class="nav-item"><span class="nav-item-text">CONTACT</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -64,30 +64,71 @@
     <!-- jQuery and Bootstrap JS -->
     <script src="/static/jquery.min.js"></script>
     <script src="/static/bootstrap.bundle.min.js"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var hamburgerMenu = document.querySelector('.hamburger-menu');
+            var menuBar = document.querySelector('.menu-bar');
             var mobileMenu = document.querySelector('.mobile-menu');
-
-        if (hamburgerMenu && mobileMenu) {
-            hamburgerMenu.addEventListener('click', function() {
-                hamburgerMenu.classList.toggle('active');
-                mobileMenu.classList.toggle('active'); // Toggle the 'active' class to show/hide the menu
-            });
-
-            // Close the menu if clicked outside
-            document.addEventListener('click', function(event) {
-            if (!mobileMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-                mobileMenu.classList.remove('active');
-            }
-            });
-        }
-        });
-
-        </script>
         
-
-</body>
-</html>
-
-
+            function updateVisibility() {
+                var isMobileView = window.innerWidth <= 768; // Adjust breakpoint as needed
+                var menuBarVisible = menuBar && menuBar.offsetParent !== null; // Check if .menu-bar is visible
+                var mobileMenuVisible = mobileMenu && mobileMenu.classList.contains('active'); // Check if .mobile-menu is visible
+        
+                if (hamburgerMenu) {
+                    if (isMobileView && !menuBarVisible && !mobileMenuVisible) {
+                        // Show hamburger menu if .menu-bar is not visible and .mobile-menu is not active
+                        hamburgerMenu.style.display = 'block';
+                    } else {
+                        // Hide hamburger menu if .menu-bar is visible or .mobile-menu is active or not in mobile view
+                        hamburgerMenu.style.display = 'none';
+                    }
+                }
+            }
+        
+            function toggleMobileMenu(event) {
+                event.stopPropagation();
+                var isActive = mobileMenu.classList.toggle('active');
+                updateVisibility();
+            }
+        
+            function closeMobileMenu() {
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    updateVisibility();
+                }
+            }
+        
+            function handleDocumentClick(event) {
+                if (!mobileMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                    closeMobileMenu();
+                }
+            }
+        
+            function handleMobileMenuClick(event) {
+                event.stopPropagation();
+                closeMobileMenu();
+            }
+        
+            if (hamburgerMenu && mobileMenu) {
+                // Initial visibility update
+                updateVisibility();
+        
+                // Add event listeners
+                hamburgerMenu.addEventListener('click', toggleMobileMenu);
+                document.addEventListener('click', handleDocumentClick);
+                mobileMenu.addEventListener('click', handleMobileMenuClick);
+        
+                // Observe window resize events
+                window.addEventListener('resize', updateVisibility);
+        
+                // Observe changes to the .menu-bar
+                const observer = new MutationObserver(updateVisibility);
+                if (menuBar) {
+                    observer.observe(menuBar, { attributes: true, attributeFilter: ['style'] });
+                }
+            }
+        });
+    </script>
+        

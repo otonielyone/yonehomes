@@ -10,26 +10,47 @@
 </style>{% endblock %}
 
 
+
+
 {% block body %}
-<header class="site-header">
+<div class="resources-page-menu">
+    <!-- Main Menu Bar -->
     <nav class="menu-bar">
+        <!-- Left Column with Menu Links -->
         <div class="menu-column left-column">
             <a href="/" class="menu-link">HOME</a>
-            <a href="http://otonielyone.unitedrealestatewashingtondc.com" class="menu-link">BUYING</a>
+            <a href="/buying" class="menu-link">BUYING</a>
             <a href="/rentals" class="menu-link">RENTALS</a>
             <a href="/contact" class="menu-link">CONTACT</a>
-        </div>
+         </div>
+
+        <!-- Right Column with Language Icon -->
         <div class="menu-column right-column">
             <a href="#" class="language-icon">
                 <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
             </a>
         </div>
     </nav>
-</header>
+        
+    <!-- Hamburger Menu Icon -->
+    <nav class="hamburger-menu" id="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </nav>
+    
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobile-menu">
+        <a href="/" class="menu-item">HOME</a>
+        <a href="/buying" class="menu-item">BUYING</a>
+        <a href="/rentals" class="menu-item">RENTALS</a>
+        <a href="/contact" class="menu-item">CONTACT</a>
+    </nav>
+</div>
 
 
 <!-- Custom Section with Full-Width Image -->
-<div class="resources-page">
   <div class="h-image-container">
       <img src="/static/icons/resources-custom.jpg" alt="Resources" class="rental-image">
       <div class="h-overlay-content">

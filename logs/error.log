@@ -612,3 +612,758 @@ AssertionError: jinja2 must be installed to use Jinja2Templates
 [2024-08-22 09:47:59 -0400] [23596] [ERROR] connection to ('127.0.0.0.1', 5000) failed: [Errno -2] Name or service not known
 [2024-08-22 09:47:59 -0400] [23596] [DEBUG] Retrying in 1 second.
 [2024-08-22 09:48:00 -0400] [23596] [ERROR] Can't connect to ('127.0.0.0.1', 5000)
+[2024-08-24 03:08:27 -0400] [1498] [DEBUG] Current configuration:
+  config: gunicorn_config.py
+  wsgi_app: None
+  bind: ['127.0.0.1:5000']
+  backlog: 2048
+  workers: 2
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/oyone/fastapi_project
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1003
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: /home/oyone/fastapi_project/logs/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/oyone/fastapi_project/logs/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: main:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0xffff8e3fc180>
+  on_reload: <function OnReload.on_reload at 0xffff8e3fc2c0>
+  when_ready: <function WhenReady.when_ready at 0xffff8e3fc400>
+  pre_fork: <function Prefork.pre_fork at 0xffff8e3fc5e0>
+  post_fork: <function Postfork.post_fork at 0xffff8e3fc720>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0xffff8e3fc860>
+  worker_int: <function WorkerInt.worker_int at 0xffff8e3fc9a0>
+  worker_abort: <function WorkerAbort.worker_abort at 0xffff8e3fcae0>
+  pre_exec: <function PreExec.pre_exec at 0xffff8e3fcc20>
+  pre_request: <function PreRequest.pre_request at 0xffff8e3fcd60>
+  post_request: <function PostRequest.post_request at 0xffff8e3fce00>
+  child_exit: <function ChildExit.child_exit at 0xffff8e3fcf40>
+  worker_exit: <function WorkerExit.worker_exit at 0xffff8e3fd080>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0xffff8e3fd1c0>
+  on_exit: <function OnExit.on_exit at 0xffff8e3fd300>
+  ssl_context: <function NewSSLContext.ssl_context at 0xffff8e3fd4e0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2024-08-24 03:08:27 -0400] [1498] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 03:08:27 -0400] [1498] [DEBUG] Arbiter booted
+[2024-08-24 03:08:27 -0400] [1498] [INFO] Listening at: http://127.0.0.1:5000 (1498)
+[2024-08-24 03:08:27 -0400] [1498] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-08-24 03:08:27 -0400] [1499] [INFO] Booting worker with pid: 1499
+[2024-08-24 03:08:27 -0400] [1500] [INFO] Booting worker with pid: 1500
+[2024-08-24 03:08:27 -0400] [1498] [DEBUG] 2 workers
+[2024-08-24 03:08:30 -0400] [1499] [INFO] Started server process [1499]
+[2024-08-24 03:08:30 -0400] [1500] [INFO] Started server process [1500]
+[2024-08-24 03:08:30 -0400] [1499] [INFO] Waiting for application startup.
+[2024-08-24 03:08:30 -0400] [1500] [INFO] Waiting for application startup.
+[2024-08-24 03:08:30 -0400] [1500] [INFO] Application startup complete.
+[2024-08-24 03:08:30 -0400] [1499] [INFO] Application startup complete.
+[2024-08-24 03:08:51 -0400] [1498] [INFO] Handling signal: int
+[2024-08-24 03:08:51 -0400] [1500] [INFO] Shutting down
+[2024-08-24 03:08:51 -0400] [1499] [INFO] Shutting down
+[2024-08-24 03:08:51 -0400] [1500] [INFO] Waiting for application shutdown.
+[2024-08-24 03:08:51 -0400] [1499] [INFO] Waiting for application shutdown.
+[2024-08-24 03:08:51 -0400] [1500] [INFO] Application shutdown complete.
+[2024-08-24 03:08:51 -0400] [1499] [INFO] Application shutdown complete.
+[2024-08-24 03:08:51 -0400] [1500] [INFO] Finished server process [1500]
+[2024-08-24 03:08:51 -0400] [1499] [INFO] Finished server process [1499]
+[2024-08-24 03:08:51 -0400] [1498] [ERROR] Worker (pid:1499) was sent SIGINT!
+[2024-08-24 03:08:51 -0400] [1498] [ERROR] Worker (pid:1500) was sent SIGINT!
+[2024-08-24 03:08:51 -0400] [1498] [INFO] Shutting down: Master
+[2024-08-24 03:09:09 -0400] [1504] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 03:09:09 -0400] [1504] [INFO] Listening at: http://127.0.0.1:5000 (1504)
+[2024-08-24 03:09:09 -0400] [1504] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-08-24 03:09:09 -0400] [1505] [INFO] Booting worker with pid: 1505
+[2024-08-24 03:09:09 -0400] [1506] [INFO] Booting worker with pid: 1506
+[2024-08-24 03:09:11 -0400] [1505] [INFO] Started server process [1505]
+[2024-08-24 03:09:11 -0400] [1505] [INFO] Waiting for application startup.
+[2024-08-24 03:09:11 -0400] [1505] [INFO] Application startup complete.
+[2024-08-24 03:09:11 -0400] [1506] [INFO] Started server process [1506]
+[2024-08-24 03:09:11 -0400] [1506] [INFO] Waiting for application startup.
+[2024-08-24 03:09:11 -0400] [1506] [INFO] Application startup complete.
+[2024-08-24 03:09:38 -0400] [1511] [DEBUG] Current configuration:
+  config: gunicorn_config.py
+  wsgi_app: None
+  bind: ['127.0.0.1:5000']
+  backlog: 2048
+  workers: 2
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/oyone/fastapi_project
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1003
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: /home/oyone/fastapi_project/logs/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/oyone/fastapi_project/logs/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: main:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0xffff9455c180>
+  on_reload: <function OnReload.on_reload at 0xffff9455c2c0>
+  when_ready: <function WhenReady.when_ready at 0xffff9455c400>
+  pre_fork: <function Prefork.pre_fork at 0xffff9455c5e0>
+  post_fork: <function Postfork.post_fork at 0xffff9455c720>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0xffff9455c860>
+  worker_int: <function WorkerInt.worker_int at 0xffff9455c9a0>
+  worker_abort: <function WorkerAbort.worker_abort at 0xffff9455cae0>
+  pre_exec: <function PreExec.pre_exec at 0xffff9455cc20>
+  pre_request: <function PreRequest.pre_request at 0xffff9455cd60>
+  post_request: <function PostRequest.post_request at 0xffff9455ce00>
+  child_exit: <function ChildExit.child_exit at 0xffff9455cf40>
+  worker_exit: <function WorkerExit.worker_exit at 0xffff9455d080>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0xffff9455d1c0>
+  on_exit: <function OnExit.on_exit at 0xffff9455d300>
+  ssl_context: <function NewSSLContext.ssl_context at 0xffff9455d4e0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2024-08-24 03:09:38 -0400] [1511] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 03:09:38 -0400] [1511] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:38 -0400] [1511] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:38 -0400] [1511] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:09:39 -0400] [1511] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:39 -0400] [1511] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:39 -0400] [1511] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:09:40 -0400] [1511] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:40 -0400] [1511] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:40 -0400] [1511] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:09:41 -0400] [1511] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:41 -0400] [1511] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:41 -0400] [1511] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:09:42 -0400] [1511] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:42 -0400] [1511] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:42 -0400] [1511] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:09:43 -0400] [1511] [ERROR] Can't connect to ('127.0.0.1', 5000)
+[2024-08-24 03:09:52 -0400] [1512] [DEBUG] Current configuration:
+  config: gunicorn_config.py
+  wsgi_app: None
+  bind: ['127.0.0.1:5000']
+  backlog: 2048
+  workers: 2
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/oyone/fastapi_project
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1003
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: /home/oyone/fastapi_project/logs/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/oyone/fastapi_project/logs/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: main:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0xffffb87fc180>
+  on_reload: <function OnReload.on_reload at 0xffffb87fc2c0>
+  when_ready: <function WhenReady.when_ready at 0xffffb87fc400>
+  pre_fork: <function Prefork.pre_fork at 0xffffb87fc5e0>
+  post_fork: <function Postfork.post_fork at 0xffffb87fc720>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0xffffb87fc860>
+  worker_int: <function WorkerInt.worker_int at 0xffffb87fc9a0>
+  worker_abort: <function WorkerAbort.worker_abort at 0xffffb87fcae0>
+  pre_exec: <function PreExec.pre_exec at 0xffffb87fcc20>
+  pre_request: <function PreRequest.pre_request at 0xffffb87fcd60>
+  post_request: <function PostRequest.post_request at 0xffffb87fce00>
+  child_exit: <function ChildExit.child_exit at 0xffffb87fcf40>
+  worker_exit: <function WorkerExit.worker_exit at 0xffffb87fd080>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0xffffb87fd1c0>
+  on_exit: <function OnExit.on_exit at 0xffffb87fd300>
+  ssl_context: <function NewSSLContext.ssl_context at 0xffffb87fd4e0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2024-08-24 03:09:52 -0400] [1512] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 03:09:52 -0400] [1512] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:52 -0400] [1512] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:52 -0400] [1512] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:09:53 -0400] [1512] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:53 -0400] [1512] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:53 -0400] [1512] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:09:54 -0400] [1512] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:54 -0400] [1512] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:54 -0400] [1512] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:09:55 -0400] [1512] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:55 -0400] [1512] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:55 -0400] [1512] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:09:56 -0400] [1512] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-08-24 03:09:56 -0400] [1512] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-08-24 03:09:56 -0400] [1512] [DEBUG] Retrying in 1 second.
+[2024-08-24 03:11:02 -0400] [1526] [DEBUG] Current configuration:
+  config: gunicorn_config.py
+  wsgi_app: None
+  bind: ['192.168.0.19:5000']
+  backlog: 2048
+  workers: 2
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/oyone/fastapi_project
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1003
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: /home/oyone/fastapi_project/logs/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/oyone/fastapi_project/logs/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: main:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0xffffac71c180>
+  on_reload: <function OnReload.on_reload at 0xffffac71c2c0>
+  when_ready: <function WhenReady.when_ready at 0xffffac71c400>
+  pre_fork: <function Prefork.pre_fork at 0xffffac71c5e0>
+  post_fork: <function Postfork.post_fork at 0xffffac71c720>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0xffffac71c860>
+  worker_int: <function WorkerInt.worker_int at 0xffffac71c9a0>
+  worker_abort: <function WorkerAbort.worker_abort at 0xffffac71cae0>
+  pre_exec: <function PreExec.pre_exec at 0xffffac71cc20>
+  pre_request: <function PreRequest.pre_request at 0xffffac71cd60>
+  post_request: <function PostRequest.post_request at 0xffffac71ce00>
+  child_exit: <function ChildExit.child_exit at 0xffffac71cf40>
+  worker_exit: <function WorkerExit.worker_exit at 0xffffac71d080>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0xffffac71d1c0>
+  on_exit: <function OnExit.on_exit at 0xffffac71d300>
+  ssl_context: <function NewSSLContext.ssl_context at 0xffffac71d4e0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2024-08-24 03:11:02 -0400] [1526] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 03:11:02 -0400] [1526] [DEBUG] Arbiter booted
+[2024-08-24 03:11:02 -0400] [1526] [INFO] Listening at: http://192.168.0.19:5000 (1526)
+[2024-08-24 03:11:02 -0400] [1526] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-08-24 03:11:02 -0400] [1527] [INFO] Booting worker with pid: 1527
+[2024-08-24 03:11:02 -0400] [1528] [INFO] Booting worker with pid: 1528
+[2024-08-24 03:11:03 -0400] [1526] [DEBUG] 2 workers
+[2024-08-24 03:11:05 -0400] [1527] [INFO] Started server process [1527]
+[2024-08-24 03:11:05 -0400] [1528] [INFO] Started server process [1528]
+[2024-08-24 03:11:06 -0400] [1527] [INFO] Waiting for application startup.
+[2024-08-24 03:11:06 -0400] [1528] [INFO] Waiting for application startup.
+[2024-08-24 03:11:06 -0400] [1527] [INFO] Application startup complete.
+[2024-08-24 03:11:06 -0400] [1528] [INFO] Application startup complete.
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:23 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:23 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:24 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:24 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:25 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:25 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:26 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:26 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:26 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:26 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:26 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:26 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:26 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:26 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:26 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:26 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:26 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:26 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:35 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:35 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:35 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:35 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:35 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:35 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:35 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:35 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:35 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:35 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:35 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:35 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:35 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:35 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:35 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:35 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:35 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:35 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:11:36 -0400] [1526] [INFO] Handling signal: winch
+[2024-08-24 03:11:36 -0400] [1526] [DEBUG] SIGWINCH ignored. Not daemonized
+[2024-08-24 03:12:26 -0400] [1526] [INFO] Handling signal: int
+[2024-08-24 03:12:26 -0400] [1527] [INFO] Shutting down
+[2024-08-24 03:12:26 -0400] [1528] [INFO] Shutting down
+[2024-08-24 03:12:26 -0400] [1528] [INFO] Waiting for application shutdown.
+[2024-08-24 03:12:26 -0400] [1527] [INFO] Waiting for application shutdown.
+[2024-08-24 03:12:26 -0400] [1527] [INFO] Application shutdown complete.
+[2024-08-24 03:12:26 -0400] [1528] [INFO] Application shutdown complete.
+[2024-08-24 03:12:26 -0400] [1527] [INFO] Finished server process [1527]
+[2024-08-24 03:12:26 -0400] [1528] [INFO] Finished server process [1528]
+[2024-08-24 03:12:26 -0400] [1526] [ERROR] Worker (pid:1527) was sent SIGINT!
+[2024-08-24 03:12:26 -0400] [1526] [ERROR] Worker (pid:1528) was sent SIGINT!
+[2024-08-24 03:12:26 -0400] [1526] [INFO] Shutting down: Master
+[2024-08-24 03:12:38 -0400] [1540] [DEBUG] Current configuration:
+  config: gunicorn_config.py
+  wsgi_app: None
+  bind: ['192.168.0.19:5000']
+  backlog: 2048
+  workers: 2
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/oyone/fastapi_project
+  daemon: True
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1003
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: /home/oyone/fastapi_project/logs/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/oyone/fastapi_project/logs/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: main:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0xffff867ec180>
+  on_reload: <function OnReload.on_reload at 0xffff867ec2c0>
+  when_ready: <function WhenReady.when_ready at 0xffff867ec400>
+  pre_fork: <function Prefork.pre_fork at 0xffff867ec5e0>
+  post_fork: <function Postfork.post_fork at 0xffff867ec720>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0xffff867ec860>
+  worker_int: <function WorkerInt.worker_int at 0xffff867ec9a0>
+  worker_abort: <function WorkerAbort.worker_abort at 0xffff867ecae0>
+  pre_exec: <function PreExec.pre_exec at 0xffff867ecc20>
+  pre_request: <function PreRequest.pre_request at 0xffff867ecd60>
+  post_request: <function PostRequest.post_request at 0xffff867ece00>
+  child_exit: <function ChildExit.child_exit at 0xffff867ecf40>
+  worker_exit: <function WorkerExit.worker_exit at 0xffff867ed080>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0xffff867ed1c0>
+  on_exit: <function OnExit.on_exit at 0xffff867ed300>
+  ssl_context: <function NewSSLContext.ssl_context at 0xffff867ed4e0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2024-08-24 03:12:38 -0400] [1540] [INFO] Starting gunicorn 23.0.0
+[2024-08-24 03:12:38 -0400] [1540] [DEBUG] Arbiter booted
+[2024-08-24 03:12:38 -0400] [1540] [INFO] Listening at: http://192.168.0.19:5000 (1540)
+[2024-08-24 03:12:38 -0400] [1540] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-08-24 03:12:38 -0400] [1541] [INFO] Booting worker with pid: 1541
+[2024-08-24 03:12:38 -0400] [1542] [INFO] Booting worker with pid: 1542
+[2024-08-24 03:12:38 -0400] [1540] [DEBUG] 2 workers
+[2024-08-24 03:12:40 -0400] [1541] [INFO] Started server process [1541]
+[2024-08-24 03:12:40 -0400] [1541] [INFO] Waiting for application startup.
+[2024-08-24 03:12:40 -0400] [1541] [INFO] Application startup complete.
+[2024-08-24 03:12:41 -0400] [1542] [INFO] Started server process [1542]
+[2024-08-24 03:12:41 -0400] [1542] [INFO] Waiting for application startup.
+[2024-08-24 03:12:41 -0400] [1542] [INFO] Application startup complete.

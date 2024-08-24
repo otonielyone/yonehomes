@@ -1,7 +1,18 @@
-/* Leasing Qualifications Section */
+a.cta-button {
+    background-color: transparent;
+    border:none;
+    background: none;
+    color: green;
+    font-size: 14px;
+}
+  
+  a.cta-button .text{
+    color: rgb(37, 71, 221);
+}
+
+
 .leasing-qualifications {
     padding: 20px;
-    border-radius: 1px;
     margin: 20px auto;
     max-width: 800px; /* Center the section */
     text-align: center; /* Center text */
@@ -10,31 +21,29 @@
 
 .leasing-qualifications .section-heading {
     font-size: 1.5rem;
-    margin-bottom: 10px;
     color: #c0392b; /* Dark red */
     font-weight: 50px; /* Thin weight for headings */
 }
 
-.leasing-qualifications .qualifications-text,
 .leasing-qualifications .light-red-text,
 .leasing-qualifications .dark-red-text {
-    font-size: 1rem;
     line-height: 1.6;
-    color: #c0392b; /* Dark red */
-    background: none; /* Remove background */
     font-weight: 100; /* Thin weight for text */
 }
 
 .leasing-qualifications .dark-red-text {
     color: #a91909; /* Light red */
     font-weight: bold; /* Make text bold */
+    font-size: 14px;
+    margin: 20px;
 }
-
 
 .leasing-qualifications .light-red-text {
+    color: #c0392b; /* Dark red */
     font-weight: 300; /* Make text bold */
+    font-size: 14px;
+    margin: 20px;
 }
-
 
 
 /* Styling for the heading inside the overlay */
@@ -62,6 +71,9 @@
     color: #000000; /* Set text color to black */
     font-weight: normal; /* Reset font weight if needed */
     background: none; /* Ensure no background color */
-    padding: 10px; /* Optional: add some padding if needed */
+    padding: 20px; /* Optional: add some padding if needed */
     text-align: center; /* Optional: align text as needed */
+    font-size: 14px;
 }
+
+

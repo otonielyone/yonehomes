@@ -1,27 +1,3 @@
-/* Import Montserrat font with thin weights */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
-
-/* General Styles */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-h1, h2, p {
-    margin: 0;
-    padding: 0;
-    text-align: center; /* Center align heading text */
-    margin: 10px auto; /* Match padding with common-subheading */
-    overflow-wrap: break-word;
-    font-weight: 300; /* Consistent font-weight */
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
 /* Image/Video Background Container */
 .image-header-container {

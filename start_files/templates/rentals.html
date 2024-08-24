@@ -14,24 +14,43 @@
 {% endblock %}
 
 {% block body %}
-<header class="site-header">
+<div class="rentals-page-menu">
+    <!-- Main Menu Bar -->
     <nav class="menu-bar">
+        <!-- Left Column with Menu Links -->
         <div class="menu-column left-column">
             <a href="/" class="menu-link">HOME</a>
-            <a href="http://otonielyone.unitedrealestatewashingtondc.com" class="menu-link">BUYING</a>
+            <a href="/buying" class="menu-link">BUYING</a>
             <a href="/resources" class="menu-link">RESOURCES</a>
             <a href="/contact" class="menu-link">CONTACT</a>
-        </div>
+         </div>
+
+        <!-- Right Column with Language Icon -->
         <div class="menu-column right-column">
             <a href="#" class="language-icon">
                 <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
             </a>
         </div>
     </nav>
-</header>
+        
+    <!-- Hamburger Menu Icon -->
+    <nav class="hamburger-menu" id="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobile-menu">
+        <a href="/" class="menu-item">HOME</a>
+        <a href="/buying" class="menu-item">BUYING</a>
+        <a href="/resources" class="menu-item">RESOURCES</a>
+        <a href="/contact" class="menu-item">CONTACT</a>
+    </nav>
+</div>
+
 
 <!-- Full-Width Image Section -->
-<div class="rentals-page">
     <div class="h-image-container">
         <img src="/static/icons/rentals.jpg" alt="Rentals" class="rental-image">
         <div class="h-overlay-content">
@@ -79,50 +98,53 @@
     <span class="construction-text">LISTINGS COMING SOON</span>
 </div>
 
-    <!-- Custom Section with Parallax Effect -->
-    <div class="custom-section" id="main-section">
-        <div class="custom-header">
-            <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
-        </div>
 
-        <div class="custom-container">
-            <div class="custom-row">
-                <div class="custom-column">
-                    <div class="custom-icon-widget">
-                        <span class="custom-icon-homepage"></span>
-                    </div>
-                    <a class="custom-button-link" href="/">
-                        <span class="button-text">HOME PAGE</span>
-                    </a>
-                </div>
+<!-- Custom Section with Parallax Effect -->
+<div class="custom-section" id="main-section">
 
-                <div class="custom-column">
-                    <div class="custom-icon-widget">
-                        <span class="custom-icon-home"></span>
-                    </div>
-                    <a class="custom-button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
-                        <span class="button-text">SEARCH HOMES</span>
-                    </a>
-                </div>
+    <div class="custom-header">
+        <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+    </div>
 
-                <div class="custom-column">
-                    <div class="custom-icon-widget">
-                        <span class="custom-icon-contact"></span>
-                    </div>
-                    <a class="custom-button-link" href="/contact">
-                        <span class="button-text">LEAVE A MESSAGE</span>
-                    </a>
-                </div>
+    <div class="custom-container">
+        <div class="custom-row">
 
-                <div class="custom-column">
-                    <div class="custom-icon-widget">
-                        <span class="custom-icon-head"></span>
-                    </div>
-                    <a class="custom-button-link" href="/resources">
-                        <span class="button-text">FIND RESOURCES</span>
-                    </a>
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-homepage"></span>
                 </div>
+                <a class="custom-button-link" href="/">
+                    <span class="button-text">HOME PAGE</span>
+                </a>
             </div>
+
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-home"></span>
+                </div>
+                <a class="custom-button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
+                    <span class="button-text">SEARCH HOMES</span>
+                </a>
+            </div>
+
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-contact"></span>
+                </div>
+                <a class="custom-button-link" href="/contact">
+                    <span class="button-text">LEAVE A MESSAGE</span>
+                </a>
+            </div>
+
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-head"></span>
+                </div>
+                <a class="custom-button-link" href="/resources">
+                    <span class="button-text">FIND RESOURCES</span>
+                </a>
+            </div>
+        
         </div>
     </div>
 </div>

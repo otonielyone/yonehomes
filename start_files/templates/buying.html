@@ -1,0 +1,120 @@
+{% extends "template.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/main.css">
+<link rel="stylesheet" href="/static/buying.css">
+<style>
+    .custom-section {
+        background-image: url('/static/icons/resources-custom.jpg');
+    }
+</style>{% endblock %}
+
+
+
+
+{% block body %}
+<div class="buying-page-menu">
+    <!-- Main Menu Bar -->
+    <nav class="menu-bar">
+        <!-- Left Column with Menu Links -->
+        <div class="menu-column left-column">
+            <a href="/" class="menu-link">HOME</a>
+            <a href="/resources" class="menu-link">RESOURCES</a>
+            <a href="/rentals" class="menu-link">RENTALS</a>
+            <a href="/contact" class="menu-link">CONTACT</a>
+         </div>
+
+        <!-- Right Column with Language Icon -->
+        <div class="menu-column right-column">
+            <a href="#" class="language-icon">
+                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+            </a>
+        </div>
+    </nav>
+        
+    <!-- Hamburger Menu Icon -->
+    <nav class="hamburger-menu" id="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </nav>
+    
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobile-menu">
+        <a href="/" class="menu-item">HOME</a>
+        <a href="/resources" class="menu-item">RESOURCES</a>
+        <a href="/rentals" class="menu-item">RENTALS</a>
+        <a href="/contact" class="menu-item">CONTACT</a>
+    </nav>
+</div>
+
+
+<!-- Custom Section with Full-Width Image -->
+  <div class="h-image-container">
+      <img src="/static/icons/resources-custom.jpg" alt="Resources" class="buying-image">
+      <div class="h-overlay-content">
+          <div class="text-content">
+              <h1 class="custom-heading">FIND YOUR HOME TODAY!</h1>
+          </div>
+      </div>
+  </div>
+
+<!-- Placeholder Section -->
+<div class="placeholder">
+    <span class="construction-text">TEMPORARILY UNDER CONSTRUCTION</span>
+</div>
+
+
+<!-- Custom Section with Parallax Effect -->
+<div class="custom-section" id="main-section">
+    
+    <div class="custom-header">
+        <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+    </div>
+
+    <div class="custom-container">
+        <div class="custom-row">
+            
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-homepage"></span>
+                </div>
+                <a class="custom-button-link" href="/">
+                    <span class="button-text">HOME PAGE</span>
+                </a>
+            </div>
+                
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-home"></span>
+                </div>
+                <a class="custom-button-link" href="/resources">
+                    <span class="button-text">FIND RESOURCES</span>
+                </a>
+            </div>
+    
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-rentals"></span>
+                </div>
+                <a class="custom-button-link" href="/rentals">
+                    <span class="button-text">FIND RENTALS</span>
+                </a>
+            </div>
+            
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-contact"></span>
+                </div>
+                <a class="custom-button-link" href="/contact">
+                    <span class="button-text">LEAVE A MESSAGE</span>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

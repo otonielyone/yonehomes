@@ -3,34 +3,57 @@
 {% block head %}
 <link rel="stylesheet" href="/static/main.css">
 <link rel="stylesheet" href="/static/contact.css">
+
 <style>
     .custom-section {
         background-image: url('/static/icons/contact.jpg');
     }
 </style>
+
+
 {% endblock %}
 
 {% block body %}
-<header class="site-header">
+<div class="contact-page-menu">
+    <!-- Main Menu Bar -->
     <nav class="menu-bar">
+        <!-- Left Column with Menu Links -->
         <div class="menu-column left-column">
             <a href="/" class="menu-link">HOME</a>
-            <a href="http://otonielyone.unitedrealestatewashingtondc.com" class="menu-link">BUYING</a>
+            <a href="/buying" class="menu-link">BUYING</a>
             <a href="/rentals" class="menu-link">RENTALS</a>
             <a href="/resources" class="menu-link">RESOURCES</a>
-        </div>
+         </div>
+
+        <!-- Right Column with Language Icon -->
         <div class="menu-column right-column">
             <a href="#" class="language-icon">
                 <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
             </a>
         </div>
     </nav>
-</header>
+        
+    <!-- Hamburger Menu Icon -->
+    <nav class="hamburger-menu" id="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </nav>
+    
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobile-menu">
+        <a href="/" class="menu-item">Home</a>
+        <a href="/buying" class="menu-item">Buying</a>
+        <a href="/rentals" class="menu-item">Rentals</a>
+        <a href="/resources" class="menu-item">Resources</a>
+    </nav>
+</div>
 
 <!-- Full-Width Image Section -->
 <div class="h-contact-page">
     <div class="h-image-container">
-        <img src="/static/icons/contact-custom.jpg" alt="Rentals" class="contact-image">
+        <img src="/static/icons/contact-custom.jpg" alt="Contact" class="contact-image">
         <div class="h-overlay-content">
             <div class="text-content">
                 <h1 class="custom-heading">REACH OUT BELOW</h1>
@@ -43,6 +66,7 @@
 <div class="placeholder">
     <span class="construction-text">TEMPORARILY UNDER CONSTRUCTION</span>
 </div>
+
 
 <!-- Custom Section with Parallax Effect -->
 <div class="custom-section" id="main-section">
