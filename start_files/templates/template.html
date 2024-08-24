@@ -8,17 +8,25 @@
     <!-- Bootstrap CSS -->
     <link type="text/css" rel="stylesheet" href="/static/bootstrap.min.css" />
     <!-- Custom CSS -->
+    <link type="text/css" rel="stylesheet" href="/static/styles.css" />
+    
+<!-- Add this inside your header or menu-bar in template.html -->
+    
     {% block head %}{% endblock %}
-
 </head>
 <body>
 
-    <!-- Main Content -->
+    <!-- Main Header -->
+    <header class="site-header">
+        {% block header %}
+        <!-- Default navigation menu can be provided here if needed -->
+        {% endblock %}
+    </header>
 
+    <!-- Main Content -->
     <main>
         {% block body %}{% endblock %}
     </main>
-
 
     <!-- Footer -->
     <footer class="footer">
@@ -44,7 +52,10 @@
                     <p class="footer-text"><span class="contact-phone">1-703-596-2121</span></p>
                 </div>
             </div>
-            <div class="footer-column logo-column">
+            <div class="footer-column">
+                <img src="/static/icons/realtor1.png" alt="Realtor" class="footer-image realtor">
+            </div>
+            <div class="footer-column">
                 <img src="/static/icons/united.svg" alt="United Logo" class="footer-logo">
             </div>
         </div>
@@ -53,7 +64,30 @@
     <!-- jQuery and Bootstrap JS -->
     <script src="/static/jquery.min.js"></script>
     <script src="/static/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="/static/application.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var hamburgerMenu = document.querySelector('.hamburger-menu');
+            var mobileMenu = document.querySelector('.mobile-menu');
+
+        if (hamburgerMenu && mobileMenu) {
+            hamburgerMenu.addEventListener('click', function() {
+                hamburgerMenu.classList.toggle('active');
+                mobileMenu.classList.toggle('active'); // Toggle the 'active' class to show/hide the menu
+            });
+
+            // Close the menu if clicked outside
+            document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+            });
+        }
+        });
+
+        </script>
+        
+
 </body>
 </html>
+
+

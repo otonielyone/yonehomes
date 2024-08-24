@@ -1,6 +1,3 @@
-/* Import Montserrat font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
-
 /* General Body Styling */
 body {
   color: #ffffff; /* Set global text color to white */
@@ -11,17 +8,217 @@ body {
   min-height: 100vh;
 }
 
-/* Header Styling */
+/* Main Header */
 .site-header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   z-index: 15;
-  background-color: transparent;
   overflow: hidden;
+}
+
+.hamburger-menu {
+    display: none; /* Hide by default, show on mobile */
+    cursor: pointer;
+    padding: 15px; /* Adjust as needed */
+    background-color: none;
+
+    
+  }
+
+.hamburger-menu.active {
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background for menu banner */
+}
+
+.hamburger-menu.active .bar {
+  background-color: #ffffff9c; /* Set to white or any desired color */
+}
+
+/* Optional: If you want the hamburger bars themselves to be a different color */
+.hamburger-menu .bar {
+  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent black for the bars */
+  height: 3px; /* Adjust bar height */
+  width: 25px; /* Adjust bar width */
+  margin: 5px 0; /* Space between bars */
+  border-radius: 2px; /* Optional: rounded corners for bars */
+}
+
+.mobile-menu {
+  display: none; /* Hide by default */
+  position: fixed; /* Use fixed positioning */
+  top: 60px; /* Adjust as needed */
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it appears above other elements */
+  transition: transform 0.3s ease; /* Smooth transition for menu visibility */
+  transform: translateY(-100%); /* Start hidden off-screen */
+}
+
+.mobile-menu.active {
+  display: block; /* Show when active */
+  transform: translateY(0); /* Slide in from top */
+}
+
+
+.menu-item {
   display: block;
+  color: #ffffff; /* Text color */
+  text-align: left;
+  padding: 15px;
+  text-decoration: none;
+  background-color: transparent; /* Fully transparent background */
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background color change on hover */
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: left; /* Align footer text to the left */
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap; /* Allow columns to wrap */
+  justify-content: space-between; /* Space out columns evenly */
+  padding: 0 20px; /* Add padding for spacing */
+  gap: 20px; /* Add gap between columns */
+}
+
+/* Ensure each column takes equal space */
+.footer-column {
+  flex: 1 1 200px; /* Allow columns to grow and shrink, with a base width of 200px */
+  padding: 0 10px; /* Add padding for spacing */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Align all footer content to the left */
+.footer-text, .footer-nav, .footer-logo, .footer-image {
+  text-align: left;
+}
+
+/* Footer heading styles */
+.footer-heading {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Adjusted text size for navigation */
+.footer-nav ul {
+  list-style-type: none;
   padding: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 5px;
+}
+
+.footer-nav a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: #ffffff;
+}
+
+/* Adjusted text size for contact info */
+.footer-info {
+  font-size: 14px; /* Ensure this matches the text size below "BROWSE" */
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
+
+/* Align Realtor image to the left */
+.footer-column img.realtor {
+  height: 80px; /* Fixed height for realtor image */
+  width: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure block display */
+  margin: 0; /* Remove margin to align left */
+}
+
+/* Logo image styling */
+.footer-logo {
+  height: 80px; /* Adjust this value to fit the height of the realtor image */
+  width: auto; /* Maintain aspect ratio */
+}
+
+/* Ensure the footer logo scales proportionally */
+.footer-logo {
+  height: 80px; /* Same height as the realtor image for consistency */
+  width: auto; /* Maintain aspect ratio */
+}
+
+/* Styling for footer images to fit proportionally */
+.footer-image {
+  max-width: 100px; /* Limit image width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure block display */
+  margin: 0 auto; /* Center images horizontally if needed */
+}
+
+/* Footer responsive styling */
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-wrap: wrap; /* Allow wrapping of columns */
+  }
+
+  .footer-column {
+    flex: 1 1 50%; /* Each column takes up 50% of the width */
+    max-width: 50%; /* Ensure each column does not exceed 50% width */
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer-column img {
+    max-width: 50px; /* Adjust max-width for small screens */
+  }
+
+  .custom-text {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+/* Button Link Styling */
+.button-link {
+  text-decoration: none;
+  background: none;
+  width: 250px; /* Fixed width for all buttons */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  box-sizing: border-box;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow if text exceeds button width */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.button-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background color change on hover */
 }
 
 /* Menu Bar Styling */
@@ -34,10 +231,12 @@ body {
   white-space: nowrap;
   overflow-x: auto; /* Allow horizontal scrolling */
   overflow-y: hidden; /* Hide vertical scrollbar */
+  background-color: transparent; /* Transparent background */
 }
 
 /* Hide scrollbar in webkit-based browsers (Chrome, Safari) */
 .menu-bar::-webkit-scrollbar {
+  background-color: transparent; /* Transparent scrollbar background */
   height: 0; /* Hide scrollbar */
 }
 
@@ -123,11 +322,12 @@ body {
 
 /* Text positioning above the elements */
 .custom-text {
-  position: absolute;
-  top: 20px; /* Adjust as needed for vertical spacing */
-  left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
-  color: #ffffff;
+  position: absolute; /* Position it absolutely within the container */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to truly center the content */
+  color: #ffffff; /* Set text color */
+  text-align: center; /* Center align text horizontally */
   font-size: 24px; /* Adjust font size as needed */
   z-index: 2; /* Ensure it is above other elements */
   white-space: nowrap; /* Prevent text wrapping */
@@ -185,8 +385,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0; /* Adjusted margin */
 }
 
 /* Custom button link styles */
@@ -201,7 +400,6 @@ body {
   box-sizing: border-box;
   margin: 20px;
   text-decoration: none;
-
   background: none;
   color: #ffffff;
   border: 1px solid #ffffff;
@@ -209,7 +407,7 @@ body {
 }
 
 .custom-button-link:hover {
-  background-color: none;
+  background-color: transparent; /* Ensure background remains transparent */
   color: #cccccc;
   text-decoration: none;
 }
@@ -232,118 +430,80 @@ body {
 
 /* Specific background images for each icon */
 .custom-icon-homepage {
-  background-image: url('/static/icons/home.png');
-  width: 25px;
-  height: 25px;
+  background-image: url('/static/icons/homepage-icon.svg');
 }
 
 .custom-icon-home {
-  background-image: url('/static/icons/search.png');
-}
-
-.custom-icon-head {
-  background-image: url('/static/icons/head.png');
-}
-
-.custom-icon-contact {
-  background-image: url('/static/icons/contact.png');
+  background-image: url('/static/icons/home-icon.svg');
 }
 
 .custom-icon-rentals {
-  background-image: url('/static/icons/hand.png'); 
+  background-image: url('/static/icons/rentals-icon.svg');
 }
 
-/* Responsive Adjustments for Smaller Screens */
-@media (max-width: 1024px) {
-  .custom-row {
-    flex-wrap: nowrap; /* Prevent wrapping */
-  }
+.custom-icon-head {
+  background-image: url('/static/icons/head-icon.svg');
 }
 
-@media (max-width: 768px) {
-  .custom-column {
-    flex: 0 0 300px; /* Fixed width for columns */
-    min-width: 300px; /* Prevent columns from shrinking */
-  }
-
-  .button-link {
-    width: auto;
-    font-weight: 500;
-    padding: 10px 20px;
-  }
-
-  .main-heading {
-    font-size: 24px;
-  }
-
-  .sub-heading {
-    font-size: 18px;
-  }
+.custom-icon-contact {
+  background-image: url('/static/icons/contact-icon.svg');
 }
 
-.custom-heading {
-  font-size: 24px;
-}
-
-/* Footer Styling */
-.footer {
-  background-color: #333333;
-  color: #ffffff;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.footer-column {
-  flex: 1;
-  margin: 0 10px;
-}
-
-.footer-heading {
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.footer-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.footer-nav li {
-  margin-bottom: 5px;
-}
-
-.footer-nav a {
-  color: #ffffff;
+/* Custom Link Styling */
+.custom-link {
   text-decoration: none;
+  color: #ffffff;
+  background-color: transparent; /* Fully transparent background for button */
+  padding: 10px 20px; /* Padding for button */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  font-weight: 500; /* Font weight */
+  display: inline-block; /* Allow for margin and padding */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
-.footer-nav a:hover {
-  color: #cccccc;
+.custom-link:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background color change on hover */
 }
 
-.footer-info {
-  font-size: 14px;
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+  .site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hamburger-menu {
+    display: block; /* Show on mobile screens */
+  }
+  
+  .menu-bar {
+    display: none; /* Hide menu bar on small screens */
+  }
+  
+  .mobile-menu {
+    display: none; /* Ensure mobile menu is hidden by default */
+  }
 }
 
-.footer-info p {
-  margin: 5px 0;
+@media screen and (max-width: 500px) {
+  .footer-column img {
+    max-width: 50px; /* Adjust size of images in the footer */
+  }
+
+  .custom-text {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
 }
 
-.footer-logo {
-  width: 100px;
+/* Style for the header */
+.menu-bar, .hamburger-menu {
+  position: fixed; /* Or 'absolute' depending on your layout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* High z-index to ensure it floats above other content */
+  background-color: none; /* Ensure the header background is solid */
 }
 
-.construction-text {
-  font-weight: bold; /* Make text bold */
-  color: #c0392b; /* Set text color to red */
-  text-transform: uppercase; /* Transform text to uppercase */
-  font-size: 24px; /* Optional: Adjust font size as needed */
-}
