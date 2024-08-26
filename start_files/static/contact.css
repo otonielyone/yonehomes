@@ -1,1 +1,108 @@
 /* General Styles */
+
+.contact-heading {
+    font-size: 36px;
+    margin: 10px 0;
+    color: white; 
+    text-align: center;
+    font-weight: 500; /* Thin weight for headings */
+    background: none; /* Ensure no background color */
+    padding: 0; /* Remove padding if any */  
+}
+
+/* Contact Form Styles */
+
+.contact-form-container {
+    width: 100%;
+    max-width: 600px; /* Limits the width of the contact form */
+    margin: 40px auto; /* Adds space around the form and centers it horizontally */
+    padding: 40px;
+    padding-bottom: 50px;
+    background: #f9f9f9; /* Light background color for the form */
+    border-radius: 8px; /* Rounded corners for the form container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+}
+
+/* Heading inside the form */
+.contact-form-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Darker color for the heading */
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label Styling */
+.form-group label {
+    display: block;
+    font-weight: 600; /* Bold labels for better readability */
+    margin-bottom: 5px;
+    color: #555; /* Darker color for labels */
+}
+
+/* Input and Textarea Styling */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd; /* Light border color */
+    border-radius: 4px; /* Slightly rounded corners for input fields */
+    box-sizing: border-box; /* Ensures padding and border are included in the total width */
+    font-size: 16px;
+}
+
+/* Textarea Styling */
+.form-group textarea {
+    resize: vertical; /* Allows vertical resizing only */
+}
+
+/* Submit Button Styling */
+button[type="submit"] {
+    background-color: #007BFF; /* Primary button color */
+    color: white; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px; /* Rounded corners for the button */
+    font-size: 16px;
+    cursor: pointer; /* Pointer cursor on hover */
+    display: block; /* Ensure the button is a block element */
+    margin: 20px auto; /* Center the button horizontally with margin around it */
+}
+
+/* Hover Effect for Submit Button */
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Media Query for Centering Text on Screens 1000px or Smaller */
+
+@media screen and (max-width: 1000px) {
+
+    .contact-heading {
+        text-align: center; /* Center the heading text */
+    }
+
+    .form-group label {
+        text-align: center; /* Center labels inside the form group */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"],
+    .form-group textarea {
+        display: inline-block; /* Make inputs and textarea inline-block for centering */
+        text-align: center; /* Center text inside the input fields */
+    }
+
+    button[type="submit"] {
+        display: block; /* Ensure the button is a block element */
+        margin: 20px auto; /* Center the button horizontally */
+    }
+}

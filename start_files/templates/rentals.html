@@ -7,11 +7,17 @@
 <style>
     .custom-section {
         background-image: url('/static/icons/rental-custom.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 40px 0; /* Adjust padding as needed */
     }
 </style>
-
-
 {% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
 
 {% block body %}
 <div class="rentals-page-menu">
@@ -23,7 +29,7 @@
             <a href="/buying" class="menu-link">BUYING</a>
             <a href="/resources" class="menu-link">RESOURCES</a>
             <a href="/contact" class="menu-link">CONTACT</a>
-         </div>
+        </div>
 
         <!-- Right Column with Language Icon -->
         <div class="menu-column right-column">
@@ -49,66 +55,72 @@
     </nav>
 </div>
 
+<!-- Image/Video Background Container -->
+<div class="image-header-container">
+    <!-- Video Background Section -->
+    <div class="video-background-wrapper">
+        <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+        src="/static/icons/rentals1.mp4"></video>
 
-<!-- Full-Width Image Section -->
-    <div class="h-image-container">
-        <img src="/static/icons/rentals.jpg" alt="Rentals" class="rental-image">
-        <div class="h-overlay-content">
+        <!-- Overlay Content Section -->
+        <div class="overlay-content">
             <div class="text-content">
-                <h1 class="custom-heading">SEE BELOW FOR ROOMS AND APARTMENTS!</h1>
+                <h1 class="main-heading">SEE BELOW FOR ROOMS AND APARTMENTS!</h1>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Leasing Qualifications Section -->
-    <div class="leasing-qualifications center-content">
-        <h2 class="section-heading">LEASING QUALIFICATIONS:</h2>
-        <p class="qualifications-text light-red-text">
-            Rooms may require an application fee ranging from $30 to $60. These applications assist landlords in assessing and comparing their options. Minimum requirements may include a credit score of at least 550, two years of stable employment, and proof of income equivalent to approximately three times the monthly rent. Additionally, many rooms may necessitate a security deposit equal to the first month's rent, which can vary depending on whether the property is privately owned or managed. Rooms may be furnished.
-        </p>
+
+<!-- Leasing Qualifications Section -->
+<div class="rental-services" id="rental-services">   
+    <div class="rental-services-wrapper">    
+        <div class="light-red-text">
+            <h2>LEASING QUALIFICATIONS:</h2>
+            <p>Rooms may require an application fee ranging from $30 to $60. These applications assist landlords in assessing and comparing their options. Minimum requirements may include a credit score of at least 550, two years of stable employment, and proof of income equivalent to approximately three times the monthly rent. Additionally, many rooms may necessitate a security deposit equal to the first month's rent, which can vary depending on whether the property is privately owned or managed. Rooms may be furnished.</p>
+        </div>
+
         <p class="dark-red-text">
             Note: If you do not meet these qualifications, the security deposit amount may be increased to facilitate approval.
         </p>
-        <hr>
 
         <!-- Call to Action Button -->
-        <div class="call-to-action">
-            <a class="cta-button" href="/contact">
+        <div class="navy-blue-text">
+            <a href="/contact">
                 <span class="text">Click here to request Availabilities!</span>
             </a>
         </div>
-
+        
         <!-- Additional Information -->
         <div class="additional-info black-text">
             <p>A signed agreement is necessary to physically enter properties.</p>
-            <p>We aim to show listings where the Landlords opt into covering a refferal fee.</p>
-            <p>Our fee is 25% of first month rent. If covered, our services would come at no cost to you.</p>
+            <p>We aim to show listings where the Landlords opt into covering a referral fee.</p>
+            <p>Our fee is 25% of the first month’s rent. If covered, our services would come at no cost to you.</p>
         </div>
-
+        
         <!-- Download Rental Representation Agreement -->
-        <div class="cta-download">
-            <a class="cta-button" href="https://www.example.com/download">
+        <div class="light-green-text">
+            <a href="/static/icons/NVARK1282.pdf">
                 Download Rental Representation Agreement
             </a>
-        </div>
-    </div>
+        </div>  
+   
+    </div>      
+</div>
 
-    <!-- Placeholder Section -->
+<!-- Placeholder Section -->
 <div class="placeholder">
     <span class="construction-text">LISTINGS COMING SOON</span>
 </div>
 
-
-<!-- Custom Section with Parallax Effect -->
+<!-- Custom Section with Parallax Effect 
 <div class="custom-section" id="main-section">
-
     <div class="custom-header">
         <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
     </div>
 
     <div class="custom-container">
         <div class="custom-row">
-
             <div class="custom-column">
                 <div class="custom-icon-widget">
                     <span class="custom-icon-homepage"></span>
@@ -122,7 +134,7 @@
                 <div class="custom-icon-widget">
                     <span class="custom-icon-home"></span>
                 </div>
-                <a class="custom-button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
+                <a class="custom-button-link" href="/buying" id="button-search-homes">
                     <span class="button-text">SEARCH HOMES</span>
                 </a>
             </div>
@@ -144,9 +156,9 @@
                     <span class="button-text">FIND RESOURCES</span>
                 </a>
             </div>
-        
         </div>
     </div>
 </div>
 
 {% endblock %}
+

@@ -1,1 +1,13 @@
 /* General Styles */
+
+/* General Styles */
+
+
+.buy-heading {
+    font-size: 36px;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 500; /* Thin weight for headings */
+    background: none; /* Ensure no background color */
+    paddileft: 90px; /* Remove padding if any */  
+}

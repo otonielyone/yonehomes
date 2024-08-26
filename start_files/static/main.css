@@ -1,6 +1,7 @@
+/* Existing CSS (unchanged) */
+
 /* Import Montserrat font with thin weights */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
-
 
 body {
   color: #ffffff; /* Set global text color to white */
@@ -11,14 +12,13 @@ body {
   flex-direction: column;
   min-height: 100vh;
   box-sizing: border-box;
-
 }
+
 /* HEADER */
 h1, h2, p {
-  margin: 0;
+  margin: 10px auto;
   padding: 0;
   text-align: center; /* Center align heading text */
-  margin: 10px auto; /* Match padding with common-subheading */
   overflow-wrap: break-word;
   font-weight: 300; /* Consistent font-weight */
 }
@@ -33,15 +33,12 @@ h1, h2, p {
 .nav-item .nav-item-text,
 .contact-title {
   text-decoration: none; /* Removes underline from links */
-  background-color: transparent;
-  border: none;
   background: transparent;
   font-size: 12px;
   text-align: left;
   padding: 0; /* Use '0' instead of 'none' */
   font-weight: 500;
 }
-
 
 /* General link styles for consistency */
 a,
@@ -57,7 +54,7 @@ a:focus {
 .main-heading, .sub-heading {
   font-size: 36px;
   margin: 10px 0;
-  font-weight: 100; /* Thin weight for headings */
+  font-weight: 500; /* Thin weight for headings */
   background: none; /* Ensure no background color */
   padding: 0; /* Remove padding if any */
 }
@@ -65,41 +62,31 @@ a:focus {
 .sub-heading {
   font-size: 24px;
   margin-top: 25px; /* Add margin on top to separate from main heading */
-  margin-bottom: 35px; /* Add margin on top to separate from main heading */
+  margin-bottom: 35px; /* Add margin on bottom to separate from main heading */
 }
 
-
-/* General Link Styles */
-a,
-a:active,
-a:focus {
-  color: #ffffff; /* White text color */
-  text-transform: uppercase; /* Uppercase text */
-  text-decoration: none; /* No underline */
-}
-
+/* Menu Links */
 .menu-link a {
   display: block; /* Ensures the anchor tag fills the menu item container */
   text-align: left; /* Aligns text inside the anchor tag to the left */
 }
 
-.menu-link{
-    margin: 15px;
+.menu-link {
+  margin: 15px;
 }
 
-.menu-bar{
+.menu-bar {
   margin: 20px;
-
 }
 
-/* Menu Links */
+/* Menu Item Styling */
 .menu-item {
   display: block;
-  padding: 10px 20px ; /* Increase left padding for indentation */
+  padding: 10px 20px; /* Increase left padding for indentation */
   color: #ffffff; /* White text color */
   text-transform: uppercase; /* Uppercase text */
   text-align: left;
-  background-color: transparent; /* Transparent background */
+  background: transparent; /* Transparent background */
   transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
@@ -121,7 +108,6 @@ a:focus {
   left: 0;
   width: 100%;
   z-index: 1000; /* High z-index to ensure it floats above other content */
-  background-color: none; /* Dark background */
 }
 
 .hamburger-menu .bar {
@@ -141,7 +127,6 @@ a:focus {
   padding: 20px;
   display: none; /* Hide by default */
   position: fixed;
-  padding-top: 30px;
   width: 100%;
   height: 100%;
   z-index: 1000; /* High z-index to ensure it floats above other content */
@@ -162,7 +147,7 @@ a:focus {
   gap: 20px;
   flex: 0 0 auto;
   white-space: nowrap;
-  background-color: transparent; /* Transparent background */
+  background: transparent; /* Transparent background */
   position: fixed; /* Fixed position */
   top: 0;
   left: 0;
@@ -180,9 +165,229 @@ a:focus {
   -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
 }
 
+/* Button Group */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 25px 0;
+}
 
+.button-link {
+  text-decoration: none;
+  background: none;
+  width: 250px; /* Fixed width for all buttons */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  box-sizing: border-box;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow if text exceeds button width */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
 
+.button-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background color change on hover */
+}
 
+/* Language Icon */
+.language-icon img {
+  width: 24px;
+}
+
+/* Video Background Section */
+.video-background-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video-background-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Overlay Content */
+.overlay-content {
+  position: absolute;
+  z-index: 1;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  width: 100%; /* Ensure full width for centering */
+  height: 100%; /* Ensure full height for vertical centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center both horizontally and vertically */
+  box-sizing: border-box;
+}
+
+/* Image/Video Background Container */
+.image-header-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Center horizontally */
+}
+
+/* Placeholder style */
+.placeholder {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 50vh; /* Take up the full viewport height */
+  width: 100vw; /* Take up the full viewport width */
+  text-align: center; /* Center text horizontally */
+}
+
+/* Custom Section with Background Image */
+.custom-section {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin: 0;
+  padding: 25px;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Position relative for absolute positioning of text */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Container for content in a row */
+.custom-container {
+  display: flex;
+  flex-direction: row; /* Align children horizontally */
+  align-items: flex-start; /* Align items at the top */
+  width: 100%; /* Full width of the viewport */
+  max-width: 1440px; /* Limit maximum width */
+  background: none;
+  overflow: hidden; /* Hide overflow */
+  box-sizing: border-box; /* Ensure padding/margins are included */
+}
+
+/* Row to handle horizontal scrolling */
+.custom-row {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  gap: 20px;
+  margin: 0; /* Remove margins for alignment */
+  width: 100%; /* Full width of the container */
+  overflow-x: auto; /* Add horizontal scrollbar if content overflows */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+}
+
+.custom-row::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit browsers */
+}
+
+/* Column styling */
+.custom-column {
+  flex: 0 0 375px; /* Fixed width for columns */
+  height: 200px;
+  border: 1px solid #ffffff;
+  background: transparent;
+  text-align: center;
+  margin: 0 auto; /* Center column horizontally */
+  position: relative; /* Allows absolute positioning of child elements */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out content vertically */
+  padding: 0 20px; /* Add padding for alignment */
+}
+
+/* Icon Wrapper */
+.custom-icon-widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center icon vertically within the space */
+  height: calc(100% - 40px); /* Adjust based on the height of the button and desired spacing */
+}
+
+/* Icon Styling */
+.custom-icon-homepage,
+.custom-icon-home,
+.custom-icon-rentals,
+.custom-icon-head,
+.custom-icon-contact {
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: brightness(0) invert(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* Center icon horizontally */
+}
+
+.custom-icon-homepage {
+  background-image: url('/static/icons/home.png');
+  width: 65px;
+  height: 65px;
+}
+
+.custom-icon-home {
+  background-image: url('/static/icons/search.png');
+  width: 95px;
+  height: 95px;
+}
+
+.custom-icon-head {
+  background-image: url('/static/icons/head.png');
+  width: 100px;
+  height: 100px;
+}
+
+.custom-icon-contact {
+  background-image: url('/static/icons/contact.png');
+  width: 105px;
+  height: 105px;
+}
+
+.custom-icon-rentals {
+  background-image: url('/static/icons/hand.png');
+  width: 85px;
+  height: 85px;
+}
+
+/* Button Link Styling */
+.custom-button-link {
+  font-size: 14px;
+  line-height: 40px;
+  width: 200px;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: none;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 1px;
+  display: block; /* Ensure it takes up space as a block element */
+  text-align: center; /* Center text inside the button */
+  margin: 0 auto; /* Center button horizontally */
+  margin-bottom: 25px; /* Fixed margin from the bottom */
+}
 
 /* Footer Styling */
 .footer {
@@ -242,21 +447,12 @@ a:focus {
   margin: 5px 0;
 }
 
-.footer-column img.realtor {
+.footer-column img.realtor,
+.footer-logo {
   height: 80px; /* Fixed height for realtor image */
   width: auto; /* Maintain aspect ratio */
   display: block; /* Ensure block display */
   margin: 0; /* Remove margin to align left */
-}
-
-.footer-logo {
-  height: 80px; /* Adjust this value to fit the height of the realtor image */
-  width: auto; /* Maintain aspect ratio */
-}
-
-.footer-logo {
-  height: 80px; /* Same height as the realtor image for consistency */
-  width: auto; /* Maintain aspect ratio */
 }
 
 .footer-image {
@@ -267,279 +463,105 @@ a:focus {
 }
 
 
-/* Button Group */
-.button-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin: 25px 0;
-}
-
-.button-link {
-  text-decoration: none;
-  background: none;
-  width: 250px; /* Fixed width for all buttons */
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 1px;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  font-size: 14px;
-  font-weight: 500;
-  box-sizing: border-box;
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide overflow if text exceeds button width */
-  text-overflow: ellipsis; /* Add ellipsis if text overflows */
-  transition: background-color 0.3s ease; /* Smooth hover transition */
-}
-
-.button-link:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.1); /* Slight background color change on hover */
-}
-
-/* Language Icon */
-.language-icon img {
-  width: 24px;
-}
-
-/* Full-Width Image Section */
-.h-image-container {
-  position: relative;
-  width: 100%; /* Full width of the container */
-  height: 50vh; /* Set height to match the placeholder */
-  overflow: hidden; /* Hide overflow to maintain aspect ratio */
-}
-
-.h-image {
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
-  object-fit: cover; /* Cover the container while maintaining aspect ratio */
-}
-
-.h-overlay-content {
-  position: absolute; /* Position it absolutely within the container */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust position to truly center the content */
-  color: #ffffff; /* Set text color */
-  text-align: center; /* Center align text horizontally */
-  padding: 0 20px; /* Optional padding for spacing */
-}
-
-/* Placeholder style */
-.placeholder {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 50vh; /* Take up the full viewport height */
-  width: 100vw; /* Take up the full viewport width */
-  text-align: center; /* Center text horizontally */
-}
-
-/* Custom Section with Background Image */
-.custom-section {
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  margin: 0;
-  padding: 25px;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative; /* Position relative for absolute positioning of text */
-  overflow: hidden; /* Hide overflow */
-}
-
-.custom-text {
-  position: absolute; /* Position it absolutely within the container */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust position to truly center the content */
-  color: #ffffff; /* Set text color */
-  text-align: center; /* Center align text horizontally */
-  font-size: 24px; /* Adjust font size as needed */
-  z-index: 2; /* Ensure it is above other elements */
-  white-space: nowrap; /* Prevent text wrapping */
-  font-weight: 500;
-}
-
-.custom-container {
-  display: flex;
-  flex-direction: row; /* Align children horizontally */
-  align-items: flex-start; /* Align items at the top */
-  width: 1440px; /* Fixed width for the container */
-  max-width: 100%; /* Ensure container does not exceed viewport width */
-  background: none;
-  overflow: hidden; /* Hide overflow */
-  box-sizing: border-box; /* Ensure padding/margins are included */
-}
-
-.custom-row {
-  display: flex;
-  flex-wrap: nowrap; /* Prevent wrapping */
-  gap: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 100%; /* Ensure row fits within the container */
-  box-sizing: border-box;
-  overflow-x: auto; /* Add horizontal scrollbar if content overflows */
-  overflow-y: hidden; /* Hide vertical scrollbar */
-}
-
-.custom-row::-webkit-scrollbar {
-  height: 0; /* Hide scrollbar */
-}
-
-.custom-row {
-  scrollbar-width: none; /* Hide scrollbar */
-}
-
-.custom-row {
-  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
-}
-
-.custom-column {
-  flex: 0 0 315px; /* Fixed width for columns */
-  border: 1px solid #ffffff;
-  background: transparent;
-  text-align: center;
-  position: relative;
-
-  padding: 20px; /* Padding for content spacing */
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0; /* Adjusted margin */
-}
-
-.custom-button-link {
-  font-size: 14px;
-  line-height: 40px;
-  padding: 0 10px;
-  box-sizing: border-box;
-  margin: 20px;
-  text-decoration: none;
-  background: none;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 1px;
-}
-
-.custom-button-link:hover {
-  background-color: transparent; /* Ensure background remains transparent */
-  color: #cccccc;
-  text-decoration: none;
-}
-
-.custom-icon-homepage,
-.custom-icon-home, 
-.custom-icon-rentals,
-.custom-icon-head, 
-.custom-icon-contact {
-  background-size: contain;
-  background-repeat: no-repeat;
-  filter: brightness(0) invert(1);
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.custom-icon-homepage {
-  background-image: url('/static/icons/homepage-icon.svg');
-}
-
-.custom-icon-home {
-  background-image: url('/static/icons/home-icon.svg');
-}
-
-.custom-icon-rentals {
-  background-image: url('/static/icons/rentals-icon.svg');
-}
-
-.custom-icon-head {
-  background-image: url('/static/icons/head-icon.svg');
-}
-
-.custom-icon-contact {
-  background-image: url('/static/icons/contact-icon.svg');
-}
-
-.custom-link {
-  text-decoration: none;
-  color: #ffffff;
-  background-color: transparent; /* Fully transparent background for button */
-  padding: 10px 20px; /* Padding for button */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 16px; /* Font size */
-  font-weight: 500; /* Font weight */
-  display: inline-block; /* Allow for margin and padding */
-  transition: background-color 0.3s ease; /* Smooth background color transition */
-}
-
-.custom-link:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Slight background color change on hover */
-}
-
 /* Responsive Styling */
-@media screen and (max-width: 768px) {
-  .site-header {
+@media screen and (max-width: 1000px) {
+  
+  .custom-column {
+    flex: 1 1 100%; /* Each column takes up 50% of the width */
+    max-width: 100%; /* Ensure each column does not exceed 50% width */
+  }
+  
+  /* Updated Icon Styling */
+  .custom-icon-homepage,
+  .custom-icon-home, 
+  .custom-icon-rentals,
+  .custom-icon-head, 
+  .custom-icon-contact {
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: brightness(0) invert(1);
+    display: flex;
+    align-items: center;
+    margin: 0 auto; /* Center icon horizontally within its container */
+    justify-content: center;
+  }
+  
+  /* Specific background images for each icon */
+  .custom-icon-homepage {
+    background-image: url('/static/icons/home.png');
+    width: 65px;
+    height: 65px;
+    margin-top: 10px;
+  }
+
+  .custom-icon-home {
+    background-image: url('/static/icons/search.png');
+    width: 95px;
+    height: 95px;
+  }
+
+  .custom-icon-head {
+    background-image: url('/static/icons/head.png');
+    width: 100px;
+    height: 100px;}
+
+  .custom-icon-contact {
+    background-image: url('/static/icons/contact.png');
+    width: 105px;
+    height: 105px;}
+
+  .custom-icon-rentals {
+    background-image: url('/static/icons/hand.png'); 
+    width: 85px;
+    height: 85px;
+  }
+
+  /* Adjust custom-column to align content and center the button at the bottom */
+  .custom-column {
+    height: 150px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 0 auto; /* Center icon horizontally within its container */
+    position: relative; /* Allows absolute positioning of child elements */
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-  
-  .hamburger-menu {
-    display: block; /* Show on mobile screens */
-  }
-  
-  .menu-bar {
-    display: none; /* Hide menu bar on small screens */
-  }
-  
-  .mobile-menu {
-    display: none; /* Ensure mobile menu is hidden by default */
-  }
-}
-
-@media screen and (max-width: 500px) {  
-  .footer-column img {
-    max-width: 50px; /* Adjust size of images in the footer */
+    justify-content: space-between; /* Space out content vertically */
   }
 
-  .custom-text {
-    font-size: 18px; /* Adjust font size for smaller screens */
-  }
-}
+  /* Adjust the button link to center horizontally */
+  .custom-button-link {
+    font-size: 14px;
+    line-height: 40px;
+    width: 250px;
+    box-sizing: border-box;
+    margin-top: auto; /* Push button to the bottom of the column */
+    text-decoration: none;
+    background: none;
+    color: #ffffff;
+    bottom: 25px;
+    border: 1px solid #ffffff;
+    border-radius: 1px;
+    display: block; /* Ensure it takes up space as a block element */
+    text-align: center; /* Center text inside the button */
+  } 
 
-@media screen and (max-width: 768px) {
+  .footer {
+    text-align: center; /* Center align footer content */
+    padding: 50px;
+  }
+
   .footer-content {
-    flex-wrap: wrap; /* Allow wrapping of columns */
+    flex-direction: column; /* Stack footer columns vertically */
+    align-items: center; /* Center align columns */
+    padding: 0; /* Add padding for spacing */
   }
 
-  .footer-column {
-    flex: 1 1 50%; /* Each column takes up 50% of the width */
-    max-width: 50%; /* Ensure each column does not exceed 50% width */
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .footer-column img {
-    max-width: 50px; /* Adjust max-width for small screens */
-  }
-
-  .custom-text {
-    font-size: 18px; /* Adjust font size for smaller screens */
+  .footer-column, .footer-text, .footer-nav {
+    width: 100%; /* Full width for each column */
+    max-width: 400px; /* Optional: Limit maximum width for better appearance */
+    text-align: center; /* Center text inside each column */
   }
 }
-
-
-

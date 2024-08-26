@@ -9,3 +9,4 @@ app = create_app()
 #   netstat -tuln | grep LISTEN
 #   lsof -i :5000
 #   kill -9 282229
+#nohup uvicorn main:app --host 0.0.0.0 --port 5000 --reload > uvicorn.log 2>&1 &

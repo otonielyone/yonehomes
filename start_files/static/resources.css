@@ -1,1 +1,14 @@
 /* General Styles */
+/* General Styles */
+
+
+.resource-heading {
+    font-size: 36px;
+    margin: 10px 0;
+    color: white; 
+    text-align: center;
+    font-weight: 500; /* Thin weight for headings */
+    background: none; /* Ensure no background color */
+    padding: 0; /* Remove padding if any */  
+
+}

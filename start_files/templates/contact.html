@@ -10,7 +10,6 @@
     }
 </style>
 
-
 {% endblock %}
 
 {% block body %}
@@ -23,7 +22,7 @@
             <a href="/buying" class="menu-link">BUYING</a>
             <a href="/rentals" class="menu-link">RENTALS</a>
             <a href="/resources" class="menu-link">RESOURCES</a>
-         </div>
+        </div>
 
         <!-- Right Column with Language Icon -->
         <div class="menu-column right-column">
@@ -32,14 +31,13 @@
             </a>
         </div>
     </nav>
-        
+    
     <!-- Hamburger Menu Icon -->
     <nav class="hamburger-menu" id="hamburger-menu">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
     </nav>
-    
 
     <!-- Mobile Menu -->
     <nav class="mobile-menu" id="mobile-menu">
@@ -50,34 +48,58 @@
     </nav>
 </div>
 
-<!-- Full-Width Image Section -->
-<div class="h-contact-page">
-    <div class="h-image-container">
-        <img src="/static/icons/contact-custom.jpg" alt="Contact" class="contact-image">
-        <div class="h-overlay-content">
+<!-- Image/Video Background Container -->
+<div class="image-header-container">
+    <!-- Video Background Section -->
+    <div class="video-background-wrapper">
+        <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+        src="/static/icons/trees2.mp4"></video>
+
+        <!-- Overlay Content Section -->
+        <div class="overlay-content">
             <div class="text-content">
-                <h1 class="custom-heading">REACH OUT BELOW</h1>
+                <h1 class="contact-heading">REACH OUT BELOW</h1>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Placeholder Section -->
-<div class="placeholder">
-    <span class="construction-text">TEMPORARILY UNDER CONSTRUCTION</span>
+<div class="contact-form-container">
+    <h1>Contact Us</h1>
+    <form action="/static/send_email.php" method="POST">
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" required>
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+            <label for="inquiry">General Inquiry:</label>
+            <textarea id="inquiry" name="general_inquiry" rows="4" placeholder="List your price range, location preferences, and any other details here..." required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
 </div>
 
 
 <!-- Custom Section with Parallax Effect -->
 <div class="custom-section" id="main-section">
-    
     <div class="custom-header">
         <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
     </div>
-
     <div class="custom-container">
         <div class="custom-row">
-        
             <div class="custom-column">
                 <div class="custom-icon-widget">
                     <span class="custom-icon-homepage"></span>
@@ -91,11 +113,11 @@
                 <div class="custom-icon-widget">
                     <span class="custom-icon-home"></span>
                 </div>
-                <a class="custom-button-link" href="https://otonielyone.unitedrealestatewashingtondc.com/index.html" id="button-search-homes">
+                <a class="custom-button-link" href="/buying" id="button-search-homes">
                     <span class="button-text">SEARCH HOMES</span>
                 </a>
             </div>
-    
+
             <div class="custom-column">
                 <div class="custom-icon-widget">
                     <span class="custom-icon-rentals"></span>
@@ -113,7 +135,6 @@
                     <span class="button-text">FIND RESOURCES</span>
                 </a>
             </div>
-
         </div>
     </div>
 </div>

@@ -1,48 +1,57 @@
-a.cta-button {
-    background-color: transparent;
-    border:none;
-    background: none;
+.light-green-text {
+    text-align: center; /* Optional: align text as needed */
     color: green;
-    font-size: 14px;
+    padding-top: 20px; /* Optional: add some padding if needed */
 }
-  
-  a.cta-button .text{
+
+.navy-blue-text{
+    text-align: center; /* Optional: align text as needed */
     color: rgb(37, 71, 221);
+    padding-top: 20px; /* Optional: add some padding if needed */
 }
 
-
-.leasing-qualifications {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px; /* Center the section */
-    text-align: center; /* Center text */
-    background: none; /* Remove background */
+.rental-services {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    background-color: none;
+    box-sizing: border-box;
+    align-items: center; /* Center items horizontally */
+    z-index: 1; /* Ensure it's below the video overlay */
+    width: 100%;
 }
 
-.leasing-qualifications .section-heading {
-    font-size: 1.5rem;
-    color: #c0392b; /* Dark red */
-    font-weight: 50px; /* Thin weight for headings */
+.rental-services-wrapper {
+    width: 75%;
+    color: #000;
+    padding-top: 20px;
+    padding-bottom: 20px; 
 }
 
-.leasing-qualifications .light-red-text,
-.leasing-qualifications .dark-red-text {
-    line-height: 1.6;
-    font-weight: 100; /* Thin weight for text */
+.rental-services p {
+    margin: 0 auto;
 }
 
-.leasing-qualifications .dark-red-text {
-    color: #a91909; /* Light red */
-    font-weight: bold; /* Make text bold */
-    font-size: 14px;
-    margin: 20px;
+.light-red-text h2 {
+    margin: 0 auto;
 }
 
-.leasing-qualifications .light-red-text {
+.rental-services h2 {
+    padding-bottom: 10px;
+    font-size: 1.5rem; /* Adjust font size as needed */
+}
+
+.light-red-text{
     color: #c0392b; /* Dark red */
     font-weight: 300; /* Make text bold */
-    font-size: 14px;
-    margin: 20px;
+    margin: 0 auto;
+    padding-top: 20px; /* Optional: add some padding if needed */
+}
+
+.dark-red-text {
+    color: #a91909; /* Light red */
+    font-weight: bold; /* Make text bold */
+    margin: 0 auto;
+    padding-top: 20px; /* Optional: add some padding if needed */
 }
 
 
@@ -71,9 +80,7 @@ a.cta-button {
     color: #000000; /* Set text color to black */
     font-weight: normal; /* Reset font weight if needed */
     background: none; /* Ensure no background color */
-    padding: 20px; /* Optional: add some padding if needed */
     text-align: center; /* Optional: align text as needed */
     font-size: 14px;
+    padding-top: 20px; /* Optional: add some padding if needed */
 }
-
-
