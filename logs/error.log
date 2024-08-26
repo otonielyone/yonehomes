@@ -1367,3 +1367,360 @@ AssertionError: jinja2 must be installed to use Jinja2Templates
 [2024-08-24 03:12:41 -0400] [1542] [INFO] Started server process [1542]
 [2024-08-24 03:12:41 -0400] [1542] [INFO] Waiting for application startup.
 [2024-08-24 03:12:41 -0400] [1542] [INFO] Application startup complete.
+[2024-08-26 09:08:18 -0400] [12742] [INFO] Starting gunicorn 23.0.0
+[2024-08-26 09:08:18 -0400] [12742] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:08:18 -0400] [12742] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:08:19 -0400] [12742] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:08:19 -0400] [12742] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:08:20 -0400] [12742] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:08:20 -0400] [12742] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:08:21 -0400] [12742] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:08:21 -0400] [12742] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:08:22 -0400] [12742] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:08:22 -0400] [12742] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:08:23 -0400] [12742] [ERROR] Can't connect to ('192.168.0.100', 5000)
+[2024-08-26 09:14:29 -0400] [1772] [INFO] Starting gunicorn 23.0.0
+[2024-08-26 09:14:29 -0400] [1772] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:14:29 -0400] [1772] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:14:30 -0400] [1772] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:14:30 -0400] [1772] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:14:31 -0400] [1772] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:14:31 -0400] [1772] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:14:32 -0400] [1772] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:14:32 -0400] [1772] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:14:33 -0400] [1772] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:14:33 -0400] [1772] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:14:34 -0400] [1772] [ERROR] Can't connect to ('192.168.0.100', 5000)
+[2024-08-26 09:19:44 -0400] [2124] [DEBUG] Current configuration:
+  config: gunicorn_config.py
+  wsgi_app: None
+  bind: ['192.168.0.100:5000']
+  backlog: 2048
+  workers: 4
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/oyone/fastapi_project
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1003
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: /home/oyone/fastapi_project/logs/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/oyone/fastapi_project/logs/error.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: main:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0xffff81db8220>
+  on_reload: <function OnReload.on_reload at 0xffff81db8360>
+  when_ready: <function WhenReady.when_ready at 0xffff81db84a0>
+  pre_fork: <function Prefork.pre_fork at 0xffff81db8680>
+  post_fork: <function Postfork.post_fork at 0xffff81db87c0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0xffff81db8900>
+  worker_int: <function WorkerInt.worker_int at 0xffff81db8a40>
+  worker_abort: <function WorkerAbort.worker_abort at 0xffff81db8b80>
+  pre_exec: <function PreExec.pre_exec at 0xffff81db8cc0>
+  pre_request: <function PreRequest.pre_request at 0xffff81db8e00>
+  post_request: <function PostRequest.post_request at 0xffff81db8ea0>
+  child_exit: <function ChildExit.child_exit at 0xffff81db8fe0>
+  worker_exit: <function WorkerExit.worker_exit at 0xffff81db9120>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0xffff81db9260>
+  on_exit: <function OnExit.on_exit at 0xffff81db93a0>
+  ssl_context: <function NewSSLContext.ssl_context at 0xffff81db9580>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2024-08-26 09:19:44 -0400] [2124] [INFO] Starting gunicorn 23.0.0
+[2024-08-26 09:19:44 -0400] [2124] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:19:44 -0400] [2124] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:19:44 -0400] [2124] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:19:45 -0400] [2124] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:19:45 -0400] [2124] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:19:45 -0400] [2124] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:19:46 -0400] [2124] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:19:46 -0400] [2124] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:19:46 -0400] [2124] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:19:47 -0400] [2124] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:19:47 -0400] [2124] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:19:47 -0400] [2124] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:19:48 -0400] [2124] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:19:48 -0400] [2124] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:19:48 -0400] [2124] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:19:49 -0400] [2124] [ERROR] Can't connect to ('192.168.0.100', 5000)
+[2024-08-26 09:28:21 -0400] [2825] [DEBUG] Current configuration:
+  config: gunicorn_config.py
+  wsgi_app: None
+  bind: ['192.168.0.100:5000']
+  backlog: 2048
+  workers: 4
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/oyone/fastapi_project
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1003
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: /home/oyone/fastapi_project/logs/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/oyone/fastapi_project/logs/error.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: main:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0xffff993a8220>
+  on_reload: <function OnReload.on_reload at 0xffff993a8360>
+  when_ready: <function WhenReady.when_ready at 0xffff993a84a0>
+  pre_fork: <function Prefork.pre_fork at 0xffff993a8680>
+  post_fork: <function Postfork.post_fork at 0xffff993a87c0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0xffff993a8900>
+  worker_int: <function WorkerInt.worker_int at 0xffff993a8a40>
+  worker_abort: <function WorkerAbort.worker_abort at 0xffff993a8b80>
+  pre_exec: <function PreExec.pre_exec at 0xffff993a8cc0>
+  pre_request: <function PreRequest.pre_request at 0xffff993a8e00>
+  post_request: <function PostRequest.post_request at 0xffff993a8ea0>
+  child_exit: <function ChildExit.child_exit at 0xffff993a8fe0>
+  worker_exit: <function WorkerExit.worker_exit at 0xffff993a9120>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0xffff993a9260>
+  on_exit: <function OnExit.on_exit at 0xffff993a93a0>
+  ssl_context: <function NewSSLContext.ssl_context at 0xffff993a9580>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2024-08-26 09:28:21 -0400] [2825] [INFO] Starting gunicorn 23.0.0
+[2024-08-26 09:28:21 -0400] [2825] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:21 -0400] [2825] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:21 -0400] [2825] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:22 -0400] [2825] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:22 -0400] [2825] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:22 -0400] [2825] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:23 -0400] [2825] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:23 -0400] [2825] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:23 -0400] [2825] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:24 -0400] [2825] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:24 -0400] [2825] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:24 -0400] [2825] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:25 -0400] [2825] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:25 -0400] [2825] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:25 -0400] [2825] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:26 -0400] [2825] [ERROR] Can't connect to ('192.168.0.100', 5000)
+[2024-08-26 09:28:49 -0400] [2993] [DEBUG] Current configuration:
+  config: gunicorn_config.py
+  wsgi_app: None
+  bind: ['192.168.0.100:5000']
+  backlog: 2048
+  workers: 4
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/oyone/fastapi_project
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1003
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1', '::1']
+  accesslog: /home/oyone/fastapi_project/logs/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/oyone/fastapi_project/logs/error.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  logconfig_json: None
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: main:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0xffffb6c3c220>
+  on_reload: <function OnReload.on_reload at 0xffffb6c3c360>
+  when_ready: <function WhenReady.when_ready at 0xffffb6c3c4a0>
+  pre_fork: <function Prefork.pre_fork at 0xffffb6c3c680>
+  post_fork: <function Postfork.post_fork at 0xffffb6c3c7c0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0xffffb6c3c900>
+  worker_int: <function WorkerInt.worker_int at 0xffffb6c3ca40>
+  worker_abort: <function WorkerAbort.worker_abort at 0xffffb6c3cb80>
+  pre_exec: <function PreExec.pre_exec at 0xffffb6c3ccc0>
+  pre_request: <function PreRequest.pre_request at 0xffffb6c3ce00>
+  post_request: <function PostRequest.post_request at 0xffffb6c3cea0>
+  child_exit: <function ChildExit.child_exit at 0xffffb6c3cfe0>
+  worker_exit: <function WorkerExit.worker_exit at 0xffffb6c3d120>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0xffffb6c3d260>
+  on_exit: <function OnExit.on_exit at 0xffffb6c3d3a0>
+  ssl_context: <function NewSSLContext.ssl_context at 0xffffb6c3d580>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1', '::1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  permit_obsolete_folding: False
+  strip_header_spaces: False
+  permit_unconventional_http_method: False
+  permit_unconventional_http_version: False
+  casefold_http_method: False
+  forwarder_headers: ['SCRIPT_NAME', 'PATH_INFO']
+  header_map: drop
+[2024-08-26 09:28:49 -0400] [2993] [INFO] Starting gunicorn 23.0.0
+[2024-08-26 09:28:49 -0400] [2993] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:49 -0400] [2993] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:49 -0400] [2993] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:50 -0400] [2993] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:50 -0400] [2993] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:50 -0400] [2993] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:51 -0400] [2993] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:51 -0400] [2993] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:51 -0400] [2993] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:52 -0400] [2993] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:52 -0400] [2993] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:52 -0400] [2993] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:53 -0400] [2993] [ERROR] Connection in use: ('192.168.0.100', 5000)
+[2024-08-26 09:28:53 -0400] [2993] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 98] Address already in use
+[2024-08-26 09:28:53 -0400] [2993] [DEBUG] Retrying in 1 second.
+[2024-08-26 09:28:54 -0400] [2993] [ERROR] Can't connect to ('192.168.0.100', 5000)
