@@ -565,3 +565,25 @@ a:focus {
     text-align: center; /* Center text inside each column */
   }
 }
+
+/* Hide menu-bar when hamburger menu is visible */
+@media screen and (max-width: 768px) { /* Adjust breakpoint as needed */
+  .menu-bar {
+    display: none; /* Hide the menu-bar on mobile view */
+  }
+
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu on mobile view */
+  }
+}
+
+/* Keep menu-bar visible when not in mobile view */
+@media screen and (min-width: 769px) {
+  .menu-bar {
+    display: flex; /* Ensure the menu-bar is shown in non-mobile view */
+  }
+
+  .hamburger-menu {
+    display: none; /* Hide the hamburger menu in non-mobile view */
+  }
+}
