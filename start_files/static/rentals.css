@@ -1,86 +1,242 @@
-.light-green-text {
-    text-align: center; /* Optional: align text as needed */
-    color: green;
-    padding-top: 20px; /* Optional: add some padding if needed */
+/* Ensure changes only apply to the specific sections without affecting others */
+
+/* For dynamic button grid section */
+.button-grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.navy-blue-text{
-    text-align: center; /* Optional: align text as needed */
-    color: rgb(37, 71, 221);
-    padding-top: 20px; /* Optional: add some padding if needed */
+/* Button grid styles */
+.button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
 }
 
+.button-item {
+    flex: 1 1 calc(25% - 16px);
+    box-sizing: border-box;
+    max-width: calc(25% - 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Ensure button elements have no borders */
+.button-item button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none; /* Removes default focus outline */
+}
+
+/* Ensure image within button has no border */
+.button-item img {
+    width: 100px;
+    height: auto;
+    border: none;
+}
+
+/* Ensure button text styles are maintained */
+.button-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Remove focus outline for button */
+.button-item button:focus {
+    outline: none;
+}
+
+/* Remove active outline and box-shadow for button */
+.button-item button:active {
+    border: none;
+    box-shadow: none; /* Ensures no shadow effect */
+}
+
+/* Remove any border when button is clicked or focused */
+.button-item button:focus img,
+.button-item button:active img {
+    border: none;
+}
+
+/* Media Queries for Responsive Layout */
+@media (max-width: 1200px) {
+    .button-item {
+        flex: 1 1 calc(33.33% - 16px);
+        max-width: calc(33.33% - 16px);
+    }
+}
+
+@media (max-width: 800px) {
+    .button-item {
+        flex: 1 1 calc(50% - 16px);
+        max-width: calc(50% - 16px);
+    }
+}
+
+@media (max-width: 500px) {
+    .button-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* Ensure text is properly visible in the overlay */
+.overlay-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Specific Styles for Rental Services Section */
 .rental-services {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    background-color: none;
-    box-sizing: border-box;
-    align-items: center; /* Center items horizontally */
-    z-index: 1; /* Ensure it's below the video overlay */
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    padding: 20px 0;
 }
 
 .rental-services-wrapper {
     width: 75%;
-    color: #000;
-    padding-top: 20px;
-    padding-bottom: 20px; 
+    max-width: 1200px; /* Adjust based on your design */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.rental-services p {
-    margin: 0 auto;
-}
-
-.light-red-text h2 {
-    margin: 0 auto;
-}
-
+.rental-services p,
 .rental-services h2 {
-    padding-bottom: 10px;
-    font-size: 1.5rem; /* Adjust font size as needed */
+    margin: 0;
+    text-align: center;
 }
 
-.light-red-text{
-    color: #c0392b; /* Dark red */
-    font-weight: 300; /* Make text bold */
-    margin: 0 auto;
-    padding-top: 20px; /* Optional: add some padding if needed */
+.light-green-text {
+    color: green;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.navy-blue-text {
+    color: rgb(37, 71, 221);
+    padding-top: 20px;
+    text-align: center;
+}
+
+.light-red-text {
+    color: #c0392b;
+    font-weight: 300;
+    text-align: center;
+    padding-top: 20px;
 }
 
 .dark-red-text {
-    color: #a91909; /* Light red */
-    font-weight: bold; /* Make text bold */
-    margin: 0 auto;
-    padding-top: 20px; /* Optional: add some padding if needed */
+    color: #a91909;
+    font-weight: bold;
+    padding-top: 20px;
 }
 
-
-/* Styling for the heading inside the overlay */
-.rentals-page .custom-heading {
-    font-size: 1.5rem; /* Adjust font size as needed */
-    margin: 0; /* Remove default margin */
-    font-weight: 100; /* Thin weight for headings */
-    color: #ffffff; /* Ensure text color is white */
-    background: none; /* Ensure no background color */
+/* Custom Section Background */
+.custom-section {
+    background-image: url('/static/icons/rental-custom.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-top: 20px;
+    padding: 20px;
 }
 
-
-/* Text content styling */
-.rentals-page .text-content {
-    display: flex; /* Use flexbox for centering content */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    height: 100%; /* Full height of the container */
+/* Ensure the popup styles are also applied correctly */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px; /* Adjusted for a softer look */
+    max-width: 90%;
+    max-height: 80vh;
+    overflow: auto; /* Allows scrolling if content overflows */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
 
-/* Style for additional-info with black text */
-.additional-info.black-text {
-    color: #000000; /* Set text color to black */
-    font-weight: normal; /* Reset font weight if needed */
-    background: none; /* Ensure no background color */
-    text-align: center; /* Optional: align text as needed */
-    font-size: 14px;
-    padding-top: 20px; /* Optional: add some padding if needed */
+.popup-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px; /* Increased for better separation */
+}
+
+.popup-gallery img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.popup-gallery img:hover {
+    opacity: 0.8;
+}
+
+.popup-text {
+    margin-top: 15px; /* Increased for better spacing */
+    color: black;
+    text-align: center;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #007bff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Contact button styles */
+.contact-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px; /* Adjusted to ensure proper spacing */
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }

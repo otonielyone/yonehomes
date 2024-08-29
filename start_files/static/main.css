@@ -505,15 +505,16 @@ a:focus {
     max-width: 400px; /* Optional: Limit maximum width for better appearance */
     text-align: center; /* Center text inside each column */
   }
+}
 
-
-  @media screen and (max-width: 768px) {
-    .image-header-container {
+@media screen and (max-width: 768px) {
+  
+  .image-header-container {
     height: 100vw; /* Use viewport width for height in landscape mode */
   }
-
+      
   .menu-bar {
-    display: none; /* Hide the menu bar */
+  display: none; /* Hide the menu bar */
   }
 
   .hamburger-menu {
