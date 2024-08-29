@@ -1,5 +1,3 @@
-/* Existing CSS (unchanged) */
-
 /* Import Montserrat font with thin weights */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
 
@@ -45,7 +43,6 @@ a,
 a:active,
 a:focus {
   color: inherit; /* Inherit color from parent */
-  text-align: left; /* Ensure text alignment is left */
   text-transform: uppercase;
   text-decoration: none; /* Ensure no underline or decoration */
 }
@@ -54,7 +51,7 @@ a:focus {
 .main-heading, .sub-heading {
   font-size: 36px;
   margin: 10px 0;
-  font-weight: 500; /* Thin weight for headings */
+  font-weight: 500; /* Thicker weight for headings */
   background: none; /* Ensure no background color */
   padding: 0; /* Remove padding if any */
 }
@@ -69,10 +66,13 @@ a:focus {
 .menu-link a {
   display: block; /* Ensures the anchor tag fills the menu item container */
   text-align: left; /* Aligns text inside the anchor tag to the left */
+  
 }
 
 .menu-link {
   margin: 15px;
+  font-weight: 1000px;
+  color: #ffffff; /* White text color */
 }
 
 .menu-bar {
@@ -90,11 +90,15 @@ a:focus {
   transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
+.button-link:hover,
+.button-text:active,
 .menu-link:hover,
 .menu-link:active,
 .menu-item:hover,
 .menu-item:active {
   background-color: rgba(255, 255, 255, 0.1); /* Fade effect on hover and active */
+  font-weight: 1000px;
+
 }
 
 /* Hamburger Menu */
@@ -165,6 +169,11 @@ a:focus {
   -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
 }
 
+
+.construction-text {
+  color: red;
+}
+
 /* Button Group */
 .button-group {
   display: flex;
@@ -194,9 +203,18 @@ a:focus {
   transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
-.button-link:hover {
+
+.custom-button-link:active a {
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.1); /* Slight background color change on hover */
+  text-decoration: none;
+  justify-content: center;
+}
+
+
+.button-text:active a {
+  color: #ffffff;
+  text-decoration: none;
+  justify-content: center;
 }
 
 /* Language Icon */
@@ -242,7 +260,7 @@ a:focus {
 .image-header-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* Full viewport height */
   overflow: hidden;
   margin: 0;
   display: flex;
@@ -258,6 +276,7 @@ a:focus {
   height: 50vh; /* Take up the full viewport height */
   width: 100vw; /* Take up the full viewport width */
   text-align: center; /* Center text horizontally */
+  z-index: 1000;
 }
 
 /* Custom Section with Background Image */
@@ -462,92 +481,14 @@ a:focus {
   margin: 0 auto; /* Center images horizontally if needed */
 }
 
-
-/* Responsive Styling */
-@media screen and (max-width: 1000px) {
-  
+/* Responsive Styling fOR Footer*/
+@media screen and (max-width: 908px) {
   .custom-column {
-    flex: 1 1 100%; /* Each column takes up 50% of the width */
-    max-width: 100%; /* Ensure each column does not exceed 50% width */
+    flex: 1 1 100%; /* Each column takes up 100% of the width */
+    max-width: 100%; /* Ensure each column does not exceed 100% width */
   }
   
-  /* Updated Icon Styling */
-  .custom-icon-homepage,
-  .custom-icon-home, 
-  .custom-icon-rentals,
-  .custom-icon-head, 
-  .custom-icon-contact {
-    background-size: contain;
-    background-repeat: no-repeat;
-    filter: brightness(0) invert(1);
-    display: flex;
-    align-items: center;
-    margin: 0 auto; /* Center icon horizontally within its container */
-    justify-content: center;
-  }
-  
-  /* Specific background images for each icon */
-  .custom-icon-homepage {
-    background-image: url('/static/icons/home.png');
-    width: 65px;
-    height: 65px;
-    margin-top: 10px;
-  }
-
-  .custom-icon-home {
-    background-image: url('/static/icons/search.png');
-    width: 95px;
-    height: 95px;
-  }
-
-  .custom-icon-head {
-    background-image: url('/static/icons/head.png');
-    width: 100px;
-    height: 100px;}
-
-  .custom-icon-contact {
-    background-image: url('/static/icons/contact.png');
-    width: 105px;
-    height: 105px;}
-
-  .custom-icon-rentals {
-    background-image: url('/static/icons/hand.png'); 
-    width: 85px;
-    height: 85px;
-  }
-
-  /* Adjust custom-column to align content and center the button at the bottom */
-  .custom-column {
-    height: 150px;
-    border: 1px solid #ffffff;
-    background: transparent;
-    text-align: center;
-    padding-left: 25px;
-    padding-right: 25px;
-    margin: 0 auto; /* Center icon horizontally within its container */
-    position: relative; /* Allows absolute positioning of child elements */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Space out content vertically */
-  }
-
-  /* Adjust the button link to center horizontally */
-  .custom-button-link {
-    font-size: 14px;
-    line-height: 40px;
-    width: 250px;
-    box-sizing: border-box;
-    margin-top: auto; /* Push button to the bottom of the column */
-    text-decoration: none;
-    background: none;
-    color: #ffffff;
-    bottom: 25px;
-    border: 1px solid #ffffff;
-    border-radius: 1px;
-    display: block; /* Ensure it takes up space as a block element */
-    text-align: center; /* Center text inside the button */
-  } 
-
+  /* Adjust footer styling for small screens */
   .footer {
     text-align: center; /* Center align footer content */
     padding: 50px;
@@ -556,7 +497,7 @@ a:focus {
   .footer-content {
     flex-direction: column; /* Stack footer columns vertically */
     align-items: center; /* Center align columns */
-    padding: 0; /* Add padding for spacing */
+    padding: 0; /* Remove padding for better appearance */
   }
 
   .footer-column, .footer-text, .footer-nav {
@@ -564,26 +505,37 @@ a:focus {
     max-width: 400px; /* Optional: Limit maximum width for better appearance */
     text-align: center; /* Center text inside each column */
   }
-}
 
-/* Hide menu-bar when hamburger menu is visible */
-@media screen and (max-width: 768px) { /* Adjust breakpoint as needed */
+
+  @media screen and (max-width: 768px) {
+    .image-header-container {
+    height: 100vw; /* Use viewport width for height in landscape mode */
+  }
+
   .menu-bar {
-    display: none; /* Hide the menu-bar on mobile view */
+    display: none; /* Hide the menu bar */
   }
 
   .hamburger-menu {
     display: block; /* Show the hamburger menu on mobile view */
+    z-index: 1500;
   }
 }
 
-/* Keep menu-bar visible when not in mobile view */
-@media screen and (min-width: 769px) {
+
+@media screen and (max-width: 500px) and (orientation: portrait){ /* Cover Screen - Portrait */
+  /* Image/Video Background Container Adjustments */
+  .image-header-container {
+    height: 100vw; /* Use viewport width for height in landscape mode */
+  }
+
   .menu-bar {
-    display: flex; /* Ensure the menu-bar is shown in non-mobile view */
+    display: none; /* Hide the menu bar */
   }
 
   .hamburger-menu {
-    display: none; /* Hide the hamburger menu in non-mobile view */
+    display: block; /* Show the hamburger menu */
+    z-index: 1501;
   }
 }
+

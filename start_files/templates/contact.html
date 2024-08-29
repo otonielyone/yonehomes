@@ -64,10 +64,10 @@
     </div>
 </div>
 
-<!-- Placeholder Section -->
+
 <div class="contact-form-container">
     <h1>Contact Us</h1>
-    <form action="/contact" method="POST">
+    <form action="/contact" method="post">
         <div class="form-group">
             <label for="first-name">First Name</label>
             <input type="text" id="first-name" name="first_name" required>
@@ -93,7 +93,59 @@
 </div>
 
 
-<!-- Custom Section with Parallax Effect -->
+<div class="contact-container">
+    <!-- Office Information Section -->
+    <div class="contact-info">
+        <div class="contact-info-sec1"><h3>Office</h3></div>
+        <div class="contact-info-sec2">
+            <p>Toni Yone, REALTOR®</p>
+            <p>United Real Estate</p>
+            <p>10780 Parkridge Blvd #80</p>
+            <p>Reston, VA 20191</p>
+            <p>toni@yone.realtor</p>
+            <p>(703) 596-2121</p>
+        </div>
+    </div>
+</div>
+  
+<!-- Map Section -->
+<div class="map-container" id="map" style="height: 400px; width: 100%;">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGVWDMSCezyiwaEH4We6u_SL4wrLTDnAM"></script>
+    <script>
+        function initMap() {
+        // Create a new map centered on the given coordinates
+        var location = { lat: 38.94553, lng: -77.31596 };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: location
+        });
+
+        // Add a marker to the map
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: '10780 Parkridge Blvd #80, Reston, VA 20191'
+        });
+        }
+
+        // Load the map after the page has loaded
+        window.onload = initMap;
+            </script>
+</div>
+    
+
+
+{% if flashed_messages %}
+<ul class="flashed-messages">
+    {% for message in flashed_messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<!-- Custom Section with Parallax Effect --
 <div class="custom-section" id="main-section">
     <div class="custom-header">
         <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
@@ -137,6 +189,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 {% endblock %}

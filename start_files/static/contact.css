@@ -1,4 +1,22 @@
 /* General Styles */
+body {
+    color: black;
+}
+
+.contact-info {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.contact-info-sec1 {
+padding-bottom: 5px;
+}
+
+.contact-info-sec2 {
+    padding-bottom: 20px;
+}
 
 .contact-heading {
     font-size: 36px;
@@ -26,7 +44,7 @@
 /* Heading inside the form */
 .contact-form-container h1 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     color: #333; /* Darker color for the heading */
 }
 

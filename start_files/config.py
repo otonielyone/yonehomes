@@ -1,8 +1,8 @@
 # start_files/config.py
-
+from fastapi.templating import Jinja2Templates
 from typing import List, Dict, Union
 from fastapi import Request
-from fastapi.templating import Jinja2Templates
+
 
 flash_messages = []
 
@@ -19,6 +19,7 @@ def get_flashed_messages(request: Request) -> List[Dict[str, Union[str, List[str
     messages = flash_messages[:]
     flash_messages.clear()
     return messages
+
 
 def get_templates() -> Jinja2Templates:
     return Jinja2Templates(directory="start_files/templates")
