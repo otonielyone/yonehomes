@@ -61618,3 +61618,189 @@ subprocess.CalledProcessError: Command 'python3 /start_files/routes/est.py' retu
 [2024-08-31 03:53:16 -0400] [73724] [INFO] Started server process [73724]
 [2024-08-31 03:53:16 -0400] [73724] [INFO] Waiting for application startup.
 [2024-08-31 03:53:16 -0400] [73724] [INFO] Application startup complete.
+[2024-08-31 04:04:47 -0400] [73724] [WARNING] Invalid HTTP request received.
+[2024-08-31 04:04:48 -0400] [73724] [WARNING] Invalid HTTP request received.
+[2024-08-31 04:15:26 -0400] [73722] [INFO] Shutting down
+[2024-08-31 04:15:26 -0400] [73725] [INFO] Shutting down
+[2024-08-31 04:15:26 -0400] [73677] [INFO] Handling signal: term
+[2024-08-31 04:15:26 -0400] [73723] [INFO] Shutting down
+[2024-08-31 04:15:26 -0400] [73722] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-08-31 04:15:26 -0400] [73725] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-08-31 04:15:26 -0400] [73723] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-08-31 04:15:26 -0400] [73724] [INFO] Shutting down
+[2024-08-31 04:15:26 -0400] [73724] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-08-31 04:15:26 -0400] [73725] [INFO] Waiting for application shutdown.
+[2024-08-31 04:15:26 -0400] [73722] [INFO] Waiting for application shutdown.
+[2024-08-31 04:15:26 -0400] [73722] [INFO] Application shutdown complete.
+[2024-08-31 04:15:26 -0400] [73723] [INFO] Waiting for application shutdown.
+[2024-08-31 04:15:26 -0400] [73722] [INFO] Finished server process [73722]
+[2024-08-31 04:15:26 -0400] [73725] [INFO] Application shutdown complete.
+[2024-08-31 04:15:26 -0400] [73725] [INFO] Finished server process [73725]
+[2024-08-31 04:15:26 -0400] [73724] [INFO] Waiting for application shutdown.
+[2024-08-31 04:15:26 -0400] [73723] [INFO] Application shutdown complete.
+[2024-08-31 04:15:26 -0400] [73723] [INFO] Finished server process [73723]
+[2024-08-31 04:15:26 -0400] [73724] [INFO] Application shutdown complete.
+[2024-08-31 04:15:26 -0400] [73724] [INFO] Finished server process [73724]
+[2024-08-31 04:15:26 -0400] [73677] [ERROR] Worker (pid:73722) was sent SIGTERM!
+[2024-08-31 04:15:26 -0400] [73677] [ERROR] Worker (pid:73725) was sent SIGTERM!
+[2024-08-31 04:15:26 -0400] [73677] [ERROR] Worker (pid:73724) was sent SIGTERM!
+[2024-08-31 04:15:26 -0400] [73677] [ERROR] Worker (pid:73723) was sent SIGTERM!
+[2024-08-31 04:15:26 -0400] [73677] [INFO] Shutting down: Master
+[2024-08-31 04:16:27 -0400] [1078] [INFO] Starting gunicorn 23.0.0
+[2024-08-31 04:16:27 -0400] [1078] [ERROR] Invalid address: ('192.168.0.100', 5000)
+[2024-08-31 04:16:27 -0400] [1078] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-08-31 04:16:28 -0400] [1078] [ERROR] Invalid address: ('192.168.0.100', 5000)
+[2024-08-31 04:16:28 -0400] [1078] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-08-31 04:16:29 -0400] [1078] [INFO] Listening at: http://192.168.0.100:5000 (1078)
+[2024-08-31 04:16:29 -0400] [1078] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-08-31 04:16:29 -0400] [1322] [INFO] Booting worker with pid: 1322
+[2024-08-31 04:16:29 -0400] [1323] [INFO] Booting worker with pid: 1323
+[2024-08-31 04:16:29 -0400] [1324] [INFO] Booting worker with pid: 1324
+[2024-08-31 04:16:29 -0400] [1325] [INFO] Booting worker with pid: 1325
+[2024-08-31 04:16:47 -0400] [1325] [INFO] Started server process [1325]
+[2024-08-31 04:16:47 -0400] [1324] [INFO] Started server process [1324]
+[2024-08-31 04:16:47 -0400] [1325] [INFO] Waiting for application startup.
+[2024-08-31 04:16:47 -0400] [1324] [INFO] Waiting for application startup.
+[2024-08-31 04:16:47 -0400] [1324] [INFO] Application startup complete.
+[2024-08-31 04:16:47 -0400] [1323] [INFO] Started server process [1323]
+[2024-08-31 04:16:47 -0400] [1323] [INFO] Waiting for application startup.
+[2024-08-31 04:16:47 -0400] [1323] [INFO] Application startup complete.
+[2024-08-31 04:16:47 -0400] [1322] [INFO] Started server process [1322]
+[2024-08-31 04:16:47 -0400] [1322] [INFO] Waiting for application startup.
+[2024-08-31 04:16:47 -0400] [1325] [INFO] Application startup complete.
+[2024-08-31 04:16:47 -0400] [1322] [INFO] Application startup complete.
+[2024-08-31 04:20:34 -0400] [1325] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 754, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 774, in app
+    await route.handle(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 295, in handle
+    await self.app(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 74, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/fastapi/routing.py", line 315, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/fastapi/routing.py", line 174, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'list_type', 'loc': ('response',), 'msg': 'Input should be a valid list', 'input': {'message': 'MLS data gathering task started in the background'}}
+
+[2024-08-31 04:21:54 -0400] [1323] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 754, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 774, in app
+    await route.handle(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 295, in handle
+    await self.app(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 74, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/fastapi/routing.py", line 315, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/fastapi/routing.py", line 174, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'list_type', 'loc': ('response',), 'msg': 'Input should be a valid list', 'input': {'message': 'MLS data gathering task started in the background'}}
+
+[2024-08-31 04:22:44 -0400] [1078] [INFO] Handling signal: term
+[2024-08-31 04:22:44 -0400] [1323] [INFO] Shutting down
+[2024-08-31 04:22:44 -0400] [1323] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-08-31 04:22:44 -0400] [1324] [INFO] Shutting down
+[2024-08-31 04:22:44 -0400] [1322] [INFO] Shutting down
+[2024-08-31 04:22:44 -0400] [1325] [INFO] Shutting down
+[2024-08-31 04:22:44 -0400] [1324] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-08-31 04:22:44 -0400] [1322] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-08-31 04:22:44 -0400] [1325] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-08-31 04:22:44 -0400] [1323] [INFO] Waiting for application shutdown.
+[2024-08-31 04:22:44 -0400] [1323] [INFO] Application shutdown complete.
+[2024-08-31 04:22:44 -0400] [1323] [INFO] Finished server process [1323]
+[2024-08-31 04:22:44 -0400] [1078] [ERROR] Worker (pid:1323) was sent SIGTERM!
+[2024-08-31 04:22:44 -0400] [1322] [INFO] Waiting for application shutdown.
+[2024-08-31 04:22:44 -0400] [1325] [INFO] Waiting for application shutdown.
+[2024-08-31 04:22:44 -0400] [1324] [INFO] Waiting for application shutdown.
+[2024-08-31 04:22:44 -0400] [1322] [INFO] Application shutdown complete.
+[2024-08-31 04:22:44 -0400] [1325] [INFO] Application shutdown complete.
+[2024-08-31 04:22:44 -0400] [1324] [INFO] Application shutdown complete.
+[2024-08-31 04:22:44 -0400] [1322] [INFO] Finished server process [1322]
+[2024-08-31 04:22:44 -0400] [1325] [INFO] Finished server process [1325]
+[2024-08-31 04:22:44 -0400] [1324] [INFO] Finished server process [1324]
+[2024-08-31 04:22:44 -0400] [1078] [ERROR] Worker (pid:1322) was sent SIGTERM!
+[2024-08-31 04:22:44 -0400] [1078] [ERROR] Worker (pid:1325) was sent SIGTERM!
+[2024-08-31 04:22:44 -0400] [1078] [ERROR] Worker (pid:1324) was sent SIGTERM!
+[2024-08-31 04:22:44 -0400] [1078] [INFO] Shutting down: Master
+[2024-08-31 04:22:45 -0400] [12733] [INFO] Starting gunicorn 23.0.0
+[2024-08-31 04:22:45 -0400] [12733] [INFO] Listening at: http://192.168.0.100:5000 (12733)
+[2024-08-31 04:22:45 -0400] [12733] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-08-31 04:22:45 -0400] [12744] [INFO] Booting worker with pid: 12744
+[2024-08-31 04:22:45 -0400] [12745] [INFO] Booting worker with pid: 12745
+[2024-08-31 04:22:45 -0400] [12746] [INFO] Booting worker with pid: 12746
+[2024-08-31 04:22:45 -0400] [12747] [INFO] Booting worker with pid: 12747
+[2024-08-31 04:22:49 -0400] [12744] [INFO] Started server process [12744]
+[2024-08-31 04:22:49 -0400] [12744] [INFO] Waiting for application startup.
+[2024-08-31 04:22:49 -0400] [12744] [INFO] Application startup complete.
+[2024-08-31 04:22:50 -0400] [12745] [INFO] Started server process [12745]
+[2024-08-31 04:22:50 -0400] [12745] [INFO] Waiting for application startup.
+[2024-08-31 04:22:50 -0400] [12745] [INFO] Application startup complete.
+[2024-08-31 04:22:50 -0400] [12747] [INFO] Started server process [12747]
+[2024-08-31 04:22:50 -0400] [12747] [INFO] Waiting for application startup.
+[2024-08-31 04:22:50 -0400] [12747] [INFO] Application startup complete.
+[2024-08-31 04:22:50 -0400] [12746] [INFO] Started server process [12746]
+[2024-08-31 04:22:50 -0400] [12746] [INFO] Waiting for application startup.
+[2024-08-31 04:22:50 -0400] [12746] [INFO] Application startup complete.

@@ -1739,3 +1739,9 @@ Stacktrace:
 2024-08-31 03:54:12,042 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
 2024-08-31 03:54:16,902 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
 2024-08-31 03:54:22,883 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 04:03:10,948 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 04:12:25,660 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 04:15:07,604 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 04:20:34,353 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 04:21:06,457 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 04:21:54,323 - start_files.routes.routes - INFO - Starting MLS data gathering task
