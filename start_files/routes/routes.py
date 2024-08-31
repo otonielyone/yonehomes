@@ -24,7 +24,6 @@ from start_files.config import flash, get_flashed_messages
 
 router = APIRouter()
 
-
 # Set up logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
