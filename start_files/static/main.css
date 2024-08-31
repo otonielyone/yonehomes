@@ -66,13 +66,14 @@ a:focus {
 .menu-link a {
   display: block; /* Ensures the anchor tag fills the menu item container */
   text-align: left; /* Aligns text inside the anchor tag to the left */
-  
+  text-decoration: none;
 }
 
 .menu-link {
   margin: 15px;
   font-weight: 1000px;
   color: #ffffff; /* White text color */
+  text-decoration: none;
 }
 
 .menu-bar {
@@ -91,6 +92,8 @@ a:focus {
 }
 
 .button-link:hover,
+.button-link:active,
+.button-text:hover,
 .button-text:active,
 .menu-link:hover,
 .menu-link:active,
@@ -98,6 +101,7 @@ a:focus {
 .menu-item:active {
   background-color: rgba(255, 255, 255, 0.1); /* Fade effect on hover and active */
   font-weight: 1000px;
+  text-decoration: none;
 
 }
 

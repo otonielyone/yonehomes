@@ -768,3 +768,974 @@
 2024-08-29 07:24:44,878 - start_files.routes.routes - INFO - Rendering rentals page
 2024-08-29 07:24:55,212 - start_files.routes.routes - INFO - Rendering rentals page
 2024-08-29 07:25:33,701 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:29:50,324 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 07:29:51,772 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 07:29:55,551 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:30:15,940 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:30:23,945 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-29 07:30:59,047 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:31:14,380 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:36:34,477 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 07:36:34,920 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 07:36:35,012 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 07:36:48,778 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:40:45,281 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:42:46,454 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:44:36,255 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 07:44:44,640 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:45:51,891 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:48:41,873 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 07:54:07,341 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 07:54:07,476 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 07:54:07,778 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 07:56:47,389 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:06:25,223 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:12:10,757 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:14:42,154 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-29 08:14:54,372 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-29 08:19:21,724 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:34:17,045 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:37:08,630 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:40:58,320 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:45:49,624 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:45:52,574 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:46:36,277 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 08:59:39,971 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 09:04:45,383 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 09:05:31,083 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 09:49:59,442 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 09:50:57,501 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 10:01:14,423 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 10:03:12,950 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 10:09:03,126 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 10:24:02,632 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 10:47:16,334 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 10:57:40,960 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 11:00:16,257 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 11:01:04,909 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 11:02:18,585 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 11:15:03,863 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 11:19:31,305 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 11:40:33,971 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 11:40:36,313 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 11:40:45,069 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:00:14,720 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:01:38,372 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:05:03,469 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:05:13,444 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:05:56,418 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-29 12:06:10,554 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-29 12:06:31,020 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:06:34,907 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-29 12:07:07,441 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 12:07:10,151 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:10:17,283 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:10:23,733 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:10:57,261 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-29 12:11:13,274 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 12:11:23,072 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:11:24,150 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:14:32,117 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 12:14:56,273 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:14:57,096 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:15:46,917 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-29 12:16:16,634 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:16:17,415 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:16:31,079 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-29 12:16:35,462 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-29 12:20:22,195 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:20:23,368 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:24:03,665 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:25:26,359 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:32:57,774 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:35:17,846 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:35:18,128 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:35:18,821 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:35:19,344 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:35:42,449 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:36:44,297 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:36:45,717 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:38:53,521 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 12:53:31,441 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 12:53:52,040 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-29 12:54:17,858 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-29 12:54:23,192 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 12:54:36,667 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-29 13:01:11,579 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:01:15,075 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:01:20,214 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-29 13:01:23,642 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-29 13:01:36,345 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:01:48,984 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-29 13:01:52,882 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 13:02:39,644 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:09:31,125 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:19:33,141 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:19:43,614 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:19:47,117 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:20:46,841 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:43:27,910 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:43:50,896 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:52:37,678 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:52:41,216 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:53:00,070 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:53:14,153 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 13:53:46,673 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:00:09,889 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:02:05,986 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:05:35,770 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:08:06,010 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:08:07,166 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:09:39,695 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 14:09:58,779 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:11:35,117 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:11:36,117 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:12:22,903 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:12:23,981 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:12:41,811 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:14:46,931 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:14:47,728 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:19:18,564 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:19:19,912 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:20:18,086 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:20:42,321 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:20:56,774 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:21:33,344 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-29 14:21:43,375 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 14:21:53,661 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-29 14:27:26,445 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:31:57,443 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:31:58,710 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:35:29,835 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:35:30,972 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:36:36,807 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:36:37,736 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:41:05,371 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:41:06,953 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:52:36,475 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:52:37,353 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:53:54,844 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:54:07,119 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:58:44,058 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:58:45,355 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:59:20,613 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 14:59:21,502 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:00:06,068 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:00:08,233 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:03:23,947 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:03:37,899 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:07:10,563 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:07:18,309 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:07:58,162 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:07:59,580 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:15:35,292 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:17:24,923 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:24:54,492 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:30:48,275 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:48:11,251 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 15:58:21,202 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:01:45,669 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:02:13,904 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:02:14,887 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:02:15,549 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:02:16,167 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:02:17,804 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:02:18,894 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:02:19,513 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:02:20,124 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:06:23,605 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:23:03,278 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:41:09,238 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:53:06,234 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 16:53:25,309 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 17:02:54,085 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 17:18:42,464 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 17:19:25,367 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-29 17:36:19,907 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 17:42:42,514 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 17:47:47,203 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 18:05:33,047 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 18:28:07,171 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 18:30:36,352 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 18:40:20,853 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 18:58:31,235 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 19:07:39,151 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 19:16:36,911 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 19:19:46,182 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 19:34:41,420 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 19:35:49,625 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 19:50:41,688 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:01:52,573 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:04:26,305 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:12:51,806 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:13:06,330 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:13:07,104 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:23:48,475 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:32:09,541 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:42:56,272 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:43:14,927 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:43:19,981 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:45:48,539 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:46:24,029 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:48:33,893 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:51:10,111 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 20:59:58,704 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 21:05:58,578 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 21:07:00,153 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 21:12:25,465 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 21:18:20,819 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 21:18:21,127 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 21:20:16,144 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 21:26:45,542 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 21:38:51,770 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 21:41:34,263 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:00:57,053 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:01:15,073 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:06:01,510 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:06:37,852 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:12:15,147 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:13:13,000 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-29 22:17:51,474 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:19:44,575 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:19:45,991 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:19:50,536 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:19:51,360 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:24:24,682 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:34:20,938 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:37:22,869 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:40:27,948 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:58:50,256 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:58:52,525 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 22:59:24,368 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 23:07:37,473 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-29 23:14:07,034 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 23:17:19,484 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 23:17:19,812 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 23:47:33,267 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 23:51:06,616 - start_files.routes.routes - INFO - Rendering home page
+2024-08-29 23:53:16,848 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:08:08,357 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:10:11,404 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:14:54,773 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:23:06,618 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:23:07,475 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:31:13,164 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:32:39,197 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:32:58,832 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:32:59,214 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:32:59,689 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:33:00,456 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:47:08,084 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:48:59,776 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 00:51:43,528 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:01:08,867 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:17:23,509 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:21:39,959 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:23:37,698 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:36:09,054 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:36:10,606 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:39:23,710 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:42:32,600 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:46:18,844 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:46:40,951 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:46:58,428 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:46:58,878 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:52:33,236 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 01:57:44,383 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 02:23:17,372 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 02:28:17,475 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 02:30:00,623 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 02:33:43,942 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 02:41:24,196 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 02:43:39,113 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 02:54:41,643 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 02:58:59,345 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 02:59:01,014 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:01:29,011 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:01:39,217 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:06:16,487 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:10:59,283 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:22:11,165 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-30 03:35:59,692 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:36:00,376 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:36:36,472 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:39:11,354 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:42:28,918 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:43:52,722 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:44:14,592 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 03:44:20,585 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:00:31,534 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:11:25,029 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:12:28,354 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:12:56,423 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:13:58,683 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:16:18,339 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-30 04:24:04,635 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:30:50,349 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:38:05,922 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:38:48,315 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-30 04:41:35,057 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 04:43:32,105 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 05:01:18,336 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-30 05:14:20,833 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 05:18:15,857 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 05:29:48,071 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 05:29:54,143 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 05:41:31,805 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:13:03,226 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:15:12,307 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:22:55,599 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:35:29,815 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:45:37,092 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:45:37,396 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:45:37,665 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:45:37,977 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:47:24,600 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:48:00,967 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:49:39,956 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:50:04,357 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:50:04,938 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:52:17,463 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:52:31,506 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-30 06:52:49,894 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:55:21,396 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:55:24,525 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:55:30,359 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:55:31,727 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-30 06:57:31,437 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:57:49,664 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-30 06:58:00,966 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 06:58:05,732 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-30 06:58:15,190 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-30 07:24:31,173 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 07:25:41,054 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 07:35:18,212 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 07:46:37,639 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 07:48:31,371 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 07:53:00,401 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 07:58:44,165 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 08:20:50,036 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 08:21:00,758 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 08:21:22,807 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 08:21:31,383 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 08:26:00,215 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 08:26:11,000 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 08:29:52,606 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 08:50:03,442 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 09:00:16,990 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 09:47:09,875 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 09:50:01,181 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 10:01:05,154 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 10:01:38,005 - start_files.routes.routes - ERROR - Exception: Message: element click intercepted: Element <input type="checkbox" class="checkbox" data-date="" value="7951" name="Fm8_Ctrl39_LB" data-mtx-track="Status - Coming Soon" data-mtx-track-prop-type="MultiStatus" data-mtx-track-prop-id="39" checked="checked"> is not clickable at point (41, 579). Other element would receive the click: <div class="floating mtx-sticky-bottom" style="padding-top: 15px;">...</div>
+  (Session info: chrome-headless-shell=126.0.6478.126)
+Stacktrace:
+#0 0xaaaae71953a8 <unknown>
+#1 0xaaaae6ebfb24 <unknown>
+#2 0xaaaae6f07ccc <unknown>
+#3 0xaaaae6f06230 <unknown>
+#4 0xaaaae6f04340 <unknown>
+#5 0xaaaae6f03490 <unknown>
+#6 0xaaaae6ef8938 <unknown>
+#7 0xaaaae6ef8364 <unknown>
+#8 0xaaaae6f3b2e8 <unknown>
+#9 0xaaaae6ef6a80 <unknown>
+#10 0xaaaae6ef745c <unknown>
+#11 0xaaaae7160b18 <unknown>
+#12 0xaaaae7164124 <unknown>
+#13 0xaaaae714f894 <unknown>
+#14 0xaaaae71647c4 <unknown>
+#15 0xaaaae7137df4 <unknown>
+#16 0xaaaae7185280 <unknown>
+#17 0xaaaae7185450 <unknown>
+#18 0xaaaae71944f0 <unknown>
+#19 0xffff85b4597c <unknown>
+#20 0xffff85baba4c <unknown>
+
+2024-08-30 10:05:41,701 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 10:06:07,776 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 10:13:27,259 - start_files.routes.routes - ERROR - Exception: Message: element click intercepted: Element <input type="checkbox" class="checkbox" data-date="" value="7951" name="Fm8_Ctrl39_LB" data-mtx-track="Status - Coming Soon" data-mtx-track-prop-type="MultiStatus" data-mtx-track-prop-id="39" checked="checked"> is not clickable at point (41, 579). Other element would receive the click: <div class="floating mtx-sticky-bottom" style="padding-top: 15px;">...</div>
+  (Session info: chrome-headless-shell=126.0.6478.126)
+Stacktrace:
+#0 0xaaaabbcc53a8 <unknown>
+#1 0xaaaabb9efb24 <unknown>
+#2 0xaaaabba37ccc <unknown>
+#3 0xaaaabba36230 <unknown>
+#4 0xaaaabba34340 <unknown>
+#5 0xaaaabba33490 <unknown>
+#6 0xaaaabba28938 <unknown>
+#7 0xaaaabba28364 <unknown>
+#8 0xaaaabba6b2e8 <unknown>
+#9 0xaaaabba26a80 <unknown>
+#10 0xaaaabba2745c <unknown>
+#11 0xaaaabbc90b18 <unknown>
+#12 0xaaaabbc94124 <unknown>
+#13 0xaaaabbc7f894 <unknown>
+#14 0xaaaabbc947c4 <unknown>
+#15 0xaaaabbc67df4 <unknown>
+#16 0xaaaabbcb5280 <unknown>
+#17 0xaaaabbcb5450 <unknown>
+#18 0xaaaabbcc44f0 <unknown>
+#19 0xffffb760597c <unknown>
+#20 0xffffb766ba4c <unknown>
+
+2024-08-30 10:24:03,591 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaae7f053a8 <unknown>
+#1 0xaaaae7c2fb24 <unknown>
+#2 0xaaaae7c634a0 <unknown>
+#3 0xaaaae7c5ea88 <unknown>
+#4 0xaaaae7c5b4e8 <unknown>
+#5 0xaaaae7c9ad48 <unknown>
+#6 0xaaaae7c66a80 <unknown>
+#7 0xaaaae7c6745c <unknown>
+#8 0xaaaae7ed0b18 <unknown>
+#9 0xaaaae7ed4124 <unknown>
+#10 0xaaaae7ebf894 <unknown>
+#11 0xaaaae7ed47c4 <unknown>
+#12 0xaaaae7ea7df4 <unknown>
+#13 0xaaaae7ef5280 <unknown>
+#14 0xaaaae7ef5450 <unknown>
+#15 0xaaaae7f044f0 <unknown>
+#16 0xffffa2ae597c <unknown>
+#17 0xffffa2b4ba4c <unknown>
+
+2024-08-30 10:24:21,135 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaadc2053a8 <unknown>
+#1 0xaaaadbf2fb24 <unknown>
+#2 0xaaaadbf634a0 <unknown>
+#3 0xaaaadbf5ea88 <unknown>
+#4 0xaaaadbf5b4e8 <unknown>
+#5 0xaaaadbf9ad48 <unknown>
+#6 0xaaaadbf66a80 <unknown>
+#7 0xaaaadbf6745c <unknown>
+#8 0xaaaadc1d0b18 <unknown>
+#9 0xaaaadc1d4124 <unknown>
+#10 0xaaaadc1bf894 <unknown>
+#11 0xaaaadc1d47c4 <unknown>
+#12 0xaaaadc1a7df4 <unknown>
+#13 0xaaaadc1f5280 <unknown>
+#14 0xaaaadc1f5450 <unknown>
+#15 0xaaaadc2044f0 <unknown>
+#16 0xffff8c5b597c <unknown>
+#17 0xffff8c61ba4c <unknown>
+
+2024-08-30 10:24:52,146 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaadf5d53a8 <unknown>
+#1 0xaaaadf2ffb24 <unknown>
+#2 0xaaaadf3334a0 <unknown>
+#3 0xaaaadf32ea88 <unknown>
+#4 0xaaaadf32b4e8 <unknown>
+#5 0xaaaadf36ad48 <unknown>
+#6 0xaaaadf336a80 <unknown>
+#7 0xaaaadf33745c <unknown>
+#8 0xaaaadf5a0b18 <unknown>
+#9 0xaaaadf5a4124 <unknown>
+#10 0xaaaadf58f894 <unknown>
+#11 0xaaaadf5a47c4 <unknown>
+#12 0xaaaadf577df4 <unknown>
+#13 0xaaaadf5c5280 <unknown>
+#14 0xaaaadf5c5450 <unknown>
+#15 0xaaaadf5d44f0 <unknown>
+#16 0xffffb868597c <unknown>
+#17 0xffffb86eba4c <unknown>
+
+2024-08-30 10:25:06,867 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaacb1053a8 <unknown>
+#1 0xaaaacae2fb24 <unknown>
+#2 0xaaaacae634a0 <unknown>
+#3 0xaaaacae5ea88 <unknown>
+#4 0xaaaacae5b4e8 <unknown>
+#5 0xaaaacae9ad48 <unknown>
+#6 0xaaaacae66a80 <unknown>
+#7 0xaaaacae6745c <unknown>
+#8 0xaaaacb0d0b18 <unknown>
+#9 0xaaaacb0d4124 <unknown>
+#10 0xaaaacb0bf894 <unknown>
+#11 0xaaaacb0d47c4 <unknown>
+#12 0xaaaacb0a7df4 <unknown>
+#13 0xaaaacb0f5280 <unknown>
+#14 0xaaaacb0f5450 <unknown>
+#15 0xaaaacb1044f0 <unknown>
+#16 0xffff8888597c <unknown>
+#17 0xffff888eba4c <unknown>
+
+2024-08-30 10:26:01,869 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaadfa153a8 <unknown>
+#1 0xaaaadf73fb24 <unknown>
+#2 0xaaaadf7734a0 <unknown>
+#3 0xaaaadf76ea88 <unknown>
+#4 0xaaaadf76b4e8 <unknown>
+#5 0xaaaadf7aad48 <unknown>
+#6 0xaaaadf776a80 <unknown>
+#7 0xaaaadf77745c <unknown>
+#8 0xaaaadf9e0b18 <unknown>
+#9 0xaaaadf9e4124 <unknown>
+#10 0xaaaadf9cf894 <unknown>
+#11 0xaaaadf9e47c4 <unknown>
+#12 0xaaaadf9b7df4 <unknown>
+#13 0xaaaadfa05280 <unknown>
+#14 0xaaaadfa05450 <unknown>
+#15 0xaaaadfa144f0 <unknown>
+#16 0xffff92a6597c <unknown>
+#17 0xffff92acba4c <unknown>
+
+2024-08-30 10:26:34,724 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 10:28:11,297 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaab13053a8 <unknown>
+#1 0xaaaab102fb24 <unknown>
+#2 0xaaaab10634a0 <unknown>
+#3 0xaaaab105ea88 <unknown>
+#4 0xaaaab105b4e8 <unknown>
+#5 0xaaaab109ad48 <unknown>
+#6 0xaaaab1066a80 <unknown>
+#7 0xaaaab106745c <unknown>
+#8 0xaaaab12d0b18 <unknown>
+#9 0xaaaab12d4124 <unknown>
+#10 0xaaaab12bf894 <unknown>
+#11 0xaaaab12d47c4 <unknown>
+#12 0xaaaab12a7df4 <unknown>
+#13 0xaaaab12f5280 <unknown>
+#14 0xaaaab12f5450 <unknown>
+#15 0xaaaab13044f0 <unknown>
+#16 0xffff87df597c <unknown>
+#17 0xffff87e5ba4c <unknown>
+
+2024-08-30 10:30:25,439 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaac2f753a8 <unknown>
+#1 0xaaaac2c9fb24 <unknown>
+#2 0xaaaac2cd34a0 <unknown>
+#3 0xaaaac2ccea88 <unknown>
+#4 0xaaaac2ccb4e8 <unknown>
+#5 0xaaaac2d0ad48 <unknown>
+#6 0xaaaac2cd6a80 <unknown>
+#7 0xaaaac2cd745c <unknown>
+#8 0xaaaac2f40b18 <unknown>
+#9 0xaaaac2f44124 <unknown>
+#10 0xaaaac2f2f894 <unknown>
+#11 0xaaaac2f447c4 <unknown>
+#12 0xaaaac2f17df4 <unknown>
+#13 0xaaaac2f65280 <unknown>
+#14 0xaaaac2f65450 <unknown>
+#15 0xaaaac2f744f0 <unknown>
+#16 0xffff8c68597c <unknown>
+#17 0xffff8c6eba4c <unknown>
+
+2024-08-30 10:31:24,855 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 10:31:38,387 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaae0df53a8 <unknown>
+#1 0xaaaae0b1fb24 <unknown>
+#2 0xaaaae0b534a0 <unknown>
+#3 0xaaaae0b4ea88 <unknown>
+#4 0xaaaae0b4b4e8 <unknown>
+#5 0xaaaae0b8ad48 <unknown>
+#6 0xaaaae0b56a80 <unknown>
+#7 0xaaaae0b5745c <unknown>
+#8 0xaaaae0dc0b18 <unknown>
+#9 0xaaaae0dc4124 <unknown>
+#10 0xaaaae0daf894 <unknown>
+#11 0xaaaae0dc47c4 <unknown>
+#12 0xaaaae0d97df4 <unknown>
+#13 0xaaaae0de5280 <unknown>
+#14 0xaaaae0de5450 <unknown>
+#15 0xaaaae0df44f0 <unknown>
+#16 0xffff90e6597c <unknown>
+#17 0xffff90ecba4c <unknown>
+
+2024-08-30 10:33:15,704 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaad03f53a8 <unknown>
+#1 0xaaaad011fb24 <unknown>
+#2 0xaaaad01534a0 <unknown>
+#3 0xaaaad014ea88 <unknown>
+#4 0xaaaad014b4e8 <unknown>
+#5 0xaaaad018ad48 <unknown>
+#6 0xaaaad0156a80 <unknown>
+#7 0xaaaad015745c <unknown>
+#8 0xaaaad03c0b18 <unknown>
+#9 0xaaaad03c4124 <unknown>
+#10 0xaaaad03af894 <unknown>
+#11 0xaaaad03c47c4 <unknown>
+#12 0xaaaad0397df4 <unknown>
+#13 0xaaaad03e5280 <unknown>
+#14 0xaaaad03e5450 <unknown>
+#15 0xaaaad03f44f0 <unknown>
+#16 0xffff9d8f597c <unknown>
+#17 0xffff9d95ba4c <unknown>
+
+2024-08-30 10:35:05,874 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaad3f953a8 <unknown>
+#1 0xaaaad3cbfb24 <unknown>
+#2 0xaaaad3cf34a0 <unknown>
+#3 0xaaaad3ceea88 <unknown>
+#4 0xaaaad3ceb4e8 <unknown>
+#5 0xaaaad3d2ad48 <unknown>
+#6 0xaaaad3cf6a80 <unknown>
+#7 0xaaaad3cf745c <unknown>
+#8 0xaaaad3f60b18 <unknown>
+#9 0xaaaad3f64124 <unknown>
+#10 0xaaaad3f4f894 <unknown>
+#11 0xaaaad3f647c4 <unknown>
+#12 0xaaaad3f37df4 <unknown>
+#13 0xaaaad3f85280 <unknown>
+#14 0xaaaad3f85450 <unknown>
+#15 0xaaaad3f944f0 <unknown>
+#16 0xffff93cb597c <unknown>
+#17 0xffff93d1ba4c <unknown>
+
+2024-08-30 10:35:11,458 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 10:39:57,949 - start_files.routes.routes - ERROR - Exception: Message: session not created
+from disconnected: unable to connect to renderer
+Stacktrace:
+#0 0xaaaad58253a8 <unknown>
+#1 0xaaaad554fb24 <unknown>
+#2 0xaaaad55834a0 <unknown>
+#3 0xaaaad557ea88 <unknown>
+#4 0xaaaad557b4e8 <unknown>
+#5 0xaaaad55bad48 <unknown>
+#6 0xaaaad5586a80 <unknown>
+#7 0xaaaad558745c <unknown>
+#8 0xaaaad57f0b18 <unknown>
+#9 0xaaaad57f4124 <unknown>
+#10 0xaaaad57df894 <unknown>
+#11 0xaaaad57f47c4 <unknown>
+#12 0xaaaad57c7df4 <unknown>
+#13 0xaaaad5815280 <unknown>
+#14 0xaaaad5815450 <unknown>
+#15 0xaaaad58244f0 <unknown>
+#16 0xffffb200597c <unknown>
+#17 0xffffb206ba4c <unknown>
+
+2024-08-30 10:43:53,273 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 10:43:58,253 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-30 10:44:36,174 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 10:46:04,386 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-30 10:58:48,809 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 11:03:27,879 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 11:35:24,851 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 11:35:24,936 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 11:35:25,038 - WDM - INFO - Getting latest mozilla release info for v0.35.0
+2024-08-30 11:35:25,143 - WDM - INFO - About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+2024-08-30 11:35:25,374 - WDM - INFO - Driver downloading response is 200
+2024-08-30 11:35:25,548 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 11:35:25,917 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 11:35:26,048 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0]
+2024-08-30 11:40:08,097 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 11:44:45,511 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 11:46:16,779 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 12:04:22,713 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 12:04:26,812 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 12:04:26,876 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 12:04:27,296 - WDM - INFO - Getting latest mozilla release info for v0.35.0
+2024-08-30 12:04:27,434 - WDM - INFO - About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+2024-08-30 12:04:27,624 - WDM - INFO - Driver downloading response is 200
+2024-08-30 12:04:27,793 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 12:04:28,708 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 12:04:28,855 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0]
+2024-08-30 12:06:35,400 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 12:11:27,365 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 12:11:27,431 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 12:11:27,588 - WDM - INFO - Getting latest mozilla release info for v0.35.0
+2024-08-30 12:11:27,756 - WDM - INFO - About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+2024-08-30 12:11:27,969 - WDM - INFO - Driver downloading response is 200
+2024-08-30 12:11:28,143 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 12:11:28,830 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 12:11:29,274 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0]
+2024-08-30 12:39:42,534 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 12:40:16,160 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 12:40:20,958 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 12:40:21,446 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-30 12:40:22,073 - start_files.routes.routes - INFO - Received contact form submission from sales@rankinghat.co
+2024-08-30 12:40:22,564 - start_files.routes.routes - INFO - SendGrid response status code: 202
+2024-08-30 12:40:22,565 - start_files.routes.routes - INFO - Contact form submission successful, redirecting user.
+2024-08-30 12:40:23,091 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-30 12:46:16,978 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 12:52:05,402 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 12:54:15,064 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 12:54:44,591 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:19:01,372 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:23:38,108 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:24:33,556 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:24:37,617 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:24:44,695 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:24:49,173 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:25:06,248 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:25:11,886 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:25:18,891 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:25:42,377 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:26:08,220 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:26:23,950 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 13:26:24,016 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 13:26:24,205 - WDM - INFO - Getting latest mozilla release info for v0.35.0
+2024-08-30 13:26:24,349 - WDM - INFO - About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+2024-08-30 13:26:24,567 - WDM - INFO - Driver downloading response is 200
+2024-08-30 13:26:24,768 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 13:26:28,839 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 13:26:28,995 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0]
+2024-08-30 13:27:54,990 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:27:58,855 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-30 13:31:57,398 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:36:24,907 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:36:27,850 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 13:46:10,055 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 14:05:46,943 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 14:12:46,239 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 14:12:46,300 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 14:12:46,421 - WDM - INFO - Getting latest mozilla release info for v0.35.0
+2024-08-30 14:12:46,581 - WDM - INFO - About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+2024-08-30 14:12:46,786 - WDM - INFO - Driver downloading response is 200
+2024-08-30 14:12:46,995 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 14:12:48,002 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-30 14:12:49,388 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0]
+2024-08-30 14:18:05,035 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 14:41:07,560 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 14:51:37,232 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 15:03:49,777 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 15:06:50,753 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 15:12:15,996 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 15:41:27,680 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 16:17:37,506 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 16:26:00,210 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 16:32:18,947 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 16:32:39,341 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 16:40:10,411 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 16:41:06,307 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 16:51:57,433 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 17:11:26,212 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 17:23:58,062 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 17:24:01,418 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 17:25:48,272 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 17:40:01,635 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 17:50:46,072 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 17:51:40,363 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 18:01:02,306 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 18:29:11,047 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 18:32:45,181 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 18:32:54,886 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-30 18:33:38,973 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 18:38:59,007 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 19:57:40,860 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 19:58:01,000 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 19:58:10,427 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 19:58:10,496 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:58:10,618 - WDM - INFO - About to download new driver from https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+2024-08-30 19:58:10,699 - WDM - INFO - Driver downloading response is 200
+2024-08-30 19:58:13,618 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:58:17,363 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:58:17,484 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90]
+2024-08-30 19:58:17,505 - start_files.routes.routes - ERROR - Failed to gather MLS data: [Errno 8] Exec format error: '/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90/chromedriver'
+2024-08-30 19:58:40,083 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 19:58:40,153 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:58:40,249 - WDM - INFO - About to download new driver from https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+2024-08-30 19:58:40,365 - WDM - INFO - Driver downloading response is 200
+2024-08-30 19:58:41,132 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:58:43,970 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:58:44,724 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90]
+2024-08-30 19:58:44,741 - start_files.routes.routes - ERROR - Failed to gather MLS data: [Errno 8] Exec format error: '/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90/chromedriver'
+2024-08-30 19:58:53,245 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 19:58:53,315 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:58:53,402 - WDM - INFO - About to download new driver from https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+2024-08-30 19:58:53,485 - WDM - INFO - Driver downloading response is 200
+2024-08-30 19:58:53,752 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 19:58:54,151 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:58:58,092 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:58:58,839 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90]
+2024-08-30 19:58:58,858 - start_files.routes.routes - ERROR - Failed to gather MLS data: [Errno 8] Exec format error: '/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90/chromedriver'
+2024-08-30 19:59:00,829 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 19:59:10,772 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 19:59:10,846 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:59:10,947 - WDM - INFO - About to download new driver from https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+2024-08-30 19:59:11,028 - WDM - INFO - Driver downloading response is 200
+2024-08-30 19:59:13,066 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 19:59:13,369 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:59:16,170 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 19:59:16,286 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90]
+2024-08-30 19:59:16,305 - start_files.routes.routes - ERROR - Failed to gather MLS data: [Errno 8] Exec format error: '/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90/chromedriver'
+2024-08-30 20:04:04,715 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-30 20:04:06,344 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-30 20:04:08,100 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-30 20:04:16,219 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-30 20:16:07,574 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 20:16:07,643 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:16:08,281 - WDM - INFO - About to download new driver from https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+2024-08-30 20:16:08,540 - WDM - INFO - Driver downloading response is 200
+2024-08-30 20:16:16,515 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:16:20,443 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:16:20,657 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90]
+2024-08-30 20:16:22,211 - start_files.routes.routes - ERROR - Failed to gather MLS data: [Errno 8] Exec format error: '/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90/chromedriver'
+2024-08-30 20:21:08,119 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 20:21:08,186 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:21:08,743 - WDM - INFO - About to download new driver from https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+2024-08-30 20:21:09,455 - WDM - INFO - Driver downloading response is 200
+2024-08-30 20:21:20,617 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:21:25,300 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:21:26,049 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90]
+2024-08-30 20:21:26,069 - start_files.routes.routes - ERROR - Failed to gather MLS data: [Errno 8] Exec format error: '/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90/chromedriver'
+2024-08-30 20:21:36,381 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 20:23:52,542 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 20:27:57,749 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 20:27:58,563 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:27:58,689 - WDM - INFO - About to download new driver from https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+2024-08-30 20:27:58,780 - WDM - INFO - Driver downloading response is 200
+2024-08-30 20:27:59,486 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:28:06,043 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:28:06,193 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90]
+2024-08-30 20:29:49,781 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 20:30:11,596 - WDM - INFO - ====== WebDriver manager ======
+2024-08-30 20:30:11,649 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:30:14,989 - WDM - INFO - About to download new driver from https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+2024-08-30 20:30:15,873 - WDM - INFO - Driver downloading response is 200
+2024-08-30 20:30:19,359 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:30:23,535 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2024-08-30 20:30:24,009 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/chromedriver/linux64/114.0.5735.90]
+2024-08-30 20:30:39,900 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 20:39:27,578 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 20:39:33,506 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 20:39:54,609 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 20:43:42,655 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 20:59:04,801 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 21:14:21,548 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 21:43:50,116 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 21:55:09,343 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 22:01:37,150 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 22:05:32,056 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 22:05:39,917 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 22:42:50,468 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 22:47:57,899 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 22:50:57,275 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 22:51:43,088 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 22:58:53,374 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 23:06:02,602 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 23:09:04,871 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 23:19:39,989 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 23:22:17,076 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 23:23:35,452 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 23:26:45,904 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 23:40:35,257 - start_files.routes.routes - INFO - Rendering home page
+2024-08-30 23:57:24,873 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 00:17:14,201 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 00:42:55,186 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 00:58:48,380 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 01:00:32,577 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 01:01:53,466 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 01:02:46,140 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 01:03:23,860 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 01:27:04,873 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 01:53:06,029 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 02:04:12,730 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 02:26:35,724 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 02:27:17,945 - WDM - INFO - ====== WebDriver manager ======
+2024-08-31 02:27:18,008 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-31 02:27:18,135 - WDM - INFO - Getting latest mozilla release info for v0.35.0
+2024-08-31 02:27:18,287 - WDM - INFO - About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+2024-08-31 02:27:19,618 - WDM - INFO - Driver downloading response is 200
+2024-08-31 02:27:22,700 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-31 02:27:27,213 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-31 02:27:28,070 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0]
+2024-08-31 02:27:28,085 - start_files.routes.routes - ERROR - Failed to gather MLS data: [Errno 8] Exec format error: '/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0/geckodriver'
+2024-08-31 02:28:03,659 - WDM - INFO - ====== WebDriver manager ======
+2024-08-31 02:28:03,726 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-31 02:28:04,062 - WDM - INFO - Getting latest mozilla release info for v0.35.0
+2024-08-31 02:28:04,803 - WDM - INFO - About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+2024-08-31 02:28:05,692 - WDM - INFO - Driver downloading response is 200
+2024-08-31 02:28:06,556 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-31 02:28:07,677 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-31 02:28:10,221 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0]
+2024-08-31 02:28:10,237 - start_files.routes.routes - ERROR - Failed to gather MLS data: [Errno 8] Exec format error: '/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0/geckodriver'
+2024-08-31 02:37:20,185 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-31 02:45:15,217 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 02:50:04,459 - WDM - INFO - ====== WebDriver manager ======
+2024-08-31 02:50:04,525 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-31 02:50:04,711 - WDM - INFO - Getting latest mozilla release info for v0.35.0
+2024-08-31 02:50:04,882 - WDM - INFO - About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+2024-08-31 02:50:05,116 - WDM - INFO - Driver downloading response is 200
+2024-08-31 02:50:05,326 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-31 02:50:06,249 - WDM - INFO - Get LATEST geckodriver version for None firefox
+2024-08-31 02:50:06,455 - WDM - INFO - Driver has been saved in cache [/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0]
+2024-08-31 02:50:06,469 - start_files.routes.routes - ERROR - Failed to gather MLS data: [Errno 8] Exec format error: '/home/oyone/.wdm/drivers/geckodriver/linux64/v0.35.0/geckodriver'
+2024-08-31 02:54:27,639 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 03:07:29,301 - start_files.routes.routes - ERROR - Failed to gather MLS data: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /snap/chromium/2906/usr/lib/chromium-browser/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0xaaaaaf0d53a8 <unknown>
+#1 0xaaaaaedffb24 <unknown>
+#2 0xaaaaaee2e3a0 <unknown>
+#3 0xaaaaaee2b4e8 <unknown>
+#4 0xaaaaaee6ad48 <unknown>
+#5 0xaaaaaee36a80 <unknown>
+#6 0xaaaaaee3745c <unknown>
+#7 0xaaaaaf0a0b18 <unknown>
+#8 0xaaaaaf0a4124 <unknown>
+#9 0xaaaaaf08f894 <unknown>
+#10 0xaaaaaf0a47c4 <unknown>
+#11 0xaaaaaf077df4 <unknown>
+#12 0xaaaaaf0c5280 <unknown>
+#13 0xaaaaaf0c5450 <unknown>
+#14 0xaaaaaf0d44f0 <unknown>
+#15 0xffffb419597c <unknown>
+#16 0xffffb41fba4c <unknown>
+
+2024-08-31 03:09:23,343 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 03:09:45,307 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 03:14:35,155 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 03:27:42,984 - start_files.routes.routes - ERROR - Failed to gather MLS data: Command 'python3 est.py' returned non-zero exit status 2.
+2024-08-31 03:31:33,369 - start_files.routes.routes - ERROR - Subprocess error: Command 'python3 /start_files/routes/est.py' returned non-zero exit status 2.
+2024-08-31 03:31:40,734 - start_files.routes.routes - ERROR - Subprocess error: Command 'python3 /start_files/routes/est.py' returned non-zero exit status 2.
+2024-08-31 03:32:49,920 - start_files.routes.routes - ERROR - Subprocess error: Command 'python3 /start_files/routes/est.py' returned non-zero exit status 2.
+2024-08-31 03:33:07,235 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 03:33:18,115 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 03:47:28,996 - start_files.routes.routes - INFO - Script output: [MLSDataResponse(mls='VAPW2077254', address='3769 Katie Pl, Triangle, VA 22172', price=675.0, description='Discover inviting bedrooms available for rent in a beautiful house located in Triangle, Virginia. Enjoy the convenience of a shared bathroom and laundry facilities, as well as proximity to a shopping center and various amenities. Perfect for those seeking a comfortable and well-connected living space.', availability='Active', images=['https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1502294284&TableID=9&Type=1&Number=1&Size=6&exk=12422a8503fe82e38b69f3b334fd47a8', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1502294284&TableID=9&Type=1&Number=2&Size=6&exk=ce9e2fd975172f7cd3753b519170e73b', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1502294284&TableID=9&Type=1&Number=3&Size=6&exk=0d2714b26b426e1e4cdd6557f15470de', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1502294284&TableID=9&Type=1&Number=4&Size=6&exk=0dd8cfad7e7f436a325a1715ab9bc59e']), MLSDataResponse(mls='VAST2032118', address='30 Westhampton Ct #2, Stafford, VA 22554', price=800.0, description='1 BEDROOM 10X12 LIVING SPACE IN A MULTI-TENANT HOME.  FURNISHED AND READY FOR YOU TO MOVE IN.  UTILITIES INCLUDED. SHARED BATHROOM, KITCHEN, BATHROOM, AND LAUNDRY.', availability='ComingSoon', images=['https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503397152&TableID=9&Type=1&Number=0&Size=6&exk=ad09c619e7521c3d830b48a579c8693a', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503397152&TableID=9&Type=1&Number=1&Size=6&exk=c76b21a94abd2fb8c5db6cfbd2cd5ee6', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503397152&TableID=9&Type=1&Number=2&Size=6&exk=048be2e395a70d20a9e8802682fbc0ba', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503397152&TableID=9&Type=1&Number=3&Size=6&exk=8d1653ca70b61572c16595af233ea33b', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503397152&TableID=9&Type=1&Number=4&Size=6&exk=832d4e095372c108e0983e934ae34492', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503397152&TableID=9&Type=1&Number=5&Size=6&exk=d519d1dc0414042a3873022a19f876fd']), MLSDataResponse(mls='VAFX2199050', address='11111 La Messa Dr, Fairfax, VA 22030', price=890.0, description='Rent: Furnished Smaller Bedroom: $600/month Larger Bedroom: $890/month Rent Both: $1,350/month Utilities included Amenities: Beautiful, new and clean Private entrance and designated yard area Renovated rooms with new flooring Private bathroom and private kitchen for tenants Modern white kitchen, stainless steel appliances, tons  of cabinets and granite countertops Family room is in common space (shared with owners only on weekends). Street parking available Neighborhood Perks: Quiet, residential area Conveniently located 1 mile from George Mason University and less than 2 miles from INOVA Hospital, & 3 miles to Fair Oaks Mall. Close to Fairfax downtown restaurants, convenient access to groceries, 7-Eleven, trails, recreational parks and other essential amenities  . Easy access to Fairfax County Parkway, and I-66, ten minutes to Vienna-GMU Metro Station, and less than 20mins to Tysons. Important Notes: No Pets No Smoking Allowed Owner is installing separation between the floors this week.  Conveniently located close to wonderful dining, retail, parks, trails, Fairfax City, and major commuter routes 29/50/Main Street/66, and 495. George Mason University one mile away, INOVA hospital less than 2 miles away.', availability='Active', images=['https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=0&Size=6&exk=503a747e86f6f0a45b0adae4722e0094', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=1&Size=6&exk=039fb2b1a659cebd77857c193a7a8eff', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=2&Size=6&exk=b6e19f811dc8cf8c5e4a80c6d55258e5', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=3&Size=6&exk=a354ad3809496a28c915766c5bb7941b', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=4&Size=6&exk=df224df6fd9c4c9d165cfee17c45d81e', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=5&Size=6&exk=caed6165c526af6b1862e9d254b73651', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=6&Size=6&exk=b8bf081eb0cc242e48b3fca023cf07fb', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=7&Size=6&exk=37dd8d6f3aa9b8394b77d80e41792f94', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=8&Size=6&exk=5d7e596d8b74c8b340b6696d9ac8b630', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1504983047&TableID=9&Type=1&Number=9&Size=6&exk=3a61ba209250357eedee1f75e03693d6']), MLSDataResponse(mls='VAFX2197186', address='3800 El Camino Pl #1, Alexandria, VA 22309', price=950.0, description='1 BR for Rent upstairs. Bath is shared with the owner. Shared house rental with professional owner & a Fairfax County Teacher. Kitchen privileges & LR/DR privileges, also laundry privileges. Quiet Owner does work from home in her upstairs bedroom. Nicely decorated home.  Bedroom for rent is offered unfurnished. No pets, No smoking. Tenant to pay  approx $90-$150 per month to cover their share of all utilities including internet, electric, AC etc. Owner seeks a responsible tenant with qualifying income (40K+) and good references. Nice neighborhood with easy parking. Tenant will be issued a parking permit at no additional cost.', availability='Active', images=['https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=0&Size=6&exk=8d2874ab7a938d6462e1d975a304a177', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=1&Size=6&exk=f94047bd9e521fd3524247096d8e4301', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=2&Size=6&exk=e808b1d95e83116c0bf1862d683fe1e9', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=3&Size=6&exk=a490cbb315fb08111dd386763d0e0285', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=4&Size=6&exk=af4bc4d1d5b68be27886c7a1afe97541', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=5&Size=6&exk=b3db8596415b580cf1e53421e73dd58d', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=6&Size=6&exk=48a574ad804d1292ce83bee8daf047c0', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=7&Size=6&exk=091573e5112d6896c8a3ed9bd1270863', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=8&Size=6&exk=e2dc26bbe938239091008e9b8702f68b', 'https://matrixmedia.brightmls.com/mediaserver/GetMedia.ashx?Key=1503478367&TableID=9&Type=1&Number=9&Size=6&exk=6e0bf0cc86e77d2784bb77ef7a2ab9aa'])]
+
+2024-08-31 03:47:29,010 - start_files.routes.routes - ERROR - Script error output: 2024-08-31 03:46:35,191 - __main__ - ERROR - Failed to gather image URL: 1 for MLS VAPW2077254: Message: script timeout
+  (Session info: chrome-headless-shell=126.0.6478.126)
+Stacktrace:
+#0 0xaaaadf3353a8 <unknown>
+#1 0xaaaadf05f98c <unknown>
+#2 0xaaaadf0dbdb4 <unknown>
+#3 0xaaaadf0db2e8 <unknown>
+#4 0xaaaadf096a80 <unknown>
+#5 0xaaaadf09745c <unknown>
+#6 0xaaaadf300b18 <unknown>
+#7 0xaaaadf304124 <unknown>
+#8 0xaaaadf2ef894 <unknown>
+#9 0xaaaadf3047c4 <unknown>
+#10 0xaaaadf2d7df4 <unknown>
+#11 0xaaaadf325280 <unknown>
+#12 0xaaaadf325450 <unknown>
+#13 0xaaaadf3344f0 <unknown>
+#14 0xffffae4f597c <unknown>
+#15 0xffffae55ba4c <unknown>
+
+2024-08-31 03:46:35,785 - __main__ - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 03:46:42,915 - __main__ - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 03:46:52,676 - __main__ - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 03:47:16,243 - __main__ - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+
+2024-08-31 03:47:29,012 - start_files.routes.routes - ERROR - JSON decode error: Expecting value: line 1 column 2 (char 1)
+2024-08-31 03:47:29,019 - start_files.routes.routes - ERROR - General error: 500: Error decoding JSON from script output
+2024-08-31 03:49:25,900 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 03:49:32,388 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 03:49:38,405 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 03:49:47,251 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 03:54:06,808 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 03:54:12,042 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 03:54:16,902 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 03:54:22,883 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
