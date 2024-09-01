@@ -1814,3 +1814,35 @@ with app.app_context(). See the documentation for more information.
 2024-08-31 17:28:31,563 - start_files.routes.routes - INFO - Rendering home page
 2024-08-31 17:46:26,827 - start_files.routes.routes - INFO - Rendering home page
 2024-08-31 21:48:58,611 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 21:51:08,826 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 21:51:42,178 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 21:51:46,559 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 21:51:51,245 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 21:51:55,678 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 21:51:58,015 - start_files.routes.routes - ERROR - Error during MLS data gathering: Attribute 'images' does not accept objects of type <class 'str'>
+2024-08-31 21:54:20,337 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 21:54:24,162 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 22:00:39,740 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 22:01:02,444 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 22:01:06,536 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 22:01:10,783 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 22:01:15,266 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 22:01:16,271 - start_files.routes.routes - ERROR - Error during MLS data gathering: Attribute 'images' does not accept objects of type <class 'str'>
+2024-08-31 22:18:16,743 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 22:18:41,635 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 22:18:45,759 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 22:18:51,396 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 22:18:55,907 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 22:18:58,351 - start_files.routes.routes - ERROR - Error during MLS data gathering: Attribute 'images' does not accept objects of type <class 'str'>
+2024-08-31 22:20:25,550 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 22:20:52,945 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 22:20:58,315 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 22:21:05,379 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 22:21:13,726 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 22:21:14,731 - start_files.routes.routes - ERROR - Error during MLS data gathering: Attribute 'images' does not accept objects of type <class 'str'>
+2024-08-31 22:27:29,874 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 22:28:02,137 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 22:28:06,778 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 22:28:13,062 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 22:28:17,843 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 22:29:17,393 - start_files.routes.routes - INFO - Starting MLS data gathering task

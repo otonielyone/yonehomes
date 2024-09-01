@@ -1,31 +1,12 @@
 from os import path
 import os
-from sqlalchemy import create_engine, Column, Integer, String, Float
+from sqlalchemy import Text, create_engine, Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.mutable import Mutable
 import json
 
 Base = declarative_base()
-
-class MutableList(Mutable, list):
-    @classmethod
-    def coerce(cls, key, value):
-        if isinstance(value, list):
-            return MutableList(value)
-        return super(MutableList, cls).coerce(key, value)
-
-    def __setitem__(self, key, value):
-        super().__setitem__(key, value)
-        self.changed()
-
-    def append(self, value):
-        super().append(value)
-        self.changed()
-
-    def remove(self, value):
-        super().remove(value)
-        self.changed()
 
 class User(Base):
     __tablename__ = 'user'
@@ -35,8 +16,8 @@ class User(Base):
     price = Column(Float, index=True)
     description = Column(String(1000), index=True)
     availability = Column(String(20), index=True)
-    images = Column(MutableList.as_mutable(String(500)), index=False)
-
+    images = Column(Text, index=False)  # Change from String to Text
+    
     def __repr__(self):
         return '<User {}>'.format(self.mls)
 
