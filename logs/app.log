@@ -1750,3 +1750,67 @@ Stacktrace:
 2024-08-31 04:23:56,095 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
 2024-08-31 04:24:03,405 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
 2024-08-31 04:25:29,134 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 04:33:21,540 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 05:13:38,548 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 05:14:59,326 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 05:18:47,402 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 05:26:51,296 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 05:34:00,978 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 05:50:03,108 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 06:14:19,465 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 06:27:07,433 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 06:27:33,989 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 07:10:32,307 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 07:15:30,220 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 07:16:04,852 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 07:18:59,671 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 07:57:31,469 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 08:03:45,638 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 08:09:54,812 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 08:19:01,527 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 08:39:51,229 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 09:48:43,656 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 10:25:59,687 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 10:26:00,252 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 10:45:51,237 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 10:47:01,383 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 10:48:12,260 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 10:48:20,935 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 11:12:34,269 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 11:21:11,071 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 11:43:54,517 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 11:56:36,112 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 12:06:46,907 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 12:10:36,220 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 12:59:07,218 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 13:49:53,850 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 13:50:31,377 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 13:55:57,133 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 14:08:57,557 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 14:09:18,353 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 14:09:23,252 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 14:09:27,493 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 14:09:31,798 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 14:45:29,170 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 14:48:57,113 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-31 14:49:06,918 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-31 14:49:08,350 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-31 14:49:11,445 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-31 14:50:06,391 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 14:50:26,724 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 14:50:30,888 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 14:50:35,218 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 14:50:39,744 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 14:50:40,745 - start_files.routes.routes - ERROR - Error during MLS data gathering: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-08-31 14:52:13,977 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 15:27:53,126 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 16:47:59,968 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 17:06:08,958 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 17:13:22,616 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 17:28:31,563 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 17:46:26,827 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 21:48:58,611 - start_files.routes.routes - INFO - Rendering home page

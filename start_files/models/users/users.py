@@ -1,26 +1,66 @@
 from os import path
 import os
-from flask_login import UserMixin
-from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine, Column, Integer, String, Float
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.mutable import Mutable
+import json
 
-db = SQLAlchemy()
-DB_NAME = 'database.db'
-SQLALCHEMY_TRACK_MODIFICATIONS = True
+Base = declarative_base()
 
-class User(UserMixin, db.Model):
-    user_id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, index=True)
+class MutableList(Mutable, list):
+    @classmethod
+    def coerce(cls, key, value):
+        if isinstance(value, list):
+            return MutableList(value)
+        return super(MutableList, cls).coerce(key, value)
 
-    def get_id(self):
-        return str(self.user_id)
+    def __setitem__(self, key, value):
+        super().__setitem__(key, value)
+        self.changed()
+
+    def append(self, value):
+        super().append(value)
+        self.changed()
+
+    def remove(self, value):
+        super().remove(value)
+        self.changed()
+
+class User(Base):
+    __tablename__ = 'user'
+    user_id = Column(Integer, primary_key=True, index=True)
+    mls = Column(String(20), unique=True, index=True)
+    address = Column(String(100), unique=True, index=True)
+    price = Column(Float, index=True)
+    description = Column(String(1000), index=True)
+    availability = Column(String(20), index=True)
+    images = Column(MutableList.as_mutable(String(500)), index=False)
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<User {}>'.format(self.mls)
 
-def create_database(app):
-    if not path.exists(os.path.join('templates', DB_NAME)):
-        with app.app_context():
-            db.create_all()
-        print('Created Database!')
+    @property
+    def image_list(self):
+        return json.loads(self.images) if self.images else []
 
+    @image_list.setter
+    def image_list(self, value):
+        self.images = json.dumps(value)
+
+# Setup SQLAlchemy engine and session
+DATABASE_URL = "sqlite:///brightscrape/brightmls.db" 
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+def init_db():
+    db_path = 'brightscrape/brightmls.db'  
+    db_dir = os.path.dirname(db_path)
+    os.makedirs(db_dir, exist_ok=True)
+    
+    if not path.exists(db_path):
+        print("Creating database file...")
+        Base.metadata.create_all(bind=engine)
+    else:
+        print("Database file already exists.")
 

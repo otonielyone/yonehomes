@@ -1,26 +1,22 @@
-
-from pydantic import BaseModel
-from selenium.webdriver.support import expected_conditions as EC
-from fastapi import APIRouter, Form, Request, HTTPException, logger
-from fastapi.responses import HTMLResponse, RedirectResponse
-from selenium.webdriver.firefox.options import Options
+from fastapi import APIRouter, Form, Request, HTTPException, BackgroundTasks
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from sqlalchemy.orm import Session
+from start_files.models.users.users import SessionLocal, User
+import logging
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+import os
+import csv
+import re
+from sqlalchemy.exc import SQLAlchemyError
+import asyncio
+from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from sendgrid import SendGridAPIClient
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from sendgrid.helpers.mail import Mail
+from selenium.webdriver.support import expected_conditions as EC
 from dotenv import load_dotenv
-from selenium import webdriver
-from typing import Optional, List
-import asyncio
-import csv
-import sys
-import re
-import os
-import logging
-
-from start_files.config import flash, get_flashed_messages
 
 router = APIRouter()
 
@@ -28,31 +24,20 @@ router = APIRouter()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-# Add console handler to output logs to the console
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
-# Load environment variables from .env file
+# Load environment variables
 load_dotenv()
 
-# Retrieve credentials from environment variables
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 RECIPIENT = os.getenv("RECIPIENT")
 SENDER = os.getenv("SENDER")
 BRIGHTMLS_USERNAME = os.getenv("BRIGHTMLS")
 BRIGHTMLS_PASSWORD = os.getenv("PASSWORD")
-
-class MLSDataResponse(BaseModel):
-    mls: str
-    address: str
-    price: float
-    description: Optional[str] = None
-    availability: str
-    images: List[str]
-
 
 @router.post("/contact")
 async def handle_contact_form(
@@ -65,7 +50,6 @@ async def handle_contact_form(
 ):
     logger.info(f"Received contact form submission from {email}")
 
-    # Construct the email content
     message = Mail(
         from_email=SENDER,
         to_emails=RECIPIENT,
@@ -79,7 +63,6 @@ async def handle_contact_form(
         """
     )
 
-    # Send the email
     try:
         sg = SendGridAPIClient(SENDGRID_API_KEY)
         response = sg.send(message)
@@ -88,8 +71,6 @@ async def handle_contact_form(
         logger.error(f"Error sending email: {e}")
         raise HTTPException(status_code=500, detail=f"Error sending email: {e}")
 
-    # Flash a message and redirect
-    flash(request, "Your message has been sent successfully!", "success")
     logger.info("Contact form submission successful, redirecting user.")
     return RedirectResponse(url="/contact", status_code=303)
 
@@ -98,45 +79,34 @@ async def handle_contact_form(
 async def read_root(request: Request):
     logger.info("Rendering home page")
     templates = request.app.state.templates
-    flash(request, "Welcome to Yone Homes!", "success")
-    return templates.TemplateResponse("home.html", {"request": request, "flashed_messages": get_flashed_messages(request)})
+    return templates.TemplateResponse("home.html", {"request": request})
+
 
 @router.get("/rentals", response_class=HTMLResponse, name="rentals")
 async def rentals(request: Request):
     logger.info("Rendering rentals page")
     templates = request.app.state.templates
-    return templates.TemplateResponse("rentals.html", {"request": request, "flashed_messages": get_flashed_messages(request)})
+    return templates.TemplateResponse("rentals.html", {"request": request})
 
 @router.get("/buying", response_class=HTMLResponse, name="buying")
 async def buying(request: Request):
     logger.info("Rendering buying page")
     templates = request.app.state.templates
-    return templates.TemplateResponse("buying.html", {"request": request, "flashed_messages": get_flashed_messages(request)})
+    return templates.TemplateResponse("buying.html", {"request": request})
 
 @router.get("/resources", response_class=HTMLResponse, name="resources")
 async def resources(request: Request):
     logger.info("Rendering resources page")
     templates = request.app.state.templates
-    return templates.TemplateResponse("resources.html", {"request": request, "flashed_messages": get_flashed_messages(request)})
+    return templates.TemplateResponse("resources.html", {"request": request})
 
 @router.get("/contact", response_class=HTMLResponse, name="contact")
 async def contact(request: Request):
     logger.info("Rendering contact page")
     templates = request.app.state.templates
-    return templates.TemplateResponse("contact.html", {"request": request, "flashed_messages": get_flashed_messages(request)})
+    return templates.TemplateResponse("contact.html", {"request": request})
 
-
-
-
-
-class MLSDataResponse(BaseModel):
-    mls: str
-    address: str
-    price: float
-    description: Optional[str] = None
-    availability: str
-    images: List[str]
-    
+# Define your asynchronous functions for background processing
 async def setup_options() -> webdriver.Chrome:
     options = ChromeOptions()
     options.add_argument('--headless')  # Run headless for Raspberry Pi
@@ -148,7 +118,6 @@ async def setup_options() -> webdriver.Chrome:
     driver = webdriver.Chrome(service=service, options=options)
     return driver
 
-    
 async def login(driver, timeout: int, username: str, password: str):
     driver.get("https://matrix.brightmls.com/Matrix/Search/ResidentialLease/ResidentialLease")
 
@@ -164,7 +133,6 @@ async def login(driver, timeout: int, username: str, password: str):
     except Exception as e:
         logger.error(f"Login failed: {e}")
         raise HTTPException(status_code=500, detail="Login failed")
-
 
 async def sorted_csv_by_price(max_price: float = None) -> list:
     csv_path = "/var/www/html/fastapi_project/brightscrape/Standard_Export.csv"
@@ -254,10 +222,11 @@ async def download_images(driver, timeout: int, sorted_results: list) -> list:
             logger.error(f"Exception: Unexpected error for MLS {mls}: {e}")
     return image_link_full
 
-async def gather_images_and_mls_data() -> list[MLSDataResponse]:
+async def gather_images_and_mls_data() -> None:
     timeout = 100
     max_price = 1000
     driver = await setup_options()
+    db: Session = SessionLocal()  # Create a new session for database operations
     try:
         await login(driver, timeout, BRIGHTMLS_USERNAME, BRIGHTMLS_PASSWORD)
         sorted_results = await sorted_csv_by_price(max_price)
@@ -265,33 +234,42 @@ async def gather_images_and_mls_data() -> list[MLSDataResponse]:
 
         mls_links_dict = {name: links for name, links in image_links}
 
-        updated_results = []
         for item in sorted_results:
             name = item[1]
-            if name in mls_links_dict:
-                updated_item = list(item) + [mls_links_dict[name]]
-                updated_results.append(updated_item)
+            images = mls_links_dict.get(name, [])
+            user = db.query(User).filter_by(mls=name).first()
+            if user:
+                user.address = f"{item[2]}, {item[5]}, {item[6]} {item[7]}"
+                user.price = item[0]
+                user.description = item[14]
+                user.availability = item[3]
+                user.image_list = images
             else:
-                updated_results.append(list(item) + [[]])
+                user = User(
+                    mls=name,
+                    address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
+                    price=item[0],
+                    description=item[14],
+                    availability=item[3],
+                    image_list=images
+                )
+                db.add(user)
+        
+        db.commit()
 
+    except SQLAlchemyError as e:
+        logger.error(f"Database error during MLS data gathering: {e}")
+        db.rollback()
+        raise HTTPException(status_code=500, detail="Database error occurred during MLS data gathering")
+    except Exception as e:
+        logger.error(f"Error during MLS data gathering: {e}")
+        raise HTTPException(status_code=500, detail="An internal error occurred during MLS data gathering")
     finally:
         driver.quit()
+        db.close()  # Ensure the session is closed
 
-    return [MLSDataResponse(
-        mls=item[1],
-        address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
-        price=item[0],
-        description=item[14],
-        availability=item[3],
-        images=item[15]
-    ) for item in updated_results]
-
-
-@router.get("/mls-data", response_model=list[MLSDataResponse])
-async def get_mls_data():
-    try:
-        data = await gather_images_and_mls_data()
-        return data
-    except Exception as e:
-        logger.error(f"Failed to gather MLS data: {e}")
-        raise HTTPException(status_code=500, detail="Failed to gather MLS data")
+@router.get("/mls-data", response_model=dict)
+async def get_mls_data(background_tasks: BackgroundTasks):
+    logger.info("Starting MLS data gathering task")
+    background_tasks.add_task(gather_images_and_mls_data)
+    return JSONResponse(content={"message": "MLS data gathering task started in the background"})
