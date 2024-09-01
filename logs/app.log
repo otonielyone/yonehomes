@@ -1846,3 +1846,532 @@ with app.app_context(). See the documentation for more information.
 2024-08-31 22:28:13,062 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
 2024-08-31 22:28:17,843 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
 2024-08-31 22:29:17,393 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-08-31 22:29:39,743 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-08-31 22:29:43,858 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-08-31 22:29:48,166 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-08-31 22:29:52,582 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-08-31 22:31:02,493 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 23:04:53,713 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 23:05:56,551 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 23:07:52,739 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 23:08:40,911 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 23:10:35,384 - start_files.routes.routes - INFO - Rendering resources page
+2024-08-31 23:10:42,257 - start_files.routes.routes - INFO - Rendering contact page
+2024-08-31 23:10:44,379 - start_files.routes.routes - INFO - Rendering buying page
+2024-08-31 23:10:46,614 - start_files.routes.routes - INFO - Rendering rentals page
+2024-08-31 23:36:32,172 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 23:36:33,165 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 23:45:55,050 - start_files.routes.routes - INFO - Rendering home page
+2024-08-31 23:50:39,038 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 00:10:19,051 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 00:19:54,529 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 00:45:24,098 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 00:48:01,374 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 01:40:47,492 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 01:53:31,093 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 02:06:49,967 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 02:06:49,967 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 02:41:10,304 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 02:47:20,513 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 02:47:20,525 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 02:52:16,374 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 02:54:48,116 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 02:54:54,361 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 03:02:38,121 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 03:08:36,998 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 03:13:06,470 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 03:22:41,555 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 03:45:55,856 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 03:46:02,313 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 03:46:31,060 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 04:00:36,565 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 04:07:37,770 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 04:15:58,289 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 04:15:58,296 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 04:40:31,777 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 04:40:47,634 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 04:44:44,381 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 04:44:45,229 - start_files.routes.routes - INFO - Rendering contact page
+2024-09-01 04:44:46,564 - start_files.routes.routes - INFO - Received contact form submission from info@letsgetuoptimize.com
+2024-09-01 04:44:46,981 - start_files.routes.routes - ERROR - Error sending email: HTTP Error 401: Unauthorized
+2024-09-01 04:47:14,668 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 04:53:04,641 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 05:13:29,824 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 05:16:57,384 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 05:30:36,501 - start_files.routes.routes - INFO - Rendering rentals page
+2024-09-01 05:45:17,068 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 06:01:15,095 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 06:22:44,142 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 06:31:16,457 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 06:57:55,728 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 07:00:36,527 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 07:13:04,157 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 07:21:50,573 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 07:26:46,817 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 07:26:51,144 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 07:29:40,637 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 07:35:27,646 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 07:45:51,531 - start_files.routes.routes - INFO - Rendering resources page
+2024-09-01 08:06:51,640 - start_files.routes.routes - INFO - Rendering resources page
+2024-09-01 08:12:06,272 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 08:12:06,273 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 08:12:06,273 - start_files.routes.routes - ERROR - Unexpected error: 'str' object has no attribute 'find_element'
+2024-09-01 08:17:30,739 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 08:17:30,739 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 08:17:39,385 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 08:17:39,386 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 08:37:49,471 - start_files.routes.routes - INFO - Starting CSV export task in the background
+2024-09-01 08:37:49,474 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 08:37:50,716 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 08:37:50,717 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 08:40:39,282 - start_files.routes.routes - INFO - Starting CSV export task in the background
+2024-09-01 08:40:39,284 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 08:40:40,508 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 08:40:40,508 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 08:40:40,509 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 08:40:41,718 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 08:40:41,718 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 08:40:56,569 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 08:44:30,506 - start_files.routes.routes - INFO - Starting CSV export task in the background
+2024-09-01 08:44:30,507 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 08:44:30,507 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 08:44:31,727 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 08:44:31,727 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 08:51:55,463 - start_files.routes.routes - INFO - Starting CSV export task in the background
+2024-09-01 08:51:55,465 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 08:51:55,466 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 08:51:56,679 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 08:51:56,680 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 08:53:32,653 - start_files.routes.routes - INFO - Starting CSV export task in the background
+2024-09-01 08:53:32,654 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 08:53:32,655 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 08:53:33,932 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 08:53:33,933 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 08:55:46,702 - start_files.routes.routes - INFO - Starting CSV export task in the background
+2024-09-01 08:55:46,704 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 08:55:46,705 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 08:55:49,295 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 08:56:07,122 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 08:56:19,266 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 08:56:19,737 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 08:56:21,903 - start_files.routes.routes - INFO - 'Check All Results Entries' link clicked successfully
+2024-09-01 08:56:22,093 - start_files.routes.routes - INFO - 'Submit Export' button clicked successfully
+2024-09-01 08:56:24,616 - start_files.routes.routes - INFO - Standard Export selected from dropdown
+2024-09-01 08:56:24,717 - start_files.routes.routes - INFO - 'Export' button clicked successfully
+2024-09-01 08:56:41,724 - start_files.routes.routes - INFO - File downloaded: /home/oyone/Downloads/Standard Export.csv
+2024-09-01 08:56:41,726 - start_files.routes.routes - INFO - File moved from /home/oyone/Downloads/Standard Export.csv to /var/www/html/fastapi_project/brightscrape/Standard Export.csv
+2024-09-01 08:56:41,726 - start_files.routes.routes - INFO - Done fetching csv
+2024-09-01 08:57:06,365 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 08:57:17,970 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 08:57:29,468 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 09:01:25,499 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 09:01:49,322 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 09:05:36,492 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 09:05:47,132 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 09:06:15,231 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:06:15,233 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 09:06:16,445 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 09:06:23,516 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 09:06:23,517 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 09:06:24,762 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 09:07:00,885 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 09:07:30,234 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 09:07:30,694 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 09:07:32,702 - start_files.routes.routes - INFO - 'Check All Results Entries' link clicked successfully
+2024-09-01 09:07:32,803 - start_files.routes.routes - INFO - 'Submit Export' button clicked successfully
+2024-09-01 09:07:35,339 - start_files.routes.routes - INFO - Standard Export selected from dropdown
+2024-09-01 09:07:35,440 - start_files.routes.routes - INFO - 'Export' button clicked successfully
+2024-09-01 09:07:56,455 - start_files.routes.routes - INFO - File downloaded: /home/oyone/Downloads/Standard Export.csv
+2024-09-01 09:07:56,457 - start_files.routes.routes - INFO - File moved from /home/oyone/Downloads/Standard Export.csv to /var/www/html/fastapi_project/brightscrape/Standard Export.csv
+2024-09-01 09:07:56,457 - start_files.routes.routes - INFO - Done fetching csv
+2024-09-01 09:08:03,340 - start_files.routes.routes - INFO - Completed image extractions for MLS VAPW2077254, found 5 images.
+2024-09-01 09:08:09,424 - start_files.routes.routes - INFO - Completed image extractions for MLS VAST2032118, found 6 images.
+2024-09-01 09:08:24,362 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2199050, found 14 images.
+2024-09-01 09:08:35,562 - start_files.routes.routes - INFO - Completed image extractions for MLS VAFX2197186, found 28 images.
+2024-09-01 09:10:44,293 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:12:51,976 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:13:43,484 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 09:14:06,446 - start_files.routes.routes - INFO - Starting CSV export task in the background
+2024-09-01 09:14:06,448 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 09:14:06,448 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 09:14:07,687 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 09:14:13,583 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 09:14:23,057 - start_files.routes.routes - INFO - Rendering contact page
+2024-09-01 09:14:24,537 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 09:14:24,903 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 09:14:34,492 - start_files.routes.routes - ERROR - Error during export results: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome-headless-shell=126.0.6478.126); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0xaaaaeae653a8 <unknown>
+#1 0xaaaaeab8fb24 <unknown>
+#2 0xaaaaeab946f0 <unknown>
+#3 0xaaaaeab96288 <unknown>
+#4 0xaaaaeac0bd84 <unknown>
+#5 0xaaaaeac0b2e8 <unknown>
+#6 0xaaaaeabc6a80 <unknown>
+#7 0xaaaaeabc745c <unknown>
+#8 0xaaaaeae30b18 <unknown>
+#9 0xaaaaeae34124 <unknown>
+#10 0xaaaaeae1f894 <unknown>
+#11 0xaaaaeae347c4 <unknown>
+#12 0xaaaaeae07df4 <unknown>
+#13 0xaaaaeae55280 <unknown>
+#14 0xaaaaeae55450 <unknown>
+#15 0xaaaaeae644f0 <unknown>
+#16 0xffff9ea0597c <unknown>
+#17 0xffff9ea6ba4c <unknown>
+
+2024-09-01 09:17:57,150 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:18:07,677 - start_files.routes.routes - INFO - Starting CSV export task in the background
+2024-09-01 09:18:07,678 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 09:18:07,679 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 09:18:08,894 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 09:18:15,961 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 09:18:30,714 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 09:18:31,073 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 09:18:33,100 - start_files.routes.routes - INFO - 'Check All Results Entries' link clicked successfully
+2024-09-01 09:18:33,221 - start_files.routes.routes - INFO - 'Submit Export' button clicked successfully
+2024-09-01 09:18:35,738 - start_files.routes.routes - INFO - Standard Export selected from dropdown
+2024-09-01 09:18:35,840 - start_files.routes.routes - INFO - 'Export' button clicked successfully
+2024-09-01 09:18:36,841 - start_files.routes.routes - INFO - File downloaded: /home/oyone/Downloads/Standard Export.csv
+2024-09-01 09:18:36,843 - start_files.routes.routes - INFO - File moved from /home/oyone/Downloads/Standard Export.csv to /var/www/html/fastapi_project/brightscrape/Standard Export.csv
+2024-09-01 09:18:36,844 - start_files.routes.routes - INFO - Done fetching csv
+2024-09-01 09:22:55,655 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:27:29,534 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:29:57,234 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:31:02,273 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:34:24,650 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:34:24,671 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 09:34:26,728 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 09:34:26,729 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 09:34:26,729 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 09:34:27,929 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 09:35:01,009 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 09:35:13,031 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 09:35:13,393 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 09:35:15,647 - start_files.routes.routes - INFO - 'Check All Results Entries' link clicked successfully
+2024-09-01 09:35:15,800 - start_files.routes.routes - INFO - 'Submit Export' button clicked successfully
+2024-09-01 09:35:18,385 - start_files.routes.routes - INFO - Standard Export selected from dropdown
+2024-09-01 09:35:18,500 - start_files.routes.routes - INFO - 'Export' button clicked successfully
+2024-09-01 09:35:33,518 - start_files.routes.routes - INFO - File downloaded: /home/oyone/Downloads/Standard Export.csv
+2024-09-01 09:35:33,524 - start_files.routes.routes - INFO - File moved from /home/oyone/Downloads/Standard Export.csv to /var/www/html/fastapi_project/brightscrape/Standard Export.csv
+2024-09-01 09:35:33,525 - start_files.routes.routes - INFO - Done fetching csv
+2024-09-01 09:37:15,040 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077254: Message: 
+Stacktrace:
+#0 0xaaaabd9b53a8 <unknown>
+#1 0xaaaabd6dfb24 <unknown>
+#2 0xaaaabd7222fc <unknown>
+#3 0xaaaabd75b2e8 <unknown>
+#4 0xaaaabd716a80 <unknown>
+#5 0xaaaabd71745c <unknown>
+#6 0xaaaabd980b18 <unknown>
+#7 0xaaaabd984124 <unknown>
+#8 0xaaaabd96f894 <unknown>
+#9 0xaaaabd9847c4 <unknown>
+#10 0xaaaabd957df4 <unknown>
+#11 0xaaaabd9a5280 <unknown>
+#12 0xaaaabd9a5450 <unknown>
+#13 0xaaaabd9b44f0 <unknown>
+#14 0xffffa66e597c <unknown>
+#15 0xffffa674ba4c <unknown>
+
+2024-09-01 09:38:55,360 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAST2032118: Message: 
+Stacktrace:
+#0 0xaaaabd9b53a8 <unknown>
+#1 0xaaaabd6dfb24 <unknown>
+#2 0xaaaabd7222fc <unknown>
+#3 0xaaaabd75b2e8 <unknown>
+#4 0xaaaabd716a80 <unknown>
+#5 0xaaaabd71745c <unknown>
+#6 0xaaaabd980b18 <unknown>
+#7 0xaaaabd984124 <unknown>
+#8 0xaaaabd96f894 <unknown>
+#9 0xaaaabd9847c4 <unknown>
+#10 0xaaaabd957df4 <unknown>
+#11 0xaaaabd9a5280 <unknown>
+#12 0xaaaabd9a5450 <unknown>
+#13 0xaaaabd9b44f0 <unknown>
+#14 0xffffa66e597c <unknown>
+#15 0xffffa674ba4c <unknown>
+
+2024-09-01 09:39:59,624 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 09:40:35,615 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2199050: Message: 
+Stacktrace:
+#0 0xaaaabd9b53a8 <unknown>
+#1 0xaaaabd6dfb24 <unknown>
+#2 0xaaaabd7222fc <unknown>
+#3 0xaaaabd75b2e8 <unknown>
+#4 0xaaaabd716a80 <unknown>
+#5 0xaaaabd71745c <unknown>
+#6 0xaaaabd980b18 <unknown>
+#7 0xaaaabd984124 <unknown>
+#8 0xaaaabd96f894 <unknown>
+#9 0xaaaabd9847c4 <unknown>
+#10 0xaaaabd957df4 <unknown>
+#11 0xaaaabd9a5280 <unknown>
+#12 0xaaaabd9a5450 <unknown>
+#13 0xaaaabd9b44f0 <unknown>
+#14 0xffffa66e597c <unknown>
+#15 0xffffa674ba4c <unknown>
+
+2024-09-01 09:42:16,105 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197186: Message: 
+Stacktrace:
+#0 0xaaaabd9b53a8 <unknown>
+#1 0xaaaabd6dfb24 <unknown>
+#2 0xaaaabd7222fc <unknown>
+#3 0xaaaabd75b2e8 <unknown>
+#4 0xaaaabd716a80 <unknown>
+#5 0xaaaabd71745c <unknown>
+#6 0xaaaabd980b18 <unknown>
+#7 0xaaaabd984124 <unknown>
+#8 0xaaaabd96f894 <unknown>
+#9 0xaaaabd9847c4 <unknown>
+#10 0xaaaabd957df4 <unknown>
+#11 0xaaaabd9a5280 <unknown>
+#12 0xaaaabd9a5450 <unknown>
+#13 0xaaaabd9b44f0 <unknown>
+#14 0xffffa66e597c <unknown>
+#15 0xffffa674ba4c <unknown>
+
+2024-09-01 09:44:19,065 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:46:48,008 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:47:22,201 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:53:39,452 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 09:54:06,715 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:58:41,306 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 09:58:41,326 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 09:58:42,553 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 09:58:42,554 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 09:58:42,555 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 09:58:43,771 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 09:58:50,598 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 09:59:13,604 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 09:59:13,968 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 09:59:16,110 - start_files.routes.routes - INFO - 'Check All Results Entries' link clicked successfully
+2024-09-01 09:59:16,215 - start_files.routes.routes - INFO - 'Submit Export' button clicked successfully
+2024-09-01 09:59:18,746 - start_files.routes.routes - INFO - Standard Export selected from dropdown
+2024-09-01 09:59:18,853 - start_files.routes.routes - INFO - 'Export' button clicked successfully
+2024-09-01 09:59:19,856 - start_files.routes.routes - INFO - File downloaded: /home/oyone/Downloads/Standard Export.csv
+2024-09-01 09:59:19,861 - start_files.routes.routes - INFO - File moved from /home/oyone/Downloads/Standard Export.csv to /var/www/html/fastapi_project/brightscrape/Standard Export.csv
+2024-09-01 09:59:19,862 - start_files.routes.routes - INFO - Done fetching csv
+2024-09-01 10:01:00,489 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077254: Message: 
+Stacktrace:
+#0 0xaaaad0c853a8 <unknown>
+#1 0xaaaad09afb24 <unknown>
+#2 0xaaaad09f22fc <unknown>
+#3 0xaaaad0a2b2e8 <unknown>
+#4 0xaaaad09e6a80 <unknown>
+#5 0xaaaad09e745c <unknown>
+#6 0xaaaad0c50b18 <unknown>
+#7 0xaaaad0c54124 <unknown>
+#8 0xaaaad0c3f894 <unknown>
+#9 0xaaaad0c547c4 <unknown>
+#10 0xaaaad0c27df4 <unknown>
+#11 0xaaaad0c75280 <unknown>
+#12 0xaaaad0c75450 <unknown>
+#13 0xaaaad0c844f0 <unknown>
+#14 0xffffaaa2597c <unknown>
+#15 0xffffaaa8ba4c <unknown>
+
+2024-09-01 10:02:40,816 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAST2032118: Message: 
+Stacktrace:
+#0 0xaaaad0c853a8 <unknown>
+#1 0xaaaad09afb24 <unknown>
+#2 0xaaaad09f22fc <unknown>
+#3 0xaaaad0a2b2e8 <unknown>
+#4 0xaaaad09e6a80 <unknown>
+#5 0xaaaad09e745c <unknown>
+#6 0xaaaad0c50b18 <unknown>
+#7 0xaaaad0c54124 <unknown>
+#8 0xaaaad0c3f894 <unknown>
+#9 0xaaaad0c547c4 <unknown>
+#10 0xaaaad0c27df4 <unknown>
+#11 0xaaaad0c75280 <unknown>
+#12 0xaaaad0c75450 <unknown>
+#13 0xaaaad0c844f0 <unknown>
+#14 0xffffaaa2597c <unknown>
+#15 0xffffaaa8ba4c <unknown>
+
+2024-09-01 10:03:20,519 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 10:03:20,543 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 10:03:21,770 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 10:03:21,771 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 10:03:21,771 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 10:03:22,976 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 10:03:31,709 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 10:03:45,851 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 10:03:46,212 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 10:03:48,759 - start_files.routes.routes - INFO - 'Check All Results Entries' link clicked successfully
+2024-09-01 10:03:48,866 - start_files.routes.routes - INFO - 'Submit Export' button clicked successfully
+2024-09-01 10:03:51,387 - start_files.routes.routes - INFO - Standard Export selected from dropdown
+2024-09-01 10:03:51,490 - start_files.routes.routes - INFO - 'Export' button clicked successfully
+2024-09-01 10:03:53,494 - start_files.routes.routes - INFO - File downloaded: /home/oyone/Downloads/Standard Export.csv
+2024-09-01 10:03:53,502 - start_files.routes.routes - INFO - File moved from /home/oyone/Downloads/Standard Export.csv to /var/www/html/fastapi_project/brightscrape/Standard Export.csv
+2024-09-01 10:03:53,502 - start_files.routes.routes - INFO - Done fetching csv
+2024-09-01 10:05:34,252 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077254: Message: 
+Stacktrace:
+#0 0xaaaac33e53a8 <unknown>
+#1 0xaaaac310fb24 <unknown>
+#2 0xaaaac31522fc <unknown>
+#3 0xaaaac318b2e8 <unknown>
+#4 0xaaaac3146a80 <unknown>
+#5 0xaaaac314745c <unknown>
+#6 0xaaaac33b0b18 <unknown>
+#7 0xaaaac33b4124 <unknown>
+#8 0xaaaac339f894 <unknown>
+#9 0xaaaac33b47c4 <unknown>
+#10 0xaaaac3387df4 <unknown>
+#11 0xaaaac33d5280 <unknown>
+#12 0xaaaac33d5450 <unknown>
+#13 0xaaaac33e44f0 <unknown>
+#14 0xffff93bb597c <unknown>
+#15 0xffff93c1ba4c <unknown>
+
+2024-09-01 10:07:14,447 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAST2032118: Message: 
+Stacktrace:
+#0 0xaaaac33e53a8 <unknown>
+#1 0xaaaac310fb24 <unknown>
+#2 0xaaaac31522fc <unknown>
+#3 0xaaaac318b2e8 <unknown>
+#4 0xaaaac3146a80 <unknown>
+#5 0xaaaac314745c <unknown>
+#6 0xaaaac33b0b18 <unknown>
+#7 0xaaaac33b4124 <unknown>
+#8 0xaaaac339f894 <unknown>
+#9 0xaaaac33b47c4 <unknown>
+#10 0xaaaac3387df4 <unknown>
+#11 0xaaaac33d5280 <unknown>
+#12 0xaaaac33d5450 <unknown>
+#13 0xaaaac33e44f0 <unknown>
+#14 0xffff93bb597c <unknown>
+#15 0xffff93c1ba4c <unknown>
+
+2024-09-01 10:07:15,758 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 10:07:30,835 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 10:08:54,591 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2199050: Message: 
+Stacktrace:
+#0 0xaaaac33e53a8 <unknown>
+#1 0xaaaac310fb24 <unknown>
+#2 0xaaaac31522fc <unknown>
+#3 0xaaaac318b2e8 <unknown>
+#4 0xaaaac3146a80 <unknown>
+#5 0xaaaac314745c <unknown>
+#6 0xaaaac33b0b18 <unknown>
+#7 0xaaaac33b4124 <unknown>
+#8 0xaaaac339f894 <unknown>
+#9 0xaaaac33b47c4 <unknown>
+#10 0xaaaac3387df4 <unknown>
+#11 0xaaaac33d5280 <unknown>
+#12 0xaaaac33d5450 <unknown>
+#13 0xaaaac33e44f0 <unknown>
+#14 0xffff93bb597c <unknown>
+#15 0xffff93c1ba4c <unknown>
+
+2024-09-01 10:10:34,808 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197186: Message: 
+Stacktrace:
+#0 0xaaaac33e53a8 <unknown>
+#1 0xaaaac310fb24 <unknown>
+#2 0xaaaac31522fc <unknown>
+#3 0xaaaac318b2e8 <unknown>
+#4 0xaaaac3146a80 <unknown>
+#5 0xaaaac314745c <unknown>
+#6 0xaaaac33b0b18 <unknown>
+#7 0xaaaac33b4124 <unknown>
+#8 0xaaaac339f894 <unknown>
+#9 0xaaaac33b47c4 <unknown>
+#10 0xaaaac3387df4 <unknown>
+#11 0xaaaac33d5280 <unknown>
+#12 0xaaaac33d5450 <unknown>
+#13 0xaaaac33e44f0 <unknown>
+#14 0xffff93bb597c <unknown>
+#15 0xffff93c1ba4c <unknown>
+
+2024-09-01 10:11:08,384 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 10:12:36,305 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 10:14:32,608 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 10:14:32,629 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 10:14:33,863 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 10:14:33,864 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 10:14:33,864 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 10:14:35,085 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 10:14:41,416 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 10:15:06,137 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 10:15:06,493 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 10:15:08,527 - start_files.routes.routes - ERROR - Error during export results: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome-headless-shell=126.0.6478.126); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0xaaaadf7d53a8 <unknown>
+#1 0xaaaadf4ffb24 <unknown>
+#2 0xaaaadf5046f0 <unknown>
+#3 0xaaaadf506288 <unknown>
+#4 0xaaaadf57bd84 <unknown>
+#5 0xaaaadf57b2e8 <unknown>
+#6 0xaaaadf536a80 <unknown>
+#7 0xaaaadf53745c <unknown>
+#8 0xaaaadf7a0b18 <unknown>
+#9 0xaaaadf7a4124 <unknown>
+#10 0xaaaadf78f894 <unknown>
+#11 0xaaaadf7a47c4 <unknown>
+#12 0xaaaadf777df4 <unknown>
+#13 0xaaaadf7c5280 <unknown>
+#14 0xaaaadf7c5450 <unknown>
+#15 0xaaaadf7d44f0 <unknown>
+#16 0xffff8477597c <unknown>
+#17 0xffff847dba4c <unknown>
+
+2024-09-01 10:17:01,549 - start_files.routes.routes - INFO - Rendering rentals page
+2024-09-01 10:17:32,942 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 10:17:32,962 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 10:17:34,177 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 10:17:34,178 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 10:17:34,178 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 10:17:35,579 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 10:17:57,668 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 10:18:09,772 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 10:18:10,153 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 10:18:12,553 - start_files.routes.routes - INFO - 'Check All Results Entries' link clicked successfully
+2024-09-01 10:18:12,753 - start_files.routes.routes - INFO - 'Submit Export' button clicked successfully
+2024-09-01 10:18:15,288 - start_files.routes.routes - INFO - Standard Export selected from dropdown
+2024-09-01 10:18:15,391 - start_files.routes.routes - INFO - 'Export' button clicked successfully
+2024-09-01 10:18:30,412 - start_files.routes.routes - INFO - File downloaded: /home/oyone/Downloads/Standard Export.csv
+2024-09-01 10:18:30,415 - start_files.routes.routes - INFO - File moved from /home/oyone/Downloads/Standard Export.csv to /var/www/html/fastapi_project/brightscrape/Standard Export.csv
+2024-09-01 10:18:30,416 - start_files.routes.routes - INFO - Done fetching csv
+2024-09-01 10:20:14,885 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2199050: Message: 
+Stacktrace:
+#0 0xaaaad33653a8 <unknown>
+#1 0xaaaad308fb24 <unknown>
+#2 0xaaaad30d22fc <unknown>
+#3 0xaaaad310b2e8 <unknown>
+#4 0xaaaad30c6a80 <unknown>
+#5 0xaaaad30c745c <unknown>
+#6 0xaaaad3330b18 <unknown>
+#7 0xaaaad3334124 <unknown>
+#8 0xaaaad331f894 <unknown>
+#9 0xaaaad33347c4 <unknown>
+#10 0xaaaad3307df4 <unknown>
+#11 0xaaaad3355280 <unknown>
+#12 0xaaaad3355450 <unknown>
+#13 0xaaaad33644f0 <unknown>
+#14 0xffffbded597c <unknown>
+#15 0xffffbdf3ba4c <unknown>
+
+2024-09-01 10:21:55,275 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197186: Message: 
+Stacktrace:
+#0 0xaaaad33653a8 <unknown>
+#1 0xaaaad308fb24 <unknown>
+#2 0xaaaad30d22fc <unknown>
+#3 0xaaaad310b2e8 <unknown>
+#4 0xaaaad30c6a80 <unknown>
+#5 0xaaaad30c745c <unknown>
+#6 0xaaaad3330b18 <unknown>
+#7 0xaaaad3334124 <unknown>
+#8 0xaaaad331f894 <unknown>
+#9 0xaaaad33347c4 <unknown>
+#10 0xaaaad3307df4 <unknown>
+#11 0xaaaad3355280 <unknown>
+#12 0xaaaad3355450 <unknown>
+#13 0xaaaad33644f0 <unknown>
+#14 0xffffbded597c <unknown>
+#15 0xffffbdf3ba4c <unknown>
+
+2024-09-01 10:28:21,127 - start_files.routes.routes - INFO - Starting CSV sort task in the background
