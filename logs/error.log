@@ -266,3 +266,5 @@ RuntimeError: Caught handled exception, but response already started.
 [2024-09-01 10:17:25 -0400] [72710] [INFO] Started server process [72710]
 [2024-09-01 10:17:25 -0400] [72710] [INFO] Waiting for application startup.
 [2024-09-01 10:17:25 -0400] [72710] [INFO] Application startup complete.
+[2024-09-01 12:04:42 -0400] [72703] [WARNING] Invalid HTTP request received.
+[2024-09-01 12:53:48 -0400] [72703] [WARNING] Invalid HTTP request received.

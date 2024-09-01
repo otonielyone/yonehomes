@@ -270,7 +270,39 @@ async def download_images(driver, timeout: int, sorted_results: list) -> list:
             image_link_full.append([mls, all_links])
         except Exception as e:
             logger.error(f"Exception: Unexpected error for MLS {mls}: {e}")
-    return image_link_full
+
+        #Add to db
+        db: Session = SessionLocal()  # Create a new session for database operations
+        try:
+            mls_links_dict = {name: links for name, links in image_link_full}
+
+            for item in sorted_results:
+                name = item[1]
+                images = mls_links_dict.get(name, [])
+                user = db.query(User).filter_by(mls=name).first()
+                if user:
+                    user.address = f"{item[2]}, {item[5]}, {item[6]} {item[7]}"
+                    user.price = item[0]
+                    user.description = item[14]
+                    user.availability = item[3]
+                    user.image_list = images
+                else:
+                    user = User(
+                        mls=name,
+                        address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
+                        price=item[0],
+                        description=item[14],
+                        availability=item[3],
+                        image_list=images
+                    )
+                    db.add(user)
+            db.commit()
+        finally:
+            db.close()
+            logger.debug(f"Database has been populated")
+
+
+
 
 # Define a synchronous wrapper function for the background task
 def sync_gather_images_and_mls_data(max_price):
@@ -285,38 +317,12 @@ def sync_gather_images_and_mls_data(max_price):
 async def gather_images_and_mls_data(max_price) -> None:
     timeout = 100
     driver = await setup_options()
-    db: Session = SessionLocal()  # Create a new session for database operations
     try:
         await export_results()
         sorted_results = await sorted_csv_by_price(max_price)
-        image_links = await download_images(driver, timeout, sorted_results)
-
-        mls_links_dict = {name: links for name, links in image_links}
-
-        for item in sorted_results:
-            name = item[1]
-            images = mls_links_dict.get(name, [])
-            user = db.query(User).filter_by(mls=name).first()
-            if user:
-                user.address = f"{item[2]}, {item[5]}, {item[6]} {item[7]}"
-                user.price = item[0]
-                user.description = item[14]
-                user.availability = item[3]
-                user.image_list = images
-            else:
-                user = User(
-                    mls=name,
-                    address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
-                    price=item[0],
-                    description=item[14],
-                    availability=item[3],
-                    image_list=images
-                )
-                db.add(user)
-        db.commit()
+        await download_images(driver, timeout, sorted_results)
     finally:
         driver.quit()
-        db.close()
 
 
 #CONTACT SECTION

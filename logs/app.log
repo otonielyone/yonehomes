@@ -2375,3 +2375,1964 @@ Stacktrace:
 #15 0xffffbdf3ba4c <unknown>
 
 2024-09-01 10:28:21,127 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 10:34:13,908 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 10:34:17,939 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 10:34:31,100 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-01 10:34:31,120 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 10:34:32,799 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 10:34:32,799 - start_files.routes.routes - INFO - Starting export_results function
+2024-09-01 10:34:32,800 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-01 10:34:34,010 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-01 10:34:43,036 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-01 10:34:57,590 - start_files.routes.routes - INFO - Location confirmed
+2024-09-01 10:34:57,952 - start_files.routes.routes - INFO - Results tab clicked successfully
+2024-09-01 10:35:00,019 - start_files.routes.routes - INFO - 'Check All Results Entries' link clicked successfully
+2024-09-01 10:35:00,118 - start_files.routes.routes - INFO - 'Submit Export' button clicked successfully
+2024-09-01 10:35:02,666 - start_files.routes.routes - INFO - Standard Export selected from dropdown
+2024-09-01 10:35:02,786 - start_files.routes.routes - INFO - 'Export' button clicked successfully
+2024-09-01 10:35:05,790 - start_files.routes.routes - INFO - File downloaded: /home/oyone/Downloads/Standard Export.csv
+2024-09-01 10:35:05,799 - start_files.routes.routes - INFO - File moved from /home/oyone/Downloads/Standard Export.csv to /var/www/html/fastapi_project/brightscrape/Standard Export.csv
+2024-09-01 10:35:05,800 - start_files.routes.routes - INFO - Done fetching csv
+2024-09-01 10:35:28,260 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 10:36:47,534 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2199050: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:38:12,284 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 10:38:27,891 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197186: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:40:08,125 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2069286: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:40:59,773 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 10:41:48,451 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077828: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:43:28,814 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197654: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:45:09,138 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077452: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:46:49,282 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077416: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:48:29,611 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077448: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:50:09,931 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAST2032142: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:51:02,695 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 10:51:50,263 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197240: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:53:30,534 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077026: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:55:10,869 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2165924: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:55:12,996 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 10:56:51,224 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAX2037324: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 10:58:01,693 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 10:58:31,568 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAST2032388: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:00:11,809 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197664: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:01:52,080 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VALO2077610: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:03:32,317 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2196138: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:05:12,556 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VALO2077486: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:06:52,801 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2076050: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:08:33,078 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VALO2077272: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:10:13,345 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2199552: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:10:36,982 - start_files.routes.routes - INFO - Rendering contact page
+2024-09-01 11:11:53,619 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2199062: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:13:33,903 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197594: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:15:14,287 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2192516: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:16:54,525 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2075476: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:18:34,841 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2196828: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:20:15,118 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2198412: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:21:55,376 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VALO2077434: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:23:35,647 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197810: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:25:15,906 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VALO2078976: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:26:56,194 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2183986: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:28:36,473 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2047394: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:30:16,775 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAX2037502: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:31:57,036 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2198460: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:33:37,430 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAMP2002466: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:35:17,765 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2196150: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:36:57,985 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2047312: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:37:54,096 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 11:38:38,225 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2074410: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:40:18,446 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2195754: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:41:58,696 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2199234: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:43:38,958 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2196300: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:45:19,187 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAX2036978: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:46:59,257 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2196128: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:48:39,517 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2196118: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:50:19,754 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAMN2006602: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:52:00,001 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2198622: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:53:40,243 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077710: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+<->
+
+2024-09-01 11:54:54,977 - start_files.routes.routes - INFO - Starting CSV sort task in the background
+2024-09-01 11:55:20,449 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2192488: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:57:00,685 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VALO2077768: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 11:58:40,900 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFC2004978: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:00:21,126 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2046170: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:02:01,343 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFQ2012938: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:03:41,584 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2047936: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:05:21,831 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197666: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:07:02,080 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAX2037218: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:08:42,325 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2195342: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:10:22,552 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAX2036832: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:12:02,757 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2194136: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:13:43,033 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2046838: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:14:49,894 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 12:15:23,270 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAX2036144: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:17:03,611 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2188564: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:18:43,872 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2045718: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+  
+                                                       62
+
+2024-09-01 12:20:24,123 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFQ2013176: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:22:04,348 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2198458: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:23:44,615 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197118: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+                                                            66
+2024-09-01 12:25:24,822 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAST2031860: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:27:05,017 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2195280: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:28:45,262 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VALO2075996: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+                                                      69
+2024-09-01 12:30:25,500 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2191758: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+                                                      70
+2024-09-01 12:32:05,723 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2186598: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:33:45,977 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFC2004892: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:35:26,163 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2187638: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:37:06,408 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2198218: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:38:46,648 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2199440: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:40:26,879 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VALO2078528: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+                                                      76
+2024-09-01 12:42:07,123 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197366: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:43:47,349 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VALO2078256: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:45:27,727 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197700: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:47:08,038 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAX2037150: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:48:48,248 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2197100: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:50:28,729 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077500: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:52:09,004 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2195786: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+                                                       83
+2024-09-01 12:53:49,251 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2047336: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:53:59,482 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 12:55:29,403 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2195596: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:57:09,638 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2195344: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 12:58:49,917 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2046436: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:00:30,144 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2191462: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:02:10,374 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2045056: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:03:50,591 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2199000: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:05:30,849 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAAR2047964: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:07:11,094 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2078408: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:08:51,346 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2185380: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:10:31,566 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2196812: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:12:11,819 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2077646: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:13:52,069 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2191856: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:15:32,346 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2190918: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:15:39,443 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 13:17:12,500 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2064806: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:18:52,844 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAPW2069504: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:20:33,118 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2179360: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:22:13,361 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2198146: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:23:53,524 - start_files.routes.routes - ERROR - Exception: Unexpected error for MLS VAFX2188246: Message: 
+Stacktrace:
+#0 0xaaaae05553a8 <unknown>
+#1 0xaaaae027fb24 <unknown>
+#2 0xaaaae02c22fc <unknown>
+#3 0xaaaae02fb2e8 <unknown>
+#4 0xaaaae02b6a80 <unknown>
+#5 0xaaaae02b745c <unknown>
+#6 0xaaaae0520b18 <unknown>
+#7 0xaaaae0524124 <unknown>
+#8 0xaaaae050f894 <unknown>
+#9 0xaaaae05247c4 <unknown>
+#10 0xaaaae04f7df4 <unknown>
+#11 0xaaaae0545280 <unknown>
+#12 0xaaaae0545450 <unknown>
+#13 0xaaaae05544f0 <unknown>
+#14 0xffff9d8f597c <unknown>
+#15 0xffff9d95ba4c <unknown>
+
+2024-09-01 13:35:06,171 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 13:35:13,262 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 13:35:21,882 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 13:35:38,396 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 13:39:40,229 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 13:39:43,323 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 14:01:12,030 - start_files.routes.routes - INFO - Rendering home page
+2024-09-01 14:06:53,291 - start_files.routes.routes - INFO - Rendering home page
