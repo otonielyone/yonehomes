@@ -45,24 +45,48 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 def setup_options() -> webdriver.Chrome:
-    logger.info("Setting up driver")
+    logger.info("Setting up Chrome options")
     options = ChromeOptions()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--disable-gpu')
     options.add_argument('--disable-software-rasterizer')
-    try:
-        service = ChromeService(executable_path='/usr/lib/chromium-browser/chromedriver')
-        driver = webdriver.Chrome(service=service, options=options)
-        return driver
-    except Exception as e:
-        logger.error(f"Failed to initialize WebDriver: {e}")
-        raise
+    options.add_argument('--window-size=1920,1080')
+    options.add_experimental_option("prefs", {
+        "download.default_directory": "/home/oyone/Downloads/",
+        "download.prompt_for_download": False,
+        "download.directory_upgrade": True,
+        "safebrowsing.enabled": True
+    })
+    service = ChromeService(executable_path='/usr/lib/chromium-browser/chromedriver')
+    driver = webdriver.Chrome(service=service, options=options)
+    logger.info("Chrome options setup complete")
+    return driver
+
+
+async def async_setup_options() -> webdriver.Chrome:
+    logger.info("Setting up Chrome options")
+    options = ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--disable-software-rasterizer')
+    options.add_argument('--window-size=1920,1080')
+    options.add_experimental_option("prefs", {
+        "download.default_directory": "/home/oyone/Downloads/",
+        "download.prompt_for_download": False,
+        "download.directory_upgrade": True,
+        "safebrowsing.enabled": True
+    })
+    service = ChromeService(executable_path='/usr/lib/chromium-browser/chromedriver')
+    driver = webdriver.Chrome(service=service, options=options)
+    logger.info("Chrome options setup complete")
+    return driver
 
 def login(driver: webdriver.Chrome, timeout: int, username: str, password: str):
     logger.info("About to Begin Login")
-    driver.get("https://matrix.brightmls.com/Matrix/Search/ResidentialLease/ResidentialLease")
     try:
         # Ensure username field is interactable
         username_field = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.NAME, "username")))
@@ -85,25 +109,6 @@ def login(driver: webdriver.Chrome, timeout: int, username: str, password: str):
         logger.error(f"Login failed: {e}")
         raise
 
-async def async_setup_options() -> webdriver.Chrome:
-    logger.info("Setting up Chrome options")
-    options = ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-software-rasterizer')
-    options.add_argument('--window-size=1920,1080')
-    options.add_experimental_option("prefs", {
-        "download.default_directory": "/home/oyone/Downloads/",
-        "download.prompt_for_download": False,
-        "download.directory_upgrade": True,
-        "safebrowsing.enabled": True
-    })
-    service = ChromeService(executable_path='/usr/lib/chromium-browser/chromedriver')
-    driver = webdriver.Chrome(service=service, options=options)
-    logger.info("Chrome options setup complete")
-    return driver
 
 async def async_login(driver: webdriver.Chrome, timeout: int, username: str, password: str):
     logger.info("About to Begin Login")
@@ -241,7 +246,7 @@ async def export_results():
     return "CSV file has been downloaded and moved successfully!"
     
 
-async def sorted_csv_by_price(max_price: float = None) -> list:
+async def sorted_csv_by_price(max_price) -> list:
     csv_path = "/var/www/html/fastapi_project/brightscrape/Standard Export.csv"
     all_data = []
 
@@ -280,74 +285,72 @@ async def sorted_csv_by_price(max_price: float = None) -> list:
     return all_data_sorted
 
 
-def download_images_for_item(item, timeout: int, max_images: int) -> list:
-    logger.info(f"Starting to gather images for MLS {item[1]}")
+def download_images_for_item(item, timeout, max_images) -> list:
     mls = item[1]
     image_link_full = []
-    driver = setup_options()
-
+    driver  = None
+    
     try:
+        driver = setup_options()
+        driver.save_screenshot('debug_screenshot1.png')
+
+        logger.info("Grabbing search page")
+        driver.get("https://matrix.brightmls.com/Matrix/Search/ResidentialLease/ResidentialLease")
+
+        WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
         page_title = driver.title
+        logger.info("Page title confirm.")
 
         if "SSO | Bright MLS" in page_title:
             logger.info("Page title indicates login is required.")
             login(driver, timeout, BRIGHTMLS_USERNAME, BRIGHTMLS_PASSWORD)
-            logger.info("Logged in now to gather the images")
-        elif "Matrix" in page_title:
-            logger.info(f"Logged in now to gather the images")
-
-        search_bar_locator = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.NAME, "ctl01$m_ucSpeedBar$m_tbSpeedBar")))
-        driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_locator)
-        driver.execute_script("arguments[0].click();", search_bar_locator)
-        search_bar_locator.send_keys(mls)
-        logger.info(f"Entering {item[1]} in search bar")
-
-
-        search_bar_submit = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, "ctl01_m_ucSpeedBar_m_lnkGo")))
-        driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_submit)
-        driver.execute_script("arguments[0].click();", search_bar_submit)
-        logger.info(f"Submitting search entry.")
-        
-
-        click_entry = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, '//td[@class="NoPrint checkboxTableRow d25m0"]//input[@type="checkbox"]')))
-        driver.execute_script("arguments[0].scrollIntoView(true);", click_entry)
-        driver.execute_script("arguments[0].click();", click_entry)
-        logger.info(f"Entry submitted. clicking  {item[1]} on results page")
-        
-        dropdown_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
-        driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", dropdown_element)
-        WebDriverWait(driver, timeout).until(EC.visibility_of(dropdown_element))
-        WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
-        dropdown = Select(dropdown_element)
-        dropdown.select_by_visible_text("Agent Full")
-        logger.info("Selected 'Agent Full' successfully")
-        driver.save_screenshot('debug_screenshot.png')
-
-        formula_span = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Click to Show Photos']")))
-        driver.save_screenshot('debug_screenshot2.png')
-        driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", formula_span)
-        WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, "//span[text()='Click to Show Photos']")))
-        driver.execute_script("arguments[0].click();", formula_span)
-        logger.info(f" Clicking image section for {item[1]}")
     
-        images_locator = (By.XPATH, '//font[@class="IV_Single"]//img[@class="IV_Image"]')
-        WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
-        all_imgs = driver.find_elements(*images_locator)
-        all_links = [tag.get_attribute('src') for tag in all_imgs[:max_images]]
-
-        if len(all_links) == 0:
-            logger.warning(f"MLS {mls} has no images.")
-        else:
-            logger.info(f"Completed image extraction for MLS {mls}, found {len(all_links)} images.")
-
-        image_link_full.append([mls, all_links])
-
-    except Exception as e:
-        logger.error(f"Exception occurred for MLS {mls}: {e}")
-
     finally:
-        driver.quit()
+        logger.info("Beginning page query.")
+        driver.save_screenshot('debug_screenshot2.png')
 
+    search_bar_locator = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.NAME, "ctl01$m_ucSpeedBar$m_tbSpeedBar")))
+    driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_locator)
+    driver.execute_script("arguments[0].click();", search_bar_locator)
+    search_bar_locator.send_keys(mls)
+    logger.info(f"Entering {item[1]} in search bar")
+    
+    search_bar_submit = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, "ctl01_m_ucSpeedBar_m_lnkGo")))
+    driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_submit)
+    driver.execute_script("arguments[0].click();", search_bar_submit)
+    logger.info(f"Submitting search entry.")
+    
+    click_entry = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, '//td[@class="NoPrint checkboxTableRow d25m0"]//input[@type="checkbox"]')))
+    driver.execute_script("arguments[0].scrollIntoView(true);", click_entry)
+    driver.execute_script("arguments[0].click();", click_entry)
+    logger.info(f"Entry submitted. clicking  {item[1]} on results page")
+    
+    dropdown_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
+    driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", dropdown_element)
+    WebDriverWait(driver, timeout).until(EC.visibility_of(dropdown_element))
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
+    dropdown = Select(dropdown_element)
+    dropdown.select_by_visible_text("Agent Full")
+    logger.info("Selected 'Agent Full' successfully")
+    
+    formula_span = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Click to Show Photos']")))
+    driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", formula_span)
+    
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, "//span[text()='Click to Show Photos']")))
+    driver.execute_script("arguments[0].click();", formula_span)
+    logger.info(f" Clicking image section for {item[1]}")
+
+    images_locator = (By.XPATH, '//font[@class="IV_Single"]//img[@class="IV_Image"]')
+    WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
+    all_imgs = driver.find_elements(*images_locator)
+    all_links = [tag.get_attribute('src') for tag in all_imgs[:max_images]]
+    
+    if len(all_links) == 0:
+        logger.warning(f"MLS {mls} has no images.")
+    else:
+        logger.info(f"Completed image extraction for MLS {mls}, found {len(all_links)} images.")
+    image_link_full.append([mls, all_links])
+    driver.quit()
     logger.info('Starting database session')
     db: Session = SessionLocal()
 
@@ -379,9 +382,7 @@ def download_images_for_item(item, timeout: int, max_images: int) -> list:
         logger.debug("Database session closed")
 
 
-
-async def download_images(concurrency_limit, timeout: int, sorted_results: list) -> list:
-    max_images = 10
+async def download_images(timeout, concurrency_limit, max_images, sorted_results: list) -> list:
     semaphore = asyncio.Semaphore(concurrency_limit)
     async def download_image_with_semaphore(item):
         async with semaphore:
@@ -394,25 +395,21 @@ async def download_images(concurrency_limit, timeout: int, sorted_results: list)
         return image_link_full
 
 # Define a synchronous wrapper function for the background task
-def sync_gather_images_and_mls_data(concurrency_limit, max_price):
+def sync_gather_images_and_mls_data(concurrency_limit, max_images, max_price):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     try:
-        loop.run_until_complete(gather_images_and_mls_data(concurrency_limit, max_price))
+        loop.run_until_complete(gather_images_and_mls_data(concurrency_limit, max_images, max_price))
     finally:
         loop.close()
 
 # Async function for the actual task
-async def gather_images_and_mls_data(concurrency_limit, max_price) -> None:
+async def gather_images_and_mls_data(concurrency_limit, max_images, max_price) -> None:
     timeout = 100
-    driver = await async_setup_options()
-    try:
-        await export_results()
-        sorted_results = await sorted_csv_by_price(max_price)
-        await clear_database()
-        await download_images(timeout, concurrency_limit, sorted_results)
-    finally:
-        driver.quit()
+    #await export_results()
+    sorted_results = await sorted_csv_by_price(max_price)
+    await clear_database()
+    await download_images(timeout, concurrency_limit, max_images, sorted_results)
 
 
 #CONTACT SECTION
@@ -460,17 +457,17 @@ async def export_results_endpoint(background_tasks: BackgroundTasks):
     background_tasks.add_task(export_results)  # Do not await here
     return JSONResponse(content={"message": "CSV export task started in the background"})
 
-@router.get("/count-csv-items", response_class=JSONResponse, name="filter")
-async def sort_csv_endpoint(max_price: float = None):
+@router.get("/count-list", response_class=JSONResponse, name="filter")
+async def sort_csv_endpoint(max_price):
     logger.info("Starting CSV sort task in the background")
     sorted = await sorted_csv_by_price(max_price)
     return f"This sorted list has {len(sorted)} listings."
 
 # Route Handler
-@router.get("/import-data", response_model=dict, name="import")
-async def get_mls_data(background_tasks: BackgroundTasks, concurrency_limit = 10, max_price: int = 1000):
+@router.get("/populate-database", response_model=dict, name="import")
+async def get_mls_data(background_tasks: BackgroundTasks, concurrency_limit: int = 10, max_images: int = 10, max_price: int = 1000):
     logger.info("Starting MLS data gathering task")
-    background_tasks.add_task(sync_gather_images_and_mls_data, concurrency_limit, max_price)
+    background_tasks.add_task(sync_gather_images_and_mls_data, concurrency_limit, max_images, max_price)
     return JSONResponse(content={"message": "MLS data gathering task started in the background"})
     
 @router.get("/", response_class=HTMLResponse, name="home")

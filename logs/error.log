@@ -1,19 +1,19 @@
-[2024-09-02 11:35:35 -0400] [170623] [INFO] Starting gunicorn 23.0.0
-[2024-09-02 11:35:35 -0400] [170623] [INFO] Listening at: http://192.168.0.100:5000 (170623)
-[2024-09-02 11:35:35 -0400] [170623] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2024-09-02 11:35:35 -0400] [170638] [INFO] Booting worker with pid: 170638
-[2024-09-02 11:35:35 -0400] [170641] [INFO] Booting worker with pid: 170641
-[2024-09-02 11:35:35 -0400] [170646] [INFO] Booting worker with pid: 170646
-[2024-09-02 11:35:35 -0400] [170656] [INFO] Booting worker with pid: 170656
-[2024-09-02 11:35:45 -0400] [170638] [INFO] Started server process [170638]
-[2024-09-02 11:35:45 -0400] [170646] [INFO] Started server process [170646]
-[2024-09-02 11:35:45 -0400] [170656] [INFO] Started server process [170656]
-[2024-09-02 11:35:45 -0400] [170641] [INFO] Started server process [170641]
-[2024-09-02 11:35:45 -0400] [170638] [INFO] Waiting for application startup.
-[2024-09-02 11:35:45 -0400] [170646] [INFO] Waiting for application startup.
-[2024-09-02 11:35:45 -0400] [170656] [INFO] Waiting for application startup.
-[2024-09-02 11:35:45 -0400] [170641] [INFO] Waiting for application startup.
-[2024-09-02 11:35:45 -0400] [170638] [INFO] Application startup complete.
-[2024-09-02 11:35:45 -0400] [170641] [INFO] Application startup complete.
-[2024-09-02 11:35:45 -0400] [170646] [INFO] Application startup complete.
-[2024-09-02 11:35:45 -0400] [170656] [INFO] Application startup complete.
+[2024-09-02 19:46:49 -0400] [7323] [INFO] Starting gunicorn 23.0.0
+[2024-09-02 19:46:49 -0400] [7323] [INFO] Listening at: http://192.168.0.100:5000 (7323)
+[2024-09-02 19:46:49 -0400] [7323] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-02 19:46:49 -0400] [7325] [INFO] Booting worker with pid: 7325
+[2024-09-02 19:46:50 -0400] [7326] [INFO] Booting worker with pid: 7326
+[2024-09-02 19:46:50 -0400] [7327] [INFO] Booting worker with pid: 7327
+[2024-09-02 19:46:50 -0400] [7328] [INFO] Booting worker with pid: 7328
+[2024-09-02 19:46:55 -0400] [7325] [INFO] Started server process [7325]
+[2024-09-02 19:46:58 -0400] [7325] [INFO] Waiting for application startup.
+[2024-09-02 19:46:55 -0400] [7327] [INFO] Started server process [7327]
+[2024-09-02 19:46:58 -0400] [7327] [INFO] Waiting for application startup.
+[2024-09-02 19:46:55 -0400] [7326] [INFO] Started server process [7326]
+[2024-09-02 19:46:55 -0400] [7328] [INFO] Started server process [7328]
+[2024-09-02 19:46:58 -0400] [7328] [INFO] Waiting for application startup.
+[2024-09-02 19:46:58 -0400] [7326] [INFO] Waiting for application startup.
+[2024-09-02 19:46:58 -0400] [7328] [INFO] Application startup complete.
+[2024-09-02 19:46:58 -0400] [7326] [INFO] Application startup complete.
+[2024-09-02 19:46:58 -0400] [7327] [INFO] Application startup complete.
+[2024-09-02 19:46:58 -0400] [7325] [INFO] Application startup complete.
