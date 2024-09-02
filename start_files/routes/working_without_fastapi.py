@@ -1,157 +1,204 @@
-import shutil
-import time
+import csv
 import os
+import re
 import logging
 import asyncio
-import sys
-from pydantic import BaseModel
-from selenium.webdriver.support import expected_conditions as EC
-from fastapi import APIRouter, Form, Request, HTTPException
-from fastapi.responses import HTMLResponse, RedirectResponse
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
-from sendgrid import SendGridAPIClient
-from selenium.common.exceptions import TimeoutException, ElementClickInterceptedException, WebDriverException
-from sendgrid.helpers.mail import Mail
-from dotenv import load_dotenv
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
-from typing import Optional, List
+from concurrent.futures import ThreadPoolExecutor
+import time
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
+from dotenv import load_dotenv
 
+# Load environment variables
+load_dotenv()
 
-async def navigate_to_search_page(driver, timeout):
-    logger.info("Navigating to search page")
+# Get credentials from environment variables
+BRIGHTMLS_USERNAME = os.getenv("BRIGHTMLS")
+BRIGHTMLS_PASSWORD = os.getenv("PASSWORD")
+
+# Set up logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')  # Corrected format string
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
+
+def setup_options() -> webdriver.Chrome:
+    logger.info("Setting up driver")
+    options = ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--disable-software-rasterizer')
     try:
-        logger.debug("Waiting for checkbox to be clickable")
-        element_present = EC.element_to_be_clickable((By.NAME, "Fm8_Ctrl39_LB"))
-        WebDriverWait(driver, timeout).until(element_present)
-        
-        unclick_coming_soon = driver.find_element(by=By.NAME, value="Fm8_Ctrl39_LB")
-        logger.debug("Scrolling element into view")
-        driver.execute_script("arguments[0].scrollIntoView(true);", unclick_coming_soon)
-        logger.debug("Attempting to click the element")
-        unclick_coming_soon.click()
-
-        logger.debug("Waiting for distance field to be clickable")
-        element_present = EC.element_to_be_clickable((By.CSS_SELECTOR, ".mapSearchDistance"))
-        WebDriverWait(driver, timeout).until(element_present)
-        field_miles = driver.find_element(by=By.CSS_SELECTOR, value=".mapSearchDistance")
-        field_miles.send_keys('25')
-
-        logger.debug("Waiting for location field to be clickable")
-        element_present = EC.element_to_be_clickable((By.ID, "Fm8_Ctrl33_TB"))
-        WebDriverWait(driver, timeout).until(element_present)
-        field_location = driver.find_element(by=By.ID, value="Fm8_Ctrl33_TB")
-        field_location.send_keys('Manassas, VA 20109, USA')
-
-        logger.debug("Waiting for confirmation location element to be clickable")
-        element_present = EC.element_to_be_clickable((By.CSS_SELECTOR, ".disambiguation"))
-        WebDriverWait(driver, timeout).until(element_present)
-        confirm_location = driver.find_element(by=By.CSS_SELECTOR, value=".disambiguation")
-        if confirm_location:
-            actions = ActionChains(driver)
-            actions.move_to_element_with_offset(confirm_location, 5, 5)
-            actions.click()
-            actions.perform()
-            logger.info("Location confirmed")
-
-        logger.debug("Waiting for results tab to be clickable")
-        element_present = EC.element_to_be_clickable((By.ID, "m_ucResultsPageTabs_m_pnlResultsTab"))
-        WebDriverWait(driver, timeout).until(element_present)
-        results = driver.find_element(by=By.ID, value="m_ucResultsPageTabs_m_pnlResultsTab")
-        results.click()
-        logger.info("Results tab clicked successfully")
-    
-    except TimeoutException:
-        logger.error("Timeout while waiting for elements.")
-        sys.exit()
-    except ElementClickInterceptedException as e:
-        logger.error(f"ElementClickInterceptedException: {e}")
-        sys.exit()
+        service = ChromeService(executable_path='/usr/lib/chromium-browser/chromedriver')
+        driver = webdriver.Chrome(service=service, options=options)
+        return driver
     except Exception as e:
-        logger.error(f"Unexpected error: {e}")
-        sys.exit()
+        logger.error(f"Failed to initialize WebDriver: {e}")
+        raise
 
-async def export_results(driver, timeout):
-    logger.info("Starting export_results function")
-    await asyncio.sleep(5)
-
+def login(driver: webdriver.Chrome, timeout: int, username: str, password: str):
+    logger.info("About to Begin Login")
+    driver.get("https://matrix.brightmls.com/Matrix/Search/ResidentialLease/ResidentialLease")
     try:
-        logger.debug("Waiting for 'Check All Results Entries' link to be clickable")
-        element_present = EC.element_to_be_clickable((By.ID, "m_lnkCheckAllLink"))
-        WebDriverWait(driver, timeout).until(element_present)
-        all = driver.find_element(by=By.ID, value="m_lnkCheckAllLink")
-        driver.execute_script("arguments[0].click();", all)
-        logger.info("'Check All Results Entries' link clicked successfully")
-
-        logger.debug("Waiting for 'Submit Export' button to be clickable")
-        element_present = EC.element_to_be_clickable((By.ID, "m_lbExport"))
-        WebDriverWait(driver, timeout).until(element_present)
-        pre_export = driver.find_element(by=By.ID, value="m_lbExport")
-        driver.execute_script("arguments[0].click();", pre_export)
-        logger.info("'Submit Export' button clicked successfully")
-
-        await asyncio.sleep(2)
-
-        logger.debug("Waiting for dropdown to be clickable")
-        select_element = WebDriverWait(driver, timeout).until(
-            EC.element_to_be_clickable((By.XPATH, "//select[@id='m_ddExport']"))
-        )
-        driver.execute_script("arguments[0].click();", select_element)
-        select_element.send_keys("s")
-        select_element.send_keys(Keys.ENTER)
-        logger.info("Standard Export selected from dropdown")
-
-        logger.debug("Waiting for 'Export' button to be clickable")
-        element_present = EC.element_to_be_clickable((By.ID, "m_btnExport"))
-        WebDriverWait(driver, timeout).until(element_present)
-        export = driver.find_element(by=By.ID, value="m_btnExport")
-        driver.execute_script("arguments[0].click();", export)
-        logger.info("'Export' button clicked successfully")
-
-        logger.debug("Waiting for file to download")
-        download_dir = "/home/oyone/Downloads/"
-        csv_path1 = os.path.join(download_dir, "Standard Export.csv")
-        csv_path2 = "/var/www/html/fastapi_project/brightscrape/Standard Export.csv"
-
-        while not os.path.exists(csv_path1):
-            await asyncio.sleep(1)
-        logger.info(f"File downloaded: {csv_path1}")
+        # Ensure username field is interactable
+        username_field = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.NAME, "username")))
+        driver.execute_script("arguments[0].scrollIntoView(true);", username_field)
+        driver.execute_script("arguments[0].click();", username_field)
+        username_field.send_keys(username)
         
-        shutil.move(csv_path1, csv_path2)
-        logger.info(f"File moved from {csv_path1} to {csv_path2}")
- 
+        # Ensure password field is interactable
+        password_field = driver.find_element(By.ID, "password")
+        driver.execute_script("arguments[0].scrollIntoView(true);", password_field)
+        driver.execute_script("arguments[0].click();", password_field)
+        password_field.send_keys(password)
+        
+        # Ensure login button is interactable
+        login_button = driver.find_element(By.CSS_SELECTOR, ".css-yck31-root-root-root")
+        driver.execute_script("arguments[0].scrollIntoView(true);", login_button)
+        driver.execute_script("arguments[0].click();", login_button)
+
     except Exception as e:
-        logger.error(f"Error during export results: {e}")
-        raise HTTPException(status_code=500, detail="Error during export results")
-    
-    logger.info('Done fetching csv')
-    return "CSV file has been downloaded and moved successfully!"
-    
-async def get_csv():
-    logger.info("Starting get_csv function")
-    driver = None  # Initialize driver as None
+        logger.error(f"Login failed: {e}")
+        raise
+
+
+async def preprocess_price(price_str: str) -> float:
+    match = re.search(r'\d+', price_str.replace(',', ''))
+    if match:
+        return float(match.group())
+    return float('inf')
+
+async def sorted_csv_by_price(max_price: float = None) -> list:
+    logger.info("About to Begin sorting csv")
+    csv_path = "/var/www/html/fastapi_project/brightscrape/Standard_Export.csv"
+    all_data = []
     try:
-        timeout = 100
-        driver = await setup_options()
-        await login(driver, timeout, BRIGHTMLS_USERNAME, BRIGHTMLS_PASSWORD)
-        await navigate_to_search_page(driver, timeout)
-        await export_results(driver, timeout)
+        with open(csv_path, mode='r') as data:
+            data_content = csv.reader(data, delimiter=',')
+            next(data_content, None)  # Skip header row
+            for row in data_content:
+                price = await preprocess_price(row[6])
+                if (max_price is None or price < max_price) and row[23] == 'VA':
+                    all_data.append((price, row[0], row[1], row[3], row[11], row[22], row[23], row[24], 
+                                     row[37], row[38], row[39], row[40], row[41], row[42], row[44]))
+    except Exception as e:
+        logger.error(f"CSV processing failed: {e}")
+    logger.debug("Sorted done")
+    return sorted(all_data, key=lambda x: x[0])
+
+def download_images_for_item(item, timeout: int, max_images: int) -> list:
+    logger.info(f"About to Begin gathering images for MLS {item[1]}")
+    mls = item[1]
+    image_link_full = []
+    driver = setup_options()
+    try:
+        login(driver, timeout, BRIGHTMLS_USERNAME, BRIGHTMLS_PASSWORD)
+        logger.info(f"Logged in now to gather the images")
+
+        search_bar_locator = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.NAME, "ctl01$m_ucSpeedBar$m_tbSpeedBar")))
+        driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_locator)
+        driver.execute_script("arguments[0].click();", search_bar_locator)
+        search_bar_locator.send_keys(mls)
+        logger.info(f"Entering {item[1]} in search bar")
+
+
+        search_bar_submit = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, "ctl01_m_ucSpeedBar_m_lnkGo")))
+        driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_submit)
+        driver.execute_script("arguments[0].click();", search_bar_submit)
+        logger.info(f"Submitting search entry.")
+        
+
+        click_entry = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, '//td[@class="NoPrint checkboxTableRow d25m0"]//input[@type="checkbox"]')))
+        driver.execute_script("arguments[0].scrollIntoView(true);", click_entry)
+        driver.execute_script("arguments[0].click();", click_entry)
+        logger.info(f"Entry submitted. clicking  {item[1]} on results page")
+        
+        dropdown_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", dropdown_element)
+        WebDriverWait(driver, timeout).until(EC.visibility_of(dropdown_element))
+        WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
+        dropdown = Select(dropdown_element)
+        dropdown.select_by_visible_text("Agent Full")
+        logger.info("Selected 'Agent Full' successfully")
+        driver.save_screenshot('debug_screenshot.png')
+
+        formula_span = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Click to Show Photos']")))
+        driver.save_screenshot('debug_screenshot2.png')
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", formula_span)
+        WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, "//span[text()='Click to Show Photos']")))
+        driver.execute_script("arguments[0].click();", formula_span)
+        logger.info(f" Clicking image section for {item[1]}")
     
+        images_locator = (By.XPATH, '//font[@class="IV_Single"]//img[@class="IV_Image"]')
+        WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
+        all_imgs = driver.find_elements(*images_locator)
+        all_links = []
+        for i, tag in enumerate(all_imgs[:max_images], start=1):
+            try:
+                image_link = tag.get_attribute('src')
+                all_links.append(image_link)
+            except Exception as e:
+                logger.error(f"Failed to gather image URL: {i} for MLS {mls}: {e}")
+
+        if len(all_links) == 0:
+            logger.warning(f"MLS {mls} has no images.")
+        else:
+            logger.info(f"Completed image extractions for MLS {mls}, found {len(all_imgs)} images.")
+                
+        image_link_full.append([mls, all_links])
+    except Exception as e:
+        logger.error(f"Exception: Unexpected error for MLS {mls}: {e}")
+    return {name: links for name, links in image_link_full}
+
+    
+async def download_images(timeout: int, sorted_results: list) -> list:
+    max_images = 10
+    logger.info("About to Begin concurrency")
+    loop = asyncio.get_event_loop()
+    with ThreadPoolExecutor() as executor:
+        tasks = [loop.run_in_executor(executor, download_images_for_item, item, timeout, max_images) for item in sorted_results]
+        mls_links_dict = await asyncio.gather(*tasks)
+        try:
+            for item in sorted_results:
+                name = item[1]
+                images = mls_links_dict.get(name, [])
+                
+            print({
+                'mls': name,
+                'address': f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
+                'price': item[0],
+                'description': item[14],
+                'availability': item[3],
+                'image_list': images
+            })
+
+        finally:
+            logger.debug(f"Database has been populated")
+
+
+async def gather_images_and_mls_data():
+    timeout = 120
+    max_price = 1000
+    sorted_results = await sorted_csv_by_price(max_price)
+    return await download_images(timeout, sorted_results)
+
+async def get_mls_data():
+    try:
+        data = await gather_images_and_mls_data()
+        print(data)
     except Exception as e:
         logger.error(f"Failed to gather MLS data: {e}")
-        raise HTTPException(status_code=500, detail="Failed to gather MLS data")
-    
-    finally:
-        if driver:
-            logger.info("Quitting driver")
-            driver.quit()
-        
-    
+        raise
 
 if __name__ == "__main__":
-    asyncio.run(get_csv())
+    asyncio.run(get_mls_data())
