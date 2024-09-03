@@ -1,6 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor
 import shutil
 import sys
+import time
 from fastapi import APIRouter, Form, Request, HTTPException, BackgroundTasks
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from sqlalchemy.orm import Session
@@ -11,6 +12,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 import os
 import csv
+from sqlalchemy.exc import OperationalError
 from selenium.common.exceptions import TimeoutException, ElementClickInterceptedException, WebDriverException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
@@ -53,12 +55,6 @@ def setup_options() -> webdriver.Chrome:
     options.add_argument('--disable-gpu')
     options.add_argument('--disable-software-rasterizer')
     options.add_argument('--window-size=1920,1080')
-    options.add_experimental_option("prefs", {
-        "download.default_directory": "/home/oyone/Downloads/",
-        "download.prompt_for_download": False,
-        "download.directory_upgrade": True,
-        "safebrowsing.enabled": True
-    })
     service = ChromeService(executable_path='/usr/lib/chromium-browser/chromedriver')
     driver = webdriver.Chrome(service=service, options=options)
     logger.info("Chrome options setup complete")
@@ -351,36 +347,45 @@ def download_images_for_item(item, timeout, max_images) -> list:
         logger.info(f"Completed image extraction for MLS {mls}, found {len(all_links)} images.")
     image_link_full.append([mls, all_links])
     driver.quit()
-    logger.info('Starting database session')
-    db: Session = SessionLocal()
 
+    
     try:
-        # Extract images
-        images = image_link_full[0][1] if image_link_full else []
-        
-        # Query or create the user
-        logger.info('Adding new user entry')
+        logger.info('Starting database session')
+        db: Session = SessionLocal()
+                
         listing = User(
             mls=mls,
             address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
             price=item[0],
             description=item[14],
             availability=item[3],
-            image_list=images
+            image_list=image_link_full[0][1] if image_link_full else []
         )
-        db.add(listing)
 
-        db.commit()
-        logger.info('Database commit successful')
+        MAX_RETRIES = 5
+        RETRY_DELAY = 1
 
-    except SQLAlchemyError as e:
-        logger.error(f"Database error: {e}")
-        db.rollback()
-        raise
-    finally:
-        db.close()
-        logger.debug("Database session closed")
-
+        for attempt in range(MAX_RETRIES):
+            try:
+                # Use a context manager to ensure the session is handled correctly
+                with db as db_session:
+                    db_session.add(listing)
+                    db_session.commit()
+                logger.info(f"Successfully inserted data into the database on attempt {attempt + 1}.")
+                return
+            except OperationalError as e:
+                logger.error(f"Database is locked. Attempt {attempt + 1} of {MAX_RETRIES}. Error: {e}")
+                time.sleep(RETRY_DELAY)
+            except Exception as e:
+                # Handle other possible exceptions
+                logger.error(f"Unexpected error during database insertion: {e}")
+                raise
+        logger.error("Max retries exceeded. Could not insert data into the database.")
+        raise RuntimeError("Failed to insert data after several retries.")
+    
+    except Exception as e:
+        logger.error(f"Error saving to database: {e}")
+            
 
 async def download_images(timeout, concurrency_limit, max_images, sorted_results: list) -> list:
     semaphore = asyncio.Semaphore(concurrency_limit)
@@ -394,25 +399,25 @@ async def download_images(timeout, concurrency_limit, max_images, sorted_results
         image_link_full = await asyncio.gather(*tasks)
         return image_link_full
 
-# Define a synchronous wrapper function for the background task
-def sync_gather_images_and_mls_data(concurrency_limit, max_images, max_price):
+
+def sync_gather_images_and_mls_data(concurrency_limit, timeout, max_images, max_price):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     try:
-        loop.run_until_complete(gather_images_and_mls_data(concurrency_limit, max_images, max_price))
+        loop.run_until_complete(gather_images_and_mls_data(concurrency_limit, timeout, max_images, max_price))
     finally:
         loop.close()
 
-# Async function for the actual task
-async def gather_images_and_mls_data(concurrency_limit, max_images, max_price) -> None:
-    timeout = 100
+
+async def gather_images_and_mls_data(concurrency_limit, timeout, max_images, max_price) -> None:
     #await export_results()
     sorted_results = await sorted_csv_by_price(max_price)
     await clear_database()
     await download_images(timeout, concurrency_limit, max_images, sorted_results)
 
 
-#CONTACT SECTION
+
+
 @router.post("/contact")
 async def handle_contact_form(
     request: Request,
@@ -449,8 +454,6 @@ async def handle_contact_form(
     return RedirectResponse(url="/contact", status_code=303)
 
 
-
-# ROUTE SECTION
 @router.get("/get-csv", response_class=JSONResponse, name="export")
 async def export_results_endpoint(background_tasks: BackgroundTasks):
     logger.info("Starting CSV export task in the background")
@@ -463,11 +466,10 @@ async def sort_csv_endpoint(max_price):
     sorted = await sorted_csv_by_price(max_price)
     return f"This sorted list has {len(sorted)} listings."
 
-# Route Handler
 @router.get("/populate-database", response_model=dict, name="import")
-async def get_mls_data(background_tasks: BackgroundTasks, concurrency_limit: int = 10, max_images: int = 10, max_price: int = 1000):
+async def get_mls_data(background_tasks: BackgroundTasks, concurrency_limit: int = 5, timeout: int = 120, max_images: int = 50, max_price: int = 2500):
     logger.info("Starting MLS data gathering task")
-    background_tasks.add_task(sync_gather_images_and_mls_data, concurrency_limit, max_images, max_price)
+    background_tasks.add_task(sync_gather_images_and_mls_data, concurrency_limit, timeout, max_images, max_price)
     return JSONResponse(content={"message": "MLS data gathering task started in the background"})
     
 @router.get("/", response_class=HTMLResponse, name="home")

@@ -30,7 +30,7 @@ class User(Base):
         self.images = json.dumps(value)
 
 # Setup SQLAlchemy engine and session
-DATABASE_URL = "sqlite:///brightscrape/brightmls.db" 
+DATABASE_URL = "sqlite:///brightscrape/brightmls.db?timeout=120"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
