@@ -280,9 +280,10 @@ async def sorted_csv_by_price(max_price) -> list:
     all_data_sorted = sorted(all_data, key=lambda x: x[0])
     return all_data_sorted
 
-def handle_page_operations(driver, timeout, mls, max_images):
+def handle_page_operations(timeout, mls, max_images):
     try:
-        logger.info("Grabbing search page")
+        driver = setup_options()
+        logger.info("Navigating to search page")
         driver.get("https://matrix.brightmls.com/Matrix/Search/ResidentialLease/ResidentialLease")
 
         WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
@@ -334,11 +335,11 @@ def handle_page_operations(driver, timeout, mls, max_images):
     except TimeoutException as e:
         logger.error(f"TimeoutException occurred: {e}. Refreshing the page and retrying.")
         driver.refresh()
-        handle_page_operations(driver, timeout, mls, max_images)  
+        handle_page_operations(timeout, mls, max_images)  
 
     finally:
-        driver.quit()
-
+        if driver is not None:
+            driver.quit()
 
 def save_to_database(item, mls, image_link_full) -> list:
     logger.info('Starting database session')
@@ -375,19 +376,16 @@ def download_images_for_item(item, timeout, max_images) -> list:
     image_link_full = []
     
     try:
-        driver = setup_options()
-        all_links = handle_page_operations(driver, 180, mls, max_images)
+        all_links = handle_page_operations(timeout, mls, max_images)
         
         if len(all_links) == 0:
             logger.warning(f"MLS {mls} has no images.")
         else:
             logger.info(f"Completed image extraction for MLS {mls}, found {len(all_links)} images.")
             image_link_full.append([mls, all_links])
-
+            
     except Exception as e:
         logger.error(f"An unexpected error occurred searching for listing: {e}")
-        if 'driver' in locals():
-            driver.quit()
 
     try:
         save_to_database(item, mls, image_link_full)

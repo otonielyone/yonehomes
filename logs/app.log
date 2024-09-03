@@ -1,43 +1,18 @@
-2024-09-02 23:01:07,803 - start_files.routes.routes - INFO - Starting MLS data gathering task
-2024-09-02 23:01:07,969 - start_files.routes.routes - INFO - Clearing and recreating database tables
-2024-09-02 23:01:08,231 - start_files.routes.routes - INFO - About to begin concurrency
-2024-09-02 23:01:08,247 - start_files.routes.routes - INFO - Setting up Chrome options
-2024-09-02 23:01:08,248 - start_files.routes.routes - INFO - Setting up Chrome options
-2024-09-02 23:01:08,250 - start_files.routes.routes - INFO - Setting up Chrome options
-2024-09-02 23:01:08,253 - start_files.routes.routes - INFO - Setting up Chrome options
-2024-09-02 23:01:08,255 - start_files.routes.routes - INFO - Setting up Chrome options
-2024-09-02 23:01:10,568 - start_files.routes.routes - INFO - Chrome options setup complete
-2024-09-02 23:01:10,574 - start_files.routes.routes - INFO - Grabbing search page
-2024-09-02 23:01:11,720 - start_files.routes.routes - INFO - Chrome options setup complete
-2024-09-02 23:01:11,721 - start_files.routes.routes - INFO - Grabbing search page
-2024-09-02 23:01:11,739 - start_files.routes.routes - INFO - Chrome options setup complete
-2024-09-02 23:01:11,741 - start_files.routes.routes - INFO - Grabbing search page
-2024-09-02 23:01:12,097 - start_files.routes.routes - INFO - Chrome options setup complete
-2024-09-02 23:01:12,098 - start_files.routes.routes - INFO - Grabbing search page
-2024-09-02 23:01:12,131 - start_files.routes.routes - INFO - Chrome options setup complete
-2024-09-02 23:01:12,132 - start_files.routes.routes - INFO - Grabbing search page
-2024-09-02 23:01:17,805 - start_files.routes.routes - INFO - Page title confirm.
-2024-09-02 23:01:17,807 - start_files.routes.routes - INFO - Page title indicates login is required.
-2024-09-02 23:01:17,807 - start_files.routes.routes - INFO - About to Begin Login
-2024-09-02 23:01:18,162 - start_files.routes.routes - INFO - Page title confirm.
-2024-09-02 23:01:18,163 - start_files.routes.routes - INFO - Page title indicates login is required.
-2024-09-02 23:01:18,164 - start_files.routes.routes - INFO - About to Begin Login
-2024-09-02 23:01:19,183 - start_files.routes.routes - INFO - Page title confirm.
-2024-09-02 23:01:19,183 - start_files.routes.routes - INFO - Page title indicates login is required.
-2024-09-02 23:01:19,184 - start_files.routes.routes - INFO - About to Begin Login
-2024-09-02 23:01:22,033 - start_files.routes.routes - INFO - Page title confirm.
-2024-09-02 23:01:22,034 - start_files.routes.routes - INFO - Page title indicates login is required.
-2024-09-02 23:01:22,034 - start_files.routes.routes - INFO - About to Begin Login
-2024-09-02 23:01:22,788 - start_files.routes.routes - INFO - Page title confirm.
-2024-09-02 23:01:22,789 - start_files.routes.routes - INFO - Page title indicates login is required.
-2024-09-02 23:01:22,789 - start_files.routes.routes - INFO - About to Begin Login
-2024-09-02 23:02:12,682 - start_files.routes.routes - INFO - Entering VAFX2197654 in search bar
-2024-09-02 23:02:13,455 - start_files.routes.routes - INFO - Entering VAFX2197186 in search bar
-2024-09-02 23:02:14,042 - start_files.routes.routes - INFO - Submitting search entry.
-2024-09-02 23:02:14,614 - start_files.routes.routes - INFO - Entering VAPW2077828 in search bar
-2024-09-02 23:02:14,744 - start_files.routes.routes - INFO - Entering VAPW2069286 in search bar
-2024-09-02 23:02:22,344 - start_files.routes.routes - INFO - Submitting search entry.
-2024-09-02 23:02:22,604 - start_files.routes.routes - INFO - Submitting search entry.
-2024-09-02 23:02:22,910 - start_files.routes.routes - INFO - Submitting search entry.
-2024-09-02 23:02:39,593 - start_files.routes.routes - INFO - Entry submitted. clicking VAFX2197654 on results page
-2024-09-02 23:02:43,479 - start_files.routes.routes - INFO - Entry submitted. clicking VAFX2197186 on results page
+2024-09-02 23:15:26,122 - start_files.routes.routes - INFO - Starting MLS data gathering task
+2024-09-02 23:15:26,317 - start_files.routes.routes - INFO - Clearing and recreating database tables
+2024-09-02 23:15:26,594 - start_files.routes.routes - INFO - About to begin concurrency
+2024-09-02 23:15:26,609 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-02 23:15:26,611 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-02 23:15:26,613 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-02 23:15:26,615 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-02 23:15:26,618 - start_files.routes.routes - INFO - Setting up Chrome options
+2024-09-02 23:15:30,832 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-02 23:15:30,856 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-02 23:15:31,110 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-02 23:15:31,111 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-02 23:15:31,132 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-02 23:15:31,133 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-02 23:15:31,171 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-02 23:15:31,173 - start_files.routes.routes - INFO - Navigating to search page
+2024-09-02 23:15:31,234 - start_files.routes.routes - INFO - Chrome options setup complete
+2024-09-02 23:15:31,235 - start_files.routes.routes - INFO - Navigating to search page

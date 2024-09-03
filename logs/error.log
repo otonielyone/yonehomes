@@ -1,21 +1,19 @@
-
-[2024-09-02 23:00:03 -0400] [19221] [INFO] Shutting down: Master
-[2024-09-02 23:00:12 -0400] [34729] [INFO] Starting gunicorn 23.0.0
-[2024-09-02 23:00:12 -0400] [34729] [INFO] Listening at: http://192.168.0.100:5000 (34729)
-[2024-09-02 23:00:12 -0400] [34729] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2024-09-02 23:00:12 -0400] [34740] [INFO] Booting worker with pid: 34740
-[2024-09-02 23:00:12 -0400] [34741] [INFO] Booting worker with pid: 34741
-[2024-09-02 23:00:12 -0400] [34742] [INFO] Booting worker with pid: 34742
-[2024-09-02 23:00:13 -0400] [34743] [INFO] Booting worker with pid: 34743
-[2024-09-02 23:00:17 -0400] [34742] [INFO] Started server process [34742]
-[2024-09-02 23:00:17 -0400] [34741] [INFO] Started server process [34741]
-[2024-09-02 23:00:17 -0400] [34740] [INFO] Started server process [34740]
-[2024-09-02 23:00:17 -0400] [34741] [INFO] Waiting for application startup.
-[2024-09-02 23:00:17 -0400] [34740] [INFO] Waiting for application startup.
-[2024-09-02 23:00:17 -0400] [34742] [INFO] Waiting for application startup.
-[2024-09-02 23:00:17 -0400] [34741] [INFO] Application startup complete.
-[2024-09-02 23:00:17 -0400] [34742] [INFO] Application startup complete.
-[2024-09-02 23:00:17 -0400] [34740] [INFO] Application startup complete.
-[2024-09-02 23:00:18 -0400] [34743] [INFO] Started server process [34743]
-[2024-09-02 23:00:18 -0400] [34743] [INFO] Waiting for application startup.
-[2024-09-02 23:00:18 -0400] [34743] [INFO] Application startup complete.
+[2024-09-02 23:15:00 -0400] [44941] [INFO] Starting gunicorn 23.0.0
+[2024-09-02 23:15:00 -0400] [44941] [INFO] Listening at: http://192.168.0.100:5000 (44941)
+[2024-09-02 23:15:00 -0400] [44941] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-02 23:15:00 -0400] [44943] [INFO] Booting worker with pid: 44943
+[2024-09-02 23:15:00 -0400] [44944] [INFO] Booting worker with pid: 44944
+[2024-09-02 23:15:00 -0400] [44945] [INFO] Booting worker with pid: 44945
+[2024-09-02 23:15:00 -0400] [44946] [INFO] Booting worker with pid: 44946
+[2024-09-02 23:15:06 -0400] [44943] [INFO] Started server process [44943]
+[2024-09-02 23:15:06 -0400] [44944] [INFO] Started server process [44944]
+[2024-09-02 23:15:06 -0400] [44946] [INFO] Started server process [44946]
+[2024-09-02 23:15:06 -0400] [44945] [INFO] Started server process [44945]
+[2024-09-02 23:15:06 -0400] [44943] [INFO] Waiting for application startup.
+[2024-09-02 23:15:06 -0400] [44944] [INFO] Waiting for application startup.
+[2024-09-02 23:15:06 -0400] [44946] [INFO] Waiting for application startup.
+[2024-09-02 23:15:06 -0400] [44945] [INFO] Waiting for application startup.
+[2024-09-02 23:15:06 -0400] [44945] [INFO] Application startup complete.
+[2024-09-02 23:15:06 -0400] [44944] [INFO] Application startup complete.
+[2024-09-02 23:15:06 -0400] [44946] [INFO] Application startup complete.
+[2024-09-02 23:15:06 -0400] [44943] [INFO] Application startup complete.
