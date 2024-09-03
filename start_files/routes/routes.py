@@ -280,16 +280,8 @@ async def sorted_csv_by_price(max_price) -> list:
     all_data_sorted = sorted(all_data, key=lambda x: x[0])
     return all_data_sorted
 
-
-def download_images_for_item(item, timeout, max_images) -> list:
-    mls = item[1]
-    image_link_full = []
-    driver  = None
-    
+def handle_page_operations(driver, timeout, mls, max_images):
     try:
-        driver = setup_options()
-        driver.save_screenshot('debug_screenshot1.png')
-
         logger.info("Grabbing search page")
         driver.get("https://matrix.brightmls.com/Matrix/Search/ResidentialLease/ResidentialLease")
 
@@ -300,92 +292,109 @@ def download_images_for_item(item, timeout, max_images) -> list:
         if "SSO | Bright MLS" in page_title:
             logger.info("Page title indicates login is required.")
             login(driver, timeout, BRIGHTMLS_USERNAME, BRIGHTMLS_PASSWORD)
-    
+
+        # Continue with the operations
+        search_bar_locator = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.NAME, "ctl01$m_ucSpeedBar$m_tbSpeedBar")))
+        driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_locator)
+        driver.execute_script("arguments[0].click();", search_bar_locator)
+        search_bar_locator.send_keys(mls)
+        logger.info(f"Entering {mls} in search bar")
+
+        search_bar_submit = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, "ctl01_m_ucSpeedBar_m_lnkGo")))
+        driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_submit)
+        driver.execute_script("arguments[0].click();", search_bar_submit)
+        logger.info(f"Submitting search entry.")
+
+        click_entry = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, '//td[@class="NoPrint checkboxTableRow d25m0"]//input[@type="checkbox"]')))
+        driver.execute_script("arguments[0].scrollIntoView(true);", click_entry)
+        driver.execute_script("arguments[0].click();", click_entry)
+        logger.info(f"Entry submitted. clicking {mls} on results page")
+
+        dropdown_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", dropdown_element)
+        WebDriverWait(driver, timeout).until(EC.visibility_of(dropdown_element))
+        WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
+        dropdown = Select(dropdown_element)
+        dropdown.select_by_visible_text("Agent Full")
+        logger.info("Selected 'Agent Full' successfully")
+
+        formula_span = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Click to Show Photos']")))
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", formula_span)
+        WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, "//span[text()='Click to Show Photos']")))
+        driver.execute_script("arguments[0].click();", formula_span)
+        logger.info(f" Clicking image section for {mls}")
+
+        images_locator = (By.XPATH, '//font[@class="IV_Single"]//img[@class="IV_Image"]')
+        WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
+        all_imgs = driver.find_elements(*images_locator)
+        all_links = [tag.get_attribute('src') for tag in all_imgs[:max_images]]
+
+        return all_links
+
+    except TimeoutException as e:
+        logger.error(f"TimeoutException occurred: {e}. Refreshing the page and retrying.")
+        driver.refresh()
+        handle_page_operations(driver, timeout, mls, max_images)  
+
     finally:
-        logger.info("Beginning page query.")
-        driver.save_screenshot('debug_screenshot2.png')
+        driver.quit()
 
-    search_bar_locator = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.NAME, "ctl01$m_ucSpeedBar$m_tbSpeedBar")))
-    driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_locator)
-    driver.execute_script("arguments[0].click();", search_bar_locator)
-    search_bar_locator.send_keys(mls)
-    logger.info(f"Entering {item[1]} in search bar")
-    
-    search_bar_submit = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, "ctl01_m_ucSpeedBar_m_lnkGo")))
-    driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_submit)
-    driver.execute_script("arguments[0].click();", search_bar_submit)
-    logger.info(f"Submitting search entry.")
-    
-    click_entry = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, '//td[@class="NoPrint checkboxTableRow d25m0"]//input[@type="checkbox"]')))
-    driver.execute_script("arguments[0].scrollIntoView(true);", click_entry)
-    driver.execute_script("arguments[0].click();", click_entry)
-    logger.info(f"Entry submitted. clicking  {item[1]} on results page")
-    
-    dropdown_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
-    driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", dropdown_element)
-    WebDriverWait(driver, timeout).until(EC.visibility_of(dropdown_element))
-    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
-    dropdown = Select(dropdown_element)
-    dropdown.select_by_visible_text("Agent Full")
-    logger.info("Selected 'Agent Full' successfully")
-    
-    formula_span = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Click to Show Photos']")))
-    driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", formula_span)
-    
-    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, "//span[text()='Click to Show Photos']")))
-    driver.execute_script("arguments[0].click();", formula_span)
-    logger.info(f" Clicking image section for {item[1]}")
 
-    images_locator = (By.XPATH, '//font[@class="IV_Single"]//img[@class="IV_Image"]')
-    WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
-    all_imgs = driver.find_elements(*images_locator)
-    all_links = [tag.get_attribute('src') for tag in all_imgs[:max_images]]
-    
-    if len(all_links) == 0:
-        logger.warning(f"MLS {mls} has no images.")
-    else:
-        logger.info(f"Completed image extraction for MLS {mls}, found {len(all_links)} images.")
-    image_link_full.append([mls, all_links])
-    driver.quit()
+def save_to_database(item, mls, image_link_full) -> list:
+    logger.info('Starting database session')
+    db: Session = SessionLocal()        
+    listing = User(
+        mls=mls,
+        address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
+        price=item[0],
+        description=item[14],
+        availability=item[3],
+        image_list=image_link_full[0][1] if image_link_full else []
+    )
+    MAX_RETRIES = 5
+    RETRY_DELAY = 1
+    for attempt in range(MAX_RETRIES):
+        try:
+            # Use a context manager to ensure the session is handled correctly
+            with db as db_session:
+                db_session.add(listing)
+                db_session.commit()
+            logger.info(f"Successfully inserted data into the database on attempt {attempt + 1}.")
+            return
+        except OperationalError as e:
+            logger.error(f"Database is locked. Attempt {attempt + 1} of {MAX_RETRIES}. Error: {e}")
+            time.sleep(RETRY_DELAY)
+        except Exception as e:
+            logger.error(f"Unexpected error during database insertion: {e}")
+    logger.error("Max retries exceeded. Could not insert data into the database.")
+            
 
+def download_images_for_item(item, timeout, max_images) -> list:
+    mls = item[1]
+    driver  = None
+    image_link_full = []
     
     try:
-        logger.info('Starting database session')
-        db: Session = SessionLocal()
-                
-        listing = User(
-            mls=mls,
-            address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
-            price=item[0],
-            description=item[14],
-            availability=item[3],
-            image_list=image_link_full[0][1] if image_link_full else []
-        )
+        driver = setup_options()
+        all_links = handle_page_operations(driver, 180, mls, max_images)
+        
+        if len(all_links) == 0:
+            logger.warning(f"MLS {mls} has no images.")
+        else:
+            logger.info(f"Completed image extraction for MLS {mls}, found {len(all_links)} images.")
+            image_link_full.append([mls, all_links])
 
-        MAX_RETRIES = 5
-        RETRY_DELAY = 1
-
-        for attempt in range(MAX_RETRIES):
-            try:
-                # Use a context manager to ensure the session is handled correctly
-                with db as db_session:
-                    db_session.add(listing)
-                    db_session.commit()
-                logger.info(f"Successfully inserted data into the database on attempt {attempt + 1}.")
-                return
-            except OperationalError as e:
-                logger.error(f"Database is locked. Attempt {attempt + 1} of {MAX_RETRIES}. Error: {e}")
-                time.sleep(RETRY_DELAY)
-            except Exception as e:
-                # Handle other possible exceptions
-                logger.error(f"Unexpected error during database insertion: {e}")
-                raise
-        logger.error("Max retries exceeded. Could not insert data into the database.")
-        raise RuntimeError("Failed to insert data after several retries.")
-    
     except Exception as e:
-        logger.error(f"Error saving to database: {e}")
-            
+        logger.error(f"An unexpected error occurred searching for listing: {e}")
+        if 'driver' in locals():
+            driver.quit()
+
+    try:
+        save_to_database(item, mls, image_link_full)
+    except Exception as e:
+        logger.error(f"Failed to save to database: {e}")
+
+
 
 async def download_images(timeout, concurrency_limit, max_images, sorted_results: list) -> list:
     semaphore = asyncio.Semaphore(concurrency_limit)
