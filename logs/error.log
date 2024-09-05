@@ -1,19 +1,134 @@
-[2024-09-02 23:15:00 -0400] [44941] [INFO] Starting gunicorn 23.0.0
-[2024-09-02 23:15:00 -0400] [44941] [INFO] Listening at: http://192.168.0.100:5000 (44941)
-[2024-09-02 23:15:00 -0400] [44941] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2024-09-02 23:15:00 -0400] [44943] [INFO] Booting worker with pid: 44943
-[2024-09-02 23:15:00 -0400] [44944] [INFO] Booting worker with pid: 44944
-[2024-09-02 23:15:00 -0400] [44945] [INFO] Booting worker with pid: 44945
-[2024-09-02 23:15:00 -0400] [44946] [INFO] Booting worker with pid: 44946
-[2024-09-02 23:15:06 -0400] [44943] [INFO] Started server process [44943]
-[2024-09-02 23:15:06 -0400] [44944] [INFO] Started server process [44944]
-[2024-09-02 23:15:06 -0400] [44946] [INFO] Started server process [44946]
-[2024-09-02 23:15:06 -0400] [44945] [INFO] Started server process [44945]
-[2024-09-02 23:15:06 -0400] [44943] [INFO] Waiting for application startup.
-[2024-09-02 23:15:06 -0400] [44944] [INFO] Waiting for application startup.
-[2024-09-02 23:15:06 -0400] [44946] [INFO] Waiting for application startup.
-[2024-09-02 23:15:06 -0400] [44945] [INFO] Waiting for application startup.
-[2024-09-02 23:15:06 -0400] [44945] [INFO] Application startup complete.
-[2024-09-02 23:15:06 -0400] [44944] [INFO] Application startup complete.
-[2024-09-02 23:15:06 -0400] [44946] [INFO] Application startup complete.
-[2024-09-02 23:15:06 -0400] [44943] [INFO] Application startup complete.
+[2024-09-05 12:27:19 -0400] [1295] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:27:26 -0400] [1313] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:27:26 -0400] [1104] [INFO] Handling signal: term
+[2024-09-05 12:27:26 -0400] [1302] [INFO] Shutting down
+[2024-09-05 12:27:26 -0400] [1317] [INFO] Shutting down
+[2024-09-05 12:27:26 -0400] [1302] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-09-05 12:27:26 -0400] [1317] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-09-05 12:27:26 -0400] [1295] [INFO] Shutting down
+[2024-09-05 12:27:26 -0400] [1313] [INFO] Shutting down
+[2024-09-05 12:27:26 -0400] [1295] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-09-05 12:27:26 -0400] [1313] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-09-05 12:27:26 -0400] [1317] [INFO] Waiting for application shutdown.
+[2024-09-05 12:27:26 -0400] [1302] [INFO] Waiting for application shutdown.
+[2024-09-05 12:27:26 -0400] [1302] [INFO] Application shutdown complete.
+[2024-09-05 12:27:26 -0400] [1317] [INFO] Application shutdown complete.
+[2024-09-05 12:27:26 -0400] [1302] [INFO] Finished server process [1302]
+[2024-09-05 12:27:26 -0400] [1317] [INFO] Finished server process [1317]
+[2024-09-05 12:27:26 -0400] [1295] [INFO] Waiting for application shutdown.
+[2024-09-05 12:27:26 -0400] [1313] [INFO] Waiting for application shutdown.
+[2024-09-05 12:27:26 -0400] [1295] [INFO] Application shutdown complete.
+[2024-09-05 12:27:26 -0400] [1313] [INFO] Application shutdown complete.
+[2024-09-05 12:27:26 -0400] [1295] [INFO] Finished server process [1295]
+[2024-09-05 12:27:26 -0400] [1313] [INFO] Finished server process [1313]
+[2024-09-05 12:27:26 -0400] [1104] [ERROR] Worker (pid:1295) was sent SIGTERM!
+[2024-09-05 12:27:26 -0400] [1104] [ERROR] Worker (pid:1317) was sent SIGTERM!
+[2024-09-05 12:27:26 -0400] [1104] [ERROR] Worker (pid:1313) was sent SIGTERM!
+[2024-09-05 12:27:26 -0400] [1104] [ERROR] Worker (pid:1302) was sent SIGTERM!
+[2024-09-05 12:27:26 -0400] [1104] [INFO] Shutting down: Master
+[2024-09-05 12:27:27 -0400] [9280] [INFO] Starting gunicorn 23.0.0
+[2024-09-05 12:27:27 -0400] [9280] [INFO] Listening at: http://192.168.0.100:5000 (9280)
+[2024-09-05 12:27:27 -0400] [9280] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-05 12:27:27 -0400] [9291] [INFO] Booting worker with pid: 9291
+[2024-09-05 12:27:27 -0400] [9292] [INFO] Booting worker with pid: 9292
+[2024-09-05 12:27:27 -0400] [9293] [INFO] Booting worker with pid: 9293
+[2024-09-05 12:27:27 -0400] [9294] [INFO] Booting worker with pid: 9294
+[2024-09-05 12:27:32 -0400] [9291] [INFO] Started server process [9291]
+[2024-09-05 12:27:32 -0400] [9291] [INFO] Waiting for application startup.
+[2024-09-05 12:27:32 -0400] [9291] [INFO] Application startup complete.
+[2024-09-05 12:27:32 -0400] [9294] [INFO] Started server process [9294]
+[2024-09-05 12:27:32 -0400] [9294] [INFO] Waiting for application startup.
+[2024-09-05 12:27:32 -0400] [9294] [INFO] Application startup complete.
+[2024-09-05 12:27:32 -0400] [9293] [INFO] Started server process [9293]
+[2024-09-05 12:27:32 -0400] [9293] [INFO] Waiting for application startup.
+[2024-09-05 12:27:32 -0400] [9293] [INFO] Application startup complete.
+[2024-09-05 12:27:32 -0400] [9292] [INFO] Started server process [9292]
+[2024-09-05 12:27:32 -0400] [9292] [INFO] Waiting for application startup.
+[2024-09-05 12:27:32 -0400] [9292] [INFO] Application startup complete.
+[2024-09-05 12:27:48 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:12 -0400] [9293] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:13 -0400] [9291] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:13 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:14 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:14 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:14 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:15 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:15 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:16 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:16 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:28:22 -0400] [9294] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:33:18 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:33:18 -0400] [9294] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:33:19 -0400] [9294] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:33:20 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 12:33:22 -0400] [9293] [WARNING] Invalid HTTP request received.
+[2024-09-05 14:42:25 -0400] [9294] [WARNING] Invalid HTTP request received.
+[2024-09-05 14:42:26 -0400] [9293] [WARNING] Invalid HTTP request received.
+[2024-09-05 14:42:32 -0400] [9291] [WARNING] Invalid HTTP request received.
+[2024-09-05 14:42:39 -0400] [9292] [WARNING] Invalid HTTP request received.
+[2024-09-05 14:42:55 -0400] [9294] [WARNING] Invalid HTTP request received.
+[2024-09-05 15:07:25 -0400] [1092] [INFO] Starting gunicorn 23.0.0
+[2024-09-05 15:07:25 -0400] [1092] [ERROR] Invalid address: ('192.168.0.100', 5000)
+[2024-09-05 15:07:25 -0400] [1092] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-09-05 15:07:26 -0400] [1092] [ERROR] Invalid address: ('192.168.0.100', 5000)
+[2024-09-05 15:07:26 -0400] [1092] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-09-05 15:07:27 -0400] [1092] [INFO] Listening at: http://192.168.0.100:5000 (1092)
+[2024-09-05 15:07:27 -0400] [1092] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-05 15:07:27 -0400] [1341] [INFO] Booting worker with pid: 1341
+[2024-09-05 15:07:28 -0400] [1342] [INFO] Booting worker with pid: 1342
+[2024-09-05 15:07:28 -0400] [1343] [INFO] Booting worker with pid: 1343
+[2024-09-05 15:07:28 -0400] [1344] [INFO] Booting worker with pid: 1344
+[2024-09-05 15:07:49 -0400] [1343] [INFO] Started server process [1343]
+[2024-09-05 15:07:49 -0400] [1344] [INFO] Started server process [1344]
+[2024-09-05 15:07:49 -0400] [1344] [INFO] Waiting for application startup.
+[2024-09-05 15:07:49 -0400] [1343] [INFO] Waiting for application startup.
+[2024-09-05 15:07:49 -0400] [1341] [INFO] Started server process [1341]
+[2024-09-05 15:07:49 -0400] [1341] [INFO] Waiting for application startup.
+[2024-09-05 15:07:49 -0400] [1343] [INFO] Application startup complete.
+[2024-09-05 15:07:49 -0400] [1342] [INFO] Started server process [1342]
+[2024-09-05 15:07:49 -0400] [1342] [INFO] Waiting for application startup.
+[2024-09-05 15:07:49 -0400] [1341] [INFO] Application startup complete.
+[2024-09-05 15:07:49 -0400] [1344] [INFO] Application startup complete.
+[2024-09-05 15:07:49 -0400] [1342] [INFO] Application startup complete.
+[2024-09-05 17:13:15 -0400] [1115] [INFO] Starting gunicorn 23.0.0
+[2024-09-05 17:13:15 -0400] [1115] [ERROR] Invalid address: ('192.168.0.100', 5000)
+[2024-09-05 17:13:15 -0400] [1115] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-09-05 17:13:16 -0400] [1115] [ERROR] Invalid address: ('192.168.0.100', 5000)
+[2024-09-05 17:13:16 -0400] [1115] [ERROR] connection to ('192.168.0.100', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-09-05 17:13:17 -0400] [1115] [INFO] Listening at: http://192.168.0.100:5000 (1115)
+[2024-09-05 17:13:17 -0400] [1115] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-05 17:13:17 -0400] [1411] [INFO] Booting worker with pid: 1411
+[2024-09-05 17:13:17 -0400] [1413] [INFO] Booting worker with pid: 1413
+[2024-09-05 17:13:18 -0400] [1428] [INFO] Booting worker with pid: 1428
+[2024-09-05 17:13:18 -0400] [1435] [INFO] Booting worker with pid: 1435
+[2024-09-05 17:13:39 -0400] [1411] [INFO] Started server process [1411]
+[2024-09-05 17:13:39 -0400] [1428] [INFO] Started server process [1428]
+[2024-09-05 17:13:39 -0400] [1413] [INFO] Started server process [1413]
+[2024-09-05 17:13:39 -0400] [1428] [INFO] Waiting for application startup.
+[2024-09-05 17:13:39 -0400] [1411] [INFO] Waiting for application startup.
+[2024-09-05 17:13:39 -0400] [1413] [INFO] Waiting for application startup.
+[2024-09-05 17:13:39 -0400] [1411] [INFO] Application startup complete.
+[2024-09-05 17:13:39 -0400] [1428] [INFO] Application startup complete.
+[2024-09-05 17:13:39 -0400] [1413] [INFO] Application startup complete.
+[2024-09-05 17:13:39 -0400] [1435] [INFO] Started server process [1435]
+[2024-09-05 17:13:39 -0400] [1435] [INFO] Waiting for application startup.
+[2024-09-05 17:13:39 -0400] [1435] [INFO] Application startup complete.
+[2024-09-05 17:20:48 -0400] [1093] [INFO] Starting gunicorn 23.0.0
+[2024-09-05 17:20:48 -0400] [1093] [INFO] Listening at: http://192.168.0.100:5000 (1093)
+[2024-09-05 17:20:48 -0400] [1093] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-05 17:20:48 -0400] [1271] [INFO] Booting worker with pid: 1271
+[2024-09-05 17:20:49 -0400] [1273] [INFO] Booting worker with pid: 1273
+[2024-09-05 17:20:49 -0400] [1281] [INFO] Booting worker with pid: 1281
+[2024-09-05 17:20:49 -0400] [1286] [INFO] Booting worker with pid: 1286
+[2024-09-05 17:21:11 -0400] [1281] [INFO] Started server process [1281]
+[2024-09-05 17:21:11 -0400] [1281] [INFO] Waiting for application startup.
+[2024-09-05 17:21:11 -0400] [1273] [INFO] Started server process [1273]
+[2024-09-05 17:21:11 -0400] [1273] [INFO] Waiting for application startup.
+[2024-09-05 17:21:11 -0400] [1271] [INFO] Started server process [1271]
+[2024-09-05 17:21:11 -0400] [1271] [INFO] Waiting for application startup.
+[2024-09-05 17:21:11 -0400] [1273] [INFO] Application startup complete.
+[2024-09-05 17:21:11 -0400] [1281] [INFO] Application startup complete.
+[2024-09-05 17:21:11 -0400] [1286] [INFO] Started server process [1286]
+[2024-09-05 17:21:11 -0400] [1286] [INFO] Waiting for application startup.
+[2024-09-05 17:21:11 -0400] [1271] [INFO] Application startup complete.
+[2024-09-05 17:21:11 -0400] [1286] [INFO] Application startup complete.

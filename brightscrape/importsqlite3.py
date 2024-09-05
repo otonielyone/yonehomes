@@ -1,6 +1,5 @@
 import sqlite3
 import pandas as pd
-from tabulate import tabulate
 import os
 
 db_path = '/var/www/html/fastapi_project/brightscrape/brightmls.db'
@@ -19,4 +18,4 @@ else:
 
 
     # Print the dataframe as a table
-    print(tabulate(df, headers='keys', tablefmt='pretty'))
+    print(df)
