@@ -45,3 +45,43 @@ def init_db():
     else:
         print("Database file already exists.")
 
+
+#def get_listings_from_db(db):
+#    users = db.query(User).all()
+#    return [
+#        {
+#            "MLS": user.mls,
+#            "COST": f"${user.price:,.2f}",
+#            "ADDRESS": user.address,
+#            "DESCRIPTION": user.description,
+#            "STATUS": user.availability,
+#            "PHOTOS": user.image_list
+#        }
+#        for user in users
+#    ]
+
+
+def get_listings_from_db(db):
+    # Query the database for all listings
+    listings = db.query(User).all()  # Assuming `User` is the model but refers to "listings"
+    
+    formatted_listings = []
+    
+    for listing in listings:
+        # Format the COST field as a currency
+        cost_formatted = f"${listing.price:,.2f}"
+        
+        # Handle the PHOTOS list (assuming it is a list of filenames)
+        photos_list = listing.image_list if listing.image_list else []
+        
+        formatted_listings.append({
+            "MLS": listing.mls,
+            "COST": cost_formatted,
+            "ADDRESS": listing.address,
+            "DESCRIPTION": listing.description,
+            "STATUS": listing.availability,
+            "PHOTOS": photos_list
+        })
+    
+    # Return the list of formatted listings
+    return formatted_listings

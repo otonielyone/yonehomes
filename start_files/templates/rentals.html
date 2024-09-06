@@ -103,50 +103,30 @@
     <section id="dynamic-buttons" class="button-grid">
         <!-- Dynamic buttons will be inserted here -->
     </section>
-</div>
-
-<script>
+</div><script>
     document.addEventListener('DOMContentLoaded', () => {
         const imageDirectory = '/static/icons/'; // Base directory for your images
+        const numberOfListings = 5; // Number of listings you want to fetch
 
-        const mlsList = [
-            {
-                MLS: "VAPW2069286",
-                COST: "$950.00",
-                ADDRESS: "11222 Unitsandy St #2876, Psonrico, VA 22134",
-                DESCRIPTION: "Very close to VRE and located on a quiet and historical town of Quantico. It is vacant and ready for occupancy. Water and trash included, not the Gas and Electric. To pass the gate, driver license is not enough. To save your time, please check the Visitor Control Center, at 27000 Telegraph Rd, Stafford, VA 22554 (Bldg.27301X)",
-                STATUS: "Active",
-                PHOTOS: ["test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg"]
-            },
-            {
-                MLS: "VAFX2182782",
-                COST: "$1953.00",
-                ADDRESS: "408 C St #201, Quantico, VA 22134",
-                DESCRIPTION: "Very close to VRE and located on a quiet and historical town of Quantico. It is vacant and ready for occupancy. Water and trash included, not the Gas and Electric. To pass the gate, driver license is not enough. To save your time, please check the Visitor Control Center, at 27000 Telegraph Rd, Stafford, VA 22554 (Bldg.27301X)",
-                STATUS: "Active",
-                PHOTOS: ["test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg"]
-            },
-            {
-                MLS: "VAPW2069287",
-                COST: "$9955.00",
-                ADDRESS: "11222 Candy St #202, Rico, VA 11678",
-                DESCRIPTION: "Very close to VRE and located on a mountain very high and very low at the same time. You will love the ease and the hardships, the loves and the hates. Please check the Visitor Control Center, at 456700 Mail Rd, Richmond, VA 22544 (Bldg.466771X)",
-                STATUS: "Active",
-                PHOTOS: ["test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg"]
-            },
-            {
-                MLS: "VAFX2176582",
-                COST: "$2960.00",
-                ADDRESS: "4458 CT #203, Fedhyico, VA 22234",
-                DESCRIPTION: "Good residential location located east of Rome with precious sights to cover at every boundary. Your eyes will take in the views. Come blossom and pamper and view the sights!!",
-                STATUS: "Active",
-                PHOTOS: ["test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg","test.jpg", "test.jpg"]
-            }
-        ];
+        // Fetch the listing data from the API with a limit
+        fetch(`/api/listings?limit=${numberOfListings}`)
+            .then(response => response.json())
+            .then(data => {
+                // `data` is an object with a "listings" property
+                console.log(data);
 
+                // Process each listing
+                data.listings.forEach(item => {
+                    createButtonDiv(item);
+                });
+            })
+            .catch(error => console.error('Error fetching listings:', error));
+
+        // Function to process and create buttons
         function createButtonDiv(data) {
+            // Destructure the `data` object
             const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS } = data;
-
+            
             // Create a div element for the button
             const buttonDiv = document.createElement('div');
             buttonDiv.className = 'button-item';
@@ -159,7 +139,7 @@
 
             // Create an img element (use a placeholder image or the first image from PHOTOS)
             const img = document.createElement('img');
-            img.src = imageDirectory + PHOTOS[0]; // Use the first image from the list or a placeholder
+            img.src = imageDirectory + (PHOTOS[0] || 'placeholder.jpg'); // Use the first image from the list or a placeholder
             img.alt = 'Button Image';
 
             // Create a div for text description
@@ -180,19 +160,8 @@
             // Append the button to the div
             buttonDiv.appendChild(button);
 
-            return buttonDiv;
-        }
-
-        function addButtonsToSection(dataList) {
-            const section = document.getElementById('dynamic-buttons');
-
-            // Clear existing content
-            section.innerHTML = '';
-
-            dataList.forEach(data => {
-                const buttonDiv = createButtonDiv(data);
-                section.appendChild(buttonDiv);
-            });
+            // Append the buttonDiv to the dynamic buttons section
+            document.getElementById('dynamic-buttons').appendChild(buttonDiv);
         }
 
         function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS) {
@@ -270,12 +239,13 @@
         window.navigateToContact = () => {
             window.location.href = '/contact';
         };
-
-        // Initialize the button grid with the MLS data
-        addButtonsToSection(mlsList);
     });
+</script>
 
-    </script>
+
+
+
+
 
 
 <!-- Custom Section with Parallax Effect -->

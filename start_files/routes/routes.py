@@ -1,10 +1,13 @@
+import json
 from start_files.routes.route_scripts import sorted_csv_by_price, start_task
 from start_files.routes.export_scripts import export_results
-from fastapi import APIRouter, Form, Request, HTTPException, BackgroundTasks
+from start_files.models.users.users import SessionLocal, get_listings_from_db
+from fastapi import APIRouter, Form, Query, Request, HTTPException, BackgroundTasks
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
+from flask import jsonify
 import logging
 import os
 
@@ -55,6 +58,19 @@ async def handle_contact_form(
         raise HTTPException(status_code=500, detail=f"Error sending email: {e}")
     logger.info("Contact form submission successful, redirecting user.")
     return RedirectResponse(url="/contact", status_code=303)
+
+
+@router.get('/api/listings')
+async def api_listings():
+    try:
+        db = SessionLocal()
+        # Get all listings data from the database
+        listings_data = get_listings_from_db(db)
+        db.close()
+        # Return the data wrapped in a dictionary with the key "listings"
+        return {"listings": listings_data}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/get_csv", response_class=JSONResponse, name="export")
