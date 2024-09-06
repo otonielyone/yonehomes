@@ -1193,3 +1193,45 @@
 [2024-09-06 13:56:17 +0000] [213089] [INFO] Started server process [213089]
 [2024-09-06 13:56:17 +0000] [213089] [INFO] Waiting for application startup.
 [2024-09-06 13:56:17 +0000] [213089] [INFO] Application startup complete.
+[2024-09-06 14:05:12 +0000] [213084] [INFO] Handling signal: term
+[2024-09-06 14:05:12 +0000] [213087] [INFO] Shutting down
+[2024-09-06 14:05:12 +0000] [213086] [INFO] Shutting down
+[2024-09-06 14:05:12 +0000] [213089] [INFO] Shutting down
+[2024-09-06 14:05:12 +0000] [213088] [INFO] Shutting down
+[2024-09-06 14:05:12 +0000] [213089] [INFO] Waiting for application shutdown.
+[2024-09-06 14:05:12 +0000] [213087] [INFO] Waiting for application shutdown.
+[2024-09-06 14:05:12 +0000] [213086] [INFO] Waiting for application shutdown.
+[2024-09-06 14:05:12 +0000] [213089] [INFO] Application shutdown complete.
+[2024-09-06 14:05:12 +0000] [213087] [INFO] Application shutdown complete.
+[2024-09-06 14:05:12 +0000] [213086] [INFO] Application shutdown complete.
+[2024-09-06 14:05:12 +0000] [213089] [INFO] Finished server process [213089]
+[2024-09-06 14:05:12 +0000] [213087] [INFO] Finished server process [213087]
+[2024-09-06 14:05:12 +0000] [213086] [INFO] Finished server process [213086]
+[2024-09-06 14:05:12 +0000] [213084] [ERROR] Worker (pid:213087) was sent SIGTERM!
+[2024-09-06 14:05:12 +0000] [213088] [INFO] Waiting for application shutdown.
+[2024-09-06 14:05:12 +0000] [213088] [INFO] Application shutdown complete.
+[2024-09-06 14:05:12 +0000] [213088] [INFO] Finished server process [213088]
+[2024-09-06 14:05:12 +0000] [213084] [ERROR] Worker (pid:213088) was sent SIGTERM!
+[2024-09-06 14:05:12 +0000] [213084] [INFO] Shutting down: Master
+[2024-09-06 14:05:38 +0000] [880] [INFO] Starting gunicorn 23.0.0
+[2024-09-06 14:05:38 +0000] [880] [INFO] Listening at: http://0.0.0.0:5000 (880)
+[2024-09-06 14:05:38 +0000] [880] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-06 14:05:38 +0000] [1080] [INFO] Booting worker with pid: 1080
+[2024-09-06 14:05:38 +0000] [1082] [INFO] Booting worker with pid: 1082
+[2024-09-06 14:05:38 +0000] [1087] [INFO] Booting worker with pid: 1087
+[2024-09-06 14:05:38 +0000] [1116] [INFO] Booting worker with pid: 1116
+[2024-09-06 14:05:38 +0000] [1116] [INFO] Started server process [1116]
+[2024-09-06 14:05:38 +0000] [1116] [INFO] Waiting for application startup.
+[2024-09-06 14:05:38 +0000] [1116] [INFO] Application startup complete.
+[2024-09-06 14:05:38 +0000] [1082] [INFO] Started server process [1082]
+[2024-09-06 14:05:38 +0000] [1080] [INFO] Started server process [1080]
+[2024-09-06 14:05:38 +0000] [1080] [INFO] Waiting for application startup.
+[2024-09-06 14:05:38 +0000] [1082] [INFO] Waiting for application startup.
+[2024-09-06 14:05:38 +0000] [1080] [INFO] Application startup complete.
+[2024-09-06 14:05:38 +0000] [1082] [INFO] Application startup complete.
+[2024-09-06 14:05:38 +0000] [1087] [INFO] Started server process [1087]
+[2024-09-06 14:05:38 +0000] [1087] [INFO] Waiting for application startup.
+[2024-09-06 14:05:38 +0000] [1087] [INFO] Application startup complete.
+[2024-09-06 14:47:55 +0000] [1116] [WARNING] Invalid HTTP request received.
+[2024-09-06 16:31:50 +0000] [1082] [WARNING] Invalid HTTP request received.
+[2024-09-06 16:40:02 +0000] [1080] [WARNING] Invalid HTTP request received.

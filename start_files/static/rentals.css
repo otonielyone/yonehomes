@@ -1,5 +1,10 @@
 
+.rental-services h1, h2, p {
+    padding: 10px;
+    text-align: center; /* Center align heading text */
+  }
 
+  
 /* For dynamic button grid section */
 .button-grid-container {
     display: flex;
@@ -132,7 +137,6 @@
 
 .black-text p {
     color: rgb(0, 0, 0);
-    padding-top: 20px;
 }
 
 .light-green-text {
@@ -158,6 +162,7 @@
     color: #a91909;
     font-weight: bold;
     padding-top: 20px;
+    font-weight: bold;
 }
 
 /* Custom Section Background */
@@ -248,4 +253,9 @@
 
 .contact-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+.footer p {
+    padding:0px
 }

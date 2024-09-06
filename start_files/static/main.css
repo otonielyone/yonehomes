@@ -17,15 +17,20 @@ body {
 h1, h2, p {
   margin: 10px auto;
   padding: 0;
+  overflow: hidden; /* or auto */
   text-align: center; /* Center align heading text */
   overflow-wrap: break-word;
   font-weight: 300; /* Consistent font-weight */
 }
 
+.service-container h1 {
+  padding: 10px;
+  padding-bottom: 20px;
+}
 .site-header {
   position: relative;
   width: 100%;
-  z-index: 15;
+  z-index: 15; 
   overflow: hidden;
 }
 
@@ -53,6 +58,7 @@ a:active,
   background-color: rgba(255, 255, 255, 0.1); /* Fade effect on hover and active */
   font-weight: 1000; /* Ensure the weight is a valid value */
   text-decoration: none; /* Ensure no underline or decoration */
+  overflow: hidden; /* or auto */
 }
 
 /* Ensure links have a consistent color across states */
@@ -209,7 +215,6 @@ a:focus {
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide overflow if text exceeds button width */
   text-overflow: ellipsis; /* Add ellipsis if text overflows */
-  transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
 
@@ -224,6 +229,7 @@ a:focus {
   color: #ffffff;
   text-decoration: none;
   justify-content: center;
+  overflow: hidden; /* or auto */
 }
 
 /* Language Icon */
@@ -294,6 +300,7 @@ a:focus {
   background-position: center;
   width: 100%;
   margin: 0;
+  color: white;
   padding: 25px;
   background-attachment: fixed;
   display: flex;
@@ -406,10 +413,12 @@ a:focus {
   line-height: 40px;
   width: 200px;
   box-sizing: border-box;
-  text-decoration: none;
+  text-decoration: none;        
+  border: 1px solid black; /* Ensure borders are visible */
   background: none;
   color: #ffffff;
   border: 1px solid #ffffff;
+  overflow: hidden; /* or auto */
   border-radius: 1px;
   display: block; /* Ensure it takes up space as a block element */
   text-align: center; /* Center text inside the button */
@@ -434,7 +443,7 @@ a:focus {
 }
 
 .footer-column {
-  flex: 1 1 200px; /* Allow columns to grow and shrink, with a base width of 200px */
+  flex: 1 1 auto; /* Allow columns to grow and shrink, with a base width of 200px */
   padding: 0 10px; /* Add padding for spacing */
   box-sizing: border-box; /* Include padding in width calculation */
 }
@@ -442,6 +451,7 @@ a:focus {
 .footer-text, .footer-nav, .footer-logo, .footer-image {
   text-align: left;
 }
+
 
 .footer-heading {
   font-size: 18px;
@@ -475,25 +485,107 @@ a:focus {
   margin: 5px 0;
 }
 
-.footer-column img.realtor,
-.footer-logo {
-  height: 80px; /* Fixed height for realtor image */
-  width: auto; /* Maintain aspect ratio */
-  display: block; /* Ensure block display */
-  margin: 0; /* Remove margin to align left */
-}
 
 .footer-image {
   max-width: 100px; /* Limit image width */
-  height: auto; /* Maintain aspect ratio */
+  height: 100px;
   display: block; /* Ensure block display */
   margin: 0 auto; /* Center images horizontally if needed */
 }
 
-/* Responsive Styling fOR Footer*/
-@media screen and (max-width: 908px) {
+
+
+
+/* Landscape mode for devices with a max-width of 908px */
+@media screen and (max-width: 908px) and (orientation: landscape) {
+  .image-header-container {
+    height: 100vw; /* Use viewport width for height in landscape mode */
+  }
+
+  .menu-bar {
+    display: none; /* Hide the menu bar */
+    overflow: hidden;
+  }
+  
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu on mobile view */
+    overflow: hidden;
+    z-index: 1500;
+  }  
+}
+
+/* Wide screens (e.g., Galaxy Fold side ways) */
+@media screen and (min-width: 1469px) {
+  .image-header-container {
+    height: 100vw; /* Use viewport width for height in landscape mode */
+    height: 100vh; /* Use viewport height for mobile view */
+}
+
+  .menu-bar {
+    display: none; /* Hide the menu bar */
+    overflow: hidden;
+  }
+  
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu on mobile view */
+    overflow: hidden;
+    z-index: 1500;
+  }  
+}
+
+/* Mobile view for screens up to 768px wide */
+@media screen and (max-width: 768px) {
+  .image-header-container {
+    height: 100vh; /* Use viewport height for mobile view */
+  }
+      
+  .menu-bar {
+    display: none; /* Hide the menu bar */
+  }
+
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu */
+    z-index: 1500;
+  }
+}
+
+/* Portrait mode for very small screens (e.g., Galaxy Fold front thin screen) */
+@media screen and (max-width: 500px) and (orientation: portrait) {
+  .image-header-container {
+    height: 100vh; /* Use viewport height for portrait mode */
+  }
+
+  .menu-bar {
+    display: none; /* Hide the menu bar */
+  }
+
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu */
+    z-index: 1501;
+  }
+
+  /* HEADINGS */
+  .main-heading {
+    font-size: 30px;
+    margin: 10px 0;
+    font-weight: 500; /* Thicker weight for headings */
+    background: none; /* Ensure no background color */
+    padding: 0; /* Remove padding */
+  }
+
+  .sub-heading {
+    font-size: 20px;
+    margin: 25px 0; /* Add margin above and below to separate from main heading */
+  }
+
+  .button-link {
+    width: 200px; /* Fixed width for buttons */
+    height: 50px;
+    font-size: 14px;
+  }
+
   .custom-column {
-    flex: 1 1 100%; /* Each column takes up 100% of the width */
+    flex: 1 1 100%; /* Each column takes 100% of width */
     max-width: 100%; /* Ensure each column does not exceed 100% width */
   }
   
@@ -511,41 +603,7 @@ a:focus {
 
   .footer-column, .footer-text, .footer-nav {
     width: 100%; /* Full width for each column */
-    max-width: 400px; /* Optional: Limit maximum width for better appearance */
+    max-width: 400px; /* Optional: Limit max width for better appearance */
     text-align: center; /* Center text inside each column */
   }
 }
-
-@media screen and (max-width: 768px) {
-  
-  .image-header-container {
-    height: 100vw; /* Use viewport width for height in landscape mode */
-  }
-      
-  .menu-bar {
-  display: none; /* Hide the menu bar */
-  }
-
-  .hamburger-menu {
-    display: block; /* Show the hamburger menu on mobile view */
-    z-index: 1500;
-  }
-}
-
-
-@media screen and (max-width: 500px) and (orientation: portrait){ /* Cover Screen - Portrait */
-  /* Image/Video Background Container Adjustments */
-  .image-header-container {
-    height: 100vw; /* Use viewport width for height in landscape mode */
-  }
-
-  .menu-bar {
-    display: none; /* Hide the menu bar */
-  }
-
-  .hamburger-menu {
-    display: block; /* Show the hamburger menu */
-    z-index: 1501;
-  }
-}
-
