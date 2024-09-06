@@ -57,22 +57,22 @@ async def handle_contact_form(
     return RedirectResponse(url="/contact", status_code=303)
 
 
-@router.get("/get-csv", response_class=JSONResponse, name="export")
-async def export_results_endpoint(background_tasks: BackgroundTasks):
+@router.get("/get_csv", response_class=JSONResponse, name="export")
+async def export_results_endpoint(background_tasks: BackgroundTasks, filter_price: int = 2500):
     logger.info("Starting CSV export task in the background")
-    background_tasks.add_task(export_results)  # Do not await here
+    background_tasks.add_task(export_results, filter_price)  # Do not await here
     return JSONResponse(content={"message": "CSV export task started in the background"})
 
-@router.get("/count-list", response_class=JSONResponse, name="filter")
-async def sort_csv_endpoint(max_price: int):
+@router.get("/filter_csv_and_count", response_class=JSONResponse, name="filter")
+async def sort_csv_endpoint(max_price: int = 2500):
     logger.info("Starting CSV sort task in the background")
     sorted = await sorted_csv_by_price(max_price)
     return f"This sorted list has {len(sorted)} listings."
 
-@router.get("/populate-database", response_model=dict, name="import")
-async def get_mls_data(background_tasks: BackgroundTasks, concurrency_limit: int = 8, timeout: int = 300, max_images: int = 50, max_price: int = 2500):
+@router.get("/populate_database", response_model=dict, name="import")
+async def get_mls_data(background_tasks: BackgroundTasks, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, max_images: int = 50, max_price: int = 2500):
     logger.info("Starting MLS data gathering task")
-    background_tasks.add_task(start_task, concurrency_limit, timeout, max_images, max_price)
+    background_tasks.add_task(start_task, concurrency_limit, timeout, max_images, max_price, max_retries, delay)
     return JSONResponse(content={"message": "MLS data gathering task started in the background"})
     
 @router.get("/", response_class=HTMLResponse, name="home")

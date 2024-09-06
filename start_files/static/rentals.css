@@ -1,4 +1,4 @@
-/* Ensure changes only apply to the specific sections without affecting others */
+
 
 /* For dynamic button grid section */
 .button-grid-container {
@@ -32,6 +32,7 @@
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+
 /* Ensure button elements have no borders */
 .button-item button {
     padding: 0;
@@ -48,12 +49,6 @@
     border: none;
 }
 
-/* Ensure button text styles are maintained */
-.button-text {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
-}
 
 /* Remove focus outline for button */
 .button-item button:focus {
@@ -94,6 +89,7 @@
     }
 }
 
+
 /* Ensure text is properly visible in the overlay */
 .overlay-content {
     display: flex;
@@ -124,6 +120,19 @@
 .rental-services h2 {
     margin: 0;
     text-align: center;
+    background-color: none;
+}
+
+.black-text {
+    color: #000000; /* Set text color to black, overriding the body color */
+    font-weight: 300; /* Example font weight */
+    text-align: center; /* Center text */
+    padding-top: 20px; /* Example padding */
+}
+
+.black-text p {
+    color: rgb(0, 0, 0);
+    padding-top: 20px;
 }
 
 .light-green-text {

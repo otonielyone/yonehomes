@@ -1,4 +1,4 @@
-bind = '192.168.0.100:5000'
+bind = '192.168.0.200:5000'
 workers = 4
 worker_class = 'uvicorn.workers.UvicornWorker'
 accesslog = '/var/www/html/fastapi_project/logs/access.log'

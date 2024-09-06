@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
 
 body {
-  color: #ffffff; /* Set global text color to white */
+  color: none; /* Set global text color to white */
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   box-sizing: border-box;
+  text-decoration: none; /* Removes underline from links */
 }
 
 /* HEADER */
@@ -38,14 +39,31 @@ h1, h2, p {
   font-weight: 500;
 }
 
-/* General link styles for consistency */
-a,
+a:hover,
 a:active,
-a:focus {
+.button-link:hover,
+.button-link:active,
+.button-text:hover,
+.button-text:active,
+.menu-link:hover,
+.menu-link:active,
+.menu-item:hover,
+.menu-item:active {
   color: inherit; /* Inherit color from parent */
-  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.1); /* Fade effect on hover and active */
+  font-weight: 1000; /* Ensure the weight is a valid value */
   text-decoration: none; /* Ensure no underline or decoration */
 }
+
+/* Ensure links have a consistent color across states */
+a,
+a:active,
+a:hover,
+a:focus {
+  color: inherit; /* Inherit color from parent */
+  text-decoration: none; /* Ensure no underline or decoration */
+}
+
 
 /* HEADINGS */
 .main-heading, .sub-heading {
@@ -91,19 +109,6 @@ a:focus {
   transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
-.button-link:hover,
-.button-link:active,
-.button-text:hover,
-.button-text:active,
-.menu-link:hover,
-.menu-link:active,
-.menu-item:hover,
-.menu-item:active {
-  background-color: rgba(255, 255, 255, 0.1); /* Fade effect on hover and active */
-  font-weight: 1000px;
-  text-decoration: none;
-
-}
 
 /* Hamburger Menu */
 .hamburger-menu {

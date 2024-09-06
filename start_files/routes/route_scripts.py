@@ -1,8 +1,9 @@
-from selenium.common.exceptions import WebDriverException, TimeoutException
+from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException
 from start_files.models.users.users import SessionLocal, User, Base, engine
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from concurrent.futures import ThreadPoolExecutor
 from selenium.webdriver.support.ui import Select
@@ -42,36 +43,15 @@ def get_end_time_and_elapsed(start_time):
     return formatted_end_time, formatted_elapsed_time
 
 
-async def async_setup_options() -> webdriver.Chrome:
-    logger.info("Setting up Asysnc driver")
-    options = ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-software-rasterizer')
-    options.add_argument('--window-size=1920,1080')
-    options.add_experimental_option("prefs", {
-        "download.default_directory": "/home/oyone/Downloads/",
-        "download.prompt_for_download": False,
-        "download.directory_upgrade": True,
-        "safebrowsing.enabled": True
-    })
-    service = ChromeService(executable_path='/usr/lib/chromium-browser/chromedriver')
-    driver = webdriver.Chrome(service=service, options=options)
-    logger.info("async driver set")
-    return driver
-
-
 # Set up Chrome options
-def setup_options(max_retries=10, delay=1) -> webdriver.Chrome:
+def setup_options(max_retries, delay) -> webdriver.Chrome:
     options = ChromeOptions()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--disable-gpu')
     options.add_argument('--disable-software-rasterizer')
-    service = ChromeService(executable_path='/usr/lib/chromium-browser/chromedriver')
+    service = ChromeService(executable_path='/usr/bin/chromedriver')
 
     for attempt in range(max_retries):
         try:
@@ -85,16 +65,14 @@ def setup_options(max_retries=10, delay=1) -> webdriver.Chrome:
     raise RuntimeError("Failed to start Chrome after multiple attempts")
 
 
-def load_page(max_images, item, timeout):
+def load_page(max_images, item, timeout, max_retries, delay):
     attempt = 0
     mls = item[1]
-    max_retries = 10
-    initial_delay = 1
     image_link_full = []
     driver = None
     while attempt < max_retries:
         try:    
-            driver = setup_options()
+            driver = setup_options(max_retries, delay)
             
             logger.info(f"Setting up driver for {mls}")
             logger.info(f"{mls} driver set")
@@ -125,12 +103,26 @@ def load_page(max_images, item, timeout):
             driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_locator)
             driver.execute_script("arguments[0].click();", search_bar_locator)
             search_bar_locator.send_keys(mls)
+
             logger.info(f"Entering {mls} in search bar")
             search_bar_submit = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, "ctl01_m_ucSpeedBar_m_lnkGo")))
             driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_submit)
             driver.execute_script("arguments[0].click();", search_bar_submit)
-            
             logger.info(f"Submitting search entry.")
+            
+
+            try:
+                time.sleep(1)
+                logger.debug("Waiting for confirmation listing element to be clickable")
+                select_listing = driver.find_element(by=By.XPATH, value="//a[contains(text(), 'Listing ID')]")
+                if select_listing:
+                    driver.execute_script("arguments[0].scrollIntoView(true);", select_listing)
+                    driver.execute_script("arguments[0].click();", select_listing)
+                    logger.info(f"Location for {mls} confirmed")
+            except NoSuchElementException:
+                logger.info("Confirmation listing element not found, moving on")
+
+            
             click_entry = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, '//td[@class="NoPrint checkboxTableRow d25m0"]//input[@type="checkbox"]')))
             driver.execute_script("arguments[0].scrollIntoView(true);", click_entry)
             driver.execute_script("arguments[0].click();", click_entry)
@@ -185,7 +177,6 @@ def load_page(max_images, item, timeout):
                         availability=item[3],
                         image_list=image_link_full[0][1] if image_link_full else []
                     )
-                    max_retries = 10
                     for attempt in range(max_retries):
                         try:
                             db.add(listing)
@@ -205,7 +196,7 @@ def load_page(max_images, item, timeout):
             logger.error(f"Attempt {attempt + 1} failed")
             attempt += 1
             if attempt < max_retries:
-                sleep_time = initial_delay * (2 ** (attempt - 1)) 
+                sleep_time = delay * (2 ** (attempt - 1)) 
                 logger.info(f"Retrying in {sleep_time} seconds...")
                 driver.refresh()
                 time.sleep(sleep_time)
@@ -251,14 +242,13 @@ async def sorted_csv_by_price(max_price) -> list:
                                 listing_agent_email, agent_remarks, public_remarks))
     return sorted(all_data, key=lambda x: x[0])
 
-
 # Download images with concurrency
-async def start_cpncurrency(timeout, concurrency_limit, max_images, sorted_results: list) -> list:
+async def start_cpncurrency( max_retries, delay, timeout, concurrency_limit, max_images, sorted_results: list) -> list:
     semaphore = asyncio.Semaphore(concurrency_limit)
     async def download_image_with_semaphore(item):
         async with semaphore:
-            return await loop.run_in_executor(executor, load_page, max_images, item, timeout)
-    logger.info("About to begin concurrency")
+            return await loop.run_in_executor(executor, load_page, max_images, item, timeout,  max_retries, delay)
+    logger.info("About to begin concurrency"), 
     loop = asyncio.get_event_loop()
     with ThreadPoolExecutor() as executor:
         tasks = [download_image_with_semaphore(item) for item in sorted_results]
@@ -267,22 +257,22 @@ async def start_cpncurrency(timeout, concurrency_limit, max_images, sorted_resul
 
 
 # Gather images and MLS data
-async def loop_task(concurrency_limit, timeout, max_images, max_price) -> None:
+async def loop_task(concurrency_limit, timeout, max_images, max_price, max_retries, delay) -> None:
     sorted_results = await sorted_csv_by_price(max_price)
     logger.info('Clearing and recreating database tables')
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
-    await start_cpncurrency(timeout, concurrency_limit, max_images, sorted_results)
+    await start_cpncurrency( max_retries, delay, timeout, concurrency_limit, max_images, sorted_results)
 
 
 # Synchronous entry point
-def start_task(concurrency_limit, timeout, max_images, max_price):
+def start_task(concurrency_limit, timeout, max_images, max_price, max_retries, delay):
     start_time = time.time()
     logger.info(f"{datetime.fromtimestamp(start_time).strftime('%Y-%m-%d %H:%M:%S')}")
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     try:
-        loop.run_until_complete(loop_task(concurrency_limit, timeout, max_images, max_price))
+        loop.run_until_complete(loop_task(concurrency_limit, timeout, max_images, max_price, max_retries, delay))
     finally:
         loop.close()
         end_time, elapsed_time = get_end_time_and_elapsed(start_time)

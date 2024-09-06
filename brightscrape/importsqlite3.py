@@ -4,6 +4,11 @@ import os
 
 db_path = '/var/www/html/fastapi_project/brightscrape/brightmls.db'
 
+
+# Adjust display options
+pd.set_option('display.max_rows', None)          # Show all rows
+
+
 # Check if the database file exists
 if not os.path.exists(db_path):
     print(f"Database file not found at {db_path}")
