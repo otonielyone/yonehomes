@@ -343,11 +343,11 @@ a:focus {
 .custom-column {
   flex: 0 0 375px; /* Fixed width for columns */
   height: 200px;
-  border: 1px solid #ffffff;
   background: transparent;
   text-align: center;
   margin: 0 auto; /* Center column horizontally */
-  position: relative; /* Allows absolute positioning of child elements */
+  position: relative; 
+  border: 2px solid #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Space out content vertically */
@@ -414,10 +414,9 @@ a:focus {
   width: 200px;
   box-sizing: border-box;
   text-decoration: none;        
-  border: 1px solid black; /* Ensure borders are visible */
   background: none;
   color: #ffffff;
-  border: 1px solid #ffffff;
+  border: 2px solid #ffffff;
   overflow: hidden; /* or auto */
   border-radius: 1px;
   display: block; /* Ensure it takes up space as a block element */
@@ -496,6 +495,10 @@ a:focus {
 
 
 
+
+
+
+
 /* Landscape mode for devices with a max-width of 908px */
 @media screen and (max-width: 908px) and (orientation: landscape) {
   .image-header-container {
@@ -507,19 +510,31 @@ a:focus {
     overflow: hidden;
   }
   
+
   .hamburger-menu {
     display: block; /* Show the hamburger menu on mobile view */
     overflow: hidden;
     z-index: 1500;
   }  
+
+
+  .hamburger-menu.active {
+    background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+  }
+
+  .hamburger-menu.active .bar {
+    background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+  }
+
 }
 
-/* Wide screens (e.g., Galaxy Fold side ways) */
+
+
+/* Wide screens (e.g., Galaxy Fold sideways) */
 @media screen and (min-width: 1469px) {
   .image-header-container {
     height: 100vw; /* Use viewport width for height in landscape mode */
-    height: 100vh; /* Use viewport height for mobile view */
-}
+  }
 
   .menu-bar {
     display: none; /* Hide the menu bar */
@@ -530,8 +545,18 @@ a:focus {
     display: block; /* Show the hamburger menu on mobile view */
     overflow: hidden;
     z-index: 1500;
-  }  
+  }
+
+  .hamburger-menu.active {
+    background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+  }
+
+  .hamburger-menu.active .bar {
+    background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+  }
+
 }
+
 
 /* Mobile view for screens up to 768px wide */
 @media screen and (max-width: 768px) {
@@ -547,6 +572,15 @@ a:focus {
     display: block; /* Show the hamburger menu */
     z-index: 1500;
   }
+
+  .hamburger-menu.active {
+    background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+  }
+
+  .hamburger-menu.active .bar {
+    background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+  }
+
 }
 
 /* Portrait mode for very small screens (e.g., Galaxy Fold front thin screen) */
@@ -587,6 +621,7 @@ a:focus {
   .custom-column {
     flex: 1 1 100%; /* Each column takes 100% of width */
     max-width: 100%; /* Ensure each column does not exceed 100% width */
+
   }
   
   /* Adjust footer styling for small screens */
@@ -606,4 +641,48 @@ a:focus {
     max-width: 400px; /* Optional: Limit max width for better appearance */
     text-align: center; /* Center text inside each column */
   }
+
+  .custom-icon-homepage {
+    background-image: url('/static/icons/home.png');
+    width: 35px;
+    height: 35px;
+  }
+
+  .custom-icon-home {
+    background-image: url('/static/icons/search.png');
+    width: 65px;
+    height: 65px;
+  }
+
+  .custom-icon-head {
+    background-image: url('/static/icons/head.png');
+    width: 70px;
+    height: 70px;
+  }
+
+  .custom-icon-contact {
+    background-image: url('/static/icons/contact.png');
+    width: 75px;
+    height: 75px;
+  }
+
+  .custom-icon-rentals {
+    background-image: url('/static/icons/hand.png');
+    width: 55px;
+    height: 55px;
+  }
+
+  /* Column styling */
+  .custom-column {
+    height: 150px;
+  }
+
+  .hamburger-menu.active {
+    background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+  }
+
+  .hamburger-menu.active .bar {
+    background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+  }
+
 }

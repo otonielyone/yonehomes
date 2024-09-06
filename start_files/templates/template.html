@@ -64,77 +64,80 @@
     <!-- jQuery and Bootstrap JS -->
     <script src="/static/jquery.min.js"></script>
     <script src="/static/bootstrap.bundle.min.js"></script>
-    <script>
+        <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var hamburgerMenu = document.querySelector('.hamburger-menu');
-            var menuBar = document.querySelector('.menu-bar');
-            var mobileMenu = document.querySelector('.mobile-menu');
+    var hamburgerMenu = document.querySelector('.hamburger-menu');
+    var menuBar = document.querySelector('.menu-bar');
+    var mobileMenu = document.querySelector('.mobile-menu');
 
-            // Function to update visibility based on conditions
-            function updateVisibility() {
-                var isMobileView = window.innerWidth <= 768;
-                var isLandscapeMode = window.innerHeight <= 500 && window.innerWidth > window.innerHeight;
-                var shouldShowHamburger = isMobileView || isLandscapeMode;
+    // Function to update visibility and style based on conditions
+    function updateVisibility() {
+        var isMobileView = window.innerWidth <= 768;
+        var isLandscapeMode = window.innerHeight <= 500 && window.innerWidth > window.innerHeight;
+        var shouldShowHamburger = isMobileView || isLandscapeMode;
 
-                var menuBarVisible = menuBar && menuBar.offsetParent !== null;
-                var mobileMenuVisible = mobileMenu && mobileMenu.classList.contains('active');
+        var mobileMenuVisible = mobileMenu && mobileMenu.classList.contains('active');
 
-                if (hamburgerMenu) {
-                    if (shouldShowHamburger && !menuBarVisible && !mobileMenuVisible) {
-                        hamburgerMenu.classList.add('show'); // Show via class
-                        hamburgerMenu.classList.remove('hide'); // Ensure hide class is removed
-                    } else {
-                        hamburgerMenu.classList.add('hide'); // Hide via class
-                        hamburgerMenu.classList.remove('show'); // Ensure show class is removed
-                    }
+        if (hamburgerMenu) {
+            if (mobileMenuVisible) {
+                // Always hide hamburger menu if mobile menu is active
+                hamburgerMenu.classList.add('hide');
+                hamburgerMenu.classList.remove('show');
+                hamburgerMenu.classList.add('active');
+                hamburgerMenu.style.color = ''; // Restore font color
+            } else {
+                // Show hamburger menu based on conditions if mobile menu is not active
+                if (shouldShowHamburger) {
+                    hamburgerMenu.classList.add('show');
+                    hamburgerMenu.classList.remove('hide');
+                    hamburgerMenu.classList.remove('active');
+                } else {
+                    hamburgerMenu.classList.add('hide');
+                    hamburgerMenu.classList.remove('show');
+                    hamburgerMenu.classList.remove('active');
                 }
+                hamburgerMenu.style.color = ''; // Restore font color
             }
+        }
+    }
 
-            // Toggle mobile menu visibility
-            function toggleMobileMenu(event) {
-                event.stopPropagation();
-                var isActive = mobileMenu.classList.toggle('active');
-                updateVisibility();
-            }
+    // Toggle mobile menu visibility
+    function toggleMobileMenu(event) {
+        event.stopPropagation();
+        var isActive = mobileMenu.classList.toggle('active');
+        updateVisibility(); // Ensure visibility is updated after toggling
+    }
 
-            // Close mobile menu
-            function closeMobileMenu() {
-                if (mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                    updateVisibility();
-                }
-            }
+    // Close mobile menu
+    function closeMobileMenu() {
+        if (mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            updateVisibility(); // Ensure visibility is updated after closing
+        }
+    }
 
-            // Handle clicks outside mobile menu to close it
-            function handleDocumentClick(event) {
-                if (!mobileMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-                    closeMobileMenu();
-                }
-            }
+    // Close mobile menu on any click
+    function handleAnyClick() {
+        if (mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    }
 
-            // Prevent click propagation within mobile menu
-            function handleMobileMenuClick(event) {
-                event.stopPropagation();
-                closeMobileMenu();
-            }
+    // Initialize event listeners and update visibility on load and resize
+    if (hamburgerMenu && mobileMenu) {
+        updateVisibility();
 
-            // Initialize event listeners and update visibility on load and resize
-            if (hamburgerMenu && mobileMenu) {
-                updateVisibility();
+        hamburgerMenu.addEventListener('click', toggleMobileMenu);
+        document.addEventListener('click', handleAnyClick);
 
-                hamburgerMenu.addEventListener('click', toggleMobileMenu);
-                document.addEventListener('click', handleDocumentClick);
-                mobileMenu.addEventListener('click', handleMobileMenuClick);
+        window.addEventListener('resize', updateVisibility);
 
-                window.addEventListener('resize', updateVisibility);
-
-                // Observe changes in the menu bar to update visibility
-                const observer = new MutationObserver(updateVisibility);
-                if (menuBar) {
-                    observer.observe(menuBar, { attributes: true, attributeFilter: ['style'] });
-                }
-            }
-        });
-
+        // Observe changes in the menu bar to update visibility
+        const observer = new MutationObserver(updateVisibility);
+        if (menuBar) {
+            observer.observe(menuBar, { attributes: true, attributeFilter: ['style'] });
+        }
+    }
+});
 
     </script>
