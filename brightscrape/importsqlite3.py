@@ -49,7 +49,6 @@ df = pd.read_sql_query("SELECT * FROM user", conn)  # Ensure table name is corre
 conn.close()
 #
 #    # Check the first few rows of the DataFrame
-print(len(df))
 #
 #    # Apply the deserialization and HTML generation functions to each row
 #    df['image_list_html'] = df['images'].apply(
@@ -61,3 +60,33 @@ print(len(df))
 #
 #   
 #
+
+
+# Ensure the 'images' column exists in the DataFrame
+if 'images' not in df.columns:
+    raise KeyError("The 'images' column is missing from the DataFrame.")
+
+# Apply the deserialization and HTML generation functions to each row
+df['image_list_html'] = df['images'].apply(
+    lambda x: deserialize_image_list(x) if x else ""
+)
+
+# Print the DataFrame with the new column showing the HTML
+#print(df[['mls', 'image_list_html']])
+
+formatted_listings = []
+
+#for _, row in df.iterrows():
+#    # Format the price field as currency
+#    cost_formatted = f"${row['price']:,.2f}"
+#    formatted_listings.append({
+#        "MLS": row['mls'],
+#        "COST": cost_formatted,
+#        "ADDRESS": row['address'],
+#        "DESCRIPTION": row['description'],
+#        "STATUS": row['availability'],
+#        "PHOTOS": row['image_list_html']
+#    })
+
+#print([pickle.loads(i) for i in df['images']])
+print(df)

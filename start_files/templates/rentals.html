@@ -1,3 +1,4 @@
+
 {% extends "template.html" %}
 
 {% block head %}
@@ -12,12 +13,14 @@
 <div class="rentals-page-menu">
     <!-- Main Menu Bar -->
     <nav class="menu-bar">
+        <!-- Left Column with Menu Links -->
         <div class="menu-column left-column">
             <a href="/" class="menu-link">HOME</a>
             <a href="/buying" class="menu-link">BUYING</a>
             <a href="/resources" class="menu-link">RESOURCES</a>
             <a href="/contact" class="menu-link">CONTACT</a>
         </div>
+        <!-- Right Column with Language Icon -->
         <div class="menu-column right-column">
             <a href="#" class="language-icon">
                 <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
@@ -25,12 +28,14 @@
         </div>
     </nav>
 
+    <!-- Hamburger Menu Icon -->
     <nav class="hamburger-menu" id="hamburger-menu">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
     </nav>
 
+    <!-- Mobile Menu -->
     <nav class="mobile-menu" id="mobile-menu">
         <a href="/" class="menu-item">HOME</a>
         <a href="/buying" class="menu-item">BUYING</a>
@@ -39,11 +44,14 @@
     </nav>
 </div>
 
+<!-- Image/Video Background Container -->
 <div class="image-header-container">
+    <!-- Video Background Section -->
     <div class="video-background-wrapper">
         <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
         src="/static/icons/rentals1.mp4"></video>
 
+        <!-- Overlay Content Section -->
         <div class="overlay-content">
             <div class="text-content">
                 <h1 class="main-heading">SEE BELOW FOR ROOMS AND APARTMENTS!</h1>
@@ -52,249 +60,181 @@
     </div>
 </div>
 
-<div class="rental-services" id="rental-services">
-    <div class="rental-services-wrapper">
+<!-- Leasing Qualifications Section -->
+<div class="rental-services" id="rental-services">   
+    <div class="rental-services-wrapper">    
         <div class="light-red-text">
             <h2>LEASING QUALIFICATIONS:</h2>
-            <p>Rooms may require an application fee ranging from $30 to $60...</p>
+            <p>Rooms may require an application fee ranging from $30 to $60. These applications assist landlords in assessing and comparing their options. Minimum requirements may include a credit score of at least 550, two years of stable employment, and proof of income equivalent to approximately three times the monthly rent. Additionally, many rooms may necessitate a security deposit equal to the first month's rent, which can vary depending on whether the property is privately owned or managed. Rooms may be furnished.</p>
         </div>
 
         <div class="dark-red-text">
-            <p>Note: If you do not meet these qualifications, the security deposit amount may be increased...</p>
+            <p>Note: If you do not meet these qualifications, the security deposit amount may be increased to facilitate approval.
+            </p>
         </div>
 
+        <!-- Call to Action Button -->
         <div class="navy-blue-text">
             <a href="/contact">
                 <span class="text">Click here to request Availabilities!</span>
             </a>
         </div>
-
+        
+        <!-- Additional Information -->
         <div class="black-text">
-            <p>A signed agreement is necessary to physically enter properties...</p>
+           <p>A signed agreement is necessary to physically enter properties.</p>
+            <p>We aim to show listings where the Landlords opt into covering a referral fee.</p>
+            <p>Our fee is 25% of the first month’s rent. If covered, our services would come at no cost to you.</p>
         </div>
-
+        
+        <!-- Download Rental Representation Agreement -->
         <div class="light-green-text">
             <a href="/static/icons/NVARK1282.pdf">
                 Download Rental Representation Agreement
             </a>
-        </div>
-    </div>
+        </div>  
+    </div>      
 </div>
 
-<div id="loading" class="fullscreen-overlay" style="display: none;">
-    <div class="loading-container">
-        <div class="loading-text">Please wait 1 min while we gather the latest Availabilities..</div>
-        <div class="progress-bar">
-            <div id="progress-bar-inner" class="progress-bar-inner"></div>
-        </div>
-    </div>
-</div>
-
+<!-- Dynamic Button Grid -->
 <div class="automation">
     <title>Dynamic Button Grid</title>
     <section id="dynamic-buttons" class="button-grid">
+        <!-- Dynamic buttons will be inserted here -->
     </section>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const loadingElement = document.getElementById('loading');
-    const progressBarInner = document.getElementById('progress-bar-inner');
-    const dynamicButtonsElement = document.getElementById('dynamic-buttons');
-    let totalListings = 0;
-    let originalTotalListings = 0;
-    let initialTicks = 0;
-    let processedInitialTicks = 0;
-    let totalDynamicTicks = 0;
-    let processedDynamicTicks = 0;
+    document.addEventListener('DOMContentLoaded', () => {
+        const numberOfListings = Infinity; // Number of listings you want to display
 
-    // Show loading indicator
-    loadingElement.style.display = 'block';
+        // Fetch the full list of listings from the API
+        fetch('/api/listings')
+            .then(response => response.json())
+            .then(data => {
+                // Check if `data.listings` exists and is an array
+                if (data.listings && Array.isArray(data.listings)) {
+                    // Filter the listings to display only `numberOfListings`
+                    const listingsToDisplay = data.listings.slice(0, numberOfListings);
+                    
+                    // Process each listing to create buttons
+                    listingsToDisplay.forEach(item => {
+                        createButtonDiv(item);
+                    });
+                } else {
+                    console.error('Invalid data format:', data);
+                }
+            })
+            .catch(error => console.error('Error fetching listings:', error));
 
-    const updateProgress = (progress) => {
-        progressBarInner.style.width = `${Math.min(progress, 100)}%`;
-        console.log(`Progress width set to: ${progress}%`);
-    };
+        // Function to process and create buttons
+        function createButtonDiv(data) {
+            const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS } = data;
 
-    const fetchListings = async () => {
-        try {
-            const listingsResponse = await fetch('/api/listings');
-            const listingsData = await listingsResponse.json();
+            // Ensure PHOTOS is an array and not empty
+            const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
 
-            // Process each listing
-            if (listingsData.listings && Array.isArray(listingsData.listings)) {
-                totalDynamicTicks = listingsData.listings.length;
-                let dynamicContentTimeout = 0;
+            const buttonDiv = document.createElement('div');
+            buttonDiv.className = 'button-item';
 
-                listingsData.listings.forEach((item, index) => {
-                    setTimeout(() => {
-                        createButtonDiv(item);  // Create buttons for listings
-                        processedDynamicTicks++;
-                        updateProgress(50 + (processedDynamicTicks / totalDynamicTicks) * 50); // Update progress for dynamic content
-                        if (processedDynamicTicks === totalDynamicTicks && processedInitialTicks === initialTicks) {
-                            // Hide loading element and show content after dynamic ticks are processed
-                            loadingElement.style.display = 'none';
-                        }
-                    }, index * 0.25 * 1000); // .25 seconds per dynamic item
-                });
-            } else {
-                console.error('Invalid data format:', listingsData);
-            }
-        } catch (error) {
-            console.error('Error fetching listings:', error);
-            loadingElement.style.display = 'none';
-            progressBarInner.style.backgroundColor = 'red'; // Indicate error
-            loadingElement.innerHTML = 'Error loading data.';
-        }
-    };
+            const button = document.createElement('button');
+            button.style.padding = 0; // Ensure button has no extra padding
+            button.style.border = 'none'; // Ensure button has no border
+            button.style.background = 'none'; // Ensure button has no background
 
-    const fetchTotalCount = async () => {
-        try {
-            const response = await fetch('/api/total_count');
-            const data = await response.json();
-            originalTotalListings = data.total_count || 0;
-            totalListings = originalTotalListings;
-            initialTicks = originalTotalListings; // Number of initial ticks
-
-            console.log('Total listings:', totalListings);
-            
-            if (totalListings === 0) {
-                progressBarInner.style.backgroundColor = 'red'; // Indicate error
-                loadingElement.innerHTML = 'No data available.';
-                return;
-            }
-
-            // Start initial ticks for the total count process and fetch the listings at the same time
-            fetchListings(); // Fetch listings while processing initial ticks
-
-            for (let i = 0; i < initialTicks; i++) {
-                setTimeout(() => {
-                    processedInitialTicks++;
-                    updateProgress((processedInitialTicks / initialTicks) * 50); // Update progress for initial ticks
-                    if (processedInitialTicks === initialTicks && processedDynamicTicks === totalDynamicTicks) {
-                        // Hide loading element and show content after all ticks are processed
-                        loadingElement.style.display = 'none';
-                    }
-                }, i * 0.25 * 1000); // .25 seconds per tick
-            }
-        } catch (error) {
-            console.error('Error fetching total count:', error);
-            loadingElement.style.display = 'none';
-            progressBarInner.style.backgroundColor = 'red'; // Indicate error
-            loadingElement.innerHTML = 'Error loading data.';
-        }
-    };
-
-    fetchTotalCount();
-
-    function createButtonDiv(data) {
-        const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS } = data;
-
-        // Ensure PHOTOS is an array and not empty
-        const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
-
-        const buttonDiv = document.createElement('div');
-        buttonDiv.className = 'button-item';
-
-        const button = document.createElement('button');
-        button.style.padding = 0; // Ensure button has no extra padding
-        button.style.border = 'none'; // Ensure button has no border
-        button.style.background = 'none'; // Ensure button has no background
-
-        const img = document.createElement('img');
-        img.src = photoList[0]; // Use the first image URL from the list
-        img.alt = 'Button Image';
-        img.style.width = '150px'; // Adjust size if necessary
-        img.style.height = '150px'; // Adjust size if necessary
-        img.style.border = '3px solid #a8b8c6'; // Add the border
-        img.style.borderRadius = '10px'; // Add the border radius
-        img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
-        img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
-
-        const textDiv = document.createElement('div');
-        textDiv.className = 'button-text';
-        textDiv.innerHTML = `Cost: ${COST}<br>Address: ${ADDRESS}`;
-
-        button.appendChild(img);
-        button.appendChild(textDiv);
-
-        button.onclick = (event) => {
-            event.stopPropagation(); // Prevent click event from bubbling up
-            showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, photoList);
-        };
-
-        buttonDiv.appendChild(button);
-        dynamicButtonsElement.appendChild(buttonDiv);
-    }
-
-    function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS) {
-        const popup = document.createElement('div');
-        popup.className = 'popup';
-
-        const popupContent = document.createElement('div');
-        popupContent.className = 'popup-content';
-
-        const popupGallery = document.createElement('div');
-        popupGallery.className = 'popup-gallery';
-
-        // Ensure PHOTOS is an array and has valid image URLs
-        const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg'];
-        photoList.forEach(photo => {
             const img = document.createElement('img');
-            img.src = photo; // Use the image URL directly
-            img.alt = 'Gallery Image';
+            img.src = photoList[0]; // Use the first image URL from the list
+            img.alt = 'Button Image';
             img.style.width = '150px'; // Adjust size if necessary
             img.style.height = '150px'; // Adjust size if necessary
+            img.style.border = '3px solid #a8b8c6'; // Add the border
+            img.style.borderRadius = '10px'; // Add the border radius
+            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
             img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
-            popupGallery.appendChild(img);
-        });
+            
+            const textDiv = document.createElement('div');
+            textDiv.className = 'button-text';
+            textDiv.innerHTML = `Cost: ${COST}<br>Address: ${ADDRESS}`;
 
-        const popupText = document.createElement('div');
-        popupText.className = 'popup-text';
-        popupText.innerHTML = `
-            <h6>${COST} Monthly</h6>
-            <p>${ADDRESS}</p>
-            --------------------<br>
-            <p>Description: ${DESCRIPTION}</p>
-            --------------------<br>
-            <p>${MLS}</p>
-            <p>Status: ${STATUS}</p>
-            <button class="contact-button" onclick="navigateToContact()">Click here to request more information</button><br><br>
-        `;
+            button.appendChild(img);
+            button.appendChild(textDiv);
 
-        const popupClose = document.createElement('span');
-        popupClose.className = 'popup-close';
-        popupClose.innerHTML = '&times;';
-        popupClose.onclick = () => closePopup(popup);
+            button.onclick = (event) => {
+                event.stopPropagation(); // Prevent click event from bubbling up
+                showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, photoList);
+            };
 
-        popupContent.appendChild(popupGallery);
-        popupContent.appendChild(popupText);
-        popupContent.appendChild(popupClose);
-        popup.appendChild(popupContent);
-        document.body.appendChild(popup);
+            buttonDiv.appendChild(button);
+            document.getElementById('dynamic-buttons').appendChild(buttonDiv);
+        }
 
-        document.addEventListener('click', (event) => {
-            if (event.target === popup) {
-                closePopup(popup);
-            }
-        });
+        function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS) {
+            const popup = document.createElement('div');
+            popup.className = 'popup';
 
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                closePopup(popup);
-            }
-        });
-    }
+            const popupContent = document.createElement('div');
+            popupContent.className = 'popup-content';
 
-    function closePopup(popup) {
-        document.body.removeChild(popup);
-    }
+            const popupGallery = document.createElement('div');
+            popupGallery.className = 'popup-gallery';
 
-    window.navigateToContact = () => {
-        window.location.href = '/contact';
-    };
-});
+            // Ensure PHOTOS is an array and has valid image URLs
+            const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg'];
+            photoList.forEach(photo => {
+                const img = document.createElement('img');
+                img.src = photo; // Use the image URL directly
+                img.alt = 'Gallery Image';
+                img.style.width = '150px'; // Adjust size if necessary
+                img.style.height = '150px'; // Adjust size if necessary
+                img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+                popupGallery.appendChild(img);
+            });
 
+            const popupText = document.createElement('div');
+            popupText.className = 'popup-text';
+            popupText.innerHTML = `
+                <h6>${COST} Monthly</h6>
+                <p>${ADDRESS}</p>
+                --------------------<br>
+                <p>Description: ${DESCRIPTION}</p>
+                --------------------<br>
+                <p>${MLS}</p>
+                <p>Status: ${STATUS}</p>
+                <button class="contact-button" onclick="navigateToContact()">Click here to request more information</button><br><br>
+            `;
+
+            const popupClose = document.createElement('span');
+            popupClose.className = 'popup-close';
+            popupClose.innerHTML = '&times;';
+            popupClose.onclick = () => closePopup(popup);
+
+            popupContent.appendChild(popupGallery);
+            popupContent.appendChild(popupText);
+            popupContent.appendChild(popupClose);
+            popup.appendChild(popupContent);
+            document.body.appendChild(popup);
+
+            document.addEventListener('click', (event) => {
+                if (event.target === popup) {
+                    closePopup(popup);
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closePopup(popup);
+                }
+            });
+        }
+
+        function closePopup(popup) {
+            document.body.removeChild(popup);
+        }
+
+        window.navigateToContact = () => {
+            window.location.href = '/contact';
+        };
+    });
 </script>
 
 <!-- Custom Section with Parallax Effect -->

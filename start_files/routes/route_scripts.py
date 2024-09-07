@@ -1,3 +1,4 @@
+import base64
 from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException
 from start_files.models.users.users import SessionLocal, User, Base, engine
 from start_files.routes.export_scripts import export_results
@@ -41,23 +42,6 @@ logger.addHandler(console_handler)
 
 
 
-def serialize_images(images):
-    """Serialize a list of images to a binary format."""
-    try:
-        return pickle.dumps(images)
-    except Exception as e:
-        logger.error(f"Error serializing images: {e}")
-        return None
-
-def deserialize_images(serialized_data):
-    """Deserialize binary data back to a list of images."""
-    try:
-        return pickle.loads(serialized_data)
-    except (pickle.UnpicklingError, TypeError) as e:
-        logger.error(f"Error deserializing images: {e}")
-        return []
-    
-
 
 def get_end_time_and_elapsed(start_time):
     end_time = time.time()
@@ -88,15 +72,6 @@ def setup_options(max_retries, delay) -> webdriver.Chrome:
 
     raise RuntimeError("Failed to start Chrome after multiple attempts")
 
-def download_image(url):
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-        return BytesIO(response.content)
-    except requests.RequestException as e:
-        logger.error(f"Failed to download image {url}: {e}")
-        return None
-    
 
 def load_page(max_images, item, timeout, max_retries, delay):
     attempt = 0
@@ -179,9 +154,11 @@ def load_page(max_images, item, timeout, max_retries, delay):
             for i, img in enumerate(all_imgs[:max_images]):
                 img_url = img.get_attribute('src')
                 if img_url:
-                    img_file = download_image(img_url)
-                    if img_file:
-                        image_link_full.append(img_file.read())
+                    response = requests.get(img_url)
+                    base64_str = base64.b64encode(response.content).decode('utf-8')
+                    if base64_str:
+                        img_src = f'data:image/jpeg;base64,{base64_str}'
+                        image_link_full.append(img_src)
 
             logger.info(f"Completed image extraction for MLS {mls}.")    
 
@@ -205,7 +182,7 @@ def load_page(max_images, item, timeout, max_retries, delay):
                         price=item[0],
                         description=item[14],
                         availability=item[3],
-                        images=serialize_images(image_link_full)  # Store serialized images
+                        images=pickle.dumps(image_link_full)  # Store serialized images
                     )
                     for attempt in range(max_retries):
                         try:
@@ -240,7 +217,7 @@ def load_page(max_images, item, timeout, max_retries, delay):
 
 
 # Sort CSV by price
-async def sorted_csv_by_price(max_price) -> list:
+def sorted_csv_by_price(max_price) -> list:
     csv_path = "/var/www/html/fastapi_project/brightscrape/Standard Export.csv"
     all_data = []
 
@@ -302,7 +279,7 @@ async def loop_task(concurrency_limit, timeout, max_images, max_price, max_retri
         logger.info("Pulling csv...")
         await asyncio.sleep(5) 
 
-    sorted_results = await sorted_csv_by_price(max_price)
+    sorted_results = sorted_csv_by_price(max_price)
     logger.info('Clearing and recreating database tables')
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
