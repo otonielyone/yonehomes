@@ -97,170 +97,251 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const loadingElement = document.getElementById('loading');
-        const progressBarInner = document.getElementById('progress-bar-inner');
-        const dynamicButtonsElement = document.getElementById('dynamic-buttons');
-        let totalListings = 0;
-        let processedListings = 0;
-        let originalTotalListings = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingElement = document.getElementById('loading');
+    const progressBarInner = document.getElementById('progress-bar-inner');
+    const dynamicButtonsElement = document.getElementById('dynamic-buttons');
+    let totalListings = 0;
+    let originalTotalListings = 0;
+    let initialTicks = 0;
+    let processedInitialTicks = 0;
+    let totalDynamicTicks = 0;
+    let processedDynamicTicks = 0;
 
-        loadingElement.style.display = 'block';
+    // Show loading indicator
+    loadingElement.style.display = 'block';
 
-        const updateProgress = () => {
-            if (originalTotalListings > 0) {
-                const progress = Math.min((processedListings / originalTotalListings) * 100, 100);
-                progressBarInner.style.width = `${progress}%`;
-            } else {
-                progressBarInner.style.width = '100%';
-            }
-        };
+    const updateProgress = (progress) => {
+        progressBarInner.style.width = `${Math.min(progress, 100)}%`;
+        console.log(`Progress width set to: ${progress}%`);
+    };
 
-        const fetchListings = async () => {
-            try {
-                const totalResponse = await fetch('/api/total_count');
-                const totalData = await totalResponse.json();
-                originalTotalListings = totalData.total_count || 0;
-                totalListings = originalTotalListings;
+    const fetchListings = async () => {
+        try {
+            const listingsResponse = await fetch('/api/listings');
+            const listingsData = await listingsResponse.json();
 
-                if (totalListings === 0) {
-                    progressBarInner.style.backgroundColor = 'red';
-                    loadingElement.innerHTML = 'No data available.';
-                    return;
-                }
+            // Process each listing
+            if (listingsData.listings && Array.isArray(listingsData.listings)) {
+                totalDynamicTicks = listingsData.listings.length;
+                let dynamicContentTimeout = 0;
 
-                const listingsResponse = await fetch('/api/listings');
-                const listingsData = await listingsResponse.json();
-
-                if (listingsData.listings && Array.isArray(listingsData.listings)) {
-                    const processListing = () => {
-                        if (processedListings < totalListings) {
-                            const item = listingsData.listings[processedListings];
-                            createButtonDiv(item);
-                            processedListings++;
-                            updateProgress();
-                            requestAnimationFrame(processListing);
-                        } else {
+                listingsData.listings.forEach((item, index) => {
+                    setTimeout(() => {
+                        createButtonDiv(item);  // Create buttons for listings
+                        processedDynamicTicks++;
+                        updateProgress(50 + (processedDynamicTicks / totalDynamicTicks) * 50); // Update progress for dynamic content
+                        if (processedDynamicTicks === totalDynamicTicks && processedInitialTicks === initialTicks) {
+                            // Hide loading element and show content after dynamic ticks are processed
                             loadingElement.style.display = 'none';
                         }
-                    };
-                    processListing();
-                } else {
-                    console.error('Invalid data format:', listingsData);
-                }
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                loadingElement.style.display = 'none';
-                progressBarInner.style.backgroundColor = 'red';
-                loadingElement.innerHTML = 'Error loading data.';
+                    }, index * 0.25 * 1000); // .25 seconds per dynamic item
+                });
+            } else {
+                console.error('Invalid data format:', listingsData);
             }
+        } catch (error) {
+            console.error('Error fetching listings:', error);
+            loadingElement.style.display = 'none';
+            progressBarInner.style.backgroundColor = 'red'; // Indicate error
+            loadingElement.innerHTML = 'Error loading data.';
+        }
+    };
+
+    const fetchTotalCount = async () => {
+        try {
+            const response = await fetch('/api/total_count');
+            const data = await response.json();
+            originalTotalListings = data.total_count || 0;
+            totalListings = originalTotalListings;
+            initialTicks = originalTotalListings; // Number of initial ticks
+
+            console.log('Total listings:', totalListings);
+            
+            if (totalListings === 0) {
+                progressBarInner.style.backgroundColor = 'red'; // Indicate error
+                loadingElement.innerHTML = 'No data available.';
+                return;
+            }
+
+            // Start initial ticks for the total count process and fetch the listings at the same time
+            fetchListings(); // Fetch listings while processing initial ticks
+
+            for (let i = 0; i < initialTicks; i++) {
+                setTimeout(() => {
+                    processedInitialTicks++;
+                    updateProgress((processedInitialTicks / initialTicks) * 50); // Update progress for initial ticks
+                    if (processedInitialTicks === initialTicks && processedDynamicTicks === totalDynamicTicks) {
+                        // Hide loading element and show content after all ticks are processed
+                        loadingElement.style.display = 'none';
+                    }
+                }, i * 0.25 * 1000); // .25 seconds per tick
+            }
+        } catch (error) {
+            console.error('Error fetching total count:', error);
+            loadingElement.style.display = 'none';
+            progressBarInner.style.backgroundColor = 'red'; // Indicate error
+            loadingElement.innerHTML = 'Error loading data.';
+        }
+    };
+
+    fetchTotalCount();
+
+    function createButtonDiv(data) {
+        const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS } = data;
+
+        // Ensure PHOTOS is an array and not empty
+        const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
+
+        const buttonDiv = document.createElement('div');
+        buttonDiv.className = 'button-item';
+
+        const button = document.createElement('button');
+        button.style.padding = 0; // Ensure button has no extra padding
+        button.style.border = 'none'; // Ensure button has no border
+        button.style.background = 'none'; // Ensure button has no background
+
+        const img = document.createElement('img');
+        img.src = photoList[0]; // Use the first image URL from the list
+        img.alt = 'Button Image';
+        img.style.width = '150px'; // Adjust size if necessary
+        img.style.height = '150px'; // Adjust size if necessary
+        img.style.border = '3px solid #a8b8c6'; // Add the border
+        img.style.borderRadius = '10px'; // Add the border radius
+        img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
+        img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+
+        const textDiv = document.createElement('div');
+        textDiv.className = 'button-text';
+        textDiv.innerHTML = `Cost: ${COST}<br>Address: ${ADDRESS}`;
+
+        button.appendChild(img);
+        button.appendChild(textDiv);
+
+        button.onclick = (event) => {
+            event.stopPropagation(); // Prevent click event from bubbling up
+            showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, photoList);
         };
 
-        fetchListings();
+        buttonDiv.appendChild(button);
+        dynamicButtonsElement.appendChild(buttonDiv);
+    }
 
-        function createButtonDiv(data) {
-            const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS } = data;
-            const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg'];
+    function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS) {
+        const popup = document.createElement('div');
+        popup.className = 'popup';
 
-            const buttonDiv = document.createElement('div');
-            buttonDiv.className = 'button-item';
+        const popupContent = document.createElement('div');
+        popupContent.className = 'popup-content';
 
-            const button = document.createElement('button');
-            button.style.padding = 0;
-            button.style.border = 'none';
-            button.style.background = 'none';
+        const popupGallery = document.createElement('div');
+        popupGallery.className = 'popup-gallery';
 
+        // Ensure PHOTOS is an array and has valid image URLs
+        const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg'];
+        photoList.forEach(photo => {
             const img = document.createElement('img');
-            img.src = photoList[0];
-            img.alt = 'Button Image';
-            img.style.width = '150px';
-            img.style.height = '150px';
-            img.style.border = '3px solid #a8b8c6';
-            img.style.borderRadius = '10px';
-            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
-            img.onerror = () => img.src = 'static/icons/test.jpg';
+            img.src = photo; // Use the image URL directly
+            img.alt = 'Gallery Image';
+            img.style.width = '150px'; // Adjust size if necessary
+            img.style.height = '150px'; // Adjust size if necessary
+            img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+            popupGallery.appendChild(img);
+        });
 
-            const textDiv = document.createElement('div');
-            textDiv.className = 'button-text';
-            textDiv.innerHTML = `Cost: ${COST}<br>Address: ${ADDRESS}`;
+        const popupText = document.createElement('div');
+        popupText.className = 'popup-text';
+        popupText.innerHTML = `
+            <h6>${COST} Monthly</h6>
+            <p>${ADDRESS}</p>
+            --------------------<br>
+            <p>Description: ${DESCRIPTION}</p>
+            --------------------<br>
+            <p>${MLS}</p>
+            <p>Status: ${STATUS}</p>
+            <button class="contact-button" onclick="navigateToContact()">Click here to request more information</button><br><br>
+        `;
 
-            button.appendChild(img);
-            button.appendChild(textDiv);
+        const popupClose = document.createElement('span');
+        popupClose.className = 'popup-close';
+        popupClose.innerHTML = '&times;';
+        popupClose.onclick = () => closePopup(popup);
 
-            button.onclick = (event) => {
-                event.stopPropagation();
-                showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, photoList);
-            };
+        popupContent.appendChild(popupGallery);
+        popupContent.appendChild(popupText);
+        popupContent.appendChild(popupClose);
+        popup.appendChild(popupContent);
+        document.body.appendChild(popup);
 
-            buttonDiv.appendChild(button);
-            dynamicButtonsElement.appendChild(buttonDiv);
-        }
-
-        function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS) {
-            const popup = document.createElement('div');
-            popup.className = 'popup';
-
-            const popupContent = document.createElement('div');
-            popupContent.className = 'popup-content';
-
-            const popupGallery = document.createElement('div');
-            popupGallery.className = 'popup-gallery';
-
-            const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg'];
-            photoList.forEach(photo => {
-                const img = document.createElement('img');
-                img.src = photo;
-                img.alt = 'Gallery Image';
-                img.style.width = '150px';
-                img.style.height = '150px';
-                img.onerror = () => img.src = 'static/icons/test.jpg';
-                popupGallery.appendChild(img);
-            });
-
-            const popupText = document.createElement('div');
-            popupText.className = 'popup-text';
-            popupText.innerHTML = `
-                <h6>${COST} Monthly</h6>
-                <p>${ADDRESS}</p>
-                --------------------<br>
-                <p>Description: ${DESCRIPTION}</p>
-                --------------------<br>
-                <p>${MLS}</p>
-                <p>Status: ${STATUS}</p>
-                <button class="contact-button" onclick="navigateToContact()">Click here to request more information</button><br><br>
-            `;
-
-            const popupClose = document.createElement('span');
-            popupClose.className = 'popup-close';
-            popupClose.innerHTML = '&times;';
-            popupClose.onclick = () => closePopup(popup);
-
-            popupContent.appendChild(popupGallery);
-            popupContent.appendChild(popupText);
-            popupContent.appendChild(popupClose);
-            popup.appendChild(popupContent);
-            document.body.appendChild(popup);
-
-            document.addEventListener('click', (event) => {
-                if (event.target === popup) {
-                    closePopup(popup);
-                }
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    closePopup(popup);
-                }
-            });
-
-            function closePopup(popup) {
-                popup.remove();
+        document.addEventListener('click', (event) => {
+            if (event.target === popup) {
+                closePopup(popup);
             }
-        }
+        });
 
-        window.navigateToContact = () => {
-            window.location.href = '/contact';
-        };
-    });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closePopup(popup);
+            }
+        });
+    }
+
+    function closePopup(popup) {
+        document.body.removeChild(popup);
+    }
+
+    window.navigateToContact = () => {
+        window.location.href = '/contact';
+    };
+});
+
 </script>
+
+<!-- Custom Section with Parallax Effect -->
+<div class="custom-section" id="main-section">
+    <div class="custom-header">
+        <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+    </div>
+
+    <div class="custom-container">
+        <div class="custom-row">
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-homepage"></span>
+                </div>
+                <a class="custom-button-link" href="/">
+                    <span class="button-text">HOME PAGE</span>
+                </a>
+            </div>
+
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-home"></span>
+                </div>
+                <a class="custom-button-link" href="/buying" id="button-search-homes">
+                    <span class="button-text">SEARCH HOMES</span>
+                </a>
+            </div>
+
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-contact"></span>
+                </div>
+                <a class="custom-button-link" href="/contact">
+                    <span class="button-text">LEAVE A MESSAGE</span>
+                </a>
+            </div>
+
+            <div class="custom-column">
+                <div class="custom-icon-widget">
+                    <span class="custom-icon-head"></span>
+                </div>
+                <a class="custom-button-link" href="/resources">
+                    <span class="button-text">FIND RESOURCES</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

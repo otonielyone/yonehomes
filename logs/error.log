@@ -824,3 +824,84 @@ TypeError: object list can't be used in 'await' expression
 [2024-09-07 08:58:44 +0000] [96332] [INFO] Started server process [96332]
 [2024-09-07 08:58:44 +0000] [96332] [INFO] Waiting for application startup.
 [2024-09-07 08:58:44 +0000] [96332] [INFO] Application startup complete.
+[2024-09-07 09:05:36 +0000] [96327] [INFO] Handling signal: term
+[2024-09-07 09:05:36 +0000] [96329] [INFO] Shutting down
+[2024-09-07 09:05:36 +0000] [96331] [INFO] Shutting down
+[2024-09-07 09:05:36 +0000] [96330] [INFO] Shutting down
+[2024-09-07 09:05:36 +0000] [96332] [INFO] Shutting down
+[2024-09-07 09:05:36 +0000] [96329] [INFO] Waiting for application shutdown.
+[2024-09-07 09:05:36 +0000] [96329] [INFO] Application shutdown complete.
+[2024-09-07 09:05:36 +0000] [96329] [INFO] Finished server process [96329]
+[2024-09-07 09:05:36 +0000] [96327] [ERROR] Worker (pid:96329) was sent SIGTERM!
+[2024-09-07 09:05:36 +0000] [96331] [INFO] Waiting for application shutdown.
+[2024-09-07 09:05:36 +0000] [96330] [INFO] Waiting for application shutdown.
+[2024-09-07 09:05:36 +0000] [96331] [INFO] Application shutdown complete.
+[2024-09-07 09:05:36 +0000] [96330] [INFO] Application shutdown complete.
+[2024-09-07 09:05:36 +0000] [96331] [INFO] Finished server process [96331]
+[2024-09-07 09:05:36 +0000] [96330] [INFO] Finished server process [96330]
+[2024-09-07 09:05:36 +0000] [96327] [ERROR] Worker (pid:96330) was sent SIGTERM!
+[2024-09-07 09:05:36 +0000] [96332] [INFO] Waiting for application shutdown.
+[2024-09-07 09:05:36 +0000] [96332] [INFO] Application shutdown complete.
+[2024-09-07 09:05:36 +0000] [96332] [INFO] Finished server process [96332]
+[2024-09-07 09:05:36 +0000] [96327] [ERROR] Worker (pid:96332) was sent SIGTERM!
+[2024-09-07 09:05:36 +0000] [96327] [INFO] Shutting down: Master
+[2024-09-07 09:05:37 +0000] [97032] [INFO] Starting gunicorn 23.0.0
+[2024-09-07 09:05:37 +0000] [97032] [INFO] Listening at: http://0.0.0.0:5000 (97032)
+[2024-09-07 09:05:37 +0000] [97032] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-07 09:05:37 +0000] [97036] [INFO] Booting worker with pid: 97036
+[2024-09-07 09:05:37 +0000] [97037] [INFO] Booting worker with pid: 97037
+[2024-09-07 09:05:37 +0000] [97041] [INFO] Booting worker with pid: 97041
+[2024-09-07 09:05:37 +0000] [97042] [INFO] Booting worker with pid: 97042
+[2024-09-07 09:05:38 +0000] [97036] [INFO] Started server process [97036]
+[2024-09-07 09:05:38 +0000] [97036] [INFO] Waiting for application startup.
+[2024-09-07 09:05:38 +0000] [97036] [INFO] Application startup complete.
+[2024-09-07 09:05:38 +0000] [97037] [INFO] Started server process [97037]
+[2024-09-07 09:05:38 +0000] [97037] [INFO] Waiting for application startup.
+[2024-09-07 09:05:38 +0000] [97037] [INFO] Application startup complete.
+[2024-09-07 09:05:38 +0000] [97042] [INFO] Started server process [97042]
+[2024-09-07 09:05:38 +0000] [97042] [INFO] Waiting for application startup.
+[2024-09-07 09:05:38 +0000] [97042] [INFO] Application startup complete.
+[2024-09-07 09:05:38 +0000] [97041] [INFO] Started server process [97041]
+[2024-09-07 09:05:38 +0000] [97041] [INFO] Waiting for application startup.
+[2024-09-07 09:05:38 +0000] [97041] [INFO] Application startup complete.
+[2024-09-07 09:17:27 +0000] [97032] [INFO] Handling signal: term
+[2024-09-07 09:17:27 +0000] [97036] [INFO] Shutting down
+[2024-09-07 09:17:27 +0000] [97037] [INFO] Shutting down
+[2024-09-07 09:17:27 +0000] [97041] [INFO] Shutting down
+[2024-09-07 09:17:27 +0000] [97042] [INFO] Shutting down
+[2024-09-07 09:17:27 +0000] [97036] [INFO] Waiting for application shutdown.
+[2024-09-07 09:17:27 +0000] [97036] [INFO] Application shutdown complete.
+[2024-09-07 09:17:27 +0000] [97036] [INFO] Finished server process [97036]
+[2024-09-07 09:17:27 +0000] [97032] [ERROR] Worker (pid:97036) was sent SIGTERM!
+[2024-09-07 09:17:27 +0000] [97037] [INFO] Waiting for application shutdown.
+[2024-09-07 09:17:27 +0000] [97041] [INFO] Waiting for application shutdown.
+[2024-09-07 09:17:27 +0000] [97037] [INFO] Application shutdown complete.
+[2024-09-07 09:17:27 +0000] [97041] [INFO] Application shutdown complete.
+[2024-09-07 09:17:27 +0000] [97037] [INFO] Finished server process [97037]
+[2024-09-07 09:17:27 +0000] [97041] [INFO] Finished server process [97041]
+[2024-09-07 09:17:27 +0000] [97032] [ERROR] Worker (pid:97041) was sent SIGTERM!
+[2024-09-07 09:17:27 +0000] [97032] [ERROR] Worker (pid:97037) was sent SIGTERM!
+[2024-09-07 09:17:27 +0000] [97042] [INFO] Waiting for application shutdown.
+[2024-09-07 09:17:27 +0000] [97042] [INFO] Application shutdown complete.
+[2024-09-07 09:17:27 +0000] [97042] [INFO] Finished server process [97042]
+[2024-09-07 09:17:27 +0000] [97032] [ERROR] Worker (pid:97042) was sent SIGTERM!
+[2024-09-07 09:17:27 +0000] [97032] [INFO] Shutting down: Master
+[2024-09-07 09:17:27 +0000] [97469] [INFO] Starting gunicorn 23.0.0
+[2024-09-07 09:17:27 +0000] [97469] [INFO] Listening at: http://0.0.0.0:5000 (97469)
+[2024-09-07 09:17:27 +0000] [97469] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-07 09:17:27 +0000] [97471] [INFO] Booting worker with pid: 97471
+[2024-09-07 09:17:27 +0000] [97472] [INFO] Booting worker with pid: 97472
+[2024-09-07 09:17:27 +0000] [97473] [INFO] Booting worker with pid: 97473
+[2024-09-07 09:17:27 +0000] [97474] [INFO] Booting worker with pid: 97474
+[2024-09-07 09:17:28 +0000] [97471] [INFO] Started server process [97471]
+[2024-09-07 09:17:28 +0000] [97471] [INFO] Waiting for application startup.
+[2024-09-07 09:17:28 +0000] [97471] [INFO] Application startup complete.
+[2024-09-07 09:17:28 +0000] [97472] [INFO] Started server process [97472]
+[2024-09-07 09:17:28 +0000] [97472] [INFO] Waiting for application startup.
+[2024-09-07 09:17:28 +0000] [97472] [INFO] Application startup complete.
+[2024-09-07 09:17:28 +0000] [97473] [INFO] Started server process [97473]
+[2024-09-07 09:17:28 +0000] [97473] [INFO] Waiting for application startup.
+[2024-09-07 09:17:28 +0000] [97473] [INFO] Application startup complete.
+[2024-09-07 09:17:28 +0000] [97474] [INFO] Started server process [97474]
+[2024-09-07 09:17:28 +0000] [97474] [INFO] Waiting for application startup.
+[2024-09-07 09:17:28 +0000] [97474] [INFO] Application startup complete.
