@@ -32,31 +32,32 @@ def deserialize_image_list(serialized_data):
         return pickle.loads(serialized_data)
     except (pickle.UnpicklingError, TypeError):
         return []
-
-# Check if the database file exists
-if not os.path.exists(db_path):
-    print(f"Database file not found at {db_path}")
-else:
-    print("Database file exists.")
-
-    # Connect to the database
-    conn = sqlite3.connect(db_path)
-
-    # Query to load data into a DataFrame
-    df = pd.read_sql_query("SELECT * FROM user", conn)  # Ensure table name is correct
-
-    # Close the database connection
-    conn.close()
-
-    # Check the first few rows of the DataFrame
-    print(df.head())
-
-    # Apply the deserialization and HTML generation functions to each row
-    df['image_list_html'] = df['images'].apply(
-        lambda x: generate_html_divs(deserialize_image_list(x)) if x else ""
-    )
-
-    # Print the DataFrame with the new column showing the HTML
-    print(df[['mls', 'image_list_html']])
-
-   
+#
+## Check if the database file exists
+#if not os.path.exists(db_path):
+#    print(f"Database file not found at {db_path}")
+#else:
+#    print("Database file exists.")
+#
+#    # Connect to the database
+conn = sqlite3.connect(db_path)
+#
+#    # Query to load data into a DataFrame
+df = pd.read_sql_query("SELECT * FROM user", conn)  # Ensure table name is correct
+#
+#    # Close the database connection
+conn.close()
+#
+#    # Check the first few rows of the DataFrame
+print(len(df))
+#
+#    # Apply the deserialization and HTML generation functions to each row
+#    df['image_list_html'] = df['images'].apply(
+#        lambda x: generate_html_divs(deserialize_image_list(x)) if x else ""
+#    )
+#
+#    # Print the DataFrame with the new column showing the HTML
+#    print(df[['mls', 'image_list_html']])
+#
+#   
+#

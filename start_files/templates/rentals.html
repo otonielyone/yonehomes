@@ -12,14 +12,12 @@
 <div class="rentals-page-menu">
     <!-- Main Menu Bar -->
     <nav class="menu-bar">
-        <!-- Left Column with Menu Links -->
         <div class="menu-column left-column">
             <a href="/" class="menu-link">HOME</a>
             <a href="/buying" class="menu-link">BUYING</a>
             <a href="/resources" class="menu-link">RESOURCES</a>
             <a href="/contact" class="menu-link">CONTACT</a>
         </div>
-        <!-- Right Column with Language Icon -->
         <div class="menu-column right-column">
             <a href="#" class="language-icon">
                 <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
@@ -27,14 +25,12 @@
         </div>
     </nav>
 
-    <!-- Hamburger Menu Icon -->
     <nav class="hamburger-menu" id="hamburger-menu">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
     </nav>
 
-    <!-- Mobile Menu -->
     <nav class="mobile-menu" id="mobile-menu">
         <a href="/" class="menu-item">HOME</a>
         <a href="/buying" class="menu-item">BUYING</a>
@@ -43,14 +39,11 @@
     </nav>
 </div>
 
-<!-- Image/Video Background Container -->
 <div class="image-header-container">
-    <!-- Video Background Section -->
     <div class="video-background-wrapper">
         <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
         src="/static/icons/rentals1.mp4"></video>
 
-        <!-- Overlay Content Section -->
         <div class="overlay-content">
             <div class="text-content">
                 <h1 class="main-heading">SEE BELOW FOR ROOMS AND APARTMENTS!</h1>
@@ -59,97 +52,133 @@
     </div>
 </div>
 
-<!-- Leasing Qualifications Section -->
-<div class="rental-services" id="rental-services">   
-    <div class="rental-services-wrapper">    
+<div class="rental-services" id="rental-services">
+    <div class="rental-services-wrapper">
         <div class="light-red-text">
             <h2>LEASING QUALIFICATIONS:</h2>
-            <p>Rooms may require an application fee ranging from $30 to $60. These applications assist landlords in assessing and comparing their options. Minimum requirements may include a credit score of at least 550, two years of stable employment, and proof of income equivalent to approximately three times the monthly rent. Additionally, many rooms may necessitate a security deposit equal to the first month's rent, which can vary depending on whether the property is privately owned or managed. Rooms may be furnished.</p>
+            <p>Rooms may require an application fee ranging from $30 to $60...</p>
         </div>
 
         <div class="dark-red-text">
-            <p>Note: If you do not meet these qualifications, the security deposit amount may be increased to facilitate approval.
-            </p>
+            <p>Note: If you do not meet these qualifications, the security deposit amount may be increased...</p>
         </div>
 
-        <!-- Call to Action Button -->
         <div class="navy-blue-text">
             <a href="/contact">
                 <span class="text">Click here to request Availabilities!</span>
             </a>
         </div>
-        
-        <!-- Additional Information -->
+
         <div class="black-text">
-           <p>A signed agreement is necessary to physically enter properties.</p>
-            <p>We aim to show listings where the Landlords opt into covering a referral fee.</p>
-            <p>Our fee is 25% of the first month’s rent. If covered, our services would come at no cost to you.</p>
+            <p>A signed agreement is necessary to physically enter properties...</p>
         </div>
-        
-        <!-- Download Rental Representation Agreement -->
+
         <div class="light-green-text">
             <a href="/static/icons/NVARK1282.pdf">
                 Download Rental Representation Agreement
             </a>
-        </div>  
-    </div>      
+        </div>
+    </div>
 </div>
 
-<!-- Dynamic Button Grid -->
+<div id="loading" class="fullscreen-overlay" style="display: none;">
+    <div class="loading-container">
+        <div class="loading-text">Please wait 1 min while we gather the latest Availabilities..</div>
+        <div class="progress-bar">
+            <div id="progress-bar-inner" class="progress-bar-inner"></div>
+        </div>
+    </div>
+</div>
+
 <div class="automation">
     <title>Dynamic Button Grid</title>
     <section id="dynamic-buttons" class="button-grid">
-        <!-- Dynamic buttons will be inserted here -->
     </section>
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const numberOfListings = Infinity; // Number of listings you want to display
+        const loadingElement = document.getElementById('loading');
+        const progressBarInner = document.getElementById('progress-bar-inner');
+        const dynamicButtonsElement = document.getElementById('dynamic-buttons');
+        let totalListings = 0;
+        let processedListings = 0;
+        let originalTotalListings = 0;
 
-        // Fetch the full list of listings from the API
-        fetch('/api/listings')
-            .then(response => response.json())
-            .then(data => {
-                // Check if `data.listings` exists and is an array
-                if (data.listings && Array.isArray(data.listings)) {
-                    // Filter the listings to display only `numberOfListings`
-                    const listingsToDisplay = data.listings.slice(0, numberOfListings);
-                    
-                    // Process each listing to create buttons
-                    listingsToDisplay.forEach(item => {
-                        createButtonDiv(item);
-                    });
-                } else {
-                    console.error('Invalid data format:', data);
+        loadingElement.style.display = 'block';
+
+        const updateProgress = () => {
+            if (originalTotalListings > 0) {
+                const progress = Math.min((processedListings / originalTotalListings) * 100, 100);
+                progressBarInner.style.width = `${progress}%`;
+            } else {
+                progressBarInner.style.width = '100%';
+            }
+        };
+
+        const fetchListings = async () => {
+            try {
+                const totalResponse = await fetch('/api/total_count');
+                const totalData = await totalResponse.json();
+                originalTotalListings = totalData.total_count || 0;
+                totalListings = originalTotalListings;
+
+                if (totalListings === 0) {
+                    progressBarInner.style.backgroundColor = 'red';
+                    loadingElement.innerHTML = 'No data available.';
+                    return;
                 }
-            })
-            .catch(error => console.error('Error fetching listings:', error));
 
-        // Function to process and create buttons
+                const listingsResponse = await fetch('/api/listings');
+                const listingsData = await listingsResponse.json();
+
+                if (listingsData.listings && Array.isArray(listingsData.listings)) {
+                    const processListing = () => {
+                        if (processedListings < totalListings) {
+                            const item = listingsData.listings[processedListings];
+                            createButtonDiv(item);
+                            processedListings++;
+                            updateProgress();
+                            requestAnimationFrame(processListing);
+                        } else {
+                            loadingElement.style.display = 'none';
+                        }
+                    };
+                    processListing();
+                } else {
+                    console.error('Invalid data format:', listingsData);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                loadingElement.style.display = 'none';
+                progressBarInner.style.backgroundColor = 'red';
+                loadingElement.innerHTML = 'Error loading data.';
+            }
+        };
+
+        fetchListings();
+
         function createButtonDiv(data) {
             const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS } = data;
-
-            // Ensure PHOTOS is an array and not empty
-            const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
+            const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg'];
 
             const buttonDiv = document.createElement('div');
             buttonDiv.className = 'button-item';
 
             const button = document.createElement('button');
-            button.style.padding = 0; // Ensure button has no extra padding
-            button.style.border = 'none'; // Ensure button has no border
-            button.style.background = 'none'; // Ensure button has no background
+            button.style.padding = 0;
+            button.style.border = 'none';
+            button.style.background = 'none';
 
             const img = document.createElement('img');
-            img.src = photoList[0]; // Use the first image URL from the list
+            img.src = photoList[0];
             img.alt = 'Button Image';
-            img.style.width = '150px'; // Adjust size if necessary
-            img.style.height = '150px'; // Adjust size if necessary
-            img.style.border = '3px solid #a8b8c6'; // Add the border
-            img.style.borderRadius = '10px'; // Add the border radius
-            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
-            img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+            img.style.width = '150px';
+            img.style.height = '150px';
+            img.style.border = '3px solid #a8b8c6';
+            img.style.borderRadius = '10px';
+            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+            img.onerror = () => img.src = 'static/icons/test.jpg';
 
             const textDiv = document.createElement('div');
             textDiv.className = 'button-text';
@@ -159,12 +188,12 @@
             button.appendChild(textDiv);
 
             button.onclick = (event) => {
-                event.stopPropagation(); // Prevent click event from bubbling up
+                event.stopPropagation();
                 showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, photoList);
             };
 
             buttonDiv.appendChild(button);
-            document.getElementById('dynamic-buttons').appendChild(buttonDiv);
+            dynamicButtonsElement.appendChild(buttonDiv);
         }
 
         function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS) {
@@ -177,15 +206,14 @@
             const popupGallery = document.createElement('div');
             popupGallery.className = 'popup-gallery';
 
-            // Ensure PHOTOS is an array and has valid image URLs
             const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg'];
             photoList.forEach(photo => {
                 const img = document.createElement('img');
-                img.src = photo; // Use the image URL directly
+                img.src = photo;
                 img.alt = 'Gallery Image';
-                img.style.width = '150px'; // Adjust size if necessary
-                img.style.height = '150px'; // Adjust size if necessary
-                img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+                img.style.width = '150px';
+                img.style.height = '150px';
+                img.onerror = () => img.src = 'static/icons/test.jpg';
                 popupGallery.appendChild(img);
             });
 
@@ -224,10 +252,10 @@
                     closePopup(popup);
                 }
             });
-        }
 
-        function closePopup(popup) {
-            document.body.removeChild(popup);
+            function closePopup(popup) {
+                popup.remove();
+            }
         }
 
         window.navigateToContact = () => {
@@ -235,52 +263,4 @@
         };
     });
 </script>
-
-<!-- Custom Section with Parallax Effect -->
-<div class="custom-section" id="main-section">
-    <div class="custom-header">
-        <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
-    </div>
-
-    <div class="custom-container">
-        <div class="custom-row">
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-homepage"></span>
-                </div>
-                <a class="custom-button-link" href="/">
-                    <span class="button-text">HOME PAGE</span>
-                </a>
-            </div>
-
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-home"></span>
-                </div>
-                <a class="custom-button-link" href="/buying" id="button-search-homes">
-                    <span class="button-text">SEARCH HOMES</span>
-                </a>
-            </div>
-
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-contact"></span>
-                </div>
-                <a class="custom-button-link" href="/contact">
-                    <span class="button-text">LEAVE A MESSAGE</span>
-                </a>
-            </div>
-
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-head"></span>
-                </div>
-                <a class="custom-button-link" href="/resources">
-                    <span class="button-text">FIND RESOURCES</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
 {% endblock %}

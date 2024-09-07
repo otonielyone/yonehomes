@@ -240,7 +240,7 @@ def load_page(max_images, item, timeout, max_retries, delay):
 
 
 # Sort CSV by price
-def sorted_csv_by_price(max_price) -> list:
+async def sorted_csv_by_price(max_price) -> list:
     csv_path = "/var/www/html/fastapi_project/brightscrape/Standard Export.csv"
     all_data = []
 
@@ -302,7 +302,7 @@ async def loop_task(concurrency_limit, timeout, max_images, max_price, max_retri
         logger.info("Pulling csv...")
         await asyncio.sleep(5) 
 
-    sorted_results = sorted_csv_by_price(max_price)
+    sorted_results = await sorted_csv_by_price(max_price)
     logger.info('Clearing and recreating database tables')
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
