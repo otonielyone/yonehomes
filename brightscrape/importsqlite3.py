@@ -1,69 +1,62 @@
+import base64
+import pandas as pd
+import sqlite3
 import os
-import json
-from sqlalchemy import create_engine, Column, Integer, String, Float, Text
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, Session
+import pickle  # Use pickle if the list was serialized with it
 
-# Define the database path
-DATABASE_URL = "sqlite:///brightscrape/brightmls.db?timeout=300"
+# Path to your database file
+db_path = 'brightscrape/brightmls.db'
 
-# Setup SQLAlchemy engine and session
-engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
+# Function to convert binary data to a Base64-encoded string
+def binary_to_base64(binary_data):
+    if binary_data:
+        try:
+            return base64.b64encode(binary_data).decode('utf-8')
+        except Exception as e:
+            print(f"Error encoding binary data: {e}")
+            return None
+    return None
 
-class User(Base):
-    __tablename__ = 'user'
-    user_id = Column(Integer, primary_key=True, index=True)
-    mls = Column(String(20), unique=True, index=True)
-    address = Column(String(100), index=True)
-    price = Column(Float, index=True)
-    description = Column(String(1000), index=True)
-    availability = Column(String(20), index=True)
-    images = Column(Text, index=False)  
-    
-    def __repr__(self):
-        return '<User {}>'.format(self.mls)
+# Function to generate HTML <div> elements for each image
+def generate_html_divs(binary_data_list):
+    html = ""
+    for binary_data in binary_data_list:
+        base64_str = binary_to_base64(binary_data)
+        if base64_str:
+            html += f'<div><img src="data:image/jpeg;base64,{base64_str}" alt="Image" style="width:100px;height:100px;"/></div>'
+    return html
 
-    @property
-    def image_list(self):
-        return json.loads(self.images) if self.images else []
+# Function to deserialize the image list if it is serialized
+def deserialize_image_list(serialized_data):
+    try:
+        return pickle.loads(serialized_data)
+    except (pickle.UnpicklingError, TypeError):
+        return []
 
-    @image_list.setter
-    def image_list(self, value):
-        self.images = json.dumps(value)
+# Check if the database file exists
+if not os.path.exists(db_path):
+    print(f"Database file not found at {db_path}")
+else:
+    print("Database file exists.")
 
-def init_db():
-    db_path = 'brightscrape/brightmls.db'  
-    db_dir = os.path.dirname(db_path)
-    os.makedirs(db_dir, exist_ok=True)
-    
-    if not os.path.exists(db_path):
-        print("Creating database file...")
-        Base.metadata.create_all(bind=engine)
-    else:
-        print("Database file already exists.")
+    # Connect to the database
+    conn = sqlite3.connect(db_path)
 
-def get_users_from_db(db: Session):
-    users = db.query(User).all()
-    return [
-        {
-            "MLS": user.mls,
-            "COST": f"${user.price:,.2f}",
-            "ADDRESS": user.address,
-            "DESCRIPTION": user.description,
-            "STATUS": user.availability,
-            "PHOTOS": user.image_list
-        }
-        for user in users
-    ]
+    # Query to load data into a DataFrame
+    df = pd.read_sql_query("SELECT * FROM user", conn)  # Ensure table name is correct
 
-# Initialize the database (if not already created)
-init_db()
+    # Close the database connection
+    conn.close()
 
-# Create a new session
-db = SessionLocal()
+    # Check the first few rows of the DataFrame
+    print(df.head())
 
-# Fetch and print users
-users_data = get_users_from_db(db)
-print(users_data[0][1])
+    # Apply the deserialization and HTML generation functions to each row
+    df['image_list_html'] = df['images'].apply(
+        lambda x: generate_html_divs(deserialize_image_list(x)) if x else ""
+    )
+
+    # Print the DataFrame with the new column showing the HTML
+    print(df[['mls', 'image_list_html']])
+
+   

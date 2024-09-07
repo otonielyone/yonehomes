@@ -1,9 +1,9 @@
 from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException
 from start_files.models.users.users import SessionLocal, User, Base, engine
+from start_files.routes.export_scripts import export_results
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from concurrent.futures import ThreadPoolExecutor
 from selenium.webdriver.support.ui import Select
@@ -13,9 +13,13 @@ from sqlalchemy.orm import Session
 from dotenv import load_dotenv
 from selenium import webdriver
 from datetime import datetime
+from io import BytesIO
+import requests
 import logging
 import asyncio
+import pickle
 import random
+import json
 import time
 import csv
 import re
@@ -35,13 +39,32 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
+
+
+def serialize_images(images):
+    """Serialize a list of images to a binary format."""
+    try:
+        return pickle.dumps(images)
+    except Exception as e:
+        logger.error(f"Error serializing images: {e}")
+        return None
+
+def deserialize_images(serialized_data):
+    """Deserialize binary data back to a list of images."""
+    try:
+        return pickle.loads(serialized_data)
+    except (pickle.UnpicklingError, TypeError) as e:
+        logger.error(f"Error deserializing images: {e}")
+        return []
+    
+
+
 def get_end_time_and_elapsed(start_time):
     end_time = time.time()
     elapsed = end_time - start_time
     formatted_end_time = datetime.fromtimestamp(end_time).strftime('%Y-%m-%d %H:%M:%S')
     formatted_elapsed_time = f"{int(elapsed // 60)}m {int(elapsed % 60)}s"
     return formatted_end_time, formatted_elapsed_time
-
 
 # Set up Chrome options
 def setup_options(max_retries, delay) -> webdriver.Chrome:
@@ -58,12 +81,22 @@ def setup_options(max_retries, delay) -> webdriver.Chrome:
             driver = webdriver.Chrome(service=service, options=options)
             return driver
         except WebDriverException:
-            print(f"driver retrying.. {attempt + 1} ")
+            logger.error(f"Driver retrying.. {attempt + 1}")
             if attempt == max_retries - 1:
                 raise
             time.sleep(delay)
+
     raise RuntimeError("Failed to start Chrome after multiple attempts")
 
+def download_image(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        return BytesIO(response.content)
+    except requests.RequestException as e:
+        logger.error(f"Failed to download image {url}: {e}")
+        return None
+    
 
 def load_page(max_images, item, timeout, max_retries, delay):
     attempt = 0
@@ -71,7 +104,7 @@ def load_page(max_images, item, timeout, max_retries, delay):
     image_link_full = []
     driver = None
     while attempt < max_retries:
-        try:    
+        try:
             driver = setup_options(max_retries, delay)
             
             logger.info(f"Setting up driver for {mls}")
@@ -143,18 +176,14 @@ def load_page(max_images, item, timeout, max_retries, delay):
             images_locator = (By.XPATH, '//font[@class="IV_Single"]//img[@class="IV_Image"]')
             WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
             all_imgs = driver.find_elements(*images_locator)
-            all_links = [tag.get_attribute('src') for tag in all_imgs[:max_images]]
-            if not all_links:
-                logger.warning(f"MLS {mls} has no images.")
-            else:
-                image_link_full.append([mls, all_links])
-            
-            logger.info(f"Completed image extraction for MLS {mls}.")    
+            for i, img in enumerate(all_imgs[:max_images]):
+                img_url = img.get_attribute('src')
+                if img_url:
+                    img_file = download_image(img_url)
+                    if img_file:
+                        image_link_full.append(img_file.read())
 
-            if len(all_links) == 0:
-                logger.warning(f"Skipped. MLS {mls} has no images.")
-            else:
-                image_link_full.append([mls, all_links])
+            logger.info(f"Completed image extraction for MLS {mls}.")    
 
             if driver is not None:
                 driver.quit()
@@ -168,6 +197,7 @@ def load_page(max_images, item, timeout, max_retries, delay):
                     # Update existing user
                     user.mls = mls
                 else:
+                    
                     # Create new listing
                     listing = User(
                         mls=mls,
@@ -175,7 +205,7 @@ def load_page(max_images, item, timeout, max_retries, delay):
                         price=item[0],
                         description=item[14],
                         availability=item[3],
-                        image_list=image_link_full[0][1] if image_link_full else []
+                        images=serialize_images(image_link_full)  # Store serialized images
                     )
                     for attempt in range(max_retries):
                         try:
@@ -191,26 +221,30 @@ def load_page(max_images, item, timeout, max_retries, delay):
             finally:
                 if db:
                     db.close()
-
+                    
         except (WebDriverException, TimeoutException):
             logger.error(f"Attempt {attempt + 1} failed")
             attempt += 1
             if attempt < max_retries:
                 sleep_time = delay * (2 ** (attempt - 1)) 
                 logger.info(f"Retrying in {sleep_time} seconds...")
-                driver.refresh()
                 time.sleep(sleep_time)
             else:
                 logger.error("Max retries exceeded. Could not load page.")
+                if driver is not None:
+                    driver.quit()
                 raise
 
 
+
+
+
 # Sort CSV by price
-async def sorted_csv_by_price(max_price) -> list:
+def sorted_csv_by_price(max_price) -> list:
     csv_path = "/var/www/html/fastapi_project/brightscrape/Standard Export.csv"
     all_data = []
 
-    async def preprocess_price(price_str: str) -> float:
+    def preprocess_price(price_str: str) -> float:
         match = re.search(r'\d+', price_str.replace(',', ''))
         if match:
             return float(match.group())
@@ -223,7 +257,7 @@ async def sorted_csv_by_price(max_price) -> list:
             mls = row[0]
             street_unit = row[1]
             status = row[3]
-            price = await preprocess_price(row[6])
+            price = preprocess_price(row[6])
             list_date = row[11]
             city = row[22]
             state = row[23]
@@ -243,27 +277,36 @@ async def sorted_csv_by_price(max_price) -> list:
     return sorted(all_data, key=lambda x: x[0])
 
 # Download images with concurrency
-async def start_cpncurrency( max_retries, delay, timeout, concurrency_limit, max_images, sorted_results: list) -> list:
+async def start_concurrency(max_retries, delay, timeout, concurrency_limit, max_images, sorted_results: list) -> list:
     semaphore = asyncio.Semaphore(concurrency_limit)
+    
     async def download_image_with_semaphore(item):
         async with semaphore:
-            return await loop.run_in_executor(executor, load_page, max_images, item, timeout,  max_retries, delay)
-    logger.info("About to begin concurrency"), 
+            return await loop.run_in_executor(executor, load_page, max_images, item, timeout, max_retries, delay)
+
+    logger.info("About to begin concurrency")
     loop = asyncio.get_event_loop()
     with ThreadPoolExecutor() as executor:
         tasks = [download_image_with_semaphore(item) for item in sorted_results]
         image_link_full = await asyncio.gather(*tasks)
         return image_link_full
-
+    
 
 # Gather images and MLS data
 async def loop_task(concurrency_limit, timeout, max_images, max_price, max_retries, delay) -> None:
-    sorted_results = await sorted_csv_by_price(max_price)
+    await export_results(max_price)
+    csv_path = "/var/www/html/fastapi_project/brightscrape/Standard Export.csv"
+
+    # Wait for the CSV file to appear
+    while not os.path.exists(csv_path):
+        logger.info("Pulling csv...")
+        await asyncio.sleep(5) 
+
+    sorted_results = sorted_csv_by_price(max_price)
     logger.info('Clearing and recreating database tables')
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
-    await start_cpncurrency( max_retries, delay, timeout, concurrency_limit, max_images, sorted_results)
-
+    await start_concurrency(max_retries, delay, timeout, concurrency_limit, max_images, sorted_results)
 
 # Synchronous entry point
 def start_task(concurrency_limit, timeout, max_images, max_price, max_retries, delay):

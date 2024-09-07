@@ -34,7 +34,7 @@ logger.addHandler(console_handler)
 
 
 async def async_setup_options() -> webdriver.Chrome:
-    logger.info("Setting up Chrome options")
+    logger.info("Setting up async driver")
     options = ChromeOptions()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
@@ -48,7 +48,7 @@ async def async_setup_options() -> webdriver.Chrome:
         "download.directory_upgrade": True,
         "safebrowsing.enabled": True
     })
-    service = ChromeService(executable_path='/usr/lib/chromium-browser/chromedriver')
+    service = ChromeService(executable_path='/usr/bin/chromedriver')
     driver = webdriver.Chrome(service=service, options=options)
     logger.info("Chrome options setup complete")
     return driver
@@ -130,7 +130,6 @@ async def navigate_to_search_page(driver, timeout):
         await navigate_to_search_page(driver, timeout)
 
 
-
 async def export_results(max_price):
     logger.info("Starting export_results function")
     driver = await async_setup_options()
@@ -141,6 +140,7 @@ async def export_results(max_price):
     try:
         element_present = EC.element_to_be_clickable((By.ID, "m_lnkCheckAllLink"))
         WebDriverWait(driver, timeout).until(element_present)
+
         all = driver.find_element(by=By.ID, value="m_lnkCheckAllLink")
         driver.execute_script("arguments[0].click();", all)
         logger.info("'Check All Results Entries' link clicked successfully")
@@ -157,7 +157,7 @@ async def export_results(max_price):
         driver.execute_script("arguments[0].click();", select_element)
         select_element.send_keys("s")
         select_element.send_keys(Keys.ENTER)
-        logger.info("Standard Export selected from dropdown")
+        logger.info("Export selected from dropdown")
 
         export = driver.find_element(by=By.ID, value="m_btnExport")
         driver.execute_script("arguments[0].click();", export)
@@ -218,6 +218,7 @@ async def export_results(max_price):
                     all_data.append((price, mls, street_unit, status, list_date, city, state, zip_code,
                                     listing_office, listing_office_number, listing_agent, listing_agent_number,
                                     listing_agent_email, agent_remarks, public_remarks))
+        logger.info(f'Filted and sorted csv: total {len(all_data)}')
         return sorted(all_data, key=lambda x: x[0])
 
     except Exception:
