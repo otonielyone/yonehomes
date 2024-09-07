@@ -105,7 +105,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const numberOfListings = 3; // Number of listings you want to display
+        const numberOfListings = Infinity; // Number of listings you want to display
 
         // Fetch the full list of listings from the API
         fetch('/api/listings')
@@ -146,6 +146,9 @@
             img.alt = 'Button Image';
             img.style.width = '150px'; // Adjust size if necessary
             img.style.height = '150px'; // Adjust size if necessary
+            img.style.border = '3px solid #a8b8c6'; // Add the border
+            img.style.borderRadius = '10px'; // Add the border radius
+            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
             img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
 
             const textDiv = document.createElement('div');

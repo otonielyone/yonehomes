@@ -72,8 +72,6 @@ async def api_listings():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
-
 @router.get("/get_csv", response_class=JSONResponse, name="export")
 async def export_results_endpoint(background_tasks: BackgroundTasks, filter_price: int = 2500):
     logger.info("Starting CSV export task in the background")
