@@ -1,25 +1,17 @@
-import logging
-from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
+
+from fastapi_project.start_files.models.mls.mls import init_db
 from start_files.config import get_templates
 from start_files.routes.routes import router
-from start_files.models.users.users import init_db
-
-# Initialize the database
+from fastapi.staticfiles import StaticFiles
+from fastapi import FastAPI
+import logging
 
 def create_app() -> FastAPI:
     app = FastAPI()
-
-    # Mount static files directory
     app.mount("/static", StaticFiles(directory="start_files/static"), name="static")
-    
-    # Include routers
     app.include_router(router)
-    
-    #Initialize DB
     init_db()
 
-    # Configure logging
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -29,7 +21,6 @@ def create_app() -> FastAPI:
         ]
     )
     
-    # Register templates
     templates = get_templates()
     app.state.templates = templates
     

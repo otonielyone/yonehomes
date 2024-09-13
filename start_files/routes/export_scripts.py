@@ -1,4 +1,3 @@
-import csv
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,6 +12,7 @@ from selenium import webdriver
 import asyncio
 import logging
 import shutil
+import csv
 import re
 import os
 
@@ -128,7 +128,6 @@ async def navigate_to_search_page(driver, timeout):
         logger.error(f"TimeoutException occurred navigating to excel. Refreshing the page and retrying.")
         driver.refresh()
         await navigate_to_search_page(driver, timeout)
-
 
 async def export_results(max_price):
     logger.info("Starting export_results function")
