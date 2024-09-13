@@ -255,51 +255,6 @@
     padding: 0;
 }
 
-.fullscreen-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensures it sits above other content */
-}
-
-.loading-container {
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.9); /* Optional: darker background for better contrast */
-    border-radius: 8px; /* Optional: rounded corners for a better look */
-}
-
-.loading-text {
-    margin-bottom: 10px;
-}
-
-.progress-bar {
-    width: 300px;
-    height: 5px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-    margin: 0 auto; /* Centers the progress bar horizontally */
-}
-
-.progress-bar-inner {
-    height: 100%;
-    background-color: #149ca3;
-    transition: width 0.5s ease;
-}
-
 /* Search Container */
 .search-container {
     display: flex;

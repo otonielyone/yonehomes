@@ -1,5 +1,6 @@
 
-from start_files.models.mls.mls import init_db
+from start_files.models.mls.rentals import init_rentals_db
+from start_files.models.mls.homes import init_homes_db
 from start_files.config import get_templates
 from start_files.routes.routes import router
 from fastapi.staticfiles import StaticFiles
@@ -10,7 +11,8 @@ def create_app() -> FastAPI:
     app = FastAPI()
     app.mount("/static", StaticFiles(directory="start_files/static"), name="static")
     app.include_router(router)
-    init_db()
+    init_rentals_db()
+    init_homes_db()
 
     logging.basicConfig(
         level=logging.INFO,

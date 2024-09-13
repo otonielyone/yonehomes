@@ -1,4 +1,3 @@
-/* General Styles */
 
 /* General Styles */
 
@@ -9,5 +8,219 @@
     text-align: center;
     font-weight: 500; /* Thin weight for headings */
     background: none; /* Ensure no background color */
-    paddileft: 90px; /* Remove padding if any */  
+    padding-left: 90px; /* Remove padding if any */  
+}
+
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure popup is above other content */
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+.popup-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px; /* Increased for better separation */
+}
+
+.popup-gallery img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.popup-gallery img:hover {
+    opacity: 0.8;
+}
+
+.popup-text {
+    margin-top: 15px; /* Increased for better spacing */
+    color: black;
+    text-align: center;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #007bff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* Contact Button Styles */
+.contact-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px; /* Adjusted to ensure proper spacing */
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer Styles */
+.footer p {
+    padding: 0;
+}
+
+
+/* Search Container */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#searchField {
+    width: 50%;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 80px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* For Dynamic Button Grid Section */
+.button-grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Button Grid Styles */
+.button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.button-text {
+    margin-top: 0;
+    padding: 20px;
+}
+
+/* Button Item Styles */
+.button-item {
+    flex: 1 1 calc(25% - 16px);
+    box-sizing: border-box;
+    max-width: calc(25% - 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Ensure Button Elements Have No Borders */
+.button-item button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none; /* Removes default focus outline */
+}
+
+/* Ensure Image Within Button Has No Border */
+.button-item img {
+    width: 100px;
+    height: auto;
+    border: none;
+}
+
+/* Remove Focus and Active Styles for Button */
+.button-item button:focus,
+.button-item button:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Remove Border When Button Is Clicked or Focused */
+.button-item button:focus img,
+.button-item button:active img {
+    border: none;
+}
+
+/* Media Queries for Responsive Layout */
+@media (max-width: 1200px) {
+    .button-item {
+        flex: 1 1 calc(33.33% - 16px);
+        max-width: calc(33.33% - 16px);
+    }
+}
+
+@media (max-width: 800px) {
+    .button-item {
+        flex: 1 1 calc(50% - 16px);
+        max-width: calc(50% - 16px);
+    }
+}
+
+@media (max-width: 500px) {
+    .button-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+
+/* Responsive Adjustments */
+@media screen and (max-width: 500px) and (orientation: portrait) {
+    .light-red-text h2 {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    #searchField {
+        width: 75%;
+        margin-bottom: 45px;
+    }
+    
+    .main-heading {
+        z-index: 1000; /* Ensure heading is below popup */
+    }
 }

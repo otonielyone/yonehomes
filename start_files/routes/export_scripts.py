@@ -212,11 +212,13 @@ async def export_results(max_price):
                 listing_agent_email = row[41]
                 agent_remarks = row[42]
                 public_remarks = row[44]
+                bedrooms = row[79]
+                bath = row[80]
 
                 if (max_price is None or price < max_price) and state == 'VA':
                     all_data.append((price, mls, street_unit, status, list_date, city, state, zip_code,
                                     listing_office, listing_office_number, listing_agent, listing_agent_number,
-                                    listing_agent_email, agent_remarks, public_remarks))
+                                    listing_agent_email, agent_remarks, public_remarks, bedrooms, bath))
         logger.info(f'Filted and sorted csv: total {len(all_data)}')
         return sorted(all_data, key=lambda x: x[0])
 

@@ -1,8 +1,9 @@
-from start_files.models.mls.mls import sessionmaker, Mls, get_listings_from_db, create_engine
+from start_files.models.mls.rentals import rentals_sessionLocal2, rentals_engine, get_rentals_from_db
+from start_files.models.mls.homes import homes_sessionLocal2, homes_engine, get_homes_from_db
+from start_files.routes.rentals_scripts import sorted_rentals_by_price, start_rentals
 from fastapi import APIRouter, Form, Path, Request, HTTPException, BackgroundTasks
-from start_files.routes.route_scripts import sorted_csv_by_price, start_task
+from start_files.routes.homes_scripts import sorted_homes_by_price, start_homes
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
-from start_files.routes.export_scripts import export_results
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
@@ -89,50 +90,62 @@ async def handle_contact_form(
     logger.info("Contact form submission successful, redirecting user.")
     return RedirectResponse(url="/contact", status_code=303)
 
-@router.get("/api/download_export", response_class=JSONResponse, name="export")
-async def export_results_endpoint(background_tasks: BackgroundTasks, filter_price: int = 2500):
-    logger.info("Starting CSV export task in the background")
-    background_tasks.add_task(export_results, filter_price)  # Do not await here
-    return JSONResponse(content={"message": "CSV export task started in the background"})
-
-@router.get("/api/filter_export", response_class=JSONResponse, name="filter")
-async def sort_csv_endpoint(max_price: int = 2500):
+@router.get("/api/filter_rental_export", response_class=JSONResponse, name="filter")
+async def sort_rental_endpoint(max_price: int = 2500):
     logger.info("Starting CSV sort task in the background")
-    sorted = sorted_csv_by_price(max_price)
+    sorted = sorted_rentals_by_price(max_price)
     return f"This sorted list has {len(sorted)} listings."
 
-@router.get("/api/populate_database", response_model=dict, name="import")
-async def get_mls_data(background_tasks: BackgroundTasks, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, min_images: int = 2, max_images: int = 50, max_price: int = 2500):
+@router.get("/api/populate_rental_database", response_model=dict, name="import")
+async def get_rental_data(background_tasks: BackgroundTasks, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, min_images: int = 2, max_images: int = 50, max_price: int = 2500):
     logger.info("Starting MLS data gathering task")
-    background_tasks.add_task(start_task, concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
+    background_tasks.add_task(start_rentals, concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
     return JSONResponse(content={"message": "MLS data gathering task started in the background"})
 
-@router.get('/api/view_database')
-async def api_listings():
+@router.get('/api/view_rental_database')
+async def api_rentals():
     try:
-        DATABASE_URL = "sqlite:///brightscrape/brightmls.db?timeout=300"
-        engine = create_engine(DATABASE_URL)
-        SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-        db = SessionLocal()
-        listings_data = get_listings_from_db(db)
-        db.close()
-        return {"listings":listings_data}
+        listings_data = get_rentals_from_db()
+        return {"rentals":listings_data}
     except Exception:
         raise HTTPException(status_code=500)
 
-@router.get('/api/database_count')
+@router.get('/api/rental_database_count')
 async def get_total_count():
     try:
-        DATABASE_URL = "sqlite:///brightscrape/brightmls.db?timeout=300"
-        engine = create_engine(DATABASE_URL)
-        SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-        db = SessionLocal()
-        total_count = db.query(func.count(Mls.id)).scalar()
-        db.close()  # Close the session
-        return {"total_count": total_count}
+        listings_data = get_rentals_from_db()
+        return {"rentals Count":len(listings_data)}
     except Exception:
         raise HTTPException(status_code=500)
 
+@router.get("/api/filter_homes_export", response_class=JSONResponse, name="filter")
+async def sort_homes_endpoint(max_price: int = 2500):
+    logger.info("Starting CSV sort task in the background")
+    sorted = sorted_homes_by_price(max_price)
+    return f"This sorted list has {len(sorted)} listings."
+
+@router.get("/api/populate_homes_database", response_model=dict, name="import")
+async def get_home_data(background_tasks: BackgroundTasks, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, min_images: int = 2, max_images: int = 50, max_price: int = 2500):
+    logger.info("Starting MLS data gathering task")
+    background_tasks.add_task(start_homes, concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
+    return JSONResponse(content={"message": "MLS data gathering task started in the background"})
+
+@router.get('/api/view_homes_database')
+async def api_homes():
+    try:
+        listings_data = get_homes_from_db()
+        return {"HOMES":listings_data}
+    except Exception:
+        raise HTTPException(status_code=500)
+
+@router.get('/api/homes_database_count')
+async def get_total_count():
+    try:
+        listings_data = get_homes_from_db()
+        return {"homes count":len(listings_data)}
+    except Exception:
+        raise HTTPException(status_code=500)
+    
 @router.get("/api/getImages/{mls}", response_model=List[str])
 async def get_images(mls: str = Path(...)):
     directory_path = f'/var/www/html/fastapi_project/start_files/static/images/{mls}'
