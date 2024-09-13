@@ -62,3 +62,422 @@
 [2024-09-13 04:01:27 +0000] [90157] [INFO] Started server process [90157]
 [2024-09-13 04:01:27 +0000] [90157] [INFO] Waiting for application startup.
 [2024-09-13 04:01:27 +0000] [90157] [INFO] Application startup complete.
+[2024-09-13 05:03:26 +0000] [90118] [INFO] Handling signal: term
+[2024-09-13 05:03:26 +0000] [90148] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90166] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90183] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90130] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90140] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90121] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90182] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90122] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90149] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90120] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90165] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90157] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90138] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90139] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90167] [INFO] Shutting down
+[2024-09-13 05:03:26 +0000] [90166] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90183] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90148] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90122] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90130] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90140] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90182] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90121] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90166] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90148] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90183] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90122] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90140] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90130] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90182] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90121] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90148] [INFO] Finished server process [90148]
+[2024-09-13 05:03:26 +0000] [90166] [INFO] Finished server process [90166]
+[2024-09-13 05:03:26 +0000] [90183] [INFO] Finished server process [90183]
+[2024-09-13 05:03:26 +0000] [90122] [INFO] Finished server process [90122]
+[2024-09-13 05:03:26 +0000] [90130] [INFO] Finished server process [90130]
+[2024-09-13 05:03:26 +0000] [90149] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90139] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90157] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90138] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90140] [INFO] Finished server process [90140]
+[2024-09-13 05:03:26 +0000] [90165] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90149] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90165] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90139] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90138] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90157] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90149] [INFO] Finished server process [90149]
+[2024-09-13 05:03:26 +0000] [90138] [INFO] Finished server process [90138]
+[2024-09-13 05:03:26 +0000] [90165] [INFO] Finished server process [90165]
+[2024-09-13 05:03:26 +0000] [90139] [INFO] Finished server process [90139]
+[2024-09-13 05:03:26 +0000] [90157] [INFO] Finished server process [90157]
+[2024-09-13 05:03:26 +0000] [90182] [INFO] Finished server process [90182]
+[2024-09-13 05:03:26 +0000] [90167] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90120] [INFO] Waiting for application shutdown.
+[2024-09-13 05:03:26 +0000] [90167] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90167] [INFO] Finished server process [90167]
+[2024-09-13 05:03:26 +0000] [90121] [INFO] Finished server process [90121]
+[2024-09-13 05:03:26 +0000] [90120] [INFO] Application shutdown complete.
+[2024-09-13 05:03:26 +0000] [90120] [INFO] Finished server process [90120]
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90122) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90166) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90130) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90148) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90149) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90138) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90140) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90182) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90183) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90157) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90167) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90121) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90120) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [ERROR] Worker (pid:90165) was sent SIGTERM!
+[2024-09-13 05:03:26 +0000] [90118] [INFO] Shutting down: Master
+[2024-09-13 05:03:26 +0000] [185553] [INFO] Starting gunicorn 23.0.0
+[2024-09-13 05:03:26 +0000] [185553] [INFO] Listening at: http://0.0.0.0:5000 (185553)
+[2024-09-13 05:03:26 +0000] [185553] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-13 05:03:26 +0000] [185557] [INFO] Booting worker with pid: 185557
+[2024-09-13 05:03:26 +0000] [185558] [INFO] Booting worker with pid: 185558
+[2024-09-13 05:03:26 +0000] [185559] [INFO] Booting worker with pid: 185559
+[2024-09-13 05:03:26 +0000] [185574] [INFO] Booting worker with pid: 185574
+[2024-09-13 05:03:26 +0000] [185575] [INFO] Booting worker with pid: 185575
+[2024-09-13 05:03:27 +0000] [185576] [INFO] Booting worker with pid: 185576
+[2024-09-13 05:03:27 +0000] [185577] [INFO] Booting worker with pid: 185577
+[2024-09-13 05:03:27 +0000] [185585] [INFO] Booting worker with pid: 185585
+[2024-09-13 05:03:27 +0000] [185586] [INFO] Booting worker with pid: 185586
+[2024-09-13 05:03:27 +0000] [185587] [INFO] Booting worker with pid: 185587
+[2024-09-13 05:03:27 +0000] [185597] [INFO] Booting worker with pid: 185597
+[2024-09-13 05:03:27 +0000] [185605] [INFO] Booting worker with pid: 185605
+[2024-09-13 05:03:27 +0000] [185606] [INFO] Booting worker with pid: 185606
+[2024-09-13 05:03:27 +0000] [185621] [INFO] Booting worker with pid: 185621
+[2024-09-13 05:03:27 +0000] [185622] [INFO] Booting worker with pid: 185622
+[2024-09-13 05:03:29 +0000] [185558] [INFO] Started server process [185558]
+[2024-09-13 05:03:29 +0000] [185558] [INFO] Waiting for application startup.
+[2024-09-13 05:03:29 +0000] [185558] [INFO] Application startup complete.
+[2024-09-13 05:03:29 +0000] [185559] [INFO] Started server process [185559]
+[2024-09-13 05:03:29 +0000] [185559] [INFO] Waiting for application startup.
+[2024-09-13 05:03:29 +0000] [185559] [INFO] Application startup complete.
+[2024-09-13 05:03:29 +0000] [185557] [INFO] Started server process [185557]
+[2024-09-13 05:03:29 +0000] [185557] [INFO] Waiting for application startup.
+[2024-09-13 05:03:29 +0000] [185557] [INFO] Application startup complete.
+[2024-09-13 05:03:29 +0000] [185586] [INFO] Started server process [185586]
+[2024-09-13 05:03:29 +0000] [185586] [INFO] Waiting for application startup.
+[2024-09-13 05:03:29 +0000] [185586] [INFO] Application startup complete.
+[2024-09-13 05:03:29 +0000] [185576] [INFO] Started server process [185576]
+[2024-09-13 05:03:29 +0000] [185576] [INFO] Waiting for application startup.
+[2024-09-13 05:03:29 +0000] [185576] [INFO] Application startup complete.
+[2024-09-13 05:03:29 +0000] [185574] [INFO] Started server process [185574]
+[2024-09-13 05:03:29 +0000] [185574] [INFO] Waiting for application startup.
+[2024-09-13 05:03:29 +0000] [185574] [INFO] Application startup complete.
+[2024-09-13 05:03:30 +0000] [185585] [INFO] Started server process [185585]
+[2024-09-13 05:03:30 +0000] [185585] [INFO] Waiting for application startup.
+[2024-09-13 05:03:30 +0000] [185585] [INFO] Application startup complete.
+[2024-09-13 05:03:30 +0000] [185575] [INFO] Started server process [185575]
+[2024-09-13 05:03:30 +0000] [185575] [INFO] Waiting for application startup.
+[2024-09-13 05:03:30 +0000] [185575] [INFO] Application startup complete.
+[2024-09-13 05:03:30 +0000] [185577] [INFO] Started server process [185577]
+[2024-09-13 05:03:30 +0000] [185577] [INFO] Waiting for application startup.
+[2024-09-13 05:03:30 +0000] [185577] [INFO] Application startup complete.
+[2024-09-13 05:03:30 +0000] [185606] [INFO] Started server process [185606]
+[2024-09-13 05:03:30 +0000] [185606] [INFO] Waiting for application startup.
+[2024-09-13 05:03:30 +0000] [185606] [INFO] Application startup complete.
+[2024-09-13 05:03:30 +0000] [185605] [INFO] Started server process [185605]
+[2024-09-13 05:03:30 +0000] [185605] [INFO] Waiting for application startup.
+[2024-09-13 05:03:30 +0000] [185605] [INFO] Application startup complete.
+[2024-09-13 05:03:30 +0000] [185597] [INFO] Started server process [185597]
+[2024-09-13 05:03:30 +0000] [185597] [INFO] Waiting for application startup.
+[2024-09-13 05:03:30 +0000] [185597] [INFO] Application startup complete.
+[2024-09-13 05:03:30 +0000] [185587] [INFO] Started server process [185587]
+[2024-09-13 05:03:30 +0000] [185587] [INFO] Waiting for application startup.
+[2024-09-13 05:03:30 +0000] [185587] [INFO] Application startup complete.
+[2024-09-13 05:03:30 +0000] [185622] [INFO] Started server process [185622]
+[2024-09-13 05:03:30 +0000] [185622] [INFO] Waiting for application startup.
+[2024-09-13 05:03:30 +0000] [185622] [INFO] Application startup complete.
+[2024-09-13 05:03:30 +0000] [185621] [INFO] Started server process [185621]
+[2024-09-13 05:03:30 +0000] [185621] [INFO] Waiting for application startup.
+[2024-09-13 05:03:30 +0000] [185621] [INFO] Application startup complete.
+[2024-09-13 05:14:09 +0000] [185553] [INFO] Handling signal: term
+[2024-09-13 05:14:09 +0000] [185606] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185597] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185587] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185605] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185577] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185575] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185574] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185576] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185586] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185557] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185622] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185585] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185559] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185558] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185621] [INFO] Shutting down
+[2024-09-13 05:14:09 +0000] [185606] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185606] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185606] [INFO] Finished server process [185606]
+[2024-09-13 05:14:09 +0000] [185597] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185597] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185597] [INFO] Finished server process [185597]
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185606) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185597) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185587] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185587] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185587] [INFO] Finished server process [185587]
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185587) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185557] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185575] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185574] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185605] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185577] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185576] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185622] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185585] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185557] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185575] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185577] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185574] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185605] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185622] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185576] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185557] [INFO] Finished server process [185557]
+[2024-09-13 05:14:09 +0000] [185575] [INFO] Finished server process [185575]
+[2024-09-13 05:14:09 +0000] [185577] [INFO] Finished server process [185577]
+[2024-09-13 05:14:09 +0000] [185605] [INFO] Finished server process [185605]
+[2024-09-13 05:14:09 +0000] [185574] [INFO] Finished server process [185574]
+[2024-09-13 05:14:09 +0000] [185585] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185622] [INFO] Finished server process [185622]
+[2024-09-13 05:14:09 +0000] [185576] [INFO] Finished server process [185576]
+[2024-09-13 05:14:09 +0000] [185585] [INFO] Finished server process [185585]
+[2024-09-13 05:14:09 +0000] [185558] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185559] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185621] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185586] [INFO] Waiting for application shutdown.
+[2024-09-13 05:14:09 +0000] [185558] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185559] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185621] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185558] [INFO] Finished server process [185558]
+[2024-09-13 05:14:09 +0000] [185559] [INFO] Finished server process [185559]
+[2024-09-13 05:14:09 +0000] [185621] [INFO] Finished server process [185621]
+[2024-09-13 05:14:09 +0000] [185586] [INFO] Application shutdown complete.
+[2024-09-13 05:14:09 +0000] [185586] [INFO] Finished server process [185586]
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185574) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185575) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185576) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185577) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185558) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185586) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185557) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185585) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185559) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185622) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185621) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [ERROR] Worker (pid:185605) was sent SIGTERM!
+[2024-09-13 05:14:09 +0000] [185553] [INFO] Shutting down: Master
+[2024-09-13 05:14:09 +0000] [186254] [INFO] Starting gunicorn 23.0.0
+[2024-09-13 05:14:09 +0000] [186254] [INFO] Listening at: http://0.0.0.0:5000 (186254)
+[2024-09-13 05:14:09 +0000] [186254] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-13 05:14:09 +0000] [186256] [INFO] Booting worker with pid: 186256
+[2024-09-13 05:14:09 +0000] [186257] [INFO] Booting worker with pid: 186257
+[2024-09-13 05:14:10 +0000] [186265] [INFO] Booting worker with pid: 186265
+[2024-09-13 05:14:10 +0000] [186266] [INFO] Booting worker with pid: 186266
+[2024-09-13 05:14:10 +0000] [186274] [INFO] Booting worker with pid: 186274
+[2024-09-13 05:14:10 +0000] [186275] [INFO] Booting worker with pid: 186275
+[2024-09-13 05:14:10 +0000] [186276] [INFO] Booting worker with pid: 186276
+[2024-09-13 05:14:10 +0000] [186277] [INFO] Booting worker with pid: 186277
+[2024-09-13 05:14:10 +0000] [186285] [INFO] Booting worker with pid: 186285
+[2024-09-13 05:14:10 +0000] [186302] [INFO] Booting worker with pid: 186302
+[2024-09-13 05:14:10 +0000] [186303] [INFO] Booting worker with pid: 186303
+[2024-09-13 05:14:10 +0000] [186318] [INFO] Booting worker with pid: 186318
+[2024-09-13 05:14:10 +0000] [186333] [INFO] Booting worker with pid: 186333
+[2024-09-13 05:14:10 +0000] [186334] [INFO] Booting worker with pid: 186334
+[2024-09-13 05:14:10 +0000] [186335] [INFO] Booting worker with pid: 186335
+[2024-09-13 05:14:12 +0000] [186256] [INFO] Started server process [186256]
+[2024-09-13 05:14:12 +0000] [186256] [INFO] Waiting for application startup.
+[2024-09-13 05:14:12 +0000] [186256] [INFO] Application startup complete.
+[2024-09-13 05:14:12 +0000] [186257] [INFO] Started server process [186257]
+[2024-09-13 05:14:12 +0000] [186257] [INFO] Waiting for application startup.
+[2024-09-13 05:14:12 +0000] [186257] [INFO] Application startup complete.
+[2024-09-13 05:14:12 +0000] [186274] [INFO] Started server process [186274]
+[2024-09-13 05:14:12 +0000] [186274] [INFO] Waiting for application startup.
+[2024-09-13 05:14:12 +0000] [186274] [INFO] Application startup complete.
+[2024-09-13 05:14:12 +0000] [186265] [INFO] Started server process [186265]
+[2024-09-13 05:14:12 +0000] [186265] [INFO] Waiting for application startup.
+[2024-09-13 05:14:12 +0000] [186265] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186266] [INFO] Started server process [186266]
+[2024-09-13 05:14:13 +0000] [186266] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186266] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186275] [INFO] Started server process [186275]
+[2024-09-13 05:14:13 +0000] [186275] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186275] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186277] [INFO] Started server process [186277]
+[2024-09-13 05:14:13 +0000] [186277] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186277] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186318] [INFO] Started server process [186318]
+[2024-09-13 05:14:13 +0000] [186318] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186318] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186276] [INFO] Started server process [186276]
+[2024-09-13 05:14:13 +0000] [186276] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186276] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186303] [INFO] Started server process [186303]
+[2024-09-13 05:14:13 +0000] [186303] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186303] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186335] [INFO] Started server process [186335]
+[2024-09-13 05:14:13 +0000] [186335] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186335] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186302] [INFO] Started server process [186302]
+[2024-09-13 05:14:13 +0000] [186302] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186302] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186285] [INFO] Started server process [186285]
+[2024-09-13 05:14:13 +0000] [186285] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186285] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186333] [INFO] Started server process [186333]
+[2024-09-13 05:14:13 +0000] [186333] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186333] [INFO] Application startup complete.
+[2024-09-13 05:14:13 +0000] [186334] [INFO] Started server process [186334]
+[2024-09-13 05:14:13 +0000] [186334] [INFO] Waiting for application startup.
+[2024-09-13 05:14:13 +0000] [186334] [INFO] Application startup complete.
+[2024-09-13 06:27:53 +0000] [186254] [INFO] Handling signal: term
+[2024-09-13 06:27:53 +0000] [186257] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186256] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186285] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186303] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186276] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186277] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186266] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186265] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186334] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186318] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186333] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186274] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186335] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186302] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186275] [INFO] Shutting down
+[2024-09-13 06:27:53 +0000] [186257] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186277] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186285] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186276] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186303] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186256] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186266] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186265] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186277] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186285] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186256] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186276] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186303] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186266] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186265] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186277] [INFO] Finished server process [186277]
+[2024-09-13 06:27:53 +0000] [186257] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186256] [INFO] Finished server process [186256]
+[2024-09-13 06:27:53 +0000] [186285] [INFO] Finished server process [186285]
+[2024-09-13 06:27:53 +0000] [186303] [INFO] Finished server process [186303]
+[2024-09-13 06:27:53 +0000] [186276] [INFO] Finished server process [186276]
+[2024-09-13 06:27:53 +0000] [186265] [INFO] Finished server process [186265]
+[2024-09-13 06:27:53 +0000] [186257] [INFO] Finished server process [186257]
+[2024-09-13 06:27:53 +0000] [186274] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186334] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186275] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186335] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186334] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186334] [INFO] Finished server process [186334]
+[2024-09-13 06:27:53 +0000] [186335] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186275] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186302] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186335] [INFO] Finished server process [186335]
+[2024-09-13 06:27:53 +0000] [186275] [INFO] Finished server process [186275]
+[2024-09-13 06:27:53 +0000] [186266] [INFO] Finished server process [186266]
+[2024-09-13 06:27:53 +0000] [186333] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186274] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186318] [INFO] Waiting for application shutdown.
+[2024-09-13 06:27:53 +0000] [186274] [INFO] Finished server process [186274]
+[2024-09-13 06:27:53 +0000] [186318] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186318] [INFO] Finished server process [186318]
+[2024-09-13 06:27:53 +0000] [186333] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186333] [INFO] Finished server process [186333]
+[2024-09-13 06:27:53 +0000] [186302] [INFO] Application shutdown complete.
+[2024-09-13 06:27:53 +0000] [186302] [INFO] Finished server process [186302]
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186277) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186266) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186285) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186334) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186256) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186257) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186333) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186265) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186275) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186276) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186335) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186302) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186274) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186318) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [ERROR] Worker (pid:186303) was sent SIGTERM!
+[2024-09-13 06:27:53 +0000] [186254] [INFO] Shutting down: Master
+[2024-09-13 06:27:53 +0000] [192665] [INFO] Starting gunicorn 23.0.0
+[2024-09-13 06:27:53 +0000] [192665] [INFO] Listening at: http://0.0.0.0:5000 (192665)
+[2024-09-13 06:27:53 +0000] [192665] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-13 06:27:53 +0000] [192668] [INFO] Booting worker with pid: 192668
+[2024-09-13 06:27:53 +0000] [192669] [INFO] Booting worker with pid: 192669
+[2024-09-13 06:27:53 +0000] [192670] [INFO] Booting worker with pid: 192670
+[2024-09-13 06:27:53 +0000] [192671] [INFO] Booting worker with pid: 192671
+[2024-09-13 06:27:53 +0000] [192672] [INFO] Booting worker with pid: 192672
+[2024-09-13 06:27:53 +0000] [192680] [INFO] Booting worker with pid: 192680
+[2024-09-13 06:27:53 +0000] [192681] [INFO] Booting worker with pid: 192681
+[2024-09-13 06:27:53 +0000] [192689] [INFO] Booting worker with pid: 192689
+[2024-09-13 06:27:53 +0000] [192697] [INFO] Booting worker with pid: 192697
+[2024-09-13 06:27:53 +0000] [192698] [INFO] Booting worker with pid: 192698
+[2024-09-13 06:27:53 +0000] [192706] [INFO] Booting worker with pid: 192706
+[2024-09-13 06:27:54 +0000] [192714] [INFO] Booting worker with pid: 192714
+[2024-09-13 06:27:54 +0000] [192715] [INFO] Booting worker with pid: 192715
+[2024-09-13 06:27:54 +0000] [192716] [INFO] Booting worker with pid: 192716
+[2024-09-13 06:27:54 +0000] [192733] [INFO] Booting worker with pid: 192733
+[2024-09-13 06:27:56 +0000] [192671] [INFO] Started server process [192671]
+[2024-09-13 06:27:56 +0000] [192671] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192671] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192672] [INFO] Started server process [192672]
+[2024-09-13 06:27:56 +0000] [192672] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192672] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192670] [INFO] Started server process [192670]
+[2024-09-13 06:27:56 +0000] [192670] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192670] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192668] [INFO] Started server process [192668]
+[2024-09-13 06:27:56 +0000] [192668] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192668] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192669] [INFO] Started server process [192669]
+[2024-09-13 06:27:56 +0000] [192669] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192669] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192716] [INFO] Started server process [192716]
+[2024-09-13 06:27:56 +0000] [192716] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192716] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192681] [INFO] Started server process [192681]
+[2024-09-13 06:27:56 +0000] [192681] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192681] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192680] [INFO] Started server process [192680]
+[2024-09-13 06:27:56 +0000] [192680] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192680] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192715] [INFO] Started server process [192715]
+[2024-09-13 06:27:56 +0000] [192715] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192715] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192689] [INFO] Started server process [192689]
+[2024-09-13 06:27:56 +0000] [192689] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192689] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192698] [INFO] Started server process [192698]
+[2024-09-13 06:27:56 +0000] [192698] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192698] [INFO] Application startup complete.
+[2024-09-13 06:27:56 +0000] [192706] [INFO] Started server process [192706]
+[2024-09-13 06:27:56 +0000] [192706] [INFO] Waiting for application startup.
+[2024-09-13 06:27:56 +0000] [192706] [INFO] Application startup complete.
+[2024-09-13 06:27:57 +0000] [192697] [INFO] Started server process [192697]
+[2024-09-13 06:27:57 +0000] [192697] [INFO] Waiting for application startup.
+[2024-09-13 06:27:57 +0000] [192697] [INFO] Application startup complete.
+[2024-09-13 06:27:57 +0000] [192733] [INFO] Started server process [192733]
+[2024-09-13 06:27:57 +0000] [192733] [INFO] Waiting for application startup.
+[2024-09-13 06:27:57 +0000] [192733] [INFO] Application startup complete.
+[2024-09-13 06:27:57 +0000] [192714] [INFO] Started server process [192714]
+[2024-09-13 06:27:57 +0000] [192714] [INFO] Waiting for application startup.
+[2024-09-13 06:27:57 +0000] [192714] [INFO] Application startup complete.

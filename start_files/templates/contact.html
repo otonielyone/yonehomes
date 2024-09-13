@@ -64,6 +64,23 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const MLS = urlParams.get('MLS');
+        const ADDRESS = urlParams.get('ADDRESS');
+
+        if (MLS || ADDRESS) {
+            const inquiryTextarea = document.getElementById('inquiry');
+
+            // Create the refined inquiry text with MLS and ADDRESS
+            let inquiryText = `MLS: ${MLS || ''}\nAddress: ${ADDRESS || ''}\nPlease send me more information about this property.`;
+            
+            // Pre-fill the textarea with the inquiry text
+            inquiryTextarea.value = inquiryText;
+        }
+    });
+</script>
 
 <div class="contact-form-container">
     <h1>Contact Us</h1>
@@ -143,6 +160,7 @@
     {% endfor %}
 </ul>
 {% endif %}
+
 
 
 <!-- Custom Section with Parallax Effect --
