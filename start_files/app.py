@@ -1,5 +1,5 @@
 
-from fastapi_project.start_files.models.mls.mls import init_db
+from start_files.models.mls.mls import init_db
 from start_files.config import get_templates
 from start_files.routes.routes import router
 from fastapi.staticfiles import StaticFiles

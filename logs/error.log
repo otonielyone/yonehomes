@@ -1,177 +1,64 @@
-[2024-09-13 02:36:12 +0000] [442365] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:13 +0000] [442365] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:13 +0000] [442364] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:14 +0000] [442366] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:14 +0000] [442366] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:15 +0000] [442365] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:15 +0000] [442365] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:16 +0000] [442366] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:17 +0000] [442367] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:17 +0000] [442366] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:18 +0000] [442364] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:36:18 +0000] [442367] [WARNING] Invalid HTTP request received.
-[2024-09-13 02:39:50 +0000] [442360] [INFO] Handling signal: term
-[2024-09-13 02:39:50 +0000] [442366] [INFO] Shutting down
-[2024-09-13 02:39:50 +0000] [442365] [INFO] Shutting down
-[2024-09-13 02:39:50 +0000] [442367] [INFO] Shutting down
-[2024-09-13 02:39:50 +0000] [442364] [INFO] Shutting down
-[2024-09-13 02:39:51 +0000] [442366] [INFO] Waiting for application shutdown.
-[2024-09-13 02:39:51 +0000] [442366] [INFO] Application shutdown complete.
-[2024-09-13 02:39:51 +0000] [442366] [INFO] Finished server process [442366]
-[2024-09-13 02:39:51 +0000] [442365] [INFO] Waiting for application shutdown.
-[2024-09-13 02:39:51 +0000] [442365] [INFO] Application shutdown complete.
-[2024-09-13 02:39:51 +0000] [442365] [INFO] Finished server process [442365]
-[2024-09-13 02:39:51 +0000] [442360] [ERROR] Worker (pid:442366) was sent SIGTERM!
-[2024-09-13 02:39:51 +0000] [442360] [ERROR] Worker (pid:442365) was sent SIGTERM!
-[2024-09-13 02:39:51 +0000] [442367] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
-[2024-09-13 02:39:51 +0000] [442364] [INFO] Waiting for application shutdown.
-[2024-09-13 02:39:51 +0000] [442364] [INFO] Application shutdown complete.
-[2024-09-13 02:39:51 +0000] [442364] [INFO] Finished server process [442364]
-[2024-09-13 02:39:51 +0000] [442360] [ERROR] Worker (pid:442364) was sent SIGTERM!
-[2024-09-13 02:40:20 +0000] [442360] [INFO] Shutting down: Master
-[2024-09-13 02:40:21 +0000] [442360] [ERROR] Worker (pid:442367) was sent SIGKILL! Perhaps out of memory?
-[2024-09-13 02:40:21 +0000] [527939] [INFO] Starting gunicorn 23.0.0
-[2024-09-13 02:40:21 +0000] [527939] [INFO] Listening at: http://0.0.0.0:5000 (527939)
-[2024-09-13 02:40:21 +0000] [527939] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2024-09-13 02:40:21 +0000] [527941] [INFO] Booting worker with pid: 527941
-[2024-09-13 02:40:21 +0000] [527942] [INFO] Booting worker with pid: 527942
-[2024-09-13 02:40:21 +0000] [527943] [INFO] Booting worker with pid: 527943
-[2024-09-13 02:40:21 +0000] [527944] [INFO] Booting worker with pid: 527944
-[2024-09-13 02:40:22 +0000] [527942] [INFO] Started server process [527942]
-[2024-09-13 02:40:22 +0000] [527941] [INFO] Started server process [527941]
-[2024-09-13 02:40:22 +0000] [527944] [INFO] Started server process [527944]
-[2024-09-13 02:40:22 +0000] [527943] [INFO] Started server process [527943]
-[2024-09-13 02:40:22 +0000] [527942] [INFO] Waiting for application startup.
-[2024-09-13 02:40:22 +0000] [527941] [INFO] Waiting for application startup.
-[2024-09-13 02:40:22 +0000] [527944] [INFO] Waiting for application startup.
-[2024-09-13 02:40:22 +0000] [527943] [INFO] Waiting for application startup.
-[2024-09-13 02:40:22 +0000] [527942] [INFO] Application startup complete.
-[2024-09-13 02:40:22 +0000] [527941] [INFO] Application startup complete.
-[2024-09-13 02:40:22 +0000] [527944] [INFO] Application startup complete.
-[2024-09-13 02:40:22 +0000] [527943] [INFO] Application startup complete.
-[2024-09-13 02:43:36 +0000] [527939] [INFO] Handling signal: term
-[2024-09-13 02:43:36 +0000] [527941] [INFO] Shutting down
-[2024-09-13 02:43:36 +0000] [527942] [INFO] Shutting down
-[2024-09-13 02:43:36 +0000] [527944] [INFO] Shutting down
-[2024-09-13 02:43:36 +0000] [527943] [INFO] Shutting down
-[2024-09-13 02:43:36 +0000] [527941] [INFO] Waiting for application shutdown.
-[2024-09-13 02:43:36 +0000] [527944] [INFO] Waiting for application shutdown.
-[2024-09-13 02:43:36 +0000] [527943] [INFO] Waiting for application shutdown.
-[2024-09-13 02:43:36 +0000] [527942] [INFO] Waiting for application shutdown.
-[2024-09-13 02:43:36 +0000] [527941] [INFO] Application shutdown complete.
-[2024-09-13 02:43:36 +0000] [527944] [INFO] Application shutdown complete.
-[2024-09-13 02:43:36 +0000] [527941] [INFO] Finished server process [527941]
-[2024-09-13 02:43:36 +0000] [527942] [INFO] Application shutdown complete.
-[2024-09-13 02:43:36 +0000] [527943] [INFO] Application shutdown complete.
-[2024-09-13 02:43:36 +0000] [527944] [INFO] Finished server process [527944]
-[2024-09-13 02:43:36 +0000] [527942] [INFO] Finished server process [527942]
-[2024-09-13 02:43:36 +0000] [527943] [INFO] Finished server process [527943]
-[2024-09-13 02:43:36 +0000] [527939] [ERROR] Worker (pid:527941) was sent SIGTERM!
-[2024-09-13 02:43:36 +0000] [527939] [ERROR] Worker (pid:527944) was sent SIGTERM!
-[2024-09-13 02:43:36 +0000] [527939] [ERROR] Worker (pid:527943) was sent SIGTERM!
-[2024-09-13 02:43:36 +0000] [527939] [ERROR] Worker (pid:527942) was sent SIGTERM!
-[2024-09-13 02:43:36 +0000] [527939] [INFO] Shutting down: Master
-[2024-09-13 02:43:36 +0000] [528073] [INFO] Starting gunicorn 23.0.0
-[2024-09-13 02:43:36 +0000] [528073] [INFO] Listening at: http://0.0.0.0:5000 (528073)
-[2024-09-13 02:43:36 +0000] [528073] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2024-09-13 02:43:36 +0000] [528076] [INFO] Booting worker with pid: 528076
-[2024-09-13 02:43:36 +0000] [528077] [INFO] Booting worker with pid: 528077
-[2024-09-13 02:43:36 +0000] [528078] [INFO] Booting worker with pid: 528078
-[2024-09-13 02:43:37 +0000] [528079] [INFO] Booting worker with pid: 528079
-[2024-09-13 02:43:37 +0000] [528076] [INFO] Started server process [528076]
-[2024-09-13 02:43:37 +0000] [528076] [INFO] Waiting for application startup.
-[2024-09-13 02:43:37 +0000] [528076] [INFO] Application startup complete.
-[2024-09-13 02:43:38 +0000] [528077] [INFO] Started server process [528077]
-[2024-09-13 02:43:38 +0000] [528077] [INFO] Waiting for application startup.
-[2024-09-13 02:43:38 +0000] [528077] [INFO] Application startup complete.
-[2024-09-13 02:43:38 +0000] [528078] [INFO] Started server process [528078]
-[2024-09-13 02:43:38 +0000] [528078] [INFO] Waiting for application startup.
-[2024-09-13 02:43:38 +0000] [528078] [INFO] Application startup complete.
-[2024-09-13 02:43:38 +0000] [528079] [INFO] Started server process [528079]
-[2024-09-13 02:43:38 +0000] [528079] [INFO] Waiting for application startup.
-[2024-09-13 02:43:38 +0000] [528079] [INFO] Application startup complete.
-[2024-09-13 02:43:54 +0000] [528073] [INFO] Handling signal: term
-[2024-09-13 02:43:54 +0000] [528079] [INFO] Shutting down
-[2024-09-13 02:43:54 +0000] [528078] [INFO] Shutting down
-[2024-09-13 02:43:54 +0000] [528077] [INFO] Shutting down
-[2024-09-13 02:43:54 +0000] [528076] [INFO] Shutting down
-[2024-09-13 02:43:54 +0000] [528079] [INFO] Waiting for application shutdown.
-[2024-09-13 02:43:54 +0000] [528079] [INFO] Application shutdown complete.
-[2024-09-13 02:43:54 +0000] [528079] [INFO] Finished server process [528079]
-[2024-09-13 02:43:54 +0000] [528073] [ERROR] Worker (pid:528079) was sent SIGTERM!
-[2024-09-13 02:43:54 +0000] [528077] [INFO] Waiting for application shutdown.
-[2024-09-13 02:43:54 +0000] [528078] [INFO] Waiting for application shutdown.
-[2024-09-13 02:43:54 +0000] [528077] [INFO] Application shutdown complete.
-[2024-09-13 02:43:54 +0000] [528078] [INFO] Application shutdown complete.
-[2024-09-13 02:43:54 +0000] [528077] [INFO] Finished server process [528077]
-[2024-09-13 02:43:54 +0000] [528078] [INFO] Finished server process [528078]
-[2024-09-13 02:43:54 +0000] [528076] [INFO] Waiting for application shutdown.
-[2024-09-13 02:43:54 +0000] [528076] [INFO] Application shutdown complete.
-[2024-09-13 02:43:54 +0000] [528076] [INFO] Finished server process [528076]
-[2024-09-13 02:43:54 +0000] [528073] [ERROR] Worker (pid:528077) was sent SIGTERM!
-[2024-09-13 02:43:54 +0000] [528073] [ERROR] Worker (pid:528078) was sent SIGTERM!
-[2024-09-13 02:43:54 +0000] [528073] [ERROR] Worker (pid:528076) was sent SIGTERM!
-[2024-09-13 02:43:55 +0000] [528073] [INFO] Shutting down: Master
-[2024-09-13 02:43:55 +0000] [528272] [INFO] Starting gunicorn 23.0.0
-[2024-09-13 02:43:55 +0000] [528272] [INFO] Listening at: http://0.0.0.0:5000 (528272)
-[2024-09-13 02:43:55 +0000] [528272] [INFO] Using worker: uvicorn.workers.UvicornWorker
-[2024-09-13 02:43:55 +0000] [528275] [INFO] Booting worker with pid: 528275
-[2024-09-13 02:43:55 +0000] [528276] [INFO] Booting worker with pid: 528276
-[2024-09-13 02:43:55 +0000] [528277] [INFO] Booting worker with pid: 528277
-[2024-09-13 02:43:55 +0000] [528278] [INFO] Booting worker with pid: 528278
-[2024-09-13 02:43:55 +0000] [528279] [INFO] Booting worker with pid: 528279
-[2024-09-13 02:43:55 +0000] [528280] [INFO] Booting worker with pid: 528280
-[2024-09-13 02:43:55 +0000] [528281] [INFO] Booting worker with pid: 528281
-[2024-09-13 02:43:55 +0000] [528282] [INFO] Booting worker with pid: 528282
-[2024-09-13 02:43:55 +0000] [528283] [INFO] Booting worker with pid: 528283
-[2024-09-13 02:43:55 +0000] [528284] [INFO] Booting worker with pid: 528284
-[2024-09-13 02:43:55 +0000] [528285] [INFO] Booting worker with pid: 528285
-[2024-09-13 02:43:55 +0000] [528286] [INFO] Booting worker with pid: 528286
-[2024-09-13 02:43:55 +0000] [528287] [INFO] Booting worker with pid: 528287
-[2024-09-13 02:43:55 +0000] [528288] [INFO] Booting worker with pid: 528288
-[2024-09-13 02:43:55 +0000] [528289] [INFO] Booting worker with pid: 528289
-[2024-09-13 02:43:57 +0000] [528275] [INFO] Started server process [528275]
-[2024-09-13 02:43:57 +0000] [528275] [INFO] Waiting for application startup.
-[2024-09-13 02:43:57 +0000] [528275] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528283] [INFO] Started server process [528283]
-[2024-09-13 02:43:58 +0000] [528283] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528283] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528281] [INFO] Started server process [528281]
-[2024-09-13 02:43:58 +0000] [528281] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528281] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528276] [INFO] Started server process [528276]
-[2024-09-13 02:43:58 +0000] [528276] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528276] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528278] [INFO] Started server process [528278]
-[2024-09-13 02:43:58 +0000] [528278] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528278] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528279] [INFO] Started server process [528279]
-[2024-09-13 02:43:58 +0000] [528279] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528279] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528277] [INFO] Started server process [528277]
-[2024-09-13 02:43:58 +0000] [528277] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528277] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528287] [INFO] Started server process [528287]
-[2024-09-13 02:43:58 +0000] [528287] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528287] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528280] [INFO] Started server process [528280]
-[2024-09-13 02:43:58 +0000] [528280] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528280] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528282] [INFO] Started server process [528282]
-[2024-09-13 02:43:58 +0000] [528282] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528282] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528285] [INFO] Started server process [528285]
-[2024-09-13 02:43:58 +0000] [528285] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528285] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528289] [INFO] Started server process [528289]
-[2024-09-13 02:43:58 +0000] [528289] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528289] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528286] [INFO] Started server process [528286]
-[2024-09-13 02:43:58 +0000] [528286] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528286] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528288] [INFO] Started server process [528288]
-[2024-09-13 02:43:58 +0000] [528288] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528288] [INFO] Application startup complete.
-[2024-09-13 02:43:58 +0000] [528284] [INFO] Started server process [528284]
-[2024-09-13 02:43:58 +0000] [528284] [INFO] Waiting for application startup.
-[2024-09-13 02:43:58 +0000] [528284] [INFO] Application startup complete.
+[2024-09-13 04:01:23 +0000] [4205] [INFO] Shutting down: Master
+[2024-09-13 04:01:23 +0000] [90118] [INFO] Starting gunicorn 23.0.0
+[2024-09-13 04:01:23 +0000] [90118] [INFO] Listening at: http://0.0.0.0:5000 (90118)
+[2024-09-13 04:01:23 +0000] [90118] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-13 04:01:23 +0000] [90120] [INFO] Booting worker with pid: 90120
+[2024-09-13 04:01:23 +0000] [90121] [INFO] Booting worker with pid: 90121
+[2024-09-13 04:01:24 +0000] [90122] [INFO] Booting worker with pid: 90122
+[2024-09-13 04:01:24 +0000] [90130] [INFO] Booting worker with pid: 90130
+[2024-09-13 04:01:24 +0000] [90138] [INFO] Booting worker with pid: 90138
+[2024-09-13 04:01:24 +0000] [90139] [INFO] Booting worker with pid: 90139
+[2024-09-13 04:01:24 +0000] [90140] [INFO] Booting worker with pid: 90140
+[2024-09-13 04:01:24 +0000] [90148] [INFO] Booting worker with pid: 90148
+[2024-09-13 04:01:24 +0000] [90149] [INFO] Booting worker with pid: 90149
+[2024-09-13 04:01:24 +0000] [90157] [INFO] Booting worker with pid: 90157
+[2024-09-13 04:01:24 +0000] [90165] [INFO] Booting worker with pid: 90165
+[2024-09-13 04:01:24 +0000] [90166] [INFO] Booting worker with pid: 90166
+[2024-09-13 04:01:24 +0000] [90167] [INFO] Booting worker with pid: 90167
+[2024-09-13 04:01:24 +0000] [90182] [INFO] Booting worker with pid: 90182
+[2024-09-13 04:01:24 +0000] [90183] [INFO] Booting worker with pid: 90183
+[2024-09-13 04:01:26 +0000] [90121] [INFO] Started server process [90121]
+[2024-09-13 04:01:26 +0000] [90121] [INFO] Waiting for application startup.
+[2024-09-13 04:01:26 +0000] [90121] [INFO] Application startup complete.
+[2024-09-13 04:01:26 +0000] [90122] [INFO] Started server process [90122]
+[2024-09-13 04:01:26 +0000] [90122] [INFO] Waiting for application startup.
+[2024-09-13 04:01:26 +0000] [90122] [INFO] Application startup complete.
+[2024-09-13 04:01:26 +0000] [90120] [INFO] Started server process [90120]
+[2024-09-13 04:01:26 +0000] [90120] [INFO] Waiting for application startup.
+[2024-09-13 04:01:26 +0000] [90120] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90139] [INFO] Started server process [90139]
+[2024-09-13 04:01:27 +0000] [90139] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90139] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90140] [INFO] Started server process [90140]
+[2024-09-13 04:01:27 +0000] [90140] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90140] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90138] [INFO] Started server process [90138]
+[2024-09-13 04:01:27 +0000] [90138] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90138] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90130] [INFO] Started server process [90130]
+[2024-09-13 04:01:27 +0000] [90130] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90130] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90166] [INFO] Started server process [90166]
+[2024-09-13 04:01:27 +0000] [90166] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90166] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90182] [INFO] Started server process [90182]
+[2024-09-13 04:01:27 +0000] [90182] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90182] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90165] [INFO] Started server process [90165]
+[2024-09-13 04:01:27 +0000] [90165] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90165] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90148] [INFO] Started server process [90148]
+[2024-09-13 04:01:27 +0000] [90148] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90148] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90149] [INFO] Started server process [90149]
+[2024-09-13 04:01:27 +0000] [90149] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90149] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90183] [INFO] Started server process [90183]
+[2024-09-13 04:01:27 +0000] [90183] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90183] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90167] [INFO] Started server process [90167]
+[2024-09-13 04:01:27 +0000] [90167] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90167] [INFO] Application startup complete.
+[2024-09-13 04:01:27 +0000] [90157] [INFO] Started server process [90157]
+[2024-09-13 04:01:27 +0000] [90157] [INFO] Waiting for application startup.
+[2024-09-13 04:01:27 +0000] [90157] [INFO] Application startup complete.

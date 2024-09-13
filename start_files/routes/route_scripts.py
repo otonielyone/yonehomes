@@ -1,5 +1,5 @@
 from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException
-from fastapi_project.start_files.models.mls.mls import SessionLocal, Mls, Base, engine, replace_old_db
+from start_files.models.mls.mls import SessionLocal, Mls, Base, engine, replace_old_db
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.support import expected_conditions as EC
