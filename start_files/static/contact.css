@@ -48,9 +48,20 @@ padding-bottom: 5px;
     color: #333; /* Darker color for the heading */
 }
 
+textarea {
+    text-align: center; /* Center text inside textarea */
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+textarea::placeholder {
+    text-align: center;
+}
+
+
 /* Form Group Styling */
 .form-group {
     margin-bottom: 15px;
+    text-align: center; 
 }
 
 /* Label Styling */

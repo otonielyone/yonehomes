@@ -67,8 +67,10 @@ async def handle_contact_form(
     last_name: str = Form(...),
     email: str = Form(...),
     phone: str = Form(None),
-    general_inquiry: str = Form(...)):
+    general_inquiry: str = Form(...)
+):
     logger.info(f"Received contact form submission from {email}")
+
     message = Mail(
         from_email=SENDER,
         to_emails=RECIPIENT,
@@ -79,16 +81,20 @@ async def handle_contact_form(
         <p>Email: {email}</p>
         <p>Phone: {phone}</p>
         <p>General Inquiry: {general_inquiry}</p>
-        """)
+        """
+    )
+
     try:
         sg = SendGridAPIClient(SENDGRID_API_KEY)
         response = sg.send(message)
         logger.info(f"SendGrid response status code: {response.status_code}")
-    except Exception:
-        logger.error(f"Error sending email")
-        raise HTTPException(status_code=500, detail=f"Error sending email")
+    except Exception as e:
+        logger.error(f"Error sending email: {e}")
+        raise HTTPException(status_code=500, detail="Error sending email")
+
     logger.info("Contact form submission successful, redirecting user.")
     return RedirectResponse(url="/contact", status_code=303)
+
 
 @router.get("/api/filter_rental_export", response_class=JSONResponse, name="filter")
 async def sort_rental_endpoint(max_price: int = 2500):
@@ -97,7 +103,7 @@ async def sort_rental_endpoint(max_price: int = 2500):
     return f"This sorted list has {len(sorted)} listings."
 
 @router.get("/api/populate_rental_database", response_model=dict, name="import")
-async def get_rental_data(background_tasks: BackgroundTasks, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, min_images: int = 2, max_images: int = 50, max_price: int = 2500):
+async def get_rental_data(background_tasks: BackgroundTasks, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, min_images: int = 2, max_images: int = 50, max_price: int =3000):
     logger.info("Starting MLS data gathering task")
     background_tasks.add_task(start_rentals, concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
     return JSONResponse(content={"message": "MLS data gathering task started in the background"})

@@ -165,7 +165,6 @@
 
 /* Custom Section Background */
 .custom-section {
-    background-image: url('/static/icons/rental-custom.jpg');
     background-size: cover;
     background-position: center;
     margin-top: 20px;
