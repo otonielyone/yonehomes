@@ -4524,3 +4524,624 @@
 2024-09-13 03:08:37,210 - start_files.routes.route_scripts - INFO - Starting database session
 2024-09-13 03:08:37,218 - start_files.routes.route_scripts - INFO - VAST2031628 added to database!
 2024-09-13 03:08:37,471 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2076516.
+2024-09-13 03:08:37,584 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:08:37,594 - start_files.routes.route_scripts - INFO - VAPW2076516 added to database!
+2024-09-13 03:08:38,135 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2072074
+2024-09-13 03:08:38,157 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2201136
+2024-09-13 03:08:38,361 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAR173856
+2024-09-13 03:08:38,418 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2200874
+2024-09-13 03:08:38,617 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAX2035644
+2024-09-13 03:08:39,851 - start_files.routes.route_scripts - INFO - Entering VAFX2191882 in search bar
+2024-09-13 03:08:39,903 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:08:39,916 - start_files.routes.route_scripts - INFO - Entering VAPW2075536 in search bar
+2024-09-13 03:08:39,986 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:08:41,083 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:08:41,094 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:08:41,150 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2191882 on results page
+2024-09-13 03:08:41,173 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2075536 on results page
+2024-09-13 03:08:41,279 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:08:41,313 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:08:41,825 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2191882
+2024-09-13 03:08:41,915 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2075536
+2024-09-13 03:08:42,549 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2077028.
+2024-09-13 03:08:43,582 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2077028
+2024-09-13 03:08:46,165 - start_files.routes.route_scripts - INFO - Entering VAAX2035644 in search bar
+2024-09-13 03:08:46,199 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:08:46,403 - start_files.routes.route_scripts - INFO - Entering VAAR173856 in search bar
+2024-09-13 03:08:46,446 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:08:47,211 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:08:47,492 - start_files.routes.route_scripts - INFO - Location for VAAR173856 confirmed
+2024-09-13 03:08:47,602 - start_files.routes.route_scripts - INFO - Entering VAPW2072074 in search bar
+2024-09-13 03:08:47,639 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2200874.
+2024-09-13 03:08:47,662 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:08:48,144 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAR173856 on results page
+2024-09-13 03:08:48,187 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2201136.
+2024-09-13 03:08:48,307 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAX2035644 on results page
+2024-09-13 03:08:48,366 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:08:48,492 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:08:48,673 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:08:48,713 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2072074 on results page
+2024-09-13 03:08:48,829 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:08:48,929 - start_files.routes.route_scripts - INFO - Clicking image section for VAAR173856
+2024-09-13 03:08:48,976 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2200874
+2024-09-13 03:08:49,130 - start_files.routes.route_scripts - INFO - Clicking image section for VAAX2035644
+2024-09-13 03:08:49,373 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2072074
+2024-09-13 03:08:49,859 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2201136
+2024-09-13 03:08:52,327 - start_files.routes.route_scripts - INFO - Entering VAPW2077028 in search bar
+2024-09-13 03:08:52,453 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:08:53,076 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2075536.
+2024-09-13 03:08:53,148 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:08:53,152 - start_files.routes.route_scripts - INFO - VAPW2075536 added to database!
+2024-09-13 03:08:53,466 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:08:53,490 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAR173856.
+2024-09-13 03:08:53,504 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2077028 on results page
+2024-09-13 03:08:53,556 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:08:53,562 - start_files.routes.route_scripts - INFO - VAAR173856 added to database!
+2024-09-13 03:08:53,622 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:08:53,694 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2198884
+2024-09-13 03:08:54,161 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2077028
+2024-09-13 03:08:54,243 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2077974
+2024-09-13 03:08:55,186 - start_files.routes.route_scripts - INFO - Entering VAFX2201136 in search bar
+2024-09-13 03:08:55,275 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2072074.
+2024-09-13 03:08:55,288 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:08:55,341 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:08:55,346 - start_files.routes.route_scripts - INFO - VAPW2072074 added to database!
+2024-09-13 03:08:55,353 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2191882.
+2024-09-13 03:08:55,424 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:08:55,433 - start_files.routes.route_scripts - INFO - VAFX2191882 added to database!
+2024-09-13 03:08:55,770 - start_files.routes.route_scripts - INFO - Entering VAFX2200874 in search bar
+2024-09-13 03:08:55,816 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:08:56,030 - start_files.routes.route_scripts - INFO - Setting up driver for VALO2077984
+2024-09-13 03:08:56,130 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2077298
+2024-09-13 03:08:56,302 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:08:56,827 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:08:56,944 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2201136 on results page
+2024-09-13 03:08:57,063 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:08:57,775 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2201136
+2024-09-13 03:08:57,833 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2077974.
+2024-09-13 03:08:57,881 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2200874 on results page
+2024-09-13 03:08:57,977 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:08:58,530 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2200874
+2024-09-13 03:08:59,526 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2198884.
+2024-09-13 03:09:01,179 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2198884
+2024-09-13 03:09:01,405 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2077974
+2024-09-13 03:09:07,831 - start_files.routes.route_scripts - INFO - Entering VAPW2077974 in search bar
+2024-09-13 03:09:07,927 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:08,938 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:08,968 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2077974 on results page
+2024-09-13 03:09:09,078 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:09,627 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2077974
+2024-09-13 03:09:10,170 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2184390.
+2024-09-13 03:09:10,220 - start_files.routes.route_scripts - INFO - Entering VAFX2198884 in search bar
+2024-09-13 03:09:10,245 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:10,252 - start_files.routes.route_scripts - INFO - VAFX2184390 added to database!
+2024-09-13 03:09:10,277 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:10,780 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2077298.
+2024-09-13 03:09:10,817 - start_files.routes.route_scripts - INFO - Beginning login for MLS VALO2077984.
+2024-09-13 03:09:10,947 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2077290
+2024-09-13 03:09:11,300 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:11,344 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2198884 on results page
+2024-09-13 03:09:11,350 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAX2035644.
+2024-09-13 03:09:11,432 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:11,442 - start_files.routes.route_scripts - INFO - VAAX2035644 added to database!
+2024-09-13 03:09:11,582 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:12,080 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2077298
+2024-09-13 03:09:12,093 - start_files.routes.route_scripts - INFO - Starting to search for MLS VALO2077984
+2024-09-13 03:09:12,122 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2198884
+2024-09-13 03:09:12,295 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2195196
+2024-09-13 03:09:13,061 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2077290.
+2024-09-13 03:09:13,390 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2200874.
+2024-09-13 03:09:13,459 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:13,465 - start_files.routes.route_scripts - INFO - VAFX2200874 added to database!
+2024-09-13 03:09:14,609 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2077290
+2024-09-13 03:09:14,659 - start_files.routes.route_scripts - INFO - Setting up driver for VALO2077210
+2024-09-13 03:09:14,876 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2077974.
+2024-09-13 03:09:15,010 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:15,026 - start_files.routes.route_scripts - INFO - VAPW2077974 added to database!
+2024-09-13 03:09:15,275 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2195196.
+2024-09-13 03:09:15,645 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2077028.
+2024-09-13 03:09:15,735 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:15,753 - start_files.routes.route_scripts - INFO - VAPW2077028 added to database!
+2024-09-13 03:09:16,041 - start_files.routes.route_scripts - INFO - Setting up driver for VAST2031676
+2024-09-13 03:09:16,470 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2179782
+2024-09-13 03:09:16,568 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2195196
+2024-09-13 03:09:18,090 - start_files.routes.route_scripts - INFO - Beginning login for MLS VALO2077210.
+2024-09-13 03:09:19,957 - start_files.routes.route_scripts - INFO - Entering VAPW2077298 in search bar
+2024-09-13 03:09:20,005 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:20,252 - start_files.routes.route_scripts - INFO - Entering VALO2077984 in search bar
+2024-09-13 03:09:20,298 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:21,027 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:21,071 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2077298 on results page
+2024-09-13 03:09:21,227 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:21,312 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:21,354 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VALO2077984 on results page
+2024-09-13 03:09:21,476 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:21,805 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2077298
+2024-09-13 03:09:22,135 - start_files.routes.route_scripts - INFO - Clicking image section for VALO2077984
+2024-09-13 03:09:23,006 - start_files.routes.route_scripts - INFO - Entering VAPW2077290 in search bar
+2024-09-13 03:09:23,090 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:24,420 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:24,453 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2077290 on results page
+2024-09-13 03:09:24,593 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:25,142 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2077290
+2024-09-13 03:09:25,258 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAST2031676.
+2024-09-13 03:09:25,281 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2179782.
+2024-09-13 03:09:26,255 - start_files.routes.route_scripts - INFO - Setting up driver for VAAX2037902
+2024-09-13 03:09:27,853 - start_files.routes.route_scripts - INFO - Entering VAFX2195196 in search bar
+2024-09-13 03:09:27,927 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:29,416 - start_files.routes.route_scripts - INFO - Starting to search for MLS VALO2077210
+2024-09-13 03:09:29,434 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAST2031676
+2024-09-13 03:09:29,469 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2179782
+2024-09-13 03:09:29,575 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:29,623 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2195196 on results page
+2024-09-13 03:09:29,746 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:30,348 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAX2037902.
+2024-09-13 03:09:30,809 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2195196
+2024-09-13 03:09:31,513 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAX2037902
+2024-09-13 03:09:35,517 - start_files.routes.route_scripts - INFO - Entering VAFX2179782 in search bar
+2024-09-13 03:09:35,569 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:35,956 - start_files.routes.route_scripts - INFO - Entering VAST2031676 in search bar
+2024-09-13 03:09:36,032 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:36,599 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:36,619 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2201136.
+2024-09-13 03:09:36,695 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:36,703 - start_files.routes.route_scripts - INFO - VAFX2201136 added to database!
+2024-09-13 03:09:36,738 - start_files.routes.route_scripts - INFO - Entering VALO2077210 in search bar
+2024-09-13 03:09:36,806 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:37,043 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:37,095 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAST2031676 on results page
+2024-09-13 03:09:37,153 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2179782 on results page
+2024-09-13 03:09:37,230 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2077298.
+2024-09-13 03:09:37,258 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:37,301 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:37,305 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:37,312 - start_files.routes.route_scripts - INFO - VAPW2077298 added to database!
+2024-09-13 03:09:37,456 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2078344
+2024-09-13 03:09:37,819 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:37,826 - start_files.routes.route_scripts - INFO - Clicking image section for VAST2031676
+2024-09-13 03:09:37,850 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VALO2077210 on results page
+2024-09-13 03:09:37,855 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2179782
+2024-09-13 03:09:38,012 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:38,071 - start_files.routes.route_scripts - INFO - Setting up driver for VAAR2047766
+2024-09-13 03:09:38,604 - start_files.routes.route_scripts - INFO - Clicking image section for VALO2077210
+2024-09-13 03:09:40,223 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2078344.
+2024-09-13 03:09:41,415 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2078344
+2024-09-13 03:09:41,927 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAST2031676.
+2024-09-13 03:09:42,001 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:42,008 - start_files.routes.route_scripts - INFO - VAST2031676 added to database!
+2024-09-13 03:09:42,485 - start_files.routes.route_scripts - INFO - Setting up driver for VAAR2048258
+2024-09-13 03:09:43,473 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAR2047766.
+2024-09-13 03:09:43,486 - start_files.routes.route_scripts - INFO - Entering VAAX2037902 in search bar
+2024-09-13 03:09:43,541 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:44,172 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VALO2077984.
+2024-09-13 03:09:44,245 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:44,253 - start_files.routes.route_scripts - INFO - VALO2077984 added to database!
+2024-09-13 03:09:44,692 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:44,712 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAR2047766
+2024-09-13 03:09:44,736 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAX2037902 on results page
+2024-09-13 03:09:44,883 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:44,985 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2195402
+2024-09-13 03:09:45,441 - start_files.routes.route_scripts - INFO - Clicking image section for VAAX2037902
+2024-09-13 03:09:50,892 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAR2048258.
+2024-09-13 03:09:50,979 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2195402.
+2024-09-13 03:09:51,985 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAR2048258
+2024-09-13 03:09:52,095 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2195402
+2024-09-13 03:09:53,182 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VALO2077210.
+2024-09-13 03:09:53,255 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:53,264 - start_files.routes.route_scripts - INFO - VALO2077210 added to database!
+2024-09-13 03:09:53,290 - start_files.routes.route_scripts - INFO - Entering VAPW2078344 in search bar
+2024-09-13 03:09:53,342 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:53,479 - start_files.routes.route_scripts - INFO - Entering VAAR2047766 in search bar
+2024-09-13 03:09:53,618 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:09:53,945 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2022196
+2024-09-13 03:09:54,356 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:54,397 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2078344 on results page
+2024-09-13 03:09:54,489 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:54,629 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:09:54,662 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAR2047766 on results page
+2024-09-13 03:09:54,799 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:09:55,037 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2078344
+2024-09-13 03:09:55,337 - start_files.routes.route_scripts - INFO - Clicking image section for VAAR2047766
+2024-09-13 03:09:59,873 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2198884.
+2024-09-13 03:09:59,951 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:09:59,958 - start_files.routes.route_scripts - INFO - VAFX2198884 added to database!
+2024-09-13 03:10:00,452 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2201084
+2024-09-13 03:10:01,805 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2022196.
+2024-09-13 03:10:02,977 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2022196
+2024-09-13 03:10:03,125 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2201084.
+2024-09-13 03:10:03,300 - start_files.routes.route_scripts - INFO - Entering VAAR2048258 in search bar
+2024-09-13 03:10:03,341 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:03,863 - start_files.routes.route_scripts - INFO - Entering VAFX2195402 in search bar
+2024-09-13 03:10:03,914 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:04,229 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2201084
+2024-09-13 03:10:04,500 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:04,534 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAR2048258 on results page
+2024-09-13 03:10:04,622 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:04,928 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:04,971 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2195402 on results page
+2024-09-13 03:10:05,084 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:05,155 - start_files.routes.route_scripts - INFO - Clicking image section for VAAR2048258
+2024-09-13 03:10:05,636 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2195402
+2024-09-13 03:10:06,541 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2179782.
+2024-09-13 03:10:06,609 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:06,616 - start_files.routes.route_scripts - INFO - VAFX2179782 added to database!
+2024-09-13 03:10:07,288 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2198256
+2024-09-13 03:10:08,272 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAX2037902.
+2024-09-13 03:10:08,341 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:08,347 - start_files.routes.route_scripts - INFO - VAAX2037902 added to database!
+2024-09-13 03:10:08,387 - start_files.routes.route_scripts - INFO - Entering VAFX2022196 in search bar
+2024-09-13 03:10:08,485 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:09,021 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2199656
+2024-09-13 03:10:09,499 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:10,175 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAR2047766.
+2024-09-13 03:10:10,253 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:10,259 - start_files.routes.route_scripts - INFO - VAAR2047766 added to database!
+2024-09-13 03:10:10,724 - start_files.routes.route_scripts - INFO - Setting up driver for VALO2079636
+2024-09-13 03:10:12,057 - start_files.routes.route_scripts - INFO - Entering VAFX2201084 in search bar
+2024-09-13 03:10:12,091 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:12,354 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2022196 on results page
+2024-09-13 03:10:12,478 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:13,020 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2022196
+2024-09-13 03:10:13,109 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:13,513 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2198256.
+2024-09-13 03:10:14,959 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2201084 on results page
+2024-09-13 03:10:15,060 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:15,110 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2198256
+2024-09-13 03:10:15,447 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2199656.
+2024-09-13 03:10:15,607 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2201084
+2024-09-13 03:10:18,393 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2195402.
+2024-09-13 03:10:18,464 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:18,470 - start_files.routes.route_scripts - INFO - VAFX2195402 added to database!
+2024-09-13 03:10:19,006 - start_files.routes.route_scripts - INFO - Beginning login for MLS VALO2079636.
+2024-09-13 03:10:19,008 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2199660
+2024-09-13 03:10:21,621 - start_files.routes.route_scripts - INFO - Starting to search for MLS VALO2079636
+2024-09-13 03:10:21,694 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2199656
+2024-09-13 03:10:21,967 - start_files.routes.route_scripts - INFO - Entering VAFX2198256 in search bar
+2024-09-13 03:10:22,070 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:23,091 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:23,136 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2198256 on results page
+2024-09-13 03:10:23,214 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAR2048258.
+2024-09-13 03:10:23,284 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:23,285 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:23,291 - start_files.routes.route_scripts - INFO - VAAR2048258 added to database!
+2024-09-13 03:10:23,822 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2198256
+2024-09-13 03:10:24,073 - start_files.routes.route_scripts - INFO - Setting up driver for VAAX2037794
+2024-09-13 03:10:24,370 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2199660.
+2024-09-13 03:10:25,897 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2078344.
+2024-09-13 03:10:25,969 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:25,977 - start_files.routes.route_scripts - INFO - VAPW2078344 added to database!
+2024-09-13 03:10:26,034 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2199660
+2024-09-13 03:10:26,467 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2200586
+2024-09-13 03:10:28,863 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAX2037794.
+2024-09-13 03:10:29,592 - start_files.routes.route_scripts - INFO - Entering VALO2079636 in search bar
+2024-09-13 03:10:29,638 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:29,813 - start_files.routes.route_scripts - INFO - Entering VAFX2199656 in search bar
+2024-09-13 03:10:29,874 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:30,011 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAX2037794
+2024-09-13 03:10:30,653 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:30,697 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VALO2079636 on results page
+2024-09-13 03:10:30,803 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:30,885 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:30,916 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2199656 on results page
+2024-09-13 03:10:31,064 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:31,342 - start_files.routes.route_scripts - INFO - Clicking image section for VALO2079636
+2024-09-13 03:10:31,603 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2199656
+2024-09-13 03:10:33,237 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2200586.
+2024-09-13 03:10:34,261 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2200586
+2024-09-13 03:10:35,695 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2199656.
+2024-09-13 03:10:35,762 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:35,768 - start_files.routes.route_scripts - INFO - VAFX2199656 added to database!
+2024-09-13 03:10:36,236 - start_files.routes.route_scripts - INFO - Setting up driver for VAAX2037716
+2024-09-13 03:10:40,697 - start_files.routes.route_scripts - INFO - Entering VAFX2199660 in search bar
+2024-09-13 03:10:40,730 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:41,271 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2198256.
+2024-09-13 03:10:41,344 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:41,351 - start_files.routes.route_scripts - INFO - VAFX2198256 added to database!
+2024-09-13 03:10:41,484 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2022196.
+2024-09-13 03:10:41,557 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:41,566 - start_files.routes.route_scripts - INFO - VAFX2022196 added to database!
+2024-09-13 03:10:41,623 - start_files.routes.route_scripts - INFO - Entering VAAX2037794 in search bar
+2024-09-13 03:10:41,639 - start_files.routes.route_scripts - INFO - Entering VAFX2200586 in search bar
+2024-09-13 03:10:41,670 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:41,690 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:41,752 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:41,793 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2199660 on results page
+2024-09-13 03:10:41,918 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:42,092 - start_files.routes.route_scripts - INFO - Setting up driver for VALO2079448
+2024-09-13 03:10:42,367 - start_files.routes.route_scripts - INFO - Setting up driver for VAAX2037368
+2024-09-13 03:10:42,441 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAX2037716.
+2024-09-13 03:10:42,454 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2199660
+2024-09-13 03:10:42,699 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:42,714 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:42,756 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2200586 on results page
+2024-09-13 03:10:42,761 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAX2037794 on results page
+2024-09-13 03:10:42,782 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2201084.
+2024-09-13 03:10:42,883 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:42,888 - start_files.routes.route_scripts - INFO - VAFX2201084 added to database!
+2024-09-13 03:10:42,937 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:42,949 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:43,491 - start_files.routes.route_scripts - INFO - Clicking image section for VAAX2037794
+2024-09-13 03:10:43,524 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2200586
+2024-09-13 03:10:43,764 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2198768
+2024-09-13 03:10:43,846 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAX2037716
+2024-09-13 03:10:44,201 - start_files.routes.route_scripts - INFO - Beginning login for MLS VALO2079448.
+2024-09-13 03:10:45,877 - start_files.routes.route_scripts - INFO - Starting to search for MLS VALO2079448
+2024-09-13 03:10:45,988 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAX2037368.
+2024-09-13 03:10:47,162 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAX2037368
+2024-09-13 03:10:48,049 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2198768.
+2024-09-13 03:10:49,195 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2198768
+2024-09-13 03:10:49,937 - start_files.routes.route_scripts - INFO - Entering VAAX2037716 in search bar
+2024-09-13 03:10:50,031 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:51,042 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:51,075 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAX2037716 on results page
+2024-09-13 03:10:51,213 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:51,488 - start_files.routes.route_scripts - INFO - Entering VALO2079448 in search bar
+2024-09-13 03:10:51,600 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:51,749 - start_files.routes.route_scripts - INFO - Clicking image section for VAAX2037716
+2024-09-13 03:10:52,741 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:52,802 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VALO2079448 on results page
+2024-09-13 03:10:52,924 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:53,002 - start_files.routes.route_scripts - INFO - Entering VAAX2037368 in search bar
+2024-09-13 03:10:53,039 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:53,480 - start_files.routes.route_scripts - INFO - Clicking image section for VALO2079448
+2024-09-13 03:10:54,250 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:54,283 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAX2037368 on results page
+2024-09-13 03:10:54,378 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:54,891 - start_files.routes.route_scripts - INFO - Entering VAFX2198768 in search bar
+2024-09-13 03:10:54,941 - start_files.routes.route_scripts - INFO - Clicking image section for VAAX2037368
+2024-09-13 03:10:54,973 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:10:55,991 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:10:56,043 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2198768 on results page
+2024-09-13 03:10:56,222 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:10:56,842 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2198768
+2024-09-13 03:10:57,622 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VALO2079636.
+2024-09-13 03:10:57,698 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:10:57,704 - start_files.routes.route_scripts - INFO - VALO2079636 added to database!
+2024-09-13 03:10:58,180 - start_files.routes.route_scripts - INFO - Setting up driver for VAMN2006972
+2024-09-13 03:11:01,526 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAMN2006972.
+2024-09-13 03:11:02,535 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAMN2006972
+2024-09-13 03:11:07,488 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2198768.
+2024-09-13 03:11:07,555 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:07,561 - start_files.routes.route_scripts - INFO - VAFX2198768 added to database!
+2024-09-13 03:11:08,036 - start_files.routes.route_scripts - INFO - Setting up driver for VAAX2037558
+2024-09-13 03:11:08,180 - start_files.routes.route_scripts - INFO - Entering VAMN2006972 in search bar
+2024-09-13 03:11:08,218 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:08,561 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2200586.
+2024-09-13 03:11:08,629 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:08,635 - start_files.routes.route_scripts - INFO - VAFX2200586 added to database!
+2024-09-13 03:11:09,150 - start_files.routes.route_scripts - INFO - Setting up driver for VALO2078932
+2024-09-13 03:11:09,230 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:09,262 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAMN2006972 on results page
+2024-09-13 03:11:09,359 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:09,964 - start_files.routes.route_scripts - INFO - Clicking image section for VAMN2006972
+2024-09-13 03:11:11,145 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAX2037558.
+2024-09-13 03:11:11,966 - start_files.routes.route_scripts - INFO - Beginning login for MLS VALO2078932.
+2024-09-13 03:11:12,203 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAX2037558
+2024-09-13 03:11:12,981 - start_files.routes.route_scripts - INFO - Starting to search for MLS VALO2078932
+2024-09-13 03:11:16,643 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAX2037368.
+2024-09-13 03:11:16,708 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:16,714 - start_files.routes.route_scripts - INFO - VAAX2037368 added to database!
+2024-09-13 03:11:16,741 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAX2037716.
+2024-09-13 03:11:16,812 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:16,819 - start_files.routes.route_scripts - INFO - VAAX2037716 added to database!
+2024-09-13 03:11:17,241 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAFX2199660.
+2024-09-13 03:11:17,260 - start_files.routes.route_scripts - INFO - Setting up driver for VAST2032362
+2024-09-13 03:11:17,334 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:17,338 - start_files.routes.route_scripts - INFO - VAFX2199660 added to database!
+2024-09-13 03:11:17,551 - start_files.routes.route_scripts - INFO - Setting up driver for VAAR2047798
+2024-09-13 03:11:17,775 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VALO2079448.
+2024-09-13 03:11:17,845 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:17,849 - start_files.routes.route_scripts - INFO - VALO2079448 added to database!
+2024-09-13 03:11:18,023 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2078032
+2024-09-13 03:11:18,150 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAX2037794.
+2024-09-13 03:11:18,220 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:18,224 - start_files.routes.route_scripts - INFO - VAAX2037794 added to database!
+2024-09-13 03:11:18,327 - start_files.routes.route_scripts - INFO - Entering VAAX2037558 in search bar
+2024-09-13 03:11:18,379 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:18,543 - start_files.routes.route_scripts - INFO - Setting up driver for VAST2032282
+2024-09-13 03:11:18,901 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2078106
+2024-09-13 03:11:18,987 - start_files.routes.route_scripts - INFO - Entering VALO2078932 in search bar
+2024-09-13 03:11:19,033 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:19,391 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:19,422 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAX2037558 on results page
+2024-09-13 03:11:19,550 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:20,076 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:20,129 - start_files.routes.route_scripts - INFO - Clicking image section for VAAX2037558
+2024-09-13 03:11:20,133 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VALO2078932 on results page
+2024-09-13 03:11:20,229 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:21,252 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAST2032282.
+2024-09-13 03:11:23,722 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2078106.
+2024-09-13 03:11:23,842 - start_files.routes.route_scripts - INFO - Clicking image section for VALO2078932
+2024-09-13 03:11:24,015 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2078032.
+2024-09-13 03:11:24,128 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAR2047798.
+2024-09-13 03:11:24,412 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAST2032282
+2024-09-13 03:11:25,378 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAR2047798
+2024-09-13 03:11:25,421 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAST2032362.
+2024-09-13 03:11:25,867 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2078106
+2024-09-13 03:11:26,140 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2078032
+2024-09-13 03:11:26,483 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAST2032362
+2024-09-13 03:11:30,719 - start_files.routes.route_scripts - INFO - Entering VAST2032282 in search bar
+2024-09-13 03:11:30,773 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:31,795 - start_files.routes.route_scripts - INFO - Entering VAAR2047798 in search bar
+2024-09-13 03:11:31,889 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:32,058 - start_files.routes.route_scripts - INFO - Entering VAPW2078032 in search bar
+2024-09-13 03:11:32,102 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:32,134 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:32,178 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAST2032282 on results page
+2024-09-13 03:11:32,364 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:32,410 - start_files.routes.route_scripts - INFO - Entering VAPW2078106 in search bar
+2024-09-13 03:11:32,487 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:32,902 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:32,940 - start_files.routes.route_scripts - INFO - Clicking image section for VAST2032282
+2024-09-13 03:11:33,164 - start_files.routes.route_scripts - INFO - Entering VAST2032362 in search bar
+2024-09-13 03:11:33,208 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:33,404 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:33,441 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2078032 on results page
+2024-09-13 03:11:33,500 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:33,505 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAR2047798 on results page
+2024-09-13 03:11:33,556 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:33,610 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:34,091 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2078106 on results page
+2024-09-13 03:11:34,149 - start_files.routes.route_scripts - INFO - Clicking image section for VAAR2047798
+2024-09-13 03:11:34,184 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2078032
+2024-09-13 03:11:34,204 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:34,222 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:34,749 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2078106
+2024-09-13 03:11:35,111 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAST2032362 on results page
+2024-09-13 03:11:35,234 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:35,868 - start_files.routes.route_scripts - INFO - Clicking image section for VAST2032362
+2024-09-13 03:11:42,960 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAMN2006972.
+2024-09-13 03:11:43,027 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:43,033 - start_files.routes.route_scripts - INFO - VAMN2006972 added to database!
+2024-09-13 03:11:43,483 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VALO2078932.
+2024-09-13 03:11:43,529 - start_files.routes.route_scripts - INFO - Setting up driver for VAAR2047770
+2024-09-13 03:11:43,549 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:43,555 - start_files.routes.route_scripts - INFO - VALO2078932 added to database!
+2024-09-13 03:11:43,672 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAX2037558.
+2024-09-13 03:11:43,737 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:43,743 - start_files.routes.route_scripts - INFO - VAAX2037558 added to database!
+2024-09-13 03:11:44,048 - start_files.routes.route_scripts - INFO - Setting up driver for VAAR2047666
+2024-09-13 03:11:44,398 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2077798
+2024-09-13 03:11:45,010 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAR2047770.
+2024-09-13 03:11:46,179 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAST2032282.
+2024-09-13 03:11:46,214 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2078032.
+2024-09-13 03:11:46,252 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:46,258 - start_files.routes.route_scripts - INFO - VAST2032282 added to database!
+2024-09-13 03:11:46,282 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:46,289 - start_files.routes.route_scripts - INFO - VAPW2078032 added to database!
+2024-09-13 03:11:46,639 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAR2047666.
+2024-09-13 03:11:46,800 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAR2047770
+2024-09-13 03:11:47,013 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAR2047798.
+2024-09-13 03:11:47,060 - start_files.routes.route_scripts - INFO - Setting up driver for VALO2078148
+2024-09-13 03:11:47,067 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2077568
+2024-09-13 03:11:47,099 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:47,105 - start_files.routes.route_scripts - INFO - VAAR2047798 added to database!
+2024-09-13 03:11:47,491 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2077798.
+2024-09-13 03:11:47,519 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2078106.
+2024-09-13 03:11:47,607 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:11:47,611 - start_files.routes.route_scripts - INFO - VAPW2078106 added to database!
+2024-09-13 03:11:47,814 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAR2047666
+2024-09-13 03:11:47,819 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2077208
+2024-09-13 03:11:48,319 - start_files.routes.route_scripts - INFO - Setting up driver for VAPW2076518
+2024-09-13 03:11:48,618 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2077798
+2024-09-13 03:11:51,899 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2077568.
+2024-09-13 03:11:52,230 - start_files.routes.route_scripts - INFO - Beginning login for MLS VALO2078148.
+2024-09-13 03:11:53,944 - start_files.routes.route_scripts - INFO - Starting to search for MLS VALO2078148
+2024-09-13 03:11:54,034 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2076518.
+2024-09-13 03:11:55,095 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2077568
+2024-09-13 03:11:55,224 - start_files.routes.route_scripts - INFO - Entering VAAR2047770 in search bar
+2024-09-13 03:11:55,272 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:55,705 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2076518
+2024-09-13 03:11:56,284 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:56,322 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAR2047770 on results page
+2024-09-13 03:11:56,460 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:57,442 - start_files.routes.route_scripts - INFO - Entering VAPW2077798 in search bar
+2024-09-13 03:11:57,481 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:57,514 - start_files.routes.route_scripts - INFO - Clicking image section for VAAR2047770
+2024-09-13 03:11:57,830 - start_files.routes.route_scripts - INFO - Entering VAAR2047666 in search bar
+2024-09-13 03:11:57,880 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:11:58,892 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:58,928 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAR2047666 on results page
+2024-09-13 03:11:59,025 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:59,284 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:11:59,319 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2077798 on results page
+2024-09-13 03:11:59,437 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:11:59,562 - start_files.routes.route_scripts - INFO - Clicking image section for VAAR2047666
+2024-09-13 03:12:00,015 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2077798
+2024-09-13 03:12:00,328 - start_files.routes.route_scripts - INFO - Entering VALO2078148 in search bar
+2024-09-13 03:12:00,369 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:12:01,381 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:12:02,013 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAPW2077208.
+2024-09-13 03:12:02,096 - start_files.routes.route_scripts - INFO - Entering VAPW2076518 in search bar
+2024-09-13 03:12:02,171 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VALO2078148 on results page
+2024-09-13 03:12:02,174 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:12:02,224 - start_files.routes.route_scripts - INFO - Entering VAPW2077568 in search bar
+2024-09-13 03:12:02,273 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:12:02,293 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:12:02,687 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAPW2077208
+2024-09-13 03:12:02,870 - start_files.routes.route_scripts - INFO - Clicking image section for VALO2078148
+2024-09-13 03:12:03,194 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:12:03,287 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:12:04,042 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAST2032362.
+2024-09-13 03:12:04,111 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:12:04,117 - start_files.routes.route_scripts - INFO - VAST2032362 added to database!
+2024-09-13 03:12:04,172 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2076518 on results page
+2024-09-13 03:12:04,265 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:12:04,348 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2077568 on results page
+2024-09-13 03:12:04,483 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:12:04,776 - start_files.routes.route_scripts - INFO - Setting up driver for VAAR2045984
+2024-09-13 03:12:04,814 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2076518
+2024-09-13 03:12:06,597 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2077568
+2024-09-13 03:12:11,410 - start_files.routes.route_scripts - INFO - Entering VAPW2077208 in search bar
+2024-09-13 03:12:11,505 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:12:12,520 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:12:13,360 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAPW2077208 on results page
+2024-09-13 03:12:13,406 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAR2045984.
+2024-09-13 03:12:13,457 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:12:14,096 - start_files.routes.route_scripts - INFO - Clicking image section for VAPW2077208
+2024-09-13 03:12:15,032 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAR2045984
+2024-09-13 03:12:15,200 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAR2047770.
+2024-09-13 03:12:15,210 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2076518.
+2024-09-13 03:12:15,268 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:12:15,280 - start_files.routes.route_scripts - INFO - VAAR2047770 added to database!
+2024-09-13 03:12:15,286 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:12:15,289 - start_files.routes.route_scripts - INFO - VAPW2076518 added to database!
+2024-09-13 03:12:15,810 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2191404
+2024-09-13 03:12:15,814 - start_files.routes.route_scripts - INFO - Setting up driver for VAST2030278
+2024-09-13 03:12:16,348 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2077798.
+2024-09-13 03:12:16,419 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:12:16,427 - start_files.routes.route_scripts - INFO - VAPW2077798 added to database!
+2024-09-13 03:12:16,929 - start_files.routes.route_scripts - INFO - Setting up driver for VAFX2188894
+2024-09-13 03:12:20,102 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2191404.
+2024-09-13 03:12:20,115 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAST2030278.
+2024-09-13 03:12:21,263 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2191404
+2024-09-13 03:12:22,290 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAFX2188894.
+2024-09-13 03:12:22,458 - start_files.routes.route_scripts - INFO - Entering VAAR2045984 in search bar
+2024-09-13 03:12:22,507 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:12:22,752 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAST2030278
+2024-09-13 03:12:23,416 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAFX2188894
+2024-09-13 03:12:23,521 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:12:23,553 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAAR2045984 on results page
+2024-09-13 03:12:23,651 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:12:24,183 - start_files.routes.route_scripts - INFO - Clicking image section for VAAR2045984
+2024-09-13 03:12:25,776 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2077208.
+2024-09-13 03:12:25,840 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:12:25,845 - start_files.routes.route_scripts - INFO - VAPW2077208 added to database!
+2024-09-13 03:12:26,312 - start_files.routes.route_scripts - INFO - Setting up driver for VAAX2037888
+2024-09-13 03:12:27,398 - start_files.routes.route_scripts - INFO - Entering VAFX2191404 in search bar
+2024-09-13 03:12:27,440 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:12:28,452 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:12:29,797 - start_files.routes.route_scripts - INFO - Entering VAST2030278 in search bar
+2024-09-13 03:12:29,833 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:12:30,448 - start_files.routes.route_scripts - INFO - Beginning login for MLS VAAX2037888.
+2024-09-13 03:12:30,854 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:12:31,081 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2191404 on results page
+2024-09-13 03:12:31,232 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:12:31,348 - start_files.routes.route_scripts - INFO - Entering VAFX2188894 in search bar
+2024-09-13 03:12:31,351 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAAR2047666.
+2024-09-13 03:12:31,405 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:12:31,419 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:12:31,427 - start_files.routes.route_scripts - INFO - VAAR2047666 added to database!
+2024-09-13 03:12:31,814 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2191404
+2024-09-13 03:12:32,097 - start_files.routes.route_scripts - INFO - Starting to search for MLS VAAX2037888
+2024-09-13 03:12:32,119 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAST2030278 on results page
+2024-09-13 03:12:32,130 - start_files.routes.route_scripts - INFO - Setting up driver for VALO2079692
+2024-09-13 03:12:32,221 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:12:32,426 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
+2024-09-13 03:12:32,754 - start_files.routes.route_scripts - INFO - Clicking image section for VAST2030278
+2024-09-13 03:12:33,365 - start_files.routes.route_scripts - INFO - Entry submitted. Clicking VAFX2188894 on results page
+2024-09-13 03:12:33,465 - start_files.routes.route_scripts - INFO - Selected 'Agent Full' successfully
+2024-09-13 03:12:34,054 - start_files.routes.route_scripts - INFO - Clicking image section for VAFX2188894
+2024-09-13 03:12:36,908 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VALO2078148.
+2024-09-13 03:12:36,988 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:12:36,992 - start_files.routes.route_scripts - INFO - VALO2078148 added to database!
+2024-09-13 03:12:37,619 - start_files.routes.route_scripts - INFO - Completed image extraction for MLS VAPW2077568.
+2024-09-13 03:12:37,653 - start_files.routes.route_scripts - INFO - Setting up driver for VALO2079638
+2024-09-13 03:12:37,691 - start_files.routes.route_scripts - INFO - Starting database session
+2024-09-13 03:12:37,697 - start_files.routes.route_scripts - INFO - VAPW2077568 added to database!
+2024-09-13 03:12:38,185 - start_files.routes.route_scripts - INFO - Setting up driver for VALO2079528
+2024-09-13 03:12:38,929 - start_files.routes.route_scripts - INFO - Beginning login for MLS VALO2079692.
+2024-09-13 03:12:39,060 - start_files.routes.route_scripts - INFO - Entering VAAX2037888 in search bar
+2024-09-13 03:12:39,098 - start_files.routes.route_scripts - INFO - Submitting search entry.
+2024-09-13 03:12:39,973 - start_files.routes.route_scripts - INFO - Starting to search for MLS VALO2079692
+2024-09-13 03:12:40,113 - start_files.routes.route_scripts - INFO - Confirmation listing element not found, moving on
