@@ -1,293 +1,373 @@
 {% extends "template.html" %}
 
 {% block head %}
-<link rel="stylesheet" href="/static/main.css">
-<link rel="stylesheet" href="/static/buying.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/buying.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 {% endblock %}
 
+{% block title %}Buy, Own, Sell a Home | Yone Homes | Your Real Estate Experts{% endblock %}
+{% block meta_description %}Yone Homes offers comprehensive services for buying, owning, and selling homes in Northern Virginia and the DC Metro area. Get expert advice and support for all your real estate needs.{% endblock %}
+{% block meta_keywords %}buy a home, sell a home, own a home, real estate services, Northern Virginia real estate, DC Metro real estate{% endblock %}
+{% block og_title %}Buy, Own, Sell a Home with Yone Homes | Expert Real Estate Services{% endblock %}
+{% block og_description %}Whether you're buying, owning, or selling a home, Yone Homes provides expert services and support in Northern Virginia and the DC Metro area. Let us help you with all your real estate needs.{% endblock %}
+{% block og_image %}https://www.yonehomes.com/static/images/buy-sell-og.jpg{% endblock %}
+{% block og_url %}https://www.yonehomes.com/buy-sell{% endblock %}
+{% block twitter_title %}Buy, Own, Sell a Home with Yone Homes | Expert Real Estate Services{% endblock %}
+{% block twitter_description %}Get expert help from Yone Homes for buying, owning, and selling homes in Northern Virginia and the DC Metro area. We're here for all your real estate needs.{% endblock %}
+{% block twitter_image %}https://www.yonehomes.com/static/images/buy-sell-twitter.jpg{% endblock %}
+
 {% block body %}
-<div class="buying-page-menu">
-    <!-- Main Menu Bar -->
-    <nav class="menu-bar">
-        <!-- Left Column with Menu Links -->
-        <div class="menu-column left-column">
-            <a href="/" class="menu-link">HOME</a>
-            <a href="/resources" class="menu-link">RESOURCES</a>
-            <a href="/rentals" class="menu-link">RENTALS</a>
-            <a href="/contact" class="menu-link">CONTACT</a>
-         </div>
-
-        <!-- Right Column with Language Icon -->
-        <div class="menu-column right-column">
-            <a href="#" class="language-icon">
-                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
-            </a>
-        </div>
-    </nav>
-        
-    <!-- Hamburger Menu Icon -->
-    <nav class="hamburger-menu" id="hamburger-menu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </nav>
-    
-
-    <!-- Mobile Menu -->
-    <nav class="mobile-menu" id="mobile-menu">
-        <a href="/" class="menu-item">HOME</a>
-        <a href="/resources" class="menu-item">RESOURCES</a>
-        <a href="/rentals" class="menu-item">RENTALS</a>
-        <a href="/contact" class="menu-item">CONTACT</a>
-    </nav>
-</div>
-
-
-<!-- Image/Video Background Container -->
-<div class="image-header-container">
-    <!-- Video Background Section -->
-    <div class="video-background-wrapper">
-        <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
-        src="/static/icons/buy1.mp4"></video>
-
-        <!-- Overlay Content Section -->
-        <div class="overlay-content">
-            <div class="text-content">
-                <h1 class="buy-heading">FIND YOUR HOME TODAY!</h1>
+    <div class="buying-page-menu">
+        <!-- Main Menu Bar -->
+        <nav class="menu-bar">
+            <!-- Left Column with Menu Links -->
+            <div class="menu-column left-column">
+                <a href="/" class="menu-link">HOME</a>
+                <a href="/resources" class="menu-link">RESOURCES</a>
+                <a href="/rentals" class="menu-link">RENTALS</a>
+                <a href="/contact" class="menu-link">CONTACT</a>
             </div>
-        </div>
-    </div>
-</div>
 
-<div class="search-container">
-    <input type="text" id="searchField" placeholder="Filter Homes by address or MLS">
-</div>
-
-<div class="automation">
-    <title>Dynamic Button Grid</title>
-    <section id="dynamic-buttons" class="button-grid">
-        <!-- Dynamic buttons will be inserted here -->
-    </section>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const numberOfListings = Infinity; // Number of listings you want to display
-        let allListings = []; // Array to store all listings
-
-        // Fetch the full list of listings from the API
-        fetch('/api/view_homes_database')
-            .then(response => response.json())
-            .then(data => {
-                // Check if data.homes exists and is an array
-                if (data.homes && Array.isArray(data.homes)) {
-                    allListings = data.homes; // Store all listings
-                    displayListings(allListings.slice(0, numberOfListings)); // Display initial listings
-                } else {
-                    console.error('Invalid data format:', data);
-                }
-            })
-            .catch(error => console.error('Error fetching listings:', error));
-
-        // Function to display listings
-        function displayListings(listings) {
-            const container = document.getElementById('dynamic-buttons');
-            container.innerHTML = ''; // Clear existing listings
-            listings.forEach(item => {
-                createButtonDiv(item);
-            });
-        }
-
-        // Function to process and create buttons
-        function createButtonDiv(data) {
-            const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS, BEDROOMS, BATH } = data;
-
-            // Ensure PHOTOS is an array and not empty
-            const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
-
-            const buttonDiv = document.createElement('div');
-            buttonDiv.className = 'button-item';
-
-            const button = document.createElement('button');
-            button.style.padding = 0; // Ensure button has no extra padding
-            button.style.border = 'none'; // Ensure button has no border
-            button.style.background = 'none'; // Ensure button has no background
-
-            const img = document.createElement('img');
-            img.src = `static/homes_images/${MLS}/1.jpg`;
-            img.alt = 'Button Image';
-            img.style.width = '150px'; // Adjust size if necessary
-            img.style.height = '150px'; // Adjust size if necessary
-            img.style.border = '3px solid #a8b8c6'; // Add the border
-            img.style.borderRadius = '10px'; // Add the border radius
-            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
-            img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+            <!-- Right Column with Language Icon -->
+            <div class="menu-column right-column">
+                <a href="#" class="language-icon">
+                    <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+                </a>
+            </div>
+        </nav>
             
-            const textDiv = document.createElement('div');
-            textDiv.className = 'button-text';
-            textDiv.innerHTML = `Cost: ${COST}<br>${ADDRESS}<br>Beds: ${BEDROOMS} / Baths: ${BATH}`;
+        <!-- Hamburger Menu Icon -->
+        <nav class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </nav>
+        
 
-            button.appendChild(img);
-            button.appendChild(textDiv);
-
-            button.onclick = (event) => {
-                event.stopPropagation(); // Prevent click event from bubbling up
-                showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, photoList);
-            };
-
-            buttonDiv.appendChild(button);
-            document.getElementById('dynamic-buttons').appendChild(buttonDiv);
-        }
-
-        // Function to filter and update the listings
-        function filterListings(query) {
-            const lowerQuery = query.toLowerCase();
-            const filteredListings = allListings.filter(item => 
-                item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
-            );
-            displayListings(filteredListings.slice(0, numberOfListings)); // Display filtered listings
-        }
-
-        // Add event listener for search field
-        document.getElementById('searchField').addEventListener('input', (event) => {
-            filterListings(event.target.value);
-        });
-
-        function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, PHOTOS) {
-            const popup = document.createElement('div');
-            popup.className = 'popup';
-
-            const popupContent = document.createElement('div');
-            popupContent.className = 'popup-content';
-
-            const popupGallery = document.createElement('div');
-            popupGallery.className = 'popup-gallery';
-
-            // Ensure PHOTOS is an array and has valid image URLs
-            const photoList = Array.from({ length: 50 }, (_, i) => `static/homes_images/${MLS}/${i + 1}.jpg`);
-            photoList.forEach(photo => {
-                const a = document.createElement('a');
-                a.href = photo; 
-                a.dataset.lightbox = 'gallery';
-
-                const img = document.createElement('img');
-                img.src = photo; 
-                img.alt = 'Gallery Image';
-                img.style.width = '150px';
-                img.style.height = '150px';
-                img.style.border = '3px solid #a8b8c6'; // Add the border
-                img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
- 
-
-                // Check if the image exists before appending
-                img.onload = () => {
-                    a.appendChild(img);
-                    popupGallery.appendChild(a);
-                };
-
-                img.onerror = () => {
-                    img.onerror = null; // Prevent further error handling
-                    img.onload = null; // Clean up to prevent memory leaks
-                };
-            });
-
-            const popupText = document.createElement('div');
-            popupText.className = 'popup-text';
-            popupText.innerHTML = `
-                <h6>${COST} Monthly</h6>
-                <p>${ADDRESS}</p>
-                <p>Beds:${BEDROOMS} / Bath: ${BATH}</p>
-                --------------------<br>
-                <p>Description: ${DESCRIPTION}</p>
-                --------------------<br>
-                <p>${MLS}</p>
-                <p>Status: ${STATUS}</p>
-                <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}'}')">Click here to request more information</button><br><br>
-            `;
-
-            const popupClose = document.createElement('span');
-            popupClose.className = 'popup-close';
-            popupClose.innerHTML = '&times;';
-            popupClose.onclick = () => closePopup(popup);
-
-            popupContent.appendChild(popupGallery);
-            popupContent.appendChild(popupText);
-            popupContent.appendChild(popupClose);
-            popup.appendChild(popupContent);
-            document.body.appendChild(popup);
-
-            // Ensure that clicking anywhere outside the popup or the lightbox image closes the popup
-            document.addEventListener('click', (event) => {
-                if (event.target === popup || event.target.classList.contains('lightbox')) {
-                    closePopup(popup);
-                }
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    closePopup(popup);
-                }
-            });
-        }
-
-        function closePopup(popup) {
-            document.body.removeChild(popup);
-        }
-
-        window.navigateToContact = (MLS, ADDRESS) => {
-            const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
-            window.location.href = `/contact?${queryParams}`;
-        };
-    });
-</script>
-
-<!-- Custom Section with Parallax Effect -->
-<div class="custom-section" id="main-section">
-    <div class="custom-header">
-        <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobile-menu">
+            <a href="/" class="menu-item">HOME</a>
+            <a href="/resources" class="menu-item">RESOURCES</a>
+            <a href="/rentals" class="menu-item">RENTALS</a>
+            <a href="/contact" class="menu-item">CONTACT</a>
+        </nav>
     </div>
 
-    <div class="custom-container">
-        <div class="custom-row">
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-"></span>
-                </div>
-                <a class="custom-button-link" href="/">
-                    <span class="button-text">HOME PAGE</span>
-                </a>
-            </div>
 
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-home"></span>
-                </div>
-                <a class="custom-button-link" href="/rentals" id="button-search-homes">
-                    <span class="button-text">FIND RENTALS</span>
-                </a>
-            </div>
+    <!-- Image/Video Background Container -->
+    <div class="image-header-container">
+        <!-- Video Background Section -->
+        <div class="video-background-wrapper">
+            <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+            src="/static/icons/buy1.mp4"></video>
 
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-contact"></span>
+            <!-- Overlay Content Section -->
+            <div class="overlay-content">
+                <div class="text-content">
+                    <h1 class="buy-heading">FIND YOUR HOME TODAY!</h1>
                 </div>
-                <a class="custom-button-link" href="/contact">
-                    <span class="button-text">LEAVE A MESSAGE</span>
-                </a>
-            </div>
-
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-head"></span>
-                </div>
-                <a class="custom-button-link" href="/resources">
-                    <span class="button-text">FIND RESOURCES</span>
-                </a>
             </div>
         </div>
     </div>
-</div>
 
+
+    <div class="search-container">
+        <input type="text" id="searchField" placeholder="Filter Homes by address or MLS">
+    </div>
+
+    <!-- Button to trigger the /home_search route -->
+    <div class="mls-search">
+        <a href="/home_search">
+            Click here to custom search
+        </a>
+    </div>
+
+    <div class="automation">
+        <title>Dynamic Button Grid</title>
+        <section id="dynamic-buttons" class="button-grid">
+            <!-- Dynamic buttons will be inserted here -->
+        </section>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const numberOfListings = Infinity; // Number of listings you want to display
+            let allListings = []; // Array to store all listings
+    
+            // Fetch the full list of listings from the API
+            fetch('/api/view_homes_database')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.homes && Array.isArray(data.homes)) {
+                        allListings = data.homes; // Store all listings
+                        displayListings(allListings.slice(0, numberOfListings)); // Display initial listings
+                    } else {
+                        console.error('Invalid data format:', data);
+                    }
+                })
+                .catch(error => console.error('Error fetching listings:', error));
+    
+            // Function to display listings
+            function displayListings(listings) {
+                const container = document.getElementById('dynamic-buttons');
+                container.innerHTML = ''; // Clear existing listings
+                listings.forEach(item => {
+                    createButtonDiv(item);
+                });
+            }
+    
+            // Function to process and create buttons
+            function createButtonDiv(data) {
+                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, PHOTOS } = data;
+    
+                // Ensure PHOTOS is an array and not empty
+                const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
+    
+                const buttonDiv = document.createElement('div');
+                buttonDiv.className = 'button-item';
+    
+                const button = document.createElement('button');
+                button.style.padding = 0; // Ensure button has no extra padding
+                button.style.border = 'none'; // Ensure button has no border
+                button.style.background = 'none'; // Ensure button has no background
+    
+                const img = document.createElement('img');
+                img.src = `static/homes_images/${MLS}/1.jpg`;
+                img.alt = 'Button Image';
+                img.style.width = '150px'; // Adjust size if necessary
+                img.style.height = '150px'; // Adjust size if necessary
+                img.style.border = '3px solid #a8b8c6'; // Add the border
+                img.style.borderRadius = '10px'; // Add the border radius
+                img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
+                img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+                
+                const textDiv = document.createElement('div');
+                textDiv.className = 'button-text';
+                textDiv.innerHTML = `Cost: ${formatValue(COST)}<br>${ADDRESS}<br>Beds: ${BEDROOMS} / Baths: ${BATH}`;
+    
+                button.appendChild(img);
+                button.appendChild(textDiv);
+    
+                button.onclick = (event) => {
+                    event.stopPropagation(); // Prevent click event from bubbling up
+                    showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, photoList);
+                };
+    
+                buttonDiv.appendChild(button);
+                document.getElementById('dynamic-buttons').appendChild(buttonDiv);
+            }
+    
+            // Function to filter and update the listings
+            function filterListings(query) {
+                const lowerQuery = query.toLowerCase();
+                const filteredListings = allListings.filter(item => 
+                    item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
+                );
+                displayListings(filteredListings.slice(0, numberOfListings)); // Display filtered listings
+            }
+    
+            // Add event listener for search field
+            document.getElementById('searchField').addEventListener('input', (event) => {
+                filterListings(event.target.value);
+            });
+    
+            function formatValue(value, field) {
+                if (value === null || value === undefined || value === '') {
+                    return field === 'SQFT' || field === 'SPACES' ? 'Not Reported' : '0';
+                }
+                if (field === 'HALF') {
+                    return '0';
+                }
+                return value;
+            }
+    
+            function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, PHOTOS) {
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+    
+                const popupContent = document.createElement('div');
+                popupContent.className = 'popup-content';
+    
+                const popupGallery = document.createElement('div');
+                popupGallery.className = 'popup-gallery';
+    
+                // Ensure PHOTOS is an array and has valid image URLs
+                const photoList = Array.from({ length: 50 }, (_, i) => `static/homes_images/${MLS}/${i + 1}.jpg`);
+                photoList.forEach(photo => {
+                    const a = document.createElement('a');
+                    a.href = photo; 
+                    a.dataset.lightbox = 'gallery';
+    
+                    const img = document.createElement('img');
+                    img.src = photo; 
+                    img.alt = 'Gallery Image';
+                    img.style.width = '150px';
+                    img.style.height = '150px';
+                    img.style.border = '3px solid #a8b8c6'; // Add the border
+                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
+    
+                    // Check if the image exists before appending
+                    img.onload = () => {
+                        a.appendChild(img);
+                        popupGallery.appendChild(a);
+                    };
+    
+                    img.onerror = () => {
+                        img.onerror = null; // Prevent further error handling
+                        img.onload = null; // Clean up to prevent memory leaks
+                    };
+                });
+    
+                const popupText = document.createElement('div');
+                popupText.className = 'popup-text';
+                popupText.innerHTML = `
+                    <hr class="styled-line">
+                    <h6> Cost ${formatValue(COST)}</h6>
+                    <p>${ADDRESS}</p>
+                    <hr class="styled-line">
+                    <div class="popup-row">
+                        <div class="popup-item">
+                            <div class="popup-title">Mls</div>
+                            <div class="popup-value">${formatValue(MLS)}</div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="popup-title">Age</div>
+                            <div class="popup-value">${formatValue(AGE)}</div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="popup-title">Acres</div>
+                            <div class="popup-value">${formatValue(ACRES)}</div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="popup-title">Sqft</div>
+                            <div class="popup-value">${formatValue(SQFT, 'SQFT')}</div>
+                        </div>
+                    </div>
+
+                    <div class="popup-row">
+                        <div class="popup-item">
+                            <div class="popup-title">Status</div>
+                            <div class="popup-value">${formatValue(STATUS)}</div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="popup-title">Bedrooms</div>
+                            <div class="popup-value">${formatValue(BEDROOMS)}</div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="popup-title">Total Bath</div>
+                            <div class="popup-value">${formatValue(BATH)}</div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="popup-title">Full / Half</div>
+                            <div class="popup-value">${formatValue(FULL)} / ${formatValue(HALF, 'HALF')}</div>
+                        </div>
+                    </div>
+
+                    <div class="popup-row">
+                        <div class="popup-item">
+                            <div class="popup-title">Garage</div>
+                            <div class="popup-value">${formatValue(GARAGE)}</div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="popup-title">Total Spaces</div>
+                            <div class="popup-value">${formatValue(SPACES, 'SPACES')}</div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="popup-title">Fireplace</div>
+                            <div class="popup-value">${formatValue(FIREPLACE)}</div>
+                        </div>
+                        <div class="popup-item">
+                            <div class="popup-title">Basement</div>
+                            <div class="popup-value">${formatValue(BASEMENT)}</div>
+                        </div>
+                    </div>
+                    <hr class="styled-line">
+                    <p>Description:<br>${DESCRIPTION}</p>
+                    <hr class="styled-line">
+                    <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
+                `;
+                    
+                const popupClose = document.createElement('span');
+                popupClose.className = 'popup-close';
+                popupClose.innerHTML = '&times;';
+                popupClose.onclick = () => closePopup(popup);
+    
+                popupContent.appendChild(popupGallery);
+                popupContent.appendChild(popupText);
+                popupContent.appendChild(popupClose);
+                popup.appendChild(popupContent);
+                document.body.appendChild(popup);
+    
+                document.addEventListener('click', (event) => {
+                    if (event.target === popup || event.target.classList.contains('lightbox')) {
+                        closePopup(popup);
+                    }
+                });
+
+                // Close the popup when Escape key is pressed
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') {
+                        closePopup(popup);
+                    }
+                });
+            }
+
+            function closePopup(popup) {
+                document.body.removeChild(popup);
+            }
+
+            window.navigateToContact = (MLS, ADDRESS) => {
+                const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
+                window.location.href = `/contact?${queryParams}`;
+            };
+        });
+    </script>
+
+    <!-- Custom Section with Parallax Effect -->
+    <div class="custom-section" id="main-section">
+        <div class="custom-header">
+            <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+        </div>
+
+        <div class="custom-container">
+            <div class="custom-row">
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-homepage"></span>
+                    </div>
+                    <a class="custom-button-link" href="/">
+                        <span class="button-text">HOME PAGE</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-home"></span>
+                    </div>
+                    <a class="custom-button-link" href="/rentals" id="button-search-homes">
+                        <span class="button-text">FIND RENTALS</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-contact"></span>
+                    </div>
+                    <a class="custom-button-link" href="/contact">
+                        <span class="button-text">LEAVE A MESSAGE</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-head"></span>
+                    </div>
+                    <a class="custom-button-link" href="/resources">
+                        <span class="button-text">FIND RESOURCES</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -8,7 +8,6 @@
     text-align: center;
     font-weight: 500; /* Thin weight for headings */
     background: none; /* Ensure no background color */
-    padding-left: 90px; /* Remove padding if any */  
 }
 
 
@@ -109,11 +108,26 @@
 
 #searchField {
     width: 50%;
+    height: 50px;
     border-radius: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 80px;
     margin-top: 20px;
+    text-align: center;
+}
+
+.mls-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #007bff;
+    max-width: 300px; 
+    border-radius: 11px;
+    border: 1px solid #007bff; /* Changed border color to blue */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1); /* Fixed box-shadow color */
+    margin: 20px auto 80px; 
     text-align: center;
 }
 
@@ -139,6 +153,7 @@
     margin-top: 0;
     padding: 20px;
 }
+
 
 /* Button Item Styles */
 .button-item {
@@ -216,7 +231,7 @@
     }
 
     #searchField {
-        width: 75%;
+        width: 85%;
         margin-bottom: 45px;
     }
     
@@ -224,3 +239,31 @@
         z-index: 1000; /* Ensure heading is below popup */
     }
 }
+
+.popup-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px; /* Space between rows */
+}
+
+.popup-item {
+    text-align: center; /* Center align titles and values */
+    flex: 1; /* Flex grow to evenly distribute space */
+}
+
+.popup-title {
+    font-weight: bold;
+    margin-bottom: 5px; /* Space below the title */
+}
+
+.popup-value {
+    font-size: 14px; /* Adjust the font size of the value */
+}
+
+.styled-line {
+    border: none; /* Remove default border */
+    border-top: 1px solid #c5cace; /* Solid line with desired color and thickness */
+    margin: 20px 0; /* Adjust space above and below the line */
+    width: 100%; /* Full width */
+}
+

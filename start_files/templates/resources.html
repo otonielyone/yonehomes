@@ -1,124 +1,131 @@
 {% extends "template.html" %}
 
 {% block head %}
-<link rel="stylesheet" href="/static/main.css">
-<link rel="stylesheet" href="/static/resources.css">
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/resources.css">
 {% endblock %}
 
-
-
+{% block title %}Loan, Mortgage, Real Estate Resources | Yone Homes{% endblock %}
+{% block meta_description %}Access valuable resources on loans, mortgages, and real estate with Yone Homes. We provide insights and information to help you navigate your real estate journey in Northern Virginia and the DC Metro area.{% endblock %}
+{% block meta_keywords %}loan resources, mortgage resources, real estate resources, Northern Virginia real estate, DC Metro resources{% endblock %}
+{% block og_title %}Loan and Mortgage Resources with Yone Homes | Expert Real Estate Guidance{% endblock %}
+{% block og_description %}Find essential resources on loans, mortgages, and real estate with Yone Homes. Get expert advice and information to guide your real estate decisions in Northern Virginia and the DC Metro area.{% endblock %}
+{% block og_image %}https://www.yonehomes.com/static/images/resources-og.jpg{% endblock %}
+{% block og_url %}https://www.yonehomes.com/resources{% endblock %}
+{% block twitter_title %}Loan and Mortgage Resources with Yone Homes | Expert Guidance{% endblock %}
+{% block twitter_description %}Explore loan and mortgage resources with Yone Homes. We provide valuable insights and information to support your real estate journey in Northern Virginia and the DC Metro area.{% endblock %}
+{% block twitter_image %}https://www.yonehomes.com/static/images/resources-twitter.jpg{% endblock %}
 
 {% block body %}
-<div class="resources-page-menu">
-    <!-- Main Menu Bar -->
-    <nav class="menu-bar">
-        <!-- Left Column with Menu Links -->
-        <div class="menu-column left-column">
-            <a href="/" class="menu-link">HOME</a>
-            <a href="/buying" class="menu-link">BUYING</a>
-            <a href="/rentals" class="menu-link">RENTALS</a>
-            <a href="/contact" class="menu-link">CONTACT</a>
-         </div>
+    <div class="resources-page-menu">
+        <!-- Main Menu Bar -->
+        <nav class="menu-bar">
+            <!-- Left Column with Menu Links -->
+            <div class="menu-column left-column">
+                <a href="/" class="menu-link">HOME</a>
+                <a href="/buying" class="menu-link">BUYING</a>
+                <a href="/rentals" class="menu-link">RENTALS</a>
+                <a href="/contact" class="menu-link">CONTACT</a>
+            </div>
 
-        <!-- Right Column with Language Icon -->
-        <div class="menu-column right-column">
-            <a href="#" class="language-icon">
-                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
-            </a>
-        </div>
-    </nav>
+            <!-- Right Column with Language Icon -->
+            <div class="menu-column right-column">
+                <a href="#" class="language-icon">
+                    <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+                </a>
+            </div>
+        </nav>
+            
+        <!-- Hamburger Menu Icon -->
+        <nav class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </nav>
         
-    <!-- Hamburger Menu Icon -->
-    <nav class="hamburger-menu" id="hamburger-menu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </nav>
-    
 
-    <!-- Mobile Menu -->
-    <nav class="mobile-menu" id="mobile-menu">
-        <a href="/" class="menu-item">HOME</a>
-        <a href="/buying" class="menu-item">BUYING</a>
-        <a href="/rentals" class="menu-item">RENTALS</a>
-        <a href="/contact" class="menu-item">CONTACT</a>
-    </nav>
-</div>
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobile-menu">
+            <a href="/" class="menu-item">HOME</a>
+            <a href="/buying" class="menu-item">BUYING</a>
+            <a href="/rentals" class="menu-item">RENTALS</a>
+            <a href="/contact" class="menu-item">CONTACT</a>
+        </nav>
+    </div>
 
 
-<!-- Image/Video Background Container -->
-<div class="image-header-container">
-    <!-- Video Background Section -->
-    <div class="video-background-wrapper">
-        <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
-        src="/static/icons/3.mp4"></video>
+    <!-- Image/Video Background Container -->
+    <div class="image-header-container">
+        <!-- Video Background Section -->
+        <div class="video-background-wrapper">
+            <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+            src="/static/icons/3.mp4"></video>
 
 
-        <!-- Overlay Content Section -->
-        <div class="overlay-content">
-            <div class="text-content">
-                <h1 class="resource-heading">HOME INFORMATION AND RESOURCES</h1>
+            <!-- Overlay Content Section -->
+            <div class="overlay-content">
+                <div class="text-content">
+                    <h1 class="resource-heading">HOME INFORMATION AND RESOURCES</h1>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!-- Placeholder Section -->
-<div class="placeholder">
-    <span class="construction-text">TEMPORARILY UNDER CONSTRUCTION</span>
-</div>
-
-
-<!-- Custom Section with Parallax Effect -->
-<div class="custom-section" id="main-section">
-    
-    <div class="custom-header">
-        <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+    <!-- Placeholder Section -->
+    <div class="placeholder">
+        <span class="construction-text">TEMPORARILY UNDER CONSTRUCTION</span>
     </div>
 
-    <div class="custom-container">
-        <div class="custom-row">
-            
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-"></span>
-                </div>
-                <a class="custom-button-link" href="/">
-                    <span class="button-text">HOME PAGE</span>
-                </a>
-            </div>
+
+    <!-- Custom Section with Parallax Effect -->
+    <div class="custom-section" id="main-section">
+        
+        <div class="custom-header">
+            <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+        </div>
+
+        <div class="custom-container">
+            <div class="custom-row">
                 
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-home"></span>
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-homepage"></span>
+                    </div>
+                    <a class="custom-button-link" href="/">
+                        <span class="button-text">HOME PAGE</span>
+                    </a>
                 </div>
-                <a class="custom-button-link" href="/buying" id="button-search-homes">
-                    <span class="button-text">SEARCH HOMES</span>
-                </a>
-            </div>
-    
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-rentals"></span>
+                    
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-home"></span>
+                    </div>
+                    <a class="custom-button-link" href="/buying" id="button-search-homes">
+                        <span class="button-text">SEARCH HOMES</span>
+                    </a>
                 </div>
-                <a class="custom-button-link" href="/rentals">
-                    <span class="button-text">FIND RENTALS</span>
-                </a>
-            </div>
-            
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-contact"></span>
+        
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-rentals"></span>
+                    </div>
+                    <a class="custom-button-link" href="/rentals">
+                        <span class="button-text">FIND RENTALS</span>
+                    </a>
                 </div>
-                <a class="custom-button-link" href="/contact">
-                    <span class="button-text">LEAVE A MESSAGE</span>
-                </a>
+                
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-contact"></span>
+                    </div>
+                    <a class="custom-button-link" href="/contact">
+                        <span class="button-text">LEAVE A MESSAGE</span>
+                    </a>
+                </div>
+                
             </div>
-            
         </div>
-    </div>
-</div> 
-
+    </div> 
 {% endblock %}
 

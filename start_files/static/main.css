@@ -30,7 +30,6 @@ h1, h2, p {
 .site-header {
   position: relative;
   width: 100%;
-  z-index: 15; 
   overflow: hidden;
 }
 
@@ -378,8 +377,8 @@ a:focus {
 
 .custom-icon-homepage {
   background-image: url('/static/icons/home.png');
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
 }
 
 .custom-icon-home {
@@ -445,12 +444,8 @@ a:focus {
   flex: 1 1 auto; /* Allow columns to grow and shrink, with a base width of 200px */
   padding: 0 10px; /* Add padding for spacing */
   box-sizing: border-box; /* Include padding in width calculation */
+  text-align: center;
 }
-
-.footer-text, .footer-nav, .footer-logo, .footer-image {
-  text-align: left;
-}
-
 
 .footer-heading {
   font-size: 18px;
@@ -632,7 +627,7 @@ a:focus {
     padding: 0; /* Remove padding for better appearance */
   }
 
-  .footer-column, .footer-text, .footer-nav {
+  .footer-column, .footer-text, .footer-nav .footer-heading {
     width: 100%; /* Full width for each column */
     max-width: 400px; /* Optional: Limit max width for better appearance */
     text-align: center; /* Center text inside each column */

@@ -25,6 +25,8 @@
 .button-text {
     margin-top: 0;
     padding: 20px;
+    font-size: 12px;
+
 }
 
 /* Button Item Styles */
@@ -266,6 +268,7 @@
 
 #searchField {
     width: 50%;
+    height: 50px;
     border-radius: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -274,6 +277,8 @@
     text-align: center;
 }
 
+
+
 /* Responsive Adjustments */
 @media screen and (max-width: 500px) and (orientation: portrait) {
     .light-red-text h2 {
@@ -281,8 +286,12 @@
         font-weight: 500;
     }
 
+    .button-text{
+        font-size: 12px;
+    }
+
     #searchField {
-        width: 75%;
+        width: 85%;
         margin-bottom: 45px;
     }
     

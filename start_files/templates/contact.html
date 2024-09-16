@@ -1,205 +1,215 @@
 {% extends "template.html" %}
 
 {% block head %}
-<link rel="stylesheet" href="/static/main.css">
-<link rel="stylesheet" href="/static/contact.css">
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/contact.css">
 {% endblock %}
 
+{% block title %}Contact Us | Yone Homes | Reach Out for Your Real Estate Needs{% endblock %}
+{% block meta_description %}Get in touch with Yone Homes for all your real estate inquiries in Northern Virginia and the DC Metro area. Contact us today to discuss buying, selling, or renting your next home.{% endblock %}
+{% block meta_keywords %}contact Yone Homes, real estate contact, Northern Virginia real estate, DC Metro contact, real estate inquiries{% endblock %}
+{% block og_title %}Contact Yone Homes | We're Here to Help You{% endblock %}
+{% block og_description %}Reach out to Yone Homes for expert assistance with your real estate needs in Northern Virginia and the DC Metro area. We're ready to help you with buying, selling, or renting a home.{% endblock %}
+{% block og_image %}https://www.yonehomes.com/static/images/contact-og.jpg{% endblock %}
+{% block og_url %}https://www.yonehomes.com/contact{% endblock %}
+{% block twitter_title %}Contact Yone Homes | Expert Real Estate Assistance{% endblock %}
+{% block twitter_description %}Get in touch with Yone Homes for top-notch real estate services in Northern Virginia and the DC Metro area. We're here to assist with all your property needs.{% endblock %}
+{% block twitter_image %}https://www.yonehomes.com/static/images/contact-twitter.jpg{% endblock %}
+
 {% block body %}
-<div class="contact-page-menu">
-    <!-- Main Menu Bar -->
-    <nav class="menu-bar">
-        <!-- Left Column with Menu Links -->
-        <div class="menu-column left-column">
-            <a href="/" class="menu-link">HOME</a>
-            <a href="/buying" class="menu-link">BUYING</a>
-            <a href="/rentals" class="menu-link">RENTALS</a>
-            <a href="/resources" class="menu-link">RESOURCES</a>
-        </div>
+    <div class="contact-page-menu">
+        <!-- Main Menu Bar -->
+        <nav class="menu-bar">
+            <!-- Left Column with Menu Links -->
+            <div class="menu-column left-column">
+                <a href="/" class="menu-link">HOME</a>
+                <a href="/buying" class="menu-link">BUYING</a>
+                <a href="/rentals" class="menu-link">RENTALS</a>
+                <a href="/resources" class="menu-link">RESOURCES</a>
+            </div>
 
-        <!-- Right Column with Language Icon -->
-        <div class="menu-column right-column">
-            <a href="#" class="language-icon">
-                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
-            </a>
-        </div>
-    </nav>
-    
-    <!-- Hamburger Menu Icon -->
-    <nav class="hamburger-menu" id="hamburger-menu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </nav>
+            <!-- Right Column with Language Icon -->
+            <div class="menu-column right-column">
+                <a href="#" class="language-icon">
+                    <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+                </a>
+            </div>
+        </nav>
+        
+        <!-- Hamburger Menu Icon -->
+        <nav class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </nav>
 
-    <!-- Mobile Menu -->
-    <nav class="mobile-menu" id="mobile-menu">
-        <a href="/" class="menu-item">Home</a>
-        <a href="/buying" class="menu-item">Buying</a>
-        <a href="/rentals" class="menu-item">Rentals</a>
-        <a href="/resources" class="menu-item">Resources</a>
-    </nav>
-</div>
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobile-menu">
+            <a href="/" class="menu-item">Home</a>
+            <a href="/buying" class="menu-item">Buying</a>
+            <a href="/rentals" class="menu-item">Rentals</a>
+            <a href="/resources" class="menu-item">Resources</a>
+        </nav>
+    </div>
 
-<!-- Image/Video Background Container -->
-<div class="image-header-container">
-    <!-- Video Background Section -->
-    <div class="video-background-wrapper">
-        <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
-        src="/static/icons/trees2.mp4"></video>
+    <!-- Image/Video Background Container -->
+    <div class="image-header-container">
+        <!-- Video Background Section -->
+        <div class="video-background-wrapper">
+            <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+            src="/static/icons/trees2.mp4"></video>
 
-        <!-- Overlay Content Section -->
-        <div class="overlay-content">
-            <div class="text-content">
-                <h1 class="contact-heading">REACH OUT BELOW</h1>
+            <!-- Overlay Content Section -->
+            <div class="overlay-content">
+                <div class="text-content">
+                    <h1 class="contact-heading">REACH OUT BELOW</h1>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const MLS = urlParams.get('MLS');
-        const ADDRESS = urlParams.get('ADDRESS');
-
-        if (MLS || ADDRESS) {
-            const inquiryTextarea = document.getElementById('inquiry');
-
-            // Create the refined inquiry text with MLS and ADDRESS
-            let inquiryText = `MLS: ${MLS || ''}\nAddress: ${ADDRESS || ''}\nPlease send me more information about this property.`;
-            
-            // Pre-fill the textarea with the inquiry text
-            inquiryTextarea.value = inquiryText;
-        }
-    });
-</script>
-
-<div class="contact-form-container">
-    <h1>Contact Us</h1>
-    <form action="/contact" method="post">
-        <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first_name" required>
-        </div>
-        <div class="form-group">
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last_name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone">
-        </div>
-        <div class="form-group">
-            <label for="inquiry">General Inquiry:</label>
-            <textarea id="inquiry" name="general_inquiry" rows="4" placeholder="List your price range, location preferences, and any other details here..." required></textarea>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-</div>
-
-
-<div class="contact-container">
-    <!-- Office Information Section -->
-    <div class="contact-info">
-        <div class="contact-info-sec1"><h3>Office</h3></div>
-        <div class="contact-info-sec2">
-            <p>Toni Yone, REALTOR®</p>
-            <p>United Real Estate</p>
-            <p>10780 Parkridge Blvd #80</p>
-            <p>Reston, VA 20191</p>
-            <p>toni@yone.realtor</p>
-            <p>(703) 596-2121</p>
-        </div>
-    </div>
-</div>
-  
-<!-- Map Section -->
-<div class="map-container" id="map" style="height: 400px; width: 100%;">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGVWDMSCezyiwaEH4We6u_SL4wrLTDnAM"></script>
     <script>
-        function initMap() {
-        // Create a new map centered on the given coordinates
-        var location = { lat: 38.94553, lng: -77.31596 };
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const MLS = urlParams.get('MLS');
+            const ADDRESS = urlParams.get('ADDRESS');
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: location
-        });
+            if (MLS || ADDRESS) {
+                const inquiryTextarea = document.getElementById('inquiry');
 
-        // Add a marker to the map
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map,
-            title: '10780 Parkridge Blvd #80, Reston, VA 20191'
-        });
-        }
-
-        // Load the map after the page has loaded
-        window.onload = initMap;
-            </script>
-</div>
-    
-
-
-{% if flashed_messages %}
-<ul class="flashed-messages">
-    {% for message in flashed_messages %}
-        <li>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-
-
-
-<!-- Custom Section with Parallax Effect --
-<div class="custom-section" id="main-section">
-    <div class="custom-header">
-        <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
-    </div>
-    <div class="custom-container">
-        <div class="custom-row">
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-"></span>
-                </div>
-                <a class="custom-button-link" href="/">
-                  <span class="button-text">HOME PAGE</span>
-                </a>
-            </div>
+                // Create the refined inquiry text with MLS and ADDRESS
+                let inquiryText = `MLS: ${MLS || ''}\nAddress: ${ADDRESS || ''}\nPlease send me more information about this property.`;
                 
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-home"></span>
-                </div>
-                <a class="custom-button-link" href="/buying" id="button-search-homes">
-                    <span class="button-text">SEARCH HOMES</span>
-                </a>
-            </div>
+                // Pre-fill the textarea with the inquiry text
+                inquiryTextarea.value = inquiryText;
+            }
+        });
+    </script>
 
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-rentals"></span>
-                </div>
-                <a class="custom-button-link" href="/rentals">
-                    <span class="button-text">FIND RENTALS</span>
-                </a>
+    <div class="contact-form-container">
+        <h1>Contact Us</h1>
+        <form action="/contact" method="post">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" required>
             </div>
-            
-            <div class="custom-column">
-                <div class="custom-icon-widget">
-                    <span class="custom-icon-head"></span>
-                </div>
-                <a class="custom-button-link" href="/resources">
-                    <span class="button-text">FIND RESOURCES</span>
-                </a>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="inquiry">General Inquiry:</label>
+                <textarea id="inquiry" name="general_inquiry" rows="4" placeholder="List your price range, location preferences, and any other details here..." required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <div class="contact-container">
+        <!-- Office Information Section -->
+        <div class="contact-info">
+            <div class="contact-info-sec1"><h3>Office</h3></div>
+            <div class="contact-info-sec2">
+                <p>Toni Yone, REALTOR®</p>
+                <p>United Real Estate</p>
+                <p>10780 Parkridge Blvd #80</p>
+                <p>Reston, VA 20191</p>
+                <p>toni@yone.realtor</p>
+                <p>(703) 596-2121</p>
             </div>
         </div>
     </div>
-</div> -->
+    
+    <!-- Map Section -->
+    <div class="map-container" id="map" style="height: 400px; width: 100%;">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGVWDMSCezyiwaEH4We6u_SL4wrLTDnAM"></script>
+        <script>
+            function initMap() {
+            // Create a new map centered on the given coordinates
+            var location = { lat: 38.94553, lng: -77.31596 };
 
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: location
+            });
+
+            // Add a marker to the map
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: '10780 Parkridge Blvd #80, Reston, VA 20191'
+            });
+            }
+
+            // Load the map after the page has loaded
+            window.onload = initMap;
+                </script>
+    </div>
+        
+
+
+    {% if flashed_messages %}
+    <ul class="flashed-messages">
+        {% for message in flashed_messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
+    <!-- Custom Section with Parallax Effect --
+    <div class="custom-section" id="main-section">
+        <div class="custom-header">
+            <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+        </div>
+        <div class="custom-container">
+            <div class="custom-row">
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-"></span>
+                    </div>
+                    <a class="custom-button-link" href="/">
+                    <span class="button-text">HOME PAGE</span>
+                    </a>
+                </div>
+                    
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-home"></span>
+                    </div>
+                    <a class="custom-button-link" href="/buying" id="button-search-homes">
+                        <span class="button-text">SEARCH HOMES</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-rentals"></span>
+                    </div>
+                    <a class="custom-button-link" href="/rentals">
+                        <span class="button-text">FIND RENTALS</span>
+                    </a>
+                </div>
+                
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-head"></span>
+                    </div>
+                    <a class="custom-button-link" href="/resources">
+                        <span class="button-text">FIND RESOURCES</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> -->
 {% endblock %}

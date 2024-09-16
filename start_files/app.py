@@ -1,6 +1,6 @@
 
-from start_files.models.mls.rentals import init_rentals_db
-from start_files.models.mls.homes import init_homes_db
+from start_files.models.mls.rentals_db_section import init_rentals_db
+from start_files.models.mls.homes_db_section import init_homes_db
 from start_files.config import get_templates
 from start_files.routes.routes import router
 from fastapi.staticfiles import StaticFiles
