@@ -61,19 +61,39 @@ def init_homes_db():
     else:
         print("Database file already exists.")
 
+
 def replace_old_homes_db():
-    # Define the URLs for the old and new databases
     old_db_path = "brightscrape/_homes_pending.db"
     new_db_path = "brightscrape/brightmls_homes.db"
+    new_db_backup_path = new_db_path + '.bak'
+    
+    if os.path.exists(new_db_backup_path):
+        try:
+            os.remove(new_db_backup_path)
+            print(f"Removed old backup file {new_db_backup_path}")
+        except Exception:
+            print(f"Error removing backup file {new_db_backup_path}")
+            return
+    
+    if os.path.exists(new_db_path):
+        try:
+            os.rename(new_db_path, new_db_backup_path)
+            print(f"Renamed {new_db_path} to {new_db_backup_path}")
+        except Exception:
+            print(f"Error renaming new database to {new_db_backup_path}")
+            return
     
     if os.path.exists(old_db_path):
         try:
             os.rename(old_db_path, new_db_path)
-            print(f"Database renamed from {old_db_path} to {new_db_path}")
+            print(f"Renamed {old_db_path} to {new_db_path}")
         except Exception:
-            print(f"Error renaming database")
-    
+            print(f"Error renaming old database to {new_db_path}")
+    else:
+        print(f"Old database {old_db_path} does not exist")
 
+
+    
 def process_row(row):
     cost_formatted = f"${row['price']:,.2f}"
     
@@ -102,7 +122,8 @@ def process_row(row):
         "FIREPLACE": row['fireplace'],
         "BASEMENT": row['basement'], 
         "GARAGE": row['garage'],
-        "SPACES": row['spaces']
+        "SPACES": row['spaces'],
+        "COUNT": len(image_list)
     }
 
 

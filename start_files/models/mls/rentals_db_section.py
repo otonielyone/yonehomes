@@ -65,7 +65,7 @@ def init_rentals2_db():
     os.makedirs(db_dir, exist_ok=True)
 
 
-def replace_old_db():
+def replace_old_rentals_db():
     old_db_path = "brightscrape/_rentals_pending.db"
     new_db_path = "brightscrape/brightmls_rentals.db"
     new_db_backup_path = new_db_path + '.bak'
@@ -101,7 +101,7 @@ def replace_old_db():
 def process_row(row):
     cost_formatted = f"${row['price']:,.2f}"
     
-    mls_directory = f'/var/www/html/fastapi_project/start_files/static/renatals_images/{row["mls"]}'
+    mls_directory = f'/var/www/html/fastapi_project/start_files/static/rentals_images/{row["mls"]}'
 
     image_list = []
     if os.path.exists(mls_directory):
@@ -109,7 +109,7 @@ def process_row(row):
             if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
                 image_path = os.path.join(mls_directory, filename)
                 image_list.append(image_path)
-    
+
     return {
         "MLS": row['mls'],
         "COST": cost_formatted,
@@ -117,8 +117,10 @@ def process_row(row):
         "DESCRIPTION": row['description'],
         "STATUS": row['availability'],
         "BEDROOMS": row['bedrooms'],
-        "BATH": row['bath']
+        "BATH": row['bath'],
+        "COUNT": len(image_list)
     }
+
 
 
 def get_rentals_from_db():

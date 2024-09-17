@@ -1,5 +1,5 @@
 from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException
-from start_files.models.mls.rentals_db_section import rentals_sessionLocal, Mls_rentals, replace_old_db
+from start_files.models.mls.rentals_db_section import rentals_sessionLocal, Mls_rentals, replace_old_rentals_db, init_rentals_db
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from start_files.routes.export_rentals_scripts import export_rentals
@@ -223,68 +223,87 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
             driver.execute_script("arguments[0].click();", click_entry)
             logger.info(f"Entry submitted. Clicking {mls} on results page")
 
-            dropdown_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
-            driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", dropdown_element)
-            dropdown = Select(dropdown_element)
-            dropdown.select_by_visible_text("Agent Full")
-            logger.info("Selected 'Agent Full' successfully")
+            try:
+                dropdown_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, 'm_ucDisplayPicker_m_ddlDisplayFormats')))
+                driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", dropdown_element)
+                dropdown = Select(dropdown_element)
+                dropdown.select_by_visible_text("Agent Full")
+                logger.info("Selected 'Agent Full' successfully")
 
-            formula_span = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Click to Show Photos']")))
-            driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", formula_span)
-            driver.execute_script("arguments[0].click();", formula_span)
-
-            logger.info(f"Clicking image section for {mls}")
-            images_locator = (By.XPATH, '//font[@class="IV_Single"]//img[@class="IV_Image"]')
-            WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
-            all_imgs = driver.find_elements(*images_locator)
-
-            if len(all_imgs) > min_images:
-                save_dir = f'/var/www/html/fastapi_project/start_files/static/rentals_images/{item[1]}-pending/'
-                if os.path.exists(save_dir):
-                    shutil.rmtree(save_dir)
-                os.makedirs(save_dir)
-
-                for i, img in enumerate(all_imgs[:max_images]):
-                    img_url = img.get_attribute('src')
-                    if img_url:
-                        response = requests.get(img_url)
-                        image_path = os.path.join(save_dir, f'{i + 1}.jpg')
-                        with open(image_path, 'wb') as file:
-                            file.write(response.content)
-                logger.info(f"Completed image extraction for MLS {mls}.")
+                open_all = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//font[@class='print icon' and @title='Open All']")))
+                driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", open_all)
+                driver.execute_script("arguments[0].click();", open_all)
+                logger.info("Selected images page successfully")
+            
+                driver.switch_to.window(driver.window_handles[1])
+                logger.info("Switched to images page successfully")
                 
-                db_attempt = 0
-                while db_attempt < max_retries:
-                    try:
-                        with get_db_session_pending() as db:
-                            listing_item = db.query(Mls_rentals).filter_by(mls=mls).first()
-                            if not listing_item:
-                                listing = Mls_rentals(
-                                    mls=mls,
-                                    address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
-                                    price=item[0],
-                                    description=item[14],
-                                    availability=item[3],
-                                    bedrooms=item[15], 
-                                    bath=item[16],
-                                )
-                                db.add(listing)
-                                db.commit()
-                                logger.info(f"{mls} added to database!")
-                                break
-                            else:
-                                logger.info(f"{mls} already exists in database.")
-                        break
-                    except OperationalError as db_error:
-                        logger.error(f"Database error for MLS {mls} on attempt {db_attempt + 1}/{max_retries}: {db_error}")
-                        db_attempt += 1
-                        time.sleep(delay)
+                images_locator = (By.XPATH, "//img[contains(@src, 'https://matrixmedia.brightmls.com')]")
+                WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
+                all_imgs = driver.find_elements(*images_locator)
+                logger.info("Fetching images")
+
+#            formula_span = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Click to Show Photos']")))
+#            driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", formula_span)
+#            driver.execute_script("arguments[0].click();", formula_span)#
+
+#            logger.info(f"Clicking image section for {mls}")
+#            images_locator = (By.XPATH, '//font[@class="IV_Single"]//img[@class="IV_Image"]')
+#            WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
+#            all_imgs = driver.find_elements(*images_locator)
+            
                 
-                return True
-            else:
-                logger.info(f'No sufficient images for MLS {mls}, not adding to database')
+                if len(all_imgs) > min_images:
+                    save_dir = f'/var/www/html/fastapi_project/start_files/static/rentals_images/{item[1]}-pending/'
+                    if os.path.exists(save_dir):
+                        shutil.rmtree(save_dir)
+                    os.makedirs(save_dir)
+
+                    for i, img in enumerate(all_imgs[:max_images]):
+                        img_url = img.get_attribute('src')
+                        if img_url:
+                            response = requests.get(img_url)
+                            image_path = os.path.join(save_dir, f'{i + 1}.jpg')
+                            with open(image_path, 'wb') as file:
+                                file.write(response.content)
+                    logger.info(f"Completed image extraction for MLS {mls}.")
+                    
+                    db_attempt = 0
+                    while db_attempt < max_retries:
+                        try:
+                            with get_db_session_pending() as db:
+                                listing_item = db.query(Mls_rentals).filter_by(mls=mls).first()
+                                if not listing_item:
+                                    listing = Mls_rentals(
+                                        mls=mls,
+                                        address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
+                                        price=item[0],
+                                        description=item[14],
+                                        availability=item[3],
+                                        bedrooms=item[15], 
+                                        bath=item[16],
+                                    )
+                                    db.add(listing)
+                                    db.commit()
+                                    logger.info(f"{mls} added to database!")
+                                    break
+                                else:
+                                    logger.info(f"{mls} already exists in database.")
+                            break
+                        except OperationalError as db_error:
+                            logger.error(f"Database error for MLS {mls} on attempt {db_attempt + 1}/{max_retries}: {db_error}")
+                            db_attempt += 1
+                            time.sleep(delay)
+                    
+                    return True
+                else:
+                    logger.info(f'No sufficient images for MLS {mls}, not adding to database')
+                    return False  
+            
+            except Exception:
+                logger.info(f"{mls} listing has no clickable image section")
                 return False  
-
+    
         except (WebDriverException, TimeoutException, StaleElementReferenceException):
             logger.error(f"Attempt {attempt + 1} for MLS {mls} failed with error")
             attempt += 1
@@ -342,6 +361,7 @@ async def start_task_in_loop(concurrency_limit, timeout, max_images, min_images,
         logger.info("Waiting for CSV file to appear...")
         await asyncio.sleep(5) 
     sorted_results = sorted_rentals_by_price(max_price)
+    init_rentals_db()
     await start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results)
     logger.info("Loop task completed successfully")
 
@@ -361,7 +381,7 @@ def start_rentals(concurrency_limit, timeout, max_images, min_images, max_price,
         logger.error("Error during post-processing")
         raise 
 
-    replace_old_db()
+    replace_old_rentals_db()
     clean_and_rename_directories()
     logger.info("Database moved to production") 
     elapsed_time = time.time() - start_time

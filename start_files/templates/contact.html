@@ -45,6 +45,7 @@
 
         <!-- Mobile Menu -->
         <nav class="mobile-menu" id="mobile-menu">
+            <div class="close-menu">X</div> <!-- Close icon -->
             <a href="/" class="menu-item">Home</a>
             <a href="/buying" class="menu-item">Buying</a>
             <a href="/rentals" class="menu-item">Rentals</a>
@@ -154,17 +155,6 @@
             window.onload = initMap;
                 </script>
     </div>
-        
-
-
-    {% if flashed_messages %}
-    <ul class="flashed-messages">
-        {% for message in flashed_messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-
 
 
     <!-- Custom Section with Parallax Effect --
@@ -212,4 +202,5 @@
             </div>
         </div>
     </div> -->
+
 {% endblock %}

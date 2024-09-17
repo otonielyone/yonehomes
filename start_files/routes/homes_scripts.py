@@ -1,5 +1,5 @@
 from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException
-from start_files.models.mls.homes_db_section import homes_sessionLocal, Mls_homes, replace_old_homes_db
+from start_files.models.mls.homes_db_section import homes_sessionLocal, Mls_homes, replace_old_homes_db, init_homes_db
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from start_files.routes.export_homes_scripts import export_homes
@@ -236,77 +236,77 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                 dropdown = Select(dropdown_element)
                 dropdown.select_by_visible_text("Agent Full")
                 logger.info("Selected 'Agent Full' successfully")
+
+                open_all = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//font[@class='print icon' and @title='Open All']")))
+                driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", open_all)
+                driver.execute_script("arguments[0].click();", open_all)
+                logger.info("Selected images page successfully")
+                
+                driver.switch_to.window(driver.window_handles[1])
+                logger.info("Switched to images page successfully")
+                
+                images_locator = (By.XPATH, "//img[contains(@src, 'https://matrixmedia.brightmls.com')]")
+                WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
+                all_imgs = driver.find_elements(*images_locator)
+                logger.info("Fetching images")
+
+                if len(all_imgs) > min_images:
+                    save_dir = f'/var/www/html/fastapi_project/start_files/static/homes_images/{item[1]}-pending/'
+                    if os.path.exists(save_dir):
+                        shutil.rmtree(save_dir)
+                    os.makedirs(save_dir)
+
+                    for i, img in enumerate(all_imgs[:max_images]):
+                        img_url = img.get_attribute('src')
+                        if img_url:
+                            response = requests.get(img_url)
+                            image_path = os.path.join(save_dir, f'{i + 1}.jpg')
+                            with open(image_path, 'wb') as file:
+                                file.write(response.content)
+                    logger.info(f"Completed image extraction for MLS {mls}.")
+                    
+                    db_attempt = 0
+                    while db_attempt < max_retries:
+                        try:
+                            with get_db_session_pending() as db:
+                                listing_item = db.query(Mls_homes).filter_by(mls=mls).first()
+                                if not listing_item:
+                                    listing = Mls_homes(
+                                        mls=mls,
+                                        address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
+                                        price=item[0],
+                                        description=item[14],
+                                        availability=item[3],
+                                        bedrooms=item[15], 
+                                        bath=item[16],
+                                        full=item[17],
+                                        half=item[18],
+                                        acres=item[19],
+                                        age=item[20],
+                                        sqft=item[21],
+                                        fireplace=item[22],
+                                        basement=item[23],
+                                        garage=item[24],
+                                        spaces=item[25],
+                                    )
+                                    db.add(listing)
+                                    db.commit()
+                                    logger.info(f"{mls} added to database!")
+                                    break
+                                else:
+                                    logger.info(f"{mls} already exists in database.")
+                            break
+                        except OperationalError as db_error:
+                            logger.error(f"Database error for MLS {mls} on attempt {db_attempt + 1}/{max_retries}: {db_error}")
+                            db_attempt += 1
+                            time.sleep(delay)
+                    
+                    return True
+                else:
+                    logger.info(f'No sufficient images for MLS {mls}, not adding to database')
+                    return False  
             except Exception:
-                logger.info(f"{mls} image not clickable")
-                return False  
-
-            open_all = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//font[@class='print icon' and @title='Open All']")))
-            driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", open_all)
-            driver.execute_script("arguments[0].click();", open_all)
-            logger.info("Selected images page successfully")
-            
-            driver.switch_to.window(driver.window_handles[1])
-            logger.info("Switched to images page successfully")
-            
-            images_locator = (By.XPATH, "//img[contains(@src, 'https://matrixmedia.brightmls.com')]")
-            WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
-            all_imgs = driver.find_elements(*images_locator)
-            logger.info("Fetching images")
-
-            if len(all_imgs) > min_images:
-                save_dir = f'/var/www/html/fastapi_project/start_files/static/homes_images/{item[1]}-pending/'
-                if os.path.exists(save_dir):
-                    shutil.rmtree(save_dir)
-                os.makedirs(save_dir)
-
-                for i, img in enumerate(all_imgs[:max_images]):
-                    img_url = img.get_attribute('src')
-                    if img_url:
-                        response = requests.get(img_url)
-                        image_path = os.path.join(save_dir, f'{i + 1}.jpg')
-                        with open(image_path, 'wb') as file:
-                            file.write(response.content)
-                logger.info(f"Completed image extraction for MLS {mls}.")
-                
-                db_attempt = 0
-                while db_attempt < max_retries:
-                    try:
-                        with get_db_session_pending() as db:
-                            listing_item = db.query(Mls_homes).filter_by(mls=mls).first()
-                            if not listing_item:
-                                listing = Mls_homes(
-                                    mls=mls,
-                                    address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
-                                    price=item[0],
-                                    description=item[14],
-                                    availability=item[3],
-                                    bedrooms=item[15], 
-                                    bath=item[16],
-                                    full=item[17],
-                                    half=item[18],
-                                    acres=item[19],
-                                    age=item[20],
-                                    sqft=item[21],
-                                    fireplace=item[22],
-                                    basement=item[23],
-                                    garage=item[24],
-                                    spaces=item[25],
-                                )
-                                db.add(listing)
-                                db.commit()
-                                logger.info(f"{mls} added to database!")
-                                break
-                            else:
-                                logger.info(f"{mls} already exists in database.")
-                        break
-                    except OperationalError as db_error:
-                        logger.error(f"Database error for MLS {mls} on attempt {db_attempt + 1}/{max_retries}: {db_error}")
-                        db_attempt += 1
-                        time.sleep(delay)
-                
-                return True
-            else:
-                logger.info(f'No sufficient images for MLS {mls}, not adding to database')
+                logger.info(f"{mls} image has no clicable image section")
                 return False  
 
         except (WebDriverException, TimeoutException, StaleElementReferenceException):
@@ -366,6 +366,7 @@ async def start_task_in_loop(concurrency_limit, timeout, max_images, min_images,
         logger.info("Waiting for CSV file to appear...")
         await asyncio.sleep(5) 
     sorted_results = sorted_homes_by_price(max_price)
+    init_homes_db()
     await start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results)
     logger.info("Loop task completed successfully")
 

@@ -47,6 +47,7 @@
 
         <!-- Mobile Menu -->
         <nav class="mobile-menu" id="mobile-menu">
+            <div class="close-menu">X</div> <!-- Close icon -->
             <a href="/" class="menu-item">HOME</a>
             <a href="/buying" class="menu-item">BUYING</a>
             <a href="/resources" class="menu-item">RESOURCES</a>
@@ -123,7 +124,7 @@
             let allListings = []; // Array to store all listings
 
             // Fetch the full list of listings from the API
-            fetch('/api/view_rental_database')
+            fetch('/api/view_rentals_database')
                 .then(response => response.json())
                 .then(data => {
                     // Check if data.rentals exists and is an array
@@ -147,7 +148,7 @@
 
             // Function to process and create buttons
             function createButtonDiv(data) {
-                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS, BEDROOMS, BATH } = data;
+                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS, BEDROOMS, BATH , COUNT } = data;
 
                 // Ensure PHOTOS is an array and not empty
                 const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
@@ -179,7 +180,7 @@
 
                 button.onclick = (event) => {
                     event.stopPropagation(); // Prevent click event from bubbling up
-                    showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, photoList);
+                    showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, photoList);
                 };
 
                 buttonDiv.appendChild(button);
@@ -200,7 +201,7 @@
                 filterListings(event.target.value);
             });
 
-            function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, PHOTOS) {
+            function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, PHOTOS) {
                 const popup = document.createElement('div');
                 popup.className = 'popup';
 
@@ -210,43 +211,40 @@
                 const popupGallery = document.createElement('div');
                 popupGallery.className = 'popup-gallery';
 
-                // Ensure PHOTOS is an array and has valid image URLs
-                const photoList = Array.from({ length: 50 }, (_, i) => `static/rentals_images/${MLS}/${i + 1}.jpg`);
+                const photoList = Array.from({ length: COUNT }, (_, i) => `static/rentals_images/${MLS}/${i + 1}.jpg`);
+                
                 photoList.forEach(photo => {
                     const a = document.createElement('a');
-                    a.href = photo; 
+                    a.href = photo;
                     a.dataset.lightbox = 'gallery';
 
                     const img = document.createElement('img');
-                    img.src = photo; 
+                    img.src = photo;
                     img.alt = 'Gallery Image';
                     img.style.width = '150px';
                     img.style.height = '150px';
-                    img.style.border = '3px solid #a8b8c6'; // Add the border
-                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
-    
+                    img.style.border = '3px solid #a8b8c6';
+                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
 
-                    // Check if the image exists before appending
                     img.onload = () => {
                         a.appendChild(img);
                         popupGallery.appendChild(a);
                     };
 
                     img.onerror = () => {
-                        img.onerror = null; // Prevent further error handling
-                        img.onload = null; // Clean up to prevent memory leaks
+                        img.onerror = null;
                     };
                 });
 
                 const popupText = document.createElement('div');
                 popupText.className = 'popup-text';
                 popupText.innerHTML = `
-                    <h6>${COST} Monthly</h6>
+                    <p>${COST} Monthly</p>
                     <p>${ADDRESS}</p>
                     <p>Beds:${BEDROOMS} / Bath: ${BATH}</p>
-                    --------------------<br>
-                    <p>Description: ${DESCRIPTION}</p>
-                    --------------------<br>
+                    <hr class="styled-line">
+                    <p>${DESCRIPTION}</p>
+                    <hr class="styled-line">
                     <p>${MLS}</p>
                     <p>Status: ${STATUS}</p>
                     <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
@@ -263,7 +261,6 @@
                 popup.appendChild(popupContent);
                 document.body.appendChild(popup);
 
-                // Ensure that clicking anywhere outside the popup or the lightbox image closes the popup
                 document.addEventListener('click', (event) => {
                     if (event.target === popup || event.target.classList.contains('lightbox')) {
                         closePopup(popup);
@@ -334,4 +331,5 @@
             </div>
         </div>
     </div>
+    
 {% endblock %}

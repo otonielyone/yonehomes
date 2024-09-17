@@ -97,19 +97,19 @@ async def handle_contact_form(
     return RedirectResponse(url="/contact", status_code=303)
 
 
-@router.get("/api/filter_rental_export", response_class=JSONResponse, name="filter")
+@router.get("/api/filter_rentals_export", response_class=JSONResponse, name="filter")
 async def sort_rental_endpoint(max_price: int = 2500):
     logger.info("Starting CSV sort task in the background")
     sorted = sorted_rentals_by_price(max_price)
     return f"This sorted list has {len(sorted)} listings."
 
-@router.get("/api/populate_rental_database", response_model=dict, name="import")
+@router.get("/api/populate_rentals_database", response_model=dict, name="import")
 async def get_rental_data(background_tasks: BackgroundTasks, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, min_images: int = 2, max_images: int = 50, max_price: int =3000):
     logger.info("Starting MLS rentals gathering task")
     background_tasks.add_task(start_rentals, concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
     return JSONResponse(content={"message": "MLS data gathering rental task started in the background"})
 
-@router.get('/api/view_rental_database')
+@router.get('/api/view_rentals_database')
 async def api_rentals():
     try:
         listings_data = get_rentals_from_db()
@@ -117,7 +117,7 @@ async def api_rentals():
     except Exception:
         raise HTTPException(status_code=500)
 
-@router.get('/api/rental_database_count')
+@router.get('/api/rentals_database_count')
 async def get_total_count():
     try:
         listings_data = get_rentals_from_db()
@@ -153,24 +153,6 @@ async def get_total_count():
     except Exception:
         raise HTTPException(status_code=500)
     
-@router.get("/api/getImages/{mls}", response_model=List[str])
-async def get_images(mls: str = Path(...)):
-    directory_path = f'/var/www/html/fastapi_project/start_files/static/images/{mls}'
-
-    if not os.path.exists(directory_path):
-        raise HTTPException(status_code=404, detail="Directory not found")
-
-    try:
-        files = os.listdir(directory_path)
-        image_files = [f"static/images/{mls}/{file}" for file in files if file.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))]
-        return image_files
-    except Exception:
-        raise HTTPException(status_code=500, detail="Unable to read directory")
-
-@router.get("/home_search")
-async def redirect_to_external():
-    return RedirectResponse(url="https://otonielyone.unitedrealestatewashingtondc.com/index.html")
-
 
 #def install_backups():
 #    db_path = "brightscrape/brightmls_rentals.db.bak"

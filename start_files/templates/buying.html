@@ -48,6 +48,7 @@
 
         <!-- Mobile Menu -->
         <nav class="mobile-menu" id="mobile-menu">
+            <div class="close-menu">X</div> <!-- Close icon -->
             <a href="/" class="menu-item">HOME</a>
             <a href="/resources" class="menu-item">RESOURCES</a>
             <a href="/rentals" class="menu-item">RENTALS</a>
@@ -79,99 +80,81 @@
 
     <!-- Button to trigger the /home_search route -->
     <div class="mls-search">
-        <a href="/home_search">
-            Click here to custom search
-        </a>
+        <a href="/https://otonielyone.unitedrealestatewashingtondc.com/index.htm">Custom search IDX</a>
     </div>
 
+    <!-- Example Dynamic Listings Section -->
     <div class="automation">
-        <title>Dynamic Button Grid</title>
         <section id="dynamic-buttons" class="button-grid">
-            <!-- Dynamic buttons will be inserted here -->
+            <!-- Buttons will be dynamically added here -->
         </section>
     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const numberOfListings = Infinity; // Number of listings you want to display
-            let allListings = []; // Array to store all listings
-    
+            const numberOfListings = Infinity;
+            let allListings = [];
+
             // Fetch the full list of listings from the API
             fetch('/api/view_homes_database')
                 .then(response => response.json())
                 .then(data => {
                     if (data.homes && Array.isArray(data.homes)) {
-                        allListings = data.homes; // Store all listings
-                        displayListings(allListings.slice(0, numberOfListings)); // Display initial listings
+                        allListings = data.homes;
+                        displayListings(allListings.slice(0, numberOfListings));
                     } else {
                         console.error('Invalid data format:', data);
                     }
                 })
                 .catch(error => console.error('Error fetching listings:', error));
-    
-            // Function to display listings
+
             function displayListings(listings) {
                 const container = document.getElementById('dynamic-buttons');
-                container.innerHTML = ''; // Clear existing listings
+                container.innerHTML = '';
                 listings.forEach(item => {
                     createButtonDiv(item);
                 });
             }
-    
-            // Function to process and create buttons
+
             function createButtonDiv(data) {
-                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, PHOTOS } = data;
-    
-                // Ensure PHOTOS is an array and not empty
-                const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
-    
+                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, PHOTOS } = data;
+
+                const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg'];
+
                 const buttonDiv = document.createElement('div');
                 buttonDiv.className = 'button-item';
-    
+
                 const button = document.createElement('button');
-                button.style.padding = 0; // Ensure button has no extra padding
-                button.style.border = 'none'; // Ensure button has no border
-                button.style.background = 'none'; // Ensure button has no background
-    
+                button.style.padding = 0;
+                button.style.border = 'none';
+                button.style.background = 'none';
+
                 const img = document.createElement('img');
                 img.src = `static/homes_images/${MLS}/1.jpg`;
                 img.alt = 'Button Image';
-                img.style.width = '150px'; // Adjust size if necessary
-                img.style.height = '150px'; // Adjust size if necessary
-                img.style.border = '3px solid #a8b8c6'; // Add the border
-                img.style.borderRadius = '10px'; // Add the border radius
-                img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
-                img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
-                
+                img.style.width = '150px';
+                img.style.height = '150px';
+                img.style.border = '3px solid #a8b8c6';
+                img.style.borderRadius = '10px';
+                img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+                img.onerror = () => img.src = 'static/icons/test.jpg';
+
                 const textDiv = document.createElement('div');
                 textDiv.className = 'button-text';
                 textDiv.innerHTML = `Cost: ${formatValue(COST)}<br>${ADDRESS}<br>Beds: ${BEDROOMS} / Baths: ${BATH}`;
-    
+
                 button.appendChild(img);
                 button.appendChild(textDiv);
-    
+
                 button.onclick = (event) => {
-                    event.stopPropagation(); // Prevent click event from bubbling up
-                    showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, photoList);
+                    event.stopPropagation();
+                    showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, photoList);
                 };
-    
+
                 buttonDiv.appendChild(button);
                 document.getElementById('dynamic-buttons').appendChild(buttonDiv);
             }
-    
-            // Function to filter and update the listings
-            function filterListings(query) {
-                const lowerQuery = query.toLowerCase();
-                const filteredListings = allListings.filter(item => 
-                    item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
-                );
-                displayListings(filteredListings.slice(0, numberOfListings)); // Display filtered listings
-            }
-    
-            // Add event listener for search field
-            document.getElementById('searchField').addEventListener('input', (event) => {
-                filterListings(event.target.value);
-            });
-    
+
             function formatValue(value, field) {
                 if (value === null || value === undefined || value === '') {
                     return field === 'SQFT' || field === 'SPACES' ? 'Not Reported' : '0';
@@ -181,49 +164,47 @@
                 }
                 return value;
             }
-    
-            function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, PHOTOS) {
+
+            function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, PHOTOS) {
                 const popup = document.createElement('div');
                 popup.className = 'popup';
-    
+
                 const popupContent = document.createElement('div');
                 popupContent.className = 'popup-content';
-    
+
                 const popupGallery = document.createElement('div');
                 popupGallery.className = 'popup-gallery';
-    
-                // Ensure PHOTOS is an array and has valid image URLs
-                const photoList = Array.from({ length: 50 }, (_, i) => `static/homes_images/${MLS}/${i + 1}.jpg`);
+
+                const photoList = Array.from({ length: COUNT }, (_, i) => `static/homes_images/${MLS}/${i + 1}.jpg`);
+
                 photoList.forEach(photo => {
                     const a = document.createElement('a');
-                    a.href = photo; 
+                    a.href = photo;
                     a.dataset.lightbox = 'gallery';
-    
+
                     const img = document.createElement('img');
-                    img.src = photo; 
+                    img.src = photo;
                     img.alt = 'Gallery Image';
                     img.style.width = '150px';
                     img.style.height = '150px';
-                    img.style.border = '3px solid #a8b8c6'; // Add the border
-                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
-    
-                    // Check if the image exists before appending
+                    img.style.border = '3px solid #a8b8c6';
+                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+
                     img.onload = () => {
                         a.appendChild(img);
                         popupGallery.appendChild(a);
                     };
-    
+
                     img.onerror = () => {
-                        img.onerror = null; // Prevent further error handling
-                        img.onload = null; // Clean up to prevent memory leaks
+                        img.onerror = null;
                     };
                 });
-    
+
                 const popupText = document.createElement('div');
                 popupText.className = 'popup-text';
                 popupText.innerHTML = `
                     <hr class="styled-line">
-                    <h6> Cost ${formatValue(COST)}</h6>
+                    <p> Cost ${formatValue(COST)}</p>
                     <p>${ADDRESS}</p>
                     <hr class="styled-line">
                     <div class="popup-row">
@@ -283,29 +264,28 @@
                         </div>
                     </div>
                     <hr class="styled-line">
-                    <p>Description:<br>${DESCRIPTION}</p>
+                    <p>${DESCRIPTION}</p>
                     <hr class="styled-line">
                     <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
                 `;
-                    
+
                 const popupClose = document.createElement('span');
                 popupClose.className = 'popup-close';
                 popupClose.innerHTML = '&times;';
                 popupClose.onclick = () => closePopup(popup);
-    
+
                 popupContent.appendChild(popupGallery);
                 popupContent.appendChild(popupText);
                 popupContent.appendChild(popupClose);
                 popup.appendChild(popupContent);
                 document.body.appendChild(popup);
-    
+
                 document.addEventListener('click', (event) => {
                     if (event.target === popup || event.target.classList.contains('lightbox')) {
                         closePopup(popup);
                     }
                 });
 
-                // Close the popup when Escape key is pressed
                 document.addEventListener('keydown', (event) => {
                     if (event.key === 'Escape') {
                         closePopup(popup);
@@ -324,7 +304,9 @@
         });
     </script>
 
-    <!-- Custom Section with Parallax Effect -->
+
+
+<!-- Custom Section with Parallax Effect -->
     <div class="custom-section" id="main-section">
         <div class="custom-header">
             <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
@@ -370,4 +352,5 @@
             </div>
         </div>
     </div>
+    
 {% endblock %}

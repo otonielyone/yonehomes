@@ -1,7 +1,4 @@
-
 /* General Styles */
-
-
 .buy-heading {
     font-size: 36px;
     margin: 10px 0;
@@ -9,7 +6,6 @@
     font-weight: 500; /* Thin weight for headings */
     background: none; /* Ensure no background color */
 }
-
 
 /* Popup Styles */
 .popup {
@@ -69,7 +65,6 @@
     cursor: pointer;
 }
 
-
 /* Contact Button Styles */
 .contact-button {
     display: inline-block;
@@ -94,7 +89,6 @@
 .footer p {
     padding: 0;
 }
-
 
 /* Search Container */
 .search-container {
@@ -122,10 +116,13 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    font-size: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     color: #007bff;
-    max-width: 300px; 
-    border-radius: 11px;
-    border: 1px solid #007bff; /* Changed border color to blue */
+    max-width: 200px; 
+    border-radius: 7px;
+    border: 1px solid #888f96; /* Changed border color to blue */
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.1); /* Fixed box-shadow color */
     margin: 20px auto 80px; 
     text-align: center;
@@ -153,7 +150,6 @@
     margin-top: 0;
     padding: 20px;
 }
-
 
 /* Button Item Styles */
 .button-item {
@@ -222,7 +218,6 @@
     }
 }
 
-
 /* Responsive Adjustments */
 @media screen and (max-width: 500px) and (orientation: portrait) {
     .light-red-text h2 {
@@ -240,30 +235,15 @@
     }
 }
 
-.popup-row {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px; /* Space between rows */
+.contact-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.popup-item {
-    text-align: center; /* Center align titles and values */
-    flex: 1; /* Flex grow to evenly distribute space */
+.contact-button:hover {
+    background-color: #0056b3;
 }
-
-.popup-title {
-    font-weight: bold;
-    margin-bottom: 5px; /* Space below the title */
-}
-
-.popup-value {
-    font-size: 14px; /* Adjust the font size of the value */
-}
-
-.styled-line {
-    border: none; /* Remove default border */
-    border-top: 1px solid #c5cace; /* Solid line with desired color and thickness */
-    margin: 20px 0; /* Adjust space above and below the line */
-    width: 100%; /* Full width */
-}
-
