@@ -1,10 +1,12 @@
 import shutil
+
+import httpx
 from start_files.models.mls.rentals_db_section import get_rentals_from_db
 from start_files.models.mls.homes_db_section import get_homes_from_db
 from start_files.routes.rentals_scripts import sorted_rentals_by_price, start_rentals
 from start_files.routes.homes_scripts import sorted_homes_by_price, start_homes
 from fastapi import APIRouter, Form, Path, Request, HTTPException, BackgroundTasks
-from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, StreamingResponse
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
@@ -153,7 +155,17 @@ async def get_total_count():
     except Exception:
         raise HTTPException(status_code=500)
     
-
+@router.get("/home_search")
+async def home_search(request: Request):
+    external_url = "https://otonielyone.unitedrealestatewashingtondc.com/index.htm"
+    async with httpx.AsyncClient() as client:
+        response = await client.get(external_url)
+        return StreamingResponse(
+            content=response.aiter_raw(),
+            headers=dict(response.headers),
+            status_code=response.status_code
+        )
+    
 #def install_backups():
 #    db_path = "brightscrape/brightmls_rentals.db.bak"
 #    new_db_name = db_path[:-4]

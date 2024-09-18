@@ -4,7 +4,7 @@
 API_URL="https://yonehomes.com/api/populate_rentals_database"
 
 # Parameters
-PARAMS="concurrency_limit=10&max_retries=5&delay=1&timeout=300&min_images=2&max_images=50&max_price=3000"
+PARAMS="concurrency_limit=10&max_retries=10&delay=1&timeout=60&min_images=2&max_images=100&max_price=3000"
 
 # Retry settings
 MAX_RETRIES=5

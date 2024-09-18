@@ -288,6 +288,7 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                                         basement=item[23],
                                         garage=item[24],
                                         spaces=item[25],
+                                        count=len(all_imgs),
                                     )
                                     db.add(listing)
                                     db.commit()
@@ -366,6 +367,7 @@ async def start_task_in_loop(concurrency_limit, timeout, max_images, min_images,
         logger.info("Waiting for CSV file to appear...")
         await asyncio.sleep(5) 
     sorted_results = sorted_homes_by_price(max_price)
+    logger.info(f"cvs count {len(sorted_results)}")
     init_homes_db()
     await start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results)
     logger.info("Loop task completed successfully")

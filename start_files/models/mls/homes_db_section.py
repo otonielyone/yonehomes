@@ -38,7 +38,8 @@ class Mls_homes(Base):
     basement = Column(String(5), index=True)
     garage = Column(String(5), index=True)
     spaces = Column(String(5), index=True)
-        
+    count = Column(String(5), index=True)
+
     def __repr__(self):
         return '<Mls_homes {}>'.format(self.mls)
 
@@ -91,21 +92,10 @@ def replace_old_homes_db():
             print(f"Error renaming old database to {new_db_path}")
     else:
         print(f"Old database {old_db_path} does not exist")
-
-
     
 def process_row(row):
     cost_formatted = f"${row['price']:,.2f}"
-    
-    mls_directory = f'/var/www/html/fastapi_project/start_files/static/homes_images/{row["mls"]}'
 
-    image_list = []
-    if os.path.exists(mls_directory):
-        for filename in os.listdir(mls_directory):
-            if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
-                image_path = os.path.join(mls_directory, filename)
-                image_list.append(image_path)
-    
     return {
         "MLS": row['mls'],
         "COST": cost_formatted,
@@ -123,19 +113,21 @@ def process_row(row):
         "BASEMENT": row['basement'], 
         "GARAGE": row['garage'],
         "SPACES": row['spaces'],
-        "COUNT": len(image_list)
+        "COUNT": row['count'],
     }
 
 
 def get_homes_from_db():
+    db = None
     try:
         db = homes_sessionLocal2()
         listings = db.query(Mls_homes).all()
-        listings_dict = [listing.__dict__ for listing in listings]
-        df = pd.DataFrame(listings_dict)
         
-        # Check if required columns are present
-        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'full', 'half', 'acres', 'age', 'sqft', 'fireplace', 'basement', 'garage', 'spaces'}
+        listings_dict = [listing.__dict__ for listing in listings]
+        print(f"Listings: {listings_dict}")  # Debugging line
+        df = pd.DataFrame(listings_dict)
+
+        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'full', 'half', 'acres', 'age', 'sqft', 'fireplace', 'basement', 'garage', 'spaces', 'count'}
         missing_columns = required_columns - set(df.columns)
         if missing_columns:
             raise KeyError(f"Missing columns: {', '.join(missing_columns)}")

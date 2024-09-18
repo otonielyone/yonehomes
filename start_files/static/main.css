@@ -322,7 +322,7 @@ a:focus {
 .close-menu {
   position: absolute; /* Position it in the top-right corner */
   top: 25px;
-  right: 100px;
+  right: 70px;
   font-size: 25px; /* Adjust size as needed */
   color: white; /* White color for the 'X' */
   cursor: pointer; /* Change cursor to pointer to indicate clickability */
@@ -730,6 +730,7 @@ a:focus {
 @media screen and (max-width: 500px) and (orientation: portrait) {
   .image-header-container {
     height: 100vh; /* Use viewport height for portrait mode */
+
   }
 
   .menu-bar {
@@ -827,9 +828,22 @@ a:focus {
     background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
   }
 
+  .close-menu {
+    position: absolute; /* Position it in the top-right corner */
+    top: 10px;
+    right: 55px;
+    font-size: 15px; /* Adjust size as needed */
+  } 
+
+  /* Menu Item Styling */
+  .menu-item {
+  padding-top: 10px; 
+  padding-bottom: 10px; /* Increase left padding for indentation */
+  padding-left: 0;
+  margin-left: 0;
 }
+  .button-link {
+    border: 1px solid #ffffff;
+  }
 
-
-
-
-
+}

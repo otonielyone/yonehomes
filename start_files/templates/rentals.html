@@ -108,7 +108,7 @@
     </div>
 
     <div class="search-container">
-        <input type="text" id="searchField" placeholder="Filter Rentals by address or MLS">
+        <input type="text" id="searchField" placeholder="Filter Rentals">
     </div>
 
     <div class="automation">
@@ -172,7 +172,7 @@
                 img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
                 
                 const textDiv = document.createElement('div');
-                textDiv.className = 'button-text';
+                textDiv.className = 'popup-text';
                 textDiv.innerHTML = `${COST}<br>Beds: ${BEDROOMS} / Baths: ${BATH}<br>${ADDRESS}`;
 
                 button.appendChild(img);
@@ -239,15 +239,19 @@
                 const popupText = document.createElement('div');
                 popupText.className = 'popup-text';
                 popupText.innerHTML = `
+                    <hr class="styled-line">
                     <p>${COST} Monthly</p>
                     <p>${ADDRESS}</p>
-                    <p>Beds:${BEDROOMS} / Bath: ${BATH}</p>
+                    <hr class="styled-line">
+                    <p style="font-weight: bold;">Beds / Bath</p>
+                    <p>${BEDROOMS}  /  ${BATH}</p>
                     <hr class="styled-line">
                     <p>${DESCRIPTION}</p>
                     <hr class="styled-line">
                     <p>${MLS}</p>
                     <p>Status: ${STATUS}</p>
                     <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
+                    <hr class="styled-line">
                 `;
 
                 const popupClose = document.createElement('span');

@@ -243,15 +243,6 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                 all_imgs = driver.find_elements(*images_locator)
                 logger.info("Fetching images")
 
-#            formula_span = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, "//span[text()='Click to Show Photos']")))
-#            driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", formula_span)
-#            driver.execute_script("arguments[0].click();", formula_span)#
-
-#            logger.info(f"Clicking image section for {mls}")
-#            images_locator = (By.XPATH, '//font[@class="IV_Single"]//img[@class="IV_Image"]')
-#            WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
-#            all_imgs = driver.find_elements(*images_locator)
-            
                 
                 if len(all_imgs) > min_images:
                     save_dir = f'/var/www/html/fastapi_project/start_files/static/rentals_images/{item[1]}-pending/'
@@ -282,6 +273,7 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                                         availability=item[3],
                                         bedrooms=item[15], 
                                         bath=item[16],
+                                        count=len(all_imgs),
                                     )
                                     db.add(listing)
                                     db.commit()
@@ -361,6 +353,7 @@ async def start_task_in_loop(concurrency_limit, timeout, max_images, min_images,
         logger.info("Waiting for CSV file to appear...")
         await asyncio.sleep(5) 
     sorted_results = sorted_rentals_by_price(max_price)
+    logger.info(f"cvs count {sorted_results}")
     init_rentals_db()
     await start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results)
     logger.info("Loop task completed successfully")

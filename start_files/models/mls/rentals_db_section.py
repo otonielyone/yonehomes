@@ -31,6 +31,7 @@ class Mls_rentals(Base):
     availability = Column(String(20), index=True)
     bedrooms = Column(String(5), index=True)
     bath = Column(String(5), index=True)
+    count = Column(Integer, index=True)
     
     def __repr__(self):
         return '<Mls_rentals {}>'.format(self.mls)
@@ -64,7 +65,6 @@ def init_rentals2_db():
     db_dir = os.path.dirname(db_path)
     os.makedirs(db_dir, exist_ok=True)
 
-
 def replace_old_rentals_db():
     old_db_path = "brightscrape/_rentals_pending.db"
     new_db_path = "brightscrape/brightmls_rentals.db"
@@ -96,19 +96,9 @@ def replace_old_rentals_db():
         print(f"Old database {old_db_path} does not exist")
 
 
-    
 
 def process_row(row):
     cost_formatted = f"${row['price']:,.2f}"
-    
-    mls_directory = f'/var/www/html/fastapi_project/start_files/static/rentals_images/{row["mls"]}'
-
-    image_list = []
-    if os.path.exists(mls_directory):
-        for filename in os.listdir(mls_directory):
-            if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
-                image_path = os.path.join(mls_directory, filename)
-                image_list.append(image_path)
 
     return {
         "MLS": row['mls'],
@@ -118,19 +108,21 @@ def process_row(row):
         "STATUS": row['availability'],
         "BEDROOMS": row['bedrooms'],
         "BATH": row['bath'],
-        "COUNT": len(image_list)
+        "COUNT": row['count'],
     }
 
 
-
 def get_rentals_from_db():
+    db = None
     try:
         db = rentals_sessionLocal2()
         listings = db.query(Mls_rentals).all()
+        
         listings_dict = [listing.__dict__ for listing in listings]
+        print(f"Listings: {listings_dict}")  # Debugging line
         df = pd.DataFrame(listings_dict)
         
-        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath'}
+        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'count'}
         missing_columns = required_columns - set(df.columns)
         if missing_columns:
             raise KeyError(f"Missing columns: {', '.join(missing_columns)}")
@@ -139,8 +131,8 @@ def get_rentals_from_db():
             formatted_listings = list(executor.map(process_row, df.to_dict(orient='records')))
         
         return formatted_listings
-    except Exception:
-        print(f"An error occurred while retrieving listings")
+    except Exception as e:
+        print(f"An error occurred while retrieving listings: {e}")
         return [] 
     finally:
         if db:
@@ -149,3 +141,5 @@ def get_rentals_from_db():
 
 
 
+
+print(get_rentals_from_db())

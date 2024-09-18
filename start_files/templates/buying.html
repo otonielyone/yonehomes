@@ -75,12 +75,12 @@
 
 
     <div class="search-container">
-        <input type="text" id="searchField" placeholder="Filter Homes by address or MLS">
+        <input type="text" id="searchField" placeholder="Filter Homes">
     </div>
 
     <!-- Button to trigger the /home_search route -->
     <div class="mls-search">
-        <a href="/https://otonielyone.unitedrealestatewashingtondc.com/index.htm">Custom search IDX</a>
+        <a href="http://otonielyone.unitedrealestatewashingtondc.com/index.html" target="_blank">Custom search IDX</a>
     </div>
 
     <!-- Example Dynamic Listings Section -->
@@ -140,7 +140,7 @@
                 img.onerror = () => img.src = 'static/icons/test.jpg';
 
                 const textDiv = document.createElement('div');
-                textDiv.className = 'button-text';
+                textDiv.className = 'popup-text';
                 textDiv.innerHTML = `Cost: ${formatValue(COST)}<br>${ADDRESS}<br>Beds: ${BEDROOMS} / Baths: ${BATH}`;
 
                 button.appendChild(img);
@@ -204,7 +204,7 @@
                 popupText.className = 'popup-text';
                 popupText.innerHTML = `
                     <hr class="styled-line">
-                    <p> Cost ${formatValue(COST)}</p>
+                    <p>Cost ${formatValue(COST)}</p>
                     <p>${ADDRESS}</p>
                     <hr class="styled-line">
                     <div class="popup-row">
@@ -224,9 +224,6 @@
                             <div class="popup-title">Sqft</div>
                             <div class="popup-value">${formatValue(SQFT, 'SQFT')}</div>
                         </div>
-                    </div>
-
-                    <div class="popup-row">
                         <div class="popup-item">
                             <div class="popup-title">Status</div>
                             <div class="popup-value">${formatValue(STATUS)}</div>
@@ -243,9 +240,6 @@
                             <div class="popup-title">Full / Half</div>
                             <div class="popup-value">${formatValue(FULL)} / ${formatValue(HALF, 'HALF')}</div>
                         </div>
-                    </div>
-
-                    <div class="popup-row">
                         <div class="popup-item">
                             <div class="popup-title">Garage</div>
                             <div class="popup-value">${formatValue(GARAGE)}</div>
@@ -266,9 +260,12 @@
                     <hr class="styled-line">
                     <p>${DESCRIPTION}</p>
                     <hr class="styled-line">
-                    <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
+                    <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">
+                        Click here to request more information
+                    </button><br><br>
                 `;
 
+                // Creating the close button
                 const popupClose = document.createElement('span');
                 popupClose.className = 'popup-close';
                 popupClose.innerHTML = '&times;';
