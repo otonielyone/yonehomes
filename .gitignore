@@ -1,7 +1,13 @@
 # Ignore directories
+/start_files/static/images/
+/start_files/static/homes_images/
+/start_files/static/rentals_images/
 ./start_files/static/images/
 ./start_files/static/homes_images/
 ./start_files/static/rentals_images/
+start_files/static/images/
+start_files/static/homes_images/
+start_files/static/rentals_images/
 
 # Ignore .env file
 .env

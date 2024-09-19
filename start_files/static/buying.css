@@ -166,8 +166,6 @@
     border: none;
 }
 
-
-
 .contact-button {
     background-color: #007BFF;
     color: white;
@@ -180,6 +178,59 @@
 .contact-button:hover {
     background-color: #0056b3;
 }
+
+/* Loader CSS */
+.loader2 {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+
+/* Loader CSS */
+.loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader .spinner {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+.loader-text {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    z-index: 10000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
 /* Media Queries for Responsive Layout */
 @media (max-width: 1200px) {
@@ -206,7 +257,7 @@
 /* Responsive Adjustments */
 @media screen and (max-width: 500px) and (orientation: portrait) {
     .light-red-text h2 {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
     }
 
@@ -219,24 +270,32 @@
         z-index: 1000; /* Ensure heading is below popup */
     }
         
+
     .popup-text {
-        font-size: 10px; /* General text, smaller for mobile */
-        white-space: normal; /* Allow paragraphs to wrap properly */
-        overflow-x: hidden; /* Hide horizontal overflow */
-        font-weight: normal; /* Set the same weight as the text inside the button */
+        font-size: 12px; /* General text, smaller for mobile */
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .popup-text p {
+        width: 60%;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
     }
 
     /* Ensure gallery is centered and items are 3 per row */
     .popup-row {
         display: grid;
         grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
-        grid-gap: 10px; /* Add space between items */
+        grid-gap: 12px; /* Add space between items */
         justify-content: center; /* Center the grid items */
     }
 
     /* Ensure titles are visible */
     .popup-title {
-        font-size: 12px; /* Ensure title font size is slightly larger */
+        font-size: 10px; /* Ensure title font size is slightly larger */
         font-weight: bold; /* Make sure titles are bold */
         color: #000; /* Set title color to black for visibility */
         display: block; /* Ensure titles are displayed as block */
@@ -254,6 +313,7 @@
     /* Ensure description displays fully as a paragraph */
     .popup-text p {
         white-space: normal; /* Allow paragraph wrapping */
+        width: 90%;
         word-wrap: break-word; /* Wrap long words to avoid overflow */
     }
 }

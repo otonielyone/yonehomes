@@ -172,6 +172,18 @@
     margin-top: 20px;
     padding: 20px;
 }
+
+
+/* Ensure titles are visible */
+.popup-title {
+    font-size: 10px; /* Ensure title font size is slightly larger */
+}
+/* Ensure full values for variables, no truncation */
+.popup-value {
+    font-size: 10px; /* Keep variable values at 10px */
+}
+
+
 /* Desktop layout: 3 rows with 4 columns */
 .popup-row {
     display: grid;
@@ -179,12 +191,20 @@
     grid-gap: 10px; /* Space between items */
 }
 
+
 .popup-text {
+    font-size: 12px; /* General text, smaller for mobile */
     align-items: center;
     justify-content: center;
     align-content: center;
 }
 
+.popup-text p {
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
 
 .popup-gallery {
     display: flex;
@@ -247,10 +267,67 @@
     text-align: center;
 }
 
+/* Loader CSS */
+.loader2 {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader .spinner {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+.loader-text {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
 
 /* Responsive Adjustments */
 @media screen and (max-width: 500px) and (orientation: portrait) {s
+
+    .light-red-text h2 {
+        font-size: 18px;
+    }
+        
+    h2 {
+        font-size: 18px;
+    }
+        
     #searchField {
         width: 85%;
         margin-bottom: 45px;
@@ -261,7 +338,7 @@
     }
         
     .popup-text {
-        font-size: 10px; /* General text, smaller for mobile */
+        font-size: 12px; /* General text, smaller for mobile */
         white-space: normal; /* Allow paragraphs to wrap properly */
         overflow-x: hidden; /* Hide horizontal overflow */
         font-weight: normal; /* Set the same weight as the text inside the button */
@@ -277,7 +354,7 @@
 
     /* Ensure titles are visible */
     .popup-title {
-        font-size: 12px; /* Ensure title font size is slightly larger */
+        font-size: 10px; /* Ensure title font size is slightly larger */
         font-weight: bold; /* Make sure titles are bold */
         color: #000; /* Set title color to black for visibility */
         display: block; /* Ensure titles are displayed as block */
@@ -292,9 +369,12 @@
         text-align: center; /* Center the values */
     }
 
+
+
     /* Ensure description displays fully as a paragraph */
     .popup-text p {
         white-space: normal; /* Allow paragraph wrapping */
+        width: 90%;
         word-wrap: break-word; /* Wrap long words to avoid overflow */
     }
 }

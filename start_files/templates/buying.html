@@ -24,7 +24,7 @@
         <nav class="menu-bar">
             <!-- Left Column with Menu Links -->
             <div class="menu-column left-column">
-                <a href="/" class="menu-link">HOME</a>
+                <a href="/" class="menu-link">HOMEPAGE</a>
                 <a href="/resources" class="menu-link">RESOURCES</a>
                 <a href="/rentals" class="menu-link">RENTALS</a>
                 <a href="/contact" class="menu-link">CONTACT</a>
@@ -49,7 +49,7 @@
         <!-- Mobile Menu -->
         <nav class="mobile-menu" id="mobile-menu">
             <div class="close-menu">X</div> <!-- Close icon -->
-            <a href="/" class="menu-item">HOME</a>
+            <a href="/" class="menu-item">HOMEPAGE</a>
             <a href="/resources" class="menu-item">RESOURCES</a>
             <a href="/rentals" class="menu-item">RENTALS</a>
             <a href="/contact" class="menu-item">CONTACT</a>
@@ -80,8 +80,14 @@
 
     <!-- Button to trigger the /home_search route -->
     <div class="mls-search">
-        <a href="http://otonielyone.unitedrealestatewashingtondc.com/index.html" target="_blank">Custom search IDX</a>
+        <a href="http://otonielyone.unitedrealestatewashingtondc.com/index.html" target="_blank">Custom search</a>
     </div>
+
+    <div class="loader2" id="page-loader">
+        <div class="spinner"></div>
+        <p class="loader-text">Please allow a few moments to retrieve accuarate results...</p>
+    </div>
+
 
     <!-- Example Dynamic Listings Section -->
     <div class="automation">
@@ -89,220 +95,271 @@
             <!-- Buttons will be dynamically added here -->
         </section>
     </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const numberOfListings = Infinity; // Number of listings you want to display
+        let allListings = []; // Array to store all listings
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const numberOfListings = Infinity;
-            let allListings = [];
+        // Create and show the loader initially
+        const loader = document.createElement('div');
+        loader.className = 'loader';
+        const spinner = document.createElement('div');
+        spinner.className = 'spinner';
+        loader.appendChild(spinner);
+        document.body.appendChild(loader);
 
-            // Fetch the full list of listings from the API
-            fetch('/api/view_homes_database')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.homes && Array.isArray(data.homes)) {
-                        allListings = data.homes;
-                        displayListings(allListings.slice(0, numberOfListings));
-                    } else {
-                        console.error('Invalid data format:', data);
-                    }
-                })
-                .catch(error => console.error('Error fetching listings:', error));
+        // Fetch the full list of listings from the API
+        fetch('/api/view_homes_database')
+            .then(response => response.json())
+            .then(data => {
+                if (data.homes && Array.isArray(data.homes)) {
+                    allListings = data.homes; // Store all listings
+                    displayListings(allListings.slice(0, numberOfListings)); // Display initial listings
+                } else {
+                    console.error('Invalid data format:', data);
+                }
+            })
+            .catch(error => console.error('Error fetching listings:', error));
 
-            function displayListings(listings) {
-                const container = document.getElementById('dynamic-buttons');
-                container.innerHTML = '';
-                listings.forEach(item => {
-                    createButtonDiv(item);
-                });
+        // Function to display listings
+        function displayListings(listings) {
+            const container = document.getElementById('dynamic-buttons');
+            container.innerHTML = ''; // Clear existing listings
+            listings.forEach((item, index) => {
+                createButtonDiv(item, index === 0); // Pass if it's the first item
+            });
+
+            // Hide loader once listings are displayed
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.removeChild(loader);
+            }, 100); // Small timeout to ensure the display is updated
+        }
+
+        // Function to process and create buttons
+        function createButtonDiv(data, isFirst) {
+            const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, PHOTOS } = data;
+
+            // Ensure PHOTOS is an array and not empty
+            const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
+
+            const buttonDiv = document.createElement('div');
+            buttonDiv.className = 'button-item';
+
+            const button = document.createElement('button');
+            button.style.padding = 0; // Ensure button has no extra padding
+            button.style.border = 'none'; // Ensure button has no border
+            button.style.background = 'none'; // Ensure button has no background
+
+            const img = document.createElement('img');
+            img.src = `static/homes_images/${MLS}/1.jpg`;
+            img.alt = 'Button Image';
+            img.style.width = '150px'; // Adjust size if necessary
+            img.style.height = '150px'; // Adjust size if necessary
+            img.style.border = '3px solid #a8b8c6'; // Add the border
+            img.style.borderRadius = '10px'; // Add the border radius
+            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
+            img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+
+            const textDiv = document.createElement('div');
+            textDiv.className = 'popup-text';
+            textDiv.innerHTML = `${COST}<br>Beds: ${BEDROOMS} / Baths: ${BATH}<br>${ADDRESS}`;
+
+            button.appendChild(img);
+            button.appendChild(textDiv);
+
+            button.onclick = (event) => {
+                event.stopPropagation();
+                showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, photoList);
+            };
+
+            buttonDiv.appendChild(button);
+            document.getElementById('dynamic-buttons').appendChild(buttonDiv);
+
+            // Show loader until the first image loads
+            if (isFirst) {
+                showLoaderUntilFirstImageLoads(img.src);
             }
+        }
 
-            function createButtonDiv(data) {
-                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, PHOTOS } = data;
+        // Function to show the loader until the first image loads
+        function showLoaderUntilFirstImageLoads(imageUrl) {
+            const img = new Image();
+            img.src = imageUrl;
 
-                const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg'];
+            img.onload = () => {
+                document.querySelector('.loader2').style.display = 'none';
+                document.body.removeChild(document.querySelector('.loader2'));
+            };
 
-                const buttonDiv = document.createElement('div');
-                buttonDiv.className = 'button-item';
+            img.onerror = () => {
+                document.querySelector('.loader2').style.display = 'none';
+                document.body.removeChild(document.querySelector('.loader2'));
+            };
 
-                const button = document.createElement('button');
-                button.style.padding = 0;
-                button.style.border = 'none';
-                button.style.background = 'none';
+            // Timeout to handle cases where image URL might be invalid or other issues
+            setTimeout(() => {
+                document.querySelector('.loader2').style.display = 'none';
+                document.body.removeChild(document.querySelector('.loader2'));
+            }, 5000); // Hide loader after 5 seconds if image doesn't load
+        }
+
+        // Function to filter and update the listings
+        function filterListings(query) {
+            const lowerQuery = query.toLowerCase();
+            const filteredListings = allListings.filter(item => 
+                item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
+            );
+            displayListings(filteredListings.slice(0, numberOfListings)); // Display filtered listings
+        }
+
+        // Add event listener for search field
+        document.getElementById('searchField').addEventListener('input', (event) => {
+            filterListings(event.target.value);
+        });
+
+        // Function to show the popup
+        function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, PHOTOS) {
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+
+            const popupContent = document.createElement('div');
+            popupContent.className = 'popup-content';
+
+            // Create loader element
+            const loader = document.createElement('div');
+            loader.className = 'loader';
+            const spinner = document.createElement('div');
+            spinner.className = 'spinner';
+            loader.appendChild(spinner);
+
+            // Show loader in popup until images are loaded
+            popupContent.appendChild(loader);
+
+            const popupGallery = document.createElement('div');
+            popupGallery.className = 'popup-gallery';
+
+            let loadedImagesCount = 0;
+            const photoList = Array.from({ length: COUNT }, (_, i) => `static/homes_images/${MLS}/${i + 1}.jpg`);
+
+            photoList.forEach(photo => {
+                const a = document.createElement('a');
+                a.href = photo;
+                a.dataset.lightbox = 'gallery'; // Lightbox data attribute
 
                 const img = document.createElement('img');
-                img.src = `static/homes_images/${MLS}/1.jpg`;
-                img.alt = 'Button Image';
+                img.src = photo;
+                img.alt = 'Gallery Image';
                 img.style.width = '150px';
                 img.style.height = '150px';
                 img.style.border = '3px solid #a8b8c6';
-                img.style.borderRadius = '10px';
                 img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
-                img.onerror = () => img.src = 'static/icons/test.jpg';
 
-                const textDiv = document.createElement('div');
-                textDiv.className = 'popup-text';
-                textDiv.innerHTML = `Cost: ${formatValue(COST)}<br>${ADDRESS}<br>Beds: ${BEDROOMS} / Baths: ${BATH}`;
+                img.onload = () => {
+                    a.appendChild(img);
+                    popupGallery.appendChild(a);
 
-                button.appendChild(img);
-                button.appendChild(textDiv);
-
-                button.onclick = (event) => {
-                    event.stopPropagation();
-                    showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, photoList);
+                    loadedImagesCount++;
+                    if (loadedImagesCount === photoList.length) {
+                        // Hide loader once all images are loaded
+                        loader.style.display = 'none';
+                    }
                 };
 
-                buttonDiv.appendChild(button);
-                document.getElementById('dynamic-buttons').appendChild(buttonDiv);
-            }
+                img.onerror = () => {
+                    a.appendChild(img);
+                    popupGallery.appendChild(a);
 
-            function formatValue(value, field) {
-                if (value === null || value === undefined || value === '') {
-                    return field === 'SQFT' || field === 'SPACES' ? 'Not Reported' : '0';
-                }
-                if (field === 'HALF') {
-                    return '0';
-                }
-                return value;
-            }
+                    loadedImagesCount++;
+                    if (loadedImagesCount === photoList.length) {
+                        loader.style.display = 'none';
+                    }
+                };
+            });
 
-            function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, PHOTOS) {
-                const popup = document.createElement('div');
-                popup.className = 'popup';
-
-                const popupContent = document.createElement('div');
-                popupContent.className = 'popup-content';
-
-                const popupGallery = document.createElement('div');
-                popupGallery.className = 'popup-gallery';
-
-                const photoList = Array.from({ length: COUNT }, (_, i) => `static/homes_images/${MLS}/${i + 1}.jpg`);
-
-                photoList.forEach(photo => {
-                    const a = document.createElement('a');
-                    a.href = photo;
-                    a.dataset.lightbox = 'gallery';
-
-                    const img = document.createElement('img');
-                    img.src = photo;
-                    img.alt = 'Gallery Image';
-                    img.style.width = '150px';
-                    img.style.height = '150px';
-                    img.style.border = '3px solid #a8b8c6';
-                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
-
-                    img.onload = () => {
-                        a.appendChild(img);
-                        popupGallery.appendChild(a);
-                    };
-
-                    img.onerror = () => {
-                        img.onerror = null;
-                    };
-                });
-
-                const popupText = document.createElement('div');
-                popupText.className = 'popup-text';
-                popupText.innerHTML = `
-                    <hr class="styled-line">
-                    <p>Cost ${formatValue(COST)}</p>
-                    <p>${ADDRESS}</p>
-                    <hr class="styled-line">
-                    <div class="popup-row">
-                        <div class="popup-item">
-                            <div class="popup-title">Mls</div>
-                            <div class="popup-value">${formatValue(MLS)}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Age</div>
-                            <div class="popup-value">${formatValue(AGE)}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Acres</div>
-                            <div class="popup-value">${formatValue(ACRES)}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Sqft</div>
-                            <div class="popup-value">${formatValue(SQFT, 'SQFT')}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Status</div>
-                            <div class="popup-value">${formatValue(STATUS)}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Bedrooms</div>
-                            <div class="popup-value">${formatValue(BEDROOMS)}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Total Bath</div>
-                            <div class="popup-value">${formatValue(BATH)}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Full / Half</div>
-                            <div class="popup-value">${formatValue(FULL)} / ${formatValue(HALF, 'HALF')}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Garage</div>
-                            <div class="popup-value">${formatValue(GARAGE)}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Total Spaces</div>
-                            <div class="popup-value">${formatValue(SPACES, 'SPACES')}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Fireplace</div>
-                            <div class="popup-value">${formatValue(FIREPLACE)}</div>
-                        </div>
-                        <div class="popup-item">
-                            <div class="popup-title">Basement</div>
-                            <div class="popup-value">${formatValue(BASEMENT)}</div>
-                        </div>
+            const popupText = document.createElement('div');
+            popupText.className = 'popup-text';
+            popupText.innerHTML = `
+                <hr class="styled-line">
+                <p>Cost ${formatValue(COST)}</p>
+                <p>${ADDRESS}</p>
+                <hr class="styled-line">
+                <div class="popup-row">
+                    <div class="popup-item">
+                        <div class="popup-title">Mls</div>
+                        <div class="popup-value">${formatValue(MLS)}</div>
                     </div>
+                    <div class="popup-item">
+                        <div class="popup-title">Age</div>
+                        <div class="popup-value">${formatValue(AGE)}</div>
+                    </div>
+                    <div class="popup-item">
+                        <div class="popup-title">Acres</div>
+                        <div class="popup-value">${formatValue(ACRES)}</div>
+                    </div>
+                    <div class="popup-item">
+                        <div class="popup-title">Sqft</div>
+                        <div class="popup-value">${formatValue(SQFT, 'SQFT')}</div>
+                    </div>
+                    <div class="popup-item">
+                        <div class="popup-title">Fireplace</div>
+                        <div class="popup-value">${formatValue(FIREPLACE)}</div>
+                    </div>
+                    <div class="popup-item">
+                        <div class="popup-title">Basement</div>
+                        <div class="popup-value">${formatValue(BASEMENT)}</div>
+                    </div>
+                    <div class="popup-item">
+                        <div class="popup-title">Garage</div>
+                        <div class="popup-value">${formatValue(GARAGE)}</div>
+                    </div>
+                    <div class="popup-item">
+                        <div class="popup-title">Spaces</div>
+                        <div class="popup-value">${formatValue(SPACES)}</div>
+                    </div>
+                </div>
+                <div class="popup-description">
                     <hr class="styled-line">
-                    <p>${DESCRIPTION}</p>
-                    <hr class="styled-line">
-                    <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">
-                        Click here to request more information
-                    </button><br><br>
-                `;
+                    <p>Description: ${formatValue(DESCRIPTION)}</p>
+                </div>
+                <button class="popup-close" onclick="closePopup()">Close</button>
+            `;
 
-                // Creating the close button
-                const popupClose = document.createElement('span');
-                popupClose.className = 'popup-close';
-                popupClose.innerHTML = '&times;';
-                popupClose.onclick = () => closePopup(popup);
+            popupContent.appendChild(popupGallery);
+            popupContent.appendChild(popupText);
+            popup.appendChild(popupContent);
+            document.body.appendChild(popup);
 
-                popupContent.appendChild(popupGallery);
-                popupContent.appendChild(popupText);
-                popupContent.appendChild(popupClose);
-                popup.appendChild(popupContent);
-                document.body.appendChild(popup);
+            // Lightbox initialization
+            Lightbox2.init();
 
-                document.addEventListener('click', (event) => {
-                    if (event.target === popup || event.target.classList.contains('lightbox')) {
-                        closePopup(popup);
-                    }
-                });
+            // Ensure popup is properly centered and visible
+            popup.style.display = 'block';
 
-                document.addEventListener('keydown', (event) => {
-                    if (event.key === 'Escape') {
-                        closePopup(popup);
-                    }
-                });
-            }
-
-            function closePopup(popup) {
+            // Function to close the popup
+            function closePopup() {
                 document.body.removeChild(popup);
             }
+        }
 
-            window.navigateToContact = (MLS, ADDRESS) => {
-                const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
-                window.location.href = `/contact?${queryParams}`;
-            };
-        });
-    </script>
+        // Function to format values for display
+        function formatValue(value, type) {
+            if (value === 0 || value === null || value === undefined || value === '') {
+                return 'Not Reported';
+            }
+            if (type === 'SQFT' && value === '0') {
+                return 'Not Reported';
+            }
+            if (type === 'half' && (value === 0 || value === null || value === undefined)) {
+                return '0';
+            }
+            return value;
+        }
+    });
+</script>
 
 
-
+    
 <!-- Custom Section with Parallax Effect -->
     <div class="custom-section" id="main-section">
         <div class="custom-header">
