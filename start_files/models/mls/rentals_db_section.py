@@ -53,6 +53,7 @@ def init_rentals_db():
     if not os.path.exists(db_path):
         print("Creating database file...")
         try:
+            Base.metadata.drop_all(bind=rentals_engine)
             Base.metadata.create_all(bind=rentals_engine)
             print("Database and tables created successfully.")
         except SQLAlchemyError as e:
@@ -142,4 +143,3 @@ def get_rentals_from_db():
 
 
 
-print(get_rentals_from_db())

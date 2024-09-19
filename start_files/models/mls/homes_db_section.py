@@ -58,6 +58,7 @@ def init_homes_db():
     
     if not path.exists(db_path):
         print("Creating database file...")
+        Base.metadata.drop_all(bind=homes_engine)
         Base.metadata.create_all(bind=homes_engine)
     else:
         print("Database file already exists.")

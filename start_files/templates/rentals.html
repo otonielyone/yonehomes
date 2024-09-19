@@ -182,7 +182,7 @@
             button.style.background = 'none'; // Ensure button has no background
 
             const img = document.createElement('img');
-            img.src = `static/rentals_images/${MLS}/1.jpg`;
+            img.src = `static/rentals_images/${MLS}/1.webp`;
             img.alt = 'Button Image';
             img.style.width = '150px'; // Adjust size if necessary
             img.style.height = '150px'; // Adjust size if necessary
@@ -270,7 +270,7 @@
             popupGallery.className = 'popup-gallery';
 
             let loadedImagesCount = 0;
-            const photoList = Array.from({ length: COUNT }, (_, i) => `static/rentals_images/${MLS}/${i + 1}.jpg`);
+            const photoList = Array.from({ length: COUNT }, (_, i) => `static/rentals_images/${MLS}/${i + 1}.webp`);
 
             photoList.forEach(photo => {
                 const a = document.createElement('a');

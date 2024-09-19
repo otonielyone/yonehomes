@@ -113,19 +113,21 @@ async def get_rental_data(background_tasks: BackgroundTasks, concurrency_limit: 
 
 @router.get('/api/view_rentals_database')
 async def api_rentals():
-    try:
         listings_data = get_rentals_from_db()
-        return {"rentals":listings_data}
-    except Exception:
-        raise HTTPException(status_code=500)
+        return {"rentals": listings_data}
+    
 
 @router.get('/api/rentals_database_count')
 async def get_total_count():
     try:
         listings_data = get_rentals_from_db()
-        return {"rentals Count":len(listings_data)}
-    except Exception:
-        raise HTTPException(status_code=500)
+        if listings_data is None:
+            raise ValueError("No data returned from the database")
+        return {"rentals Count": len(listings_data)}
+    except Exception as e:
+        print(f"Error in get_total_count: {e}")  # Log the error
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 @router.get("/api/filter_homes_export", response_class=JSONResponse, name="filter")
 async def sort_homes_endpoint(max_price: int = 2500):
@@ -143,10 +145,10 @@ async def get_home_data(background_tasks: BackgroundTasks, concurrency_limit: in
 async def api_homes():
     try:
         listings_data = get_homes_from_db()
-        return {"homes":listings_data}
+        return {"listings:" (listings_data)}
     except Exception:
         raise HTTPException(status_code=500)
-
+    
 @router.get('/api/homes_database_count')
 async def get_total_count():
     try:
