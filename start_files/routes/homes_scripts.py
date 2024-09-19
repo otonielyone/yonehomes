@@ -1,3 +1,4 @@
+import io
 from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException
 from start_files.models.mls.homes_db_section import homes_sessionLocal, Mls_homes, replace_old_homes_db, init_homes_db
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -13,6 +14,7 @@ from contextlib import contextmanager
 from dotenv import load_dotenv
 from selenium import webdriver
 from datetime import datetime
+from PIL import Image
 import requests
 import logging
 import asyncio
@@ -81,6 +83,18 @@ def clean_and_rename_directories():
             new_item_path = os.path.join(base_dir, new_name)
             print(f"Renaming directory: {item_path} to {new_item_path}")
             os.rename(item_path, new_item_path)
+
+def convert_images_to_webp():
+    src_dir = '/var/www/html/fastapi_project/start_files/static/homes_images/'
+    valid_extensions = ['.jpg', '.jpeg', '.png']
+
+    for filename in os.listdir(src_dir):
+        if any(filename.lower().endswith(ext) for ext in valid_extensions):
+            img_path = os.path.join(src_dir, filename)
+            img = Image.open(img_path)
+            webp_filename = os.path.splitext(filename)[0] + '.webp'
+            img.save(os.path.join(src_dir, webp_filename), 'webp')
+            os.remove(img_path)
 
 
 def get_end_time_and_elapsed(start_time):
@@ -260,10 +274,13 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                         img_url = img.get_attribute('src')
                         if img_url:
                             response = requests.get(img_url)
-                            image_path = os.path.join(save_dir, f'{i + 1}.jpg')
-                            with open(image_path, 'wb') as file:
+                            image = Image.open(io.BytesIO(response.content))
+                            webp_path = os.path.join(save_dir, f'{i + 1}.webp')
+                            with open(webp_path, 'wb') as file:
                                 file.write(response.content)
-                    logger.info(f"Completed image extraction for MLS {mls}.")
+                            image.save(webp_path, 'WEBP')
+                            os.remove(webp_path) 
+                    logger.info(f"Completed image extraction and conversion for MLS {mls}.")
                     
                     db_attempt = 0
                     while db_attempt < max_retries:
@@ -321,7 +338,6 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
 
     logger.error(f"MLS {mls} failed after {max_retries} attempts.")
     return False
-
 
 async def start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results: list) -> list:
     semaphore = asyncio.Semaphore(concurrency_limit)

@@ -112,12 +112,6 @@
     </div>
 
 
-    <div class="loader2" id="page-loader">
-        <div class="spinner"></div>
-        <p class="loader-text">Please allow a few moments to retrieve accuarate results...</p>
-    </div>
-
-    
     <div class="automation">
         <title>Dynamic Button Grid</title>
         <section id="dynamic-buttons" class="button-grid">
@@ -135,8 +129,14 @@
         loader.className = 'loader';
         const spinner = document.createElement('div');
         spinner.className = 'spinner';
+        const text = document.createElement('p');
+        text.className = 'loader-text';
+        text.textContent = 'Please allow a few moments to retrieve accurate results...';
+
         loader.appendChild(spinner);
+        loader.appendChild(text);
         document.body.appendChild(loader);
+
 
         // Fetch the full list of listings from the API
         fetch('/api/view_rentals_database')
@@ -218,19 +218,19 @@
             img.src = imageUrl;
 
             img.onload = () => {
-                document.querySelector('.loader2').style.display = 'none';
-                document.body.removeChild(document.querySelector('.loader2'));
+                document.querySelector('.loader').style.display = 'none';
+                document.body.removeChild(document.querySelector('.loader'));
             };
 
             img.onerror = () => {
-                document.querySelector('.loader2').style.display = 'none';
-                document.body.removeChild(document.querySelector('.loader2'));
+                document.querySelector('.loader').style.display = 'none';
+                document.body.removeChild(document.querySelector('.loader'));
             };
 
             // Timeout to handle cases where image URL might be invalid or other issues
             setTimeout(() => {
-                document.querySelector('.loader2').style.display = 'none';
-                document.body.removeChild(document.querySelector('.loader2'));
+                document.querySelector('.loader').style.display = 'none';
+                document.body.removeChild(document.querySelector('.loader'));
             }, 5000); // Hide loader after 5 seconds if image doesn't load
         }
 
@@ -257,14 +257,14 @@
             popupContent.className = 'popup-content';
 
             // Create loader element for the popup
-            const loader = document.createElement('div');
-            loader.className = 'loader';
-            const spinner = document.createElement('div');
-            spinner.className = 'spinner';
-            loader.appendChild(spinner);
+            //const loader = document.createElement('div');
+            //loader.className = 'loader';
+            //const spinner = document.createElement('div');
+            //spinner.className = 'spinner';
+            //loader.appendChild(spinner);
 
             // Show loader in popup until images are loaded
-            popupContent.appendChild(loader);
+            //popupContent.appendChild(loader);
 
             const popupGallery = document.createElement('div');
             popupGallery.className = 'popup-gallery';
@@ -289,21 +289,21 @@
                     a.appendChild(img);
                     popupGallery.appendChild(a);
 
-                    loadedImagesCount++;
-                    if (loadedImagesCount === photoList.length) {
-                        // Hide loader once all images are loaded
-                        loader.style.display = 'none';
-                    }
+                    //loadedImagesCount++;
+                    //if (loadedImagesCount === photoList.length) {
+                    //    // Hide loader once all images are loaded
+                    //   loader.style.display = 'none';
+                    //}
                 };
 
                 img.onerror = () => {
                     a.appendChild(img);
                     popupGallery.appendChild(a);
 
-                    loadedImagesCount++;
-                    if (loadedImagesCount === photoList.length) {
-                        loader.style.display = 'none';
-                    }
+                    //loadedImagesCount++;
+                    //if (loadedImagesCount === photoList.length) {
+                    //    loader.style.display = 'none';
+                    //}
                 };
             });
 

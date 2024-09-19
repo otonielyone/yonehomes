@@ -10,3 +10,4 @@ webdriver-manager
 jsonify
 joblib
 celery
+pillow
