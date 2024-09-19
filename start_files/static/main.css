@@ -61,6 +61,7 @@ h1, h2, p {
   font-size: 14px; /* Adjust the font size of the value */
 }
 
+/* Popup Styles */
 .popup {
   display: flex;
   justify-content: center;
@@ -100,6 +101,38 @@ h1, h2, p {
 
 .popup-text {
   padding: 20px 0;
+  font-size: 12px; /* General text, smaller for mobile */
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.popup-text p {
+  width: 60%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  white-space: normal; /* Allow paragraphs to wrap properly */
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+.popup-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px; /* Increased for better separation */
+}
+
+.popup-gallery img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.popup-gallery img:hover {
+  opacity: 0.8;
 }
 
 .lb-outerContainer {

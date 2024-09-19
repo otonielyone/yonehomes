@@ -173,58 +173,6 @@
     padding: 20px;
 }
 
-
-/* Ensure titles are visible */
-.popup-title {
-    font-size: 10px; /* Ensure title font size is slightly larger */
-}
-/* Ensure full values for variables, no truncation */
-.popup-value {
-    font-size: 10px; /* Keep variable values at 10px */
-}
-
-
-/* Desktop layout: 3 rows with 4 columns */
-.popup-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    grid-gap: 10px; /* Space between items */
-}
-
-
-.popup-text {
-    font-size: 12px; /* General text, smaller for mobile */
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-}
-
-.popup-text p {
-    width: 60%;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-}
-
-.popup-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px; /* Increased for better separation */
-}
-
-.popup-gallery img {
-    width: 150px;
-    height: auto;
-    cursor: pointer;
-    transition: opacity 0.3s;
-}
-
-.popup-gallery img:hover {
-    opacity: 0.8;
-}
-
 .contact-button {
     display: block; /* Ensures it takes up the full width of its container */
     margin: 20px auto; /* Centers the button horizontally with auto margins */
@@ -305,6 +253,7 @@
 .loader-text {
     margin-top: 20px;
     font-size: 16px;
+    font-weight: 700;    
     color: #333;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -342,14 +291,6 @@
         white-space: normal; /* Allow paragraphs to wrap properly */
         overflow-x: hidden; /* Hide horizontal overflow */
         font-weight: normal; /* Set the same weight as the text inside the button */
-    }
-
-    /* Ensure gallery is centered and items are 3 per row */
-    .popup-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
-        grid-gap: 10px; /* Add space between items */
-        justify-content: center; /* Center the grid items */
     }
 
     /* Ensure titles are visible */

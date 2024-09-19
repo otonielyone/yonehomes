@@ -7,37 +7,6 @@
     background: none; /* Ensure no background color */
 }
 
-/* Desktop layout: 3 rows with 4 columns */
-.popup-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    grid-gap: 10px; /* Space between items */
-}
-
-.popup-text {
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-}
-
-.popup-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px; /* Increased for better separation */
-}
-
-.popup-gallery img {
-    width: 150px;
-    height: auto;
-    cursor: pointer;
-    transition: opacity 0.3s;
-}
-
-.popup-gallery img:hover {
-    opacity: 0.8;
-}
 
 .contact-button {
     display: block; /* Ensures it takes up the full width of its container */
