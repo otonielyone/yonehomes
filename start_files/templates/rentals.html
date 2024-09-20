@@ -2,8 +2,8 @@
 {% extends "template.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="/static/main.css">
-    <link rel="stylesheet" href="/static/rentals.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/rentals.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 {% endblock %}
@@ -118,200 +118,164 @@
             <!-- Dynamic buttons will be inserted here -->
         </section>
     </div>
- 
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-        const numberOfListings = Infinity; // Number of listings you want to display
-        let allListings = []; // Array to store all listings
+            const numberOfListings = Infinity; // Number of listings you want to display
+            let allListings = []; // Array to store all listings
+    
 
-        // Create and show the loader initially
-        const loader = document.createElement('div');
-        loader.className = 'loader';
-        const spinner = document.createElement('div');
-        spinner.className = 'spinner';
-        const text = document.createElement('p');
-        text.className = 'loader-text';
-        text.textContent = 'Please allow a few moments to retrieve accurate results...';
+            // Create and show the loader initially
+            const loader = document.createElement('div');
+            loader.className = 'loader';
+            const spinner = document.createElement('div');
+            spinner.className = 'spinner';
+            const text = document.createElement('p');
+            text.className = 'loader-text';
+            text.textContent = 'Please allow a few moments to retrieve accurate results...';
 
-        loader.appendChild(spinner);
-        loader.appendChild(text);
-        document.body.appendChild(loader);
+            loader.appendChild(spinner);
+            loader.appendChild(text);
+            document.body.appendChild(loader);
 
-
-        // Fetch the full list of listings from the API
-        fetch('/api/view_rentals_database')
-            .then(response => response.json())
-            .then(data => {
-                if (data.rentals && Array.isArray(data.rentals)) {
-                    allListings = data.rentals; // Store all listings
-                    displayListings(allListings.slice(0, numberOfListings)); // Display initial listings
-                } else {
-                    console.error('Invalid data format:', data);
-                }
-            })
-            .catch(error => console.error('Error fetching listings:', error));
-
-        // Function to display listings
-        function displayListings(listings) {
-            const container = document.getElementById('dynamic-buttons');
-            container.innerHTML = ''; // Clear existing listings
-            listings.forEach((item, index) => {
-                createButtonDiv(item, index === 0); // Pass if it's the first item
-            });
-
-            // Hide loader once listings are displayed
-            setTimeout(() => {
-                loader.style.display = 'none';
-                document.body.removeChild(loader);
-            }, 100); // Small timeout to ensure the display is updated
-        }
-
-        // Function to process and create buttons
-        function createButtonDiv(data, isFirst) {
-            const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, PHOTOS, BEDROOMS, BATH, COUNT } = data;
-
-            // Ensure PHOTOS is an array and not empty
-            const photoList = Array.isArray(PHOTOS) && PHOTOS.length > 0 ? PHOTOS : ['static/icons/test.jpg']; // Fallback URL
-
-            const buttonDiv = document.createElement('div');
-            buttonDiv.className = 'button-item';
-
-            const button = document.createElement('button');
-            button.style.padding = 0; // Ensure button has no extra padding
-            button.style.border = 'none'; // Ensure button has no border
-            button.style.background = 'none'; // Ensure button has no background
-
-            const img = document.createElement('img');
-            img.src = `static/rentals_images/${MLS}/1.webp`;
-            img.alt = 'Button Image';
-            img.style.width = '150px'; // Adjust size if necessary
-            img.style.height = '150px'; // Adjust size if necessary
-            img.style.border = '3px solid #a8b8c6'; // Add the border
-            img.style.borderRadius = '10px'; // Add the border radius
-            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Add the glow effect
-            img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
-
-            const textDiv = document.createElement('div');
-            textDiv.className = 'popup-text';
-            textDiv.innerHTML = `${COST}<br>Beds: ${BEDROOMS} / Baths: ${BATH}<br>${ADDRESS}`;
-
-            button.appendChild(img);
-            button.appendChild(textDiv);
-
-            button.onclick = (event) => {
-                event.stopPropagation(); // Prevent click event from bubbling up
-                showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, photoList);
-            };
-
-            buttonDiv.appendChild(button);
-            document.getElementById('dynamic-buttons').appendChild(buttonDiv);
-
-            // Show loader until the first image loads
-            if (isFirst) {
-                showLoaderUntilFirstImageLoads(img.src);
+    
+            // Fetch the full list of listings from the API
+            fetch('/api/view_rentals_database')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.rentals && Array.isArray(data.rentals)) {
+                        allListings = data.rentals; // Store all listings
+                        displayListings(allListings.slice(0, numberOfListings)); // Display initial listings
+                    } else {
+                        console.error('Invalid data format:', data);
+                    }
+                })
+                .catch(error => console.error('Error fetching listings:', error));
+    
+    
+            // Function to display listings
+            function displayListings(listings) {
+                const container = document.getElementById('dynamic-buttons');
+                container.innerHTML = ''; // Clear existing listings
+                listings.forEach((item, index) => {
+                    createButtonDiv(item, index === 0); // Pass if it's the first item
+                });
+    
+                // Hide loader once listings are displayed
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    document.body.removeChild(loader);
+                }, 100); // Small timeout to ensure display is updated
             }
-        }
+    
+            // Function to create buttons for listings
+            function createButtonDiv(data, isFirst) {
+                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, URLS} = data;
+    
+                // Ensure PHOTOS is an array and not empty
+                const photoList = Array.isArray(URLS) ? URLS : ['static/icons/test.jpg']; // Fallback URL
+    
+                const buttonDiv = document.createElement('div');
+                buttonDiv.className = 'button-item';
+    
+                const button = document.createElement('button');
+                button.style.padding = 0; // No extra padding
+                button.style.border = 'none'; // No border
+                button.style.background = 'none'; // No background
+    
+                const img = document.createElement('img');
+                img.src = `static/rentals_images/${MLS}/1.webp`;
+                img.alt = 'Button Image';
+                img.style.width = '150px'; // Adjust size
+                img.style.height = '150px'; // Adjust size
+                img.style.border = '3px solid #a8b8c6'; // Border
+                img.style.borderRadius = '10px'; // Border radius
+                img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Glow effect
+                img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+    
+                const textDiv = document.createElement('div');
+                textDiv.className = 'popup-text';
+                textDiv.innerHTML = `${COST}<br>Beds: ${BEDROOMS} / Baths: ${BATH}<br>${ADDRESS}`;
+    
+                button.appendChild(img);
+                button.appendChild(textDiv);
+    
+                button.onclick = (event) => {
+                    event.stopPropagation(); // Prevent click event from bubbling up
+                    showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, photoList);
+                };
+    
+                buttonDiv.appendChild(button);
+                document.getElementById('dynamic-buttons').appendChild(buttonDiv);
 
-        // Function to show the loader until the first image loads
-        function showLoaderUntilFirstImageLoads(imageUrl) {
-            const img = new Image();
-            img.src = imageUrl;
+                // Show loader until the first image loads
+                if (isFirst) {
+                    showLoaderUntilFirstImageLoads(img.src);
+                }
+            }
+        
+            // Function to show the loader until the first image loads
+            function showLoaderUntilFirstImageLoads(imageUrl) {
+                const img = new Image();
+                img.src = imageUrl;
 
-            img.onload = () => {
-                document.querySelector('.loader').style.display = 'none';
-                document.body.removeChild(document.querySelector('.loader'));
-            };
+                img.onload = () => {
+                    document.querySelector('.loader').style.display = 'none';
+                    document.body.removeChild(document.querySelector('.loader'));
+                };
 
-            img.onerror = () => {
-                document.querySelector('.loader').style.display = 'none';
-                document.body.removeChild(document.querySelector('.loader'));
-            };
+                img.onerror = () => {
+                    document.querySelector('.loader').style.display = 'none';
+                    document.body.removeChild(document.querySelector('.loader'));
+                };
 
-            // Timeout to handle cases where image URL might be invalid or other issues
-            setTimeout(() => {
-                document.querySelector('.loader').style.display = 'none';
-                document.body.removeChild(document.querySelector('.loader'));
-            }, 5000); // Hide loader after 5 seconds if image doesn't load
-        }
+                // Timeout to handle cases where image URL might be invalid or other issues
+                setTimeout(() => {
+                    document.querySelector('.loader').style.display = 'none';
+                    document.body.removeChild(document.querySelector('.loader'));
+                }, 5000); // Hide loader after 5 seconds if image doesn't load
+            }
+    
 
-        // Function to filter and update the listings
-        function filterListings(query) {
-            const lowerQuery = query.toLowerCase();
-            const filteredListings = allListings.filter(item => 
-                item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
-            );
-            displayListings(filteredListings.slice(0, numberOfListings)); // Display filtered listings
-        }
-
-        // Add event listener for search field
-        document.getElementById('searchField').addEventListener('input', (event) => {
-            filterListings(event.target.value);
-        });
-
-        // Function to show the popup
-        function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, PHOTOS) {
+            function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, URLS) {
             const popup = document.createElement('div');
             popup.className = 'popup';
 
             const popupContent = document.createElement('div');
             popupContent.className = 'popup-content';
 
-            // Create loader element for the popup
-            //const loader = document.createElement('div');
-            //loader.className = 'loader';
-            //const spinner = document.createElement('div');
-            //spinner.className = 'spinner';
-            //loader.appendChild(spinner);
-
-            // Show loader in popup until images are loaded
-            //popupContent.appendChild(loader);
-
             const popupGallery = document.createElement('div');
             popupGallery.className = 'popup-gallery';
 
-            let loadedImagesCount = 0;
-            const photoList = Array.from({ length: COUNT }, (_, i) => `static/rentals_images/${MLS}/${i + 1}.webp`);
+            const photoList = Array.isArray(URLS) ? URLS : ['static/icons/test.jpg'];
 
             photoList.forEach(photo => {
                 const a = document.createElement('a');
-                a.href = photo;
-                a.dataset.lightbox = 'gallery';
+                a.href = `${photo}`; 
 
                 const img = document.createElement('img');
-                img.src = photo;
+                img.src = `${photo}`; // Set the image source
                 img.alt = 'Gallery Image';
-                img.style.width = '150px';
-                img.style.height = '150px';
+                img.style.width = '150px'; // Set width
+                img.style.height = '150px'; // Set height
                 img.style.border = '3px solid #a8b8c6';
                 img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
 
                 img.onload = () => {
-                    a.appendChild(img);
-                    popupGallery.appendChild(a);
+                        a.appendChild(img);
+                        popupGallery.appendChild(a);
+                    };
 
-                    //loadedImagesCount++;
-                    //if (loadedImagesCount === photoList.length) {
-                    //    // Hide loader once all images are loaded
-                    //   loader.style.display = 'none';
-                    //}
-                };
-
-                img.onerror = () => {
-                    a.appendChild(img);
-                    popupGallery.appendChild(a);
-
-                    //loadedImagesCount++;
-                    //if (loadedImagesCount === photoList.length) {
-                    //    loader.style.display = 'none';
-                    //}
-                };
-            });
+                    img.onerror = () => {
+                        a.appendChild(img);
+                        popupGallery.appendChild(a);
+                    };
+                });
 
             const popupText = document.createElement('div');
             popupText.className = 'popup-text';
             popupText.innerHTML = `
                 <hr class="styled-line">
-                
                 <p>${COST} Monthly</p>
                 <p>${ADDRESS}</p>
                 <hr class="styled-line">
@@ -365,8 +329,11 @@
             const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
             window.location.href = `/contact?${queryParams}`;
         };
+
+        
     });
     </script>
+
     
     <!-- Custom Section with Parallax Effect -->
     <div class="custom-section" id="main-section">

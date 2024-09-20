@@ -264,7 +264,7 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                     if os.path.exists(save_dir):
                         shutil.rmtree(save_dir)
                     os.makedirs(save_dir)
-
+                    url_list = []
                     for i, img in enumerate(all_imgs[:max_images]):
                         img_url = img.get_attribute('src')
                         if img_url:
@@ -276,7 +276,7 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                                 image_path = os.path.join(save_dir, f'{i + 1}.webp')
                                 img.save(image_path, 'WEBP')
                                 print(f'Saved image as {image_path}')
-                                
+                                url_list.append(f'static/rentals_images/{item[1]}-pending/{i + 1}.webp')  # Save relative path                            
                             except Exception as e:
                                 logger.error(f"Error downloading or saving image {img_url}: {e}")
 
@@ -296,7 +296,8 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                                         availability=item[3],
                                         bedrooms=item[15], 
                                         bath=item[16],
-                                        count=len(all_imgs),
+                                        count= len(all_imgs),
+                                        urls=url_list,
                                     )
                                     db.add(listing)
                                     db.commit()

@@ -149,6 +149,54 @@
 }
 
 
+.popup-text {
+    font-size: 12px; /* General text, smaller for mobile */
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.popup-text p {
+    width: 60%;
+    font-size: 14px; /* Keep variable values at 10px */
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Ensure gallery is centered and items are 3 per row */
+.popup-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 columns on mobile */
+    grid-gap: 10px; /* Add space between items */
+    justify-content: center; /* Center the grid items */
+}
+
+/* Ensure titles are visible */
+.popup-title {
+    font-size: 14px; /* Ensure title font size is slightly larger */
+    font-weight: bold; /* Make sure titles are bold */
+    color: #000; /* Set title color to black for visibility */
+    display: block; /* Ensure titles are displayed as block */
+    text-align: center; /* Center the title text */
+}
+
+/* Ensure full values for variables, no truncation */
+.popup-value {
+    font-size: 14px; /* Keep variable values at 10px */
+    white-space: normal; /* Ensure values are not cut off */
+    overflow-wrap: break-word; /* Allow text to wrap */
+    text-align: center; /* Center the values */
+}
+
+/* Ensure description displays fully as a paragraph */
+.popup-text p {
+    white-space: normal; /* Allow paragraph wrapping */
+    width: 90%;
+    word-wrap: break-word; /* Wrap long words to avoid overflow */
+}
+
+
 /* Loader Container */
 .loader {
     position: fixed;
