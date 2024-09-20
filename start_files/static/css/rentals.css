@@ -172,6 +172,38 @@
     margin-top: 20px;
     padding: 20px;
 }
+/* Desktop layout: 3 rows with 4 columns */
+.popup-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-gap: 10px; /* Space between items */
+}
+
+.popup-text {
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.popup-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px; /* Increased for better separation */
+}
+
+.popup-gallery img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.popup-gallery img:hover {
+    opacity: 0.8;
+}
 
 .contact-button {
     display: block; /* Ensures it takes up the full width of its container */
@@ -215,60 +247,10 @@
     text-align: center;
 }
 
-/* Loader Container */
-.loader {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.9); /* Optional: Add a background for better visibility */
-    padding: 20px; /* Optional: Add padding for better spacing */
-    border-radius: 8px; /* Optional: Add rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for a 3D effect */
-    z-index: 9999; /* Ensure loader is on top of other content */
-}
-
-/* Spinner */
-.spinner {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-}
-
-/* Loader Text */
-.loader-text {
-    margin-top: 10px;
-    text-align: center;
-    color: #333; /* Adjust color as needed */
-}
-
-/* Spinner Animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
 
 /* Responsive Adjustments */
 @media screen and (max-width: 500px) and (orientation: portrait) {s
-
-    .light-red-text h2 {
-        font-size: 18px;
-    }
-        
-    h2 {
-        font-size: 18px;
-    }
-        
     #searchField {
         width: 85%;
         margin-bottom: 45px;
@@ -279,15 +261,23 @@
     }
         
     .popup-text {
-        font-size: 12px; /* General text, smaller for mobile */
+        font-size: 10px; /* General text, smaller for mobile */
         white-space: normal; /* Allow paragraphs to wrap properly */
         overflow-x: hidden; /* Hide horizontal overflow */
         font-weight: normal; /* Set the same weight as the text inside the button */
     }
 
+    /* Ensure gallery is centered and items are 3 per row */
+    .popup-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
+        grid-gap: 10px; /* Add space between items */
+        justify-content: center; /* Center the grid items */
+    }
+
     /* Ensure titles are visible */
     .popup-title {
-        font-size: 10px; /* Ensure title font size is slightly larger */
+        font-size: 12px; /* Ensure title font size is slightly larger */
         font-weight: bold; /* Make sure titles are bold */
         color: #000; /* Set title color to black for visibility */
         display: block; /* Ensure titles are displayed as block */
@@ -302,13 +292,9 @@
         text-align: center; /* Center the values */
     }
 
-
-
     /* Ensure description displays fully as a paragraph */
     .popup-text p {
         white-space: normal; /* Allow paragraph wrapping */
-        width: 90%;
         word-wrap: break-word; /* Wrap long words to avoid overflow */
     }
 }
-

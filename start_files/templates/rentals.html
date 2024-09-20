@@ -111,7 +111,6 @@
         <input type="text" id="searchField" placeholder="Filter Rentals">
     </div>
 
-
     <div class="automation">
         <title>Dynamic Button Grid</title>
         <section id="dynamic-buttons" class="button-grid">
@@ -124,74 +123,58 @@
             const numberOfListings = Infinity; // Number of listings you want to display
             let allListings = []; // Array to store all listings
     
-
-            // Create and show the loader initially
-            const loader = document.createElement('div');
-            loader.className = 'loader';
-            const spinner = document.createElement('div');
-            spinner.className = 'spinner';
-            const text = document.createElement('p');
-            text.className = 'loader-text';
-            text.textContent = 'Please allow a few moments to retrieve accurate results...';
-
-            loader.appendChild(spinner);
-            loader.appendChild(text);
-            document.body.appendChild(loader);
-
-    
             // Fetch the full list of listings from the API
             fetch('/api/view_rentals_database')
                 .then(response => response.json())
                 .then(data => {
                     if (data.rentals && Array.isArray(data.rentals)) {
-                        allListings = data.rentals; // Store all listings
-                        displayListings(allListings.slice(0, numberOfListings)); // Display initial listings
+                        allListings = data.rentals;
+                        displayListings(allListings.slice(0, numberOfListings));
                     } else {
                         console.error('Invalid data format:', data);
                     }
                 })
                 .catch(error => console.error('Error fetching listings:', error));
     
-    
-            // Function to display listings
             function displayListings(listings) {
                 const container = document.getElementById('dynamic-buttons');
-                container.innerHTML = ''; // Clear existing listings
-                listings.forEach((item, index) => {
-                    createButtonDiv(item, index === 0); // Pass if it's the first item
+                container.innerHTML = '';
+                listings.forEach(item => {
+                    createButtonDiv(item);
                 });
-    
-                // Hide loader once listings are displayed
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                    document.body.removeChild(loader);
-                }, 100); // Small timeout to ensure display is updated
             }
     
-            // Function to create buttons for listings
-            function createButtonDiv(data, isFirst) {
-                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, URLS} = data;
-    
-                // Ensure PHOTOS is an array and not empty
-                const photoList = Array.isArray(URLS) ? URLS : ['static/icons/test.jpg']; // Fallback URL
+            function createButtonDiv(data) {
+                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT } = data;
     
                 const buttonDiv = document.createElement('div');
                 buttonDiv.className = 'button-item';
     
                 const button = document.createElement('button');
-                button.style.padding = 0; // No extra padding
-                button.style.border = 'none'; // No border
-                button.style.background = 'none'; // No background
+                button.style.padding = 0;
+                button.style.border = 'none';
+                button.style.background = 'none';
     
                 const img = document.createElement('img');
-                img.src = `static/rentals_images/${MLS}/1.webp`;
                 img.alt = 'Button Image';
-                img.style.width = '150px'; // Adjust size
-                img.style.height = '150px'; // Adjust size
-                img.style.border = '3px solid #a8b8c6'; // Border
-                img.style.borderRadius = '10px'; // Border radius
-                img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)'; // Glow effect
-                img.onerror = () => img.src = 'static/icons/test.jpg'; // Fallback if image fails to load
+                img.style.width = '150px';
+                img.style.height = '150px';
+                img.style.border = '3px solid #a8b8c6';
+                img.style.borderRadius = '10px';
+                img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+    
+                // Attempt to load JPG first, then fall back to WEBP
+                const imagePath = `static/rentals_images/${MLS}/1.webp`;
+                img.src = imagePath;
+    
+                img.onerror = () => {
+                    // Try to load WEBP format
+                    img.src = `static/rentals_images/${MLS}/1.webp`;
+                    img.onerror = () => {
+                        // Fallback to a default image if both fail
+                        img.src = 'static/icons/test.jpg';
+                    };
+                };
     
                 const textDiv = document.createElement('div');
                 textDiv.className = 'popup-text';
@@ -199,142 +182,116 @@
     
                 button.appendChild(img);
                 button.appendChild(textDiv);
-    
                 button.onclick = (event) => {
-                    event.stopPropagation(); // Prevent click event from bubbling up
-                    showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, photoList);
+                    event.stopPropagation();
+                    showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT);
                 };
     
                 buttonDiv.appendChild(button);
                 document.getElementById('dynamic-buttons').appendChild(buttonDiv);
-
-                // Show loader until the first image loads
-                if (isFirst) {
-                    showLoaderUntilFirstImageLoads(img.src);
-                }
-            }
-        
-            // Function to show the loader until the first image loads
-            function showLoaderUntilFirstImageLoads(imageUrl) {
-                const img = new Image();
-                img.src = imageUrl;
-
-                img.onload = () => {
-                    document.querySelector('.loader').style.display = 'none';
-                    document.body.removeChild(document.querySelector('.loader'));
-                };
-
-                img.onerror = () => {
-                    document.querySelector('.loader').style.display = 'none';
-                    document.body.removeChild(document.querySelector('.loader'));
-                };
-
-                // Timeout to handle cases where image URL might be invalid or other issues
-                setTimeout(() => {
-                    document.querySelector('.loader').style.display = 'none';
-                    document.body.removeChild(document.querySelector('.loader'));
-                }, 5000); // Hide loader after 5 seconds if image doesn't load
             }
     
-
-            function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, URLS) {
-            const popup = document.createElement('div');
-            popup.className = 'popup';
-
-            const popupContent = document.createElement('div');
-            popupContent.className = 'popup-content';
-
-            const popupGallery = document.createElement('div');
-            popupGallery.className = 'popup-gallery';
-
-            const photoList = Array.isArray(URLS) ? URLS : ['static/icons/test.jpg'];
-
-            photoList.forEach(photo => {
-                const a = document.createElement('a');
-                a.href = `${photo}`; 
-
-                const img = document.createElement('img');
-                img.src = `${photo}`; // Set the image source
-                img.alt = 'Gallery Image';
-                img.style.width = '150px'; // Set width
-                img.style.height = '150px'; // Set height
-                img.style.border = '3px solid #a8b8c6';
-                img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
-
-                img.onload = () => {
-                        a.appendChild(img);
-                        popupGallery.appendChild(a);
-                    };
-
-                    img.onerror = () => {
-                        a.appendChild(img);
-                        popupGallery.appendChild(a);
-                    };
-                });
-
-            const popupText = document.createElement('div');
-            popupText.className = 'popup-text';
-            popupText.innerHTML = `
-                <hr class="styled-line">
-                <p>${COST} Monthly</p>
-                <p>${ADDRESS}</p>
-                <hr class="styled-line">
-                <div class="popup-row">
-                    <div class="popup-item">    
-                        <div class="popup-title">Beds / Bath</div>
-                        <div class="popup-value">${BEDROOMS}  /  ${BATH}</div>
-                    </div>
-                </div>
-                <hr class="styled-line">
-                <p>${DESCRIPTION}</p>
-                <hr class="styled-line">
-                <p>${MLS}</p>
-                <p>Status: ${STATUS}</p>
-                <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
-                <hr class="styled-line">
-            `;
-
-            const popupClose = document.createElement('span');
-            popupClose.className = 'popup-close';
-            popupClose.innerHTML = '&times;';
-            popupClose.onclick = () => closePopup(popup);
-
-            popupContent.appendChild(popupGallery);
-            popupContent.appendChild(popupText);
-            popupContent.appendChild(popupClose);
-            popup.appendChild(popupContent);
-            document.body.appendChild(popup);
-
-            // Event listener for closing the popup with Escape key
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    closePopup(popup);
-                }
+            function filterListings(query) {
+                const lowerQuery = query.toLowerCase();
+                const filteredListings = allListings.filter(item => 
+                    item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
+                );
+                displayListings(filteredListings.slice(0, numberOfListings));
+            }
+    
+            document.getElementById('searchField').addEventListener('input', (event) => {
+                filterListings(event.target.value);
             });
-
-            // Event listener for closing the popup when clicking outside of the popup content
-            popup.onclick = function(event) {
-                if (event.target === popup) {
-                    closePopup(popup);
+    
+            function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT) {
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+    
+                const popupContent = document.createElement('div');
+                popupContent.className = 'popup-content';
+    
+                const popupGallery = document.createElement('div');
+                popupGallery.className = 'popup-gallery';
+    
+                for (let i = 1; i <= COUNT; i++) {
+                    const photo = `static/rentals_images/${MLS}/${i}.webp`;
+                    const a = document.createElement('a');
+                    a.href = photo;
+                    a.dataset.lightbox = 'gallery';
+    
+                    const img = document.createElement('img');
+                    img.src = photo;
+                    img.alt = 'Gallery Image';
+                    img.style.width = '150px';
+                    img.style.height = '150px';
+                    img.style.border = '3px solid #a8b8c6';
+                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+    
+                    img.onload = () => {
+                        a.appendChild(img);
+                        popupGallery.appendChild(a);
+                    };
+    
+                    img.onerror = () => {
+                        // Handle fallback if necessary
+                    };
                 }
+    
+                const popupText = document.createElement('div');
+                popupText.className = 'popup-text';
+                popupText.innerHTML = `
+                    <hr class="styled-line">
+                    <p>${COST} Monthly</p>
+                    <p>${ADDRESS}</p>
+                    <hr class="styled-line">
+                    <p style="font-weight: bold;">Beds / Bath</p>
+                    <p>${BEDROOMS}  /  ${BATH}</p>
+                    <hr class="styled-line">
+                    <p>${DESCRIPTION}</p>
+                    <hr class="styled-line">
+                    <p>${MLS}</p>
+                    <p>Status: ${STATUS}</p>
+                    <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
+                    <hr class="styled-line">
+                `;
+    
+                const popupClose = document.createElement('span');
+                popupClose.className = 'popup-close';
+                popupClose.innerHTML = '&times;';
+                popupClose.onclick = () => closePopup(popup);
+    
+                popupContent.appendChild(popupGallery);
+                popupContent.appendChild(popupText);
+                popupContent.appendChild(popupClose);
+                popup.appendChild(popupContent);
+                document.body.appendChild(popup);
+    
+                document.addEventListener('click', (event) => {
+                    if (event.target === popup || event.target.classList.contains('lightbox')) {
+                        closePopup(popup);
+                    }
+                });
+    
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') {
+                        closePopup(popup);
+                    }
+                });
+            }
+    
+            function closePopup(popup) {
+                document.body.removeChild(popup);
+            }
+    
+            window.navigateToContact = (MLS, ADDRESS) => {
+                const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
+                window.location.href = `/contact?${queryParams}`;
             };
-        }
-
-        // Function to close the popup
-        function closePopup(popup) {
-            document.body.removeChild(popup);
-        }
-
-        window.navigateToContact = (MLS, ADDRESS) => {
-            const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
-            window.location.href = `/contact?${queryParams}`;
-        };
-
-        
-    });
+        });
     </script>
 
-    
+
+
     <!-- Custom Section with Parallax Effect -->
     <div class="custom-section" id="main-section">
         <div class="custom-header">
@@ -357,7 +314,7 @@
                         <span class="custom-icon-home"></span>
                     </div>
                     <a class="custom-button-link" href="/buying" id="button-search-homes">
-                        <span class="button-text">FIND HOMES</span>
+                        <span class="button-text">SEARCH HOMES</span>
                     </a>
                 </div>
 

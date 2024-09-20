@@ -13,8 +13,6 @@ from contextlib import contextmanager
 from dotenv import load_dotenv
 from selenium import webdriver
 from datetime import datetime
-from io import BytesIO
-from PIL import Image
 import requests
 import logging
 import asyncio
@@ -83,20 +81,6 @@ def clean_and_rename_directories():
             new_item_path = os.path.join(base_dir, new_name)
             print(f"Renaming directory: {item_path} to {new_item_path}")
             os.rename(item_path, new_item_path)
-
-def convert_images_to_webp():
-   src_dir = '/var/www/html/fastapi_project/start_files/static/rentals_images/'
-   valid_extensions = ['.jpg', '.jpeg', '.png']
-   for listing in os.listdir(src_dir):
-       listing_path = os.path.join(src_dir, listing)
-       if os.path.isdir(listing_path):  
-           for filename in os.listdir(listing_path):
-               if any(filename.lower().endswith(ext) for ext in valid_extensions):
-                   img_path = os.path.join(listing_path, filename)
-                   img = Image.open(img_path)
-                   webp_filename = os.path.splitext(filename)[0] + '.webp'
-                   img.save(os.path.join(listing_path, webp_filename), 'WEBP')
-                   os.remove(img_path)
 
 
 def get_end_time_and_elapsed(start_time):
@@ -259,28 +243,21 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                 all_imgs = driver.find_elements(*images_locator)
                 logger.info("Fetching images")
 
+                
                 if len(all_imgs) > min_images:
                     save_dir = f'/var/www/html/fastapi_project/start_files/static/rentals_images/{item[1]}-pending/'
                     if os.path.exists(save_dir):
                         shutil.rmtree(save_dir)
                     os.makedirs(save_dir)
-                    url_list = []
+
                     for i, img in enumerate(all_imgs[:max_images]):
                         img_url = img.get_attribute('src')
                         if img_url:
-                            try:
-                                response = requests.get(img_url)
-                                response.raise_for_status() 
-                                
-                                img = Image.open(BytesIO(response.content))
-                                image_path = os.path.join(save_dir, f'{i + 1}.webp')
-                                img.save(image_path, 'WEBP')
-                                print(f'Saved image as {image_path}')
-                                url_list.append(f'static/rentals_images/{item[1]}-pending/{i + 1}.webp')  # Save relative path                            
-                            except Exception as e:
-                                logger.error(f"Error downloading or saving image {img_url}: {e}")
-
-                    logger.info(f"Completed image extraction for MLS {mls}.")                    
+                            response = requests.get(img_url)
+                            image_path = os.path.join(save_dir, f'{i + 1}.jpg')
+                            with open(image_path, 'wb') as file:
+                                file.write(response.content)
+                    logger.info(f"Completed image extraction for MLS {mls}.")
                     
                     db_attempt = 0
                     while db_attempt < max_retries:
@@ -296,8 +273,7 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                                         availability=item[3],
                                         bedrooms=item[15], 
                                         bath=item[16],
-                                        count= len(all_imgs),
-                                        urls=url_list,
+                                        count=len(all_imgs),
                                     )
                                     db.add(listing)
                                     db.commit()
@@ -377,7 +353,7 @@ async def start_task_in_loop(concurrency_limit, timeout, max_images, min_images,
         logger.info("Waiting for CSV file to appear...")
         await asyncio.sleep(5) 
     sorted_results = sorted_rentals_by_price(max_price)
-    logger.info(f"cvs count {len(sorted_results)}")
+    logger.info(f"cvs count {sorted_results}")
     init_rentals_db()
     await start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results)
     logger.info("Loop task completed successfully")
@@ -386,11 +362,7 @@ async def start_task_in_loop(concurrency_limit, timeout, max_images, min_images,
 def start_rentals(concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay):
     start_time = time.time()
     logger.info(f"Start Time: {datetime.fromtimestamp(start_time).strftime('%Y-%m-%d %H:%M:%S')}")
-    try:
-        prep_directories()
-    except Exception:
-        logger.error("No directories found to post-process")
-    
+    prep_directories()
     try:
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
@@ -404,9 +376,7 @@ def start_rentals(concurrency_limit, timeout, max_images, min_images, max_price,
 
     replace_old_rentals_db()
     clean_and_rename_directories()
-    logger.info("Database moved to production")     
-    convert_images_to_webp    
-    logger.info("Images converted") 
+    logger.info("Database moved to production") 
     elapsed_time = time.time() - start_time
     minutes = int(elapsed_time // 60)
     seconds = elapsed_time % 60

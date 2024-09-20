@@ -1,13 +1,14 @@
 
-from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
+import shutil
+from sqlalchemy import create_engine, Column, Integer, String, Float
+from concurrent.futures import ThreadPoolExecutor
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm import relationship  
-import concurrent.futures
+from os import path
+import pandas as pd
 import logging
 import os
-
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -31,21 +32,11 @@ class Mls_rentals(Base):
     bedrooms = Column(String(5), index=True)
     bath = Column(String(5), index=True)
     count = Column(Integer, index=True)
-
-    images = relationship("Image", back_populates="listing")
-
+    
     def __repr__(self):
         return '<Mls_rentals {}>'.format(self.mls)
 
-class Image(Base):
-    __tablename__ = 'images'
-    id = Column(Integer, primary_key=True, index=True)
-    listing_id = Column(Integer, ForeignKey('mls_rentals.id'))
-    urls = Column(String, index=True)
-
-    listing = relationship("Mls_rentals", back_populates="images")
-
-    
+# Setup SQLAlchemy engine and session
 DATABASE_URL = "sqlite:///brightscrape/_rentals_pending.db?timeout=300"
 rentals_engine = create_engine(DATABASE_URL)
 rentals_sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=rentals_engine)
@@ -62,7 +53,6 @@ def init_rentals_db():
     if not os.path.exists(db_path):
         print("Creating database file...")
         try:
-            Base.metadata.drop_all(bind=rentals_engine)
             Base.metadata.create_all(bind=rentals_engine)
             print("Database and tables created successfully.")
         except SQLAlchemyError as e:
@@ -106,127 +96,49 @@ def replace_old_rentals_db():
         print(f"Old database {old_db_path} does not exist")
 
 
-def process_row(listing_data):
-    try:
-        mls, price, address, description, availability, bedrooms, bath, count, image_urls = listing_data
-        
-        cost_formatted = f"${price:,.2f}"
 
-        return {
-            "MLS": mls,
-            "COST": cost_formatted,
-            "ADDRESS": address,
-            "DESCRIPTION": description,
-            "STATUS": availability,
-            "BEDROOMS": bedrooms,
-            "BATH": bath,
-            "COUNT": count,
-            "URLS": image_urls,
-        }
-    except Exception as e:
-        print(f"Error processing listing {mls}: {e}")
-        return None
+def process_row(row):
+    cost_formatted = f"${row['price']:,.2f}"
+
+    return {
+        "MLS": row['mls'],
+        "COST": cost_formatted,
+        "ADDRESS": row['address'],
+        "DESCRIPTION": row['description'],
+        "STATUS": row['availability'],
+        "BEDROOMS": row['bedrooms'],
+        "BATH": row['bath'],
+        "COUNT": row['count'],
+    }
+
 
 def get_rentals_from_db():
-    session = rentals_sessionLocal2()
+    db = None
     try:
-        listings = session.query(Mls_rentals).all()
-
-        if not listings:
-            print("No listings found.")
-            return []
-
-        listing_data = [
-            (
-                listing.mls,
-                listing.price,
-                listing.address,
-                listing.description,
-                listing.availability,
-                listing.bedrooms,
-                listing.bath,
-                listing.count,
-                [image.urls for image in listing.images]
-            )
-            for listing in listings
-        ]
-
-        with concurrent.futures.ProcessPoolExecutor() as executor:
-            formatted_listings = list(executor.map(process_row, listing_data))
-
-        formatted_listings = [listing for listing in formatted_listings if listing is not None]
-
+        db = rentals_sessionLocal2()
+        listings = db.query(Mls_rentals).all()
+        
+        listings_dict = [listing.__dict__ for listing in listings]
+        print(f"Listings: {listings_dict}")  # Debugging line
+        df = pd.DataFrame(listings_dict)
+        
+        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'count'}
+        missing_columns = required_columns - set(df.columns)
+        if missing_columns:
+            raise KeyError(f"Missing columns: {', '.join(missing_columns)}")
+        
+        with ThreadPoolExecutor() as executor:
+            formatted_listings = list(executor.map(process_row, df.to_dict(orient='records')))
+        
         return formatted_listings
     except Exception as e:
         print(f"An error occurred while retrieving listings: {e}")
-        return []
+        return [] 
     finally:
-        session.close()
-
-def view_images_from_db():
-    import sqlite3
-    conn = sqlite3.connect('brightscrape/brightmls_rentals.db')
-    cursor = conn.cursor()
-
-    # Execute the query to fetch all images
-    cursor.execute("SELECT * FROM images")
-
-    # Fetch all results
-    image_data = cursor.fetchall()
-
-    # Print results
-    for row in image_data:
-        print(row)
-
-    # Close the connection
-    conn.close()
-#view_images_from_db()
+        if db:
+            db.close()
 
 
-def add_images_from_folders(base_folder):
-    # Drop the images table if it exists and recreate it
-    Image.__table__.drop(rentals_engine2, checkfirst=True)
-    Base.metadata.create_all(rentals_engine2)
-    
-    db = rentals_sessionLocal2()
-    try:
-        # Query all listings from the database
-        listings = db.query(Mls_rentals).all()
 
-        for listing in listings:
-            mls = listing.mls
-            # Construct the folder path based on MLS
-            folder_path = os.path.join(base_folder, mls)
 
-            # Check if the folder exists
-            if os.path.isdir(folder_path):
-                print(f"Found folder for MLS: {mls}")
 
-                # List all image files in the folder
-                for filename in os.listdir(folder_path):
-                    if filename.endswith(('.jpg', '.jpeg', '.png', '.webp')):  # Supported image formats
-                        # Save the relative path
-                        relative_image_url = f'static/rentals_images/{mls}/{filename}'
-
-                        # Create a new Image instance
-                        new_image = Image(listing_id=listing.id, urls=relative_image_url)
-
-                        # Add the image to the session
-                        db.add(new_image)
-
-                # Commit after adding images for the current listing
-                db.commit()
-                print(f"Added images for MLS: {mls}")
-
-            else:
-                print(f"No folder found for MLS: {mls}")
-
-    except Exception as e:
-        print(f"An error occurred while adding images: {e}")
-        db.rollback()
-    finally:
-        db.close()
-
-# Example usage
-base_folder = 'start_files/static/rentals_images/'
-#add_images_from_folders(base_folder)

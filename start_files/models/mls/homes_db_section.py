@@ -1,10 +1,10 @@
 
-from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
+from sqlalchemy import create_engine, Column, Integer, String, Float
 from sqlalchemy.orm import declarative_base
-from sqlalchemy.orm import relationship  
+from concurrent.futures import ThreadPoolExecutor
 from sqlalchemy.orm import sessionmaker
-import concurrent.futures
 from os import path
+import pandas as pd
 import logging
 import os
 
@@ -40,18 +40,8 @@ class Mls_homes(Base):
     spaces = Column(String(5), index=True)
     count = Column(String(5), index=True)
 
-    images = relationship("Image", back_populates="listing")
-
     def __repr__(self):
         return '<Mls_homes {}>'.format(self.mls)
-
-class Image(Base):
-    __tablename__ = 'images'
-    id = Column(Integer, primary_key=True, index=True)
-    listing_id = Column(Integer, ForeignKey('mls_homes.id'))
-    urls = Column(String, index=True)
-    listing = relationship("Mls_homes", back_populates="images")
-
 
 DATABASE_URL = "sqlite:///brightscrape/_homes_pending.db?timeout=300"
 homes_engine = create_engine(DATABASE_URL)
@@ -68,7 +58,6 @@ def init_homes_db():
     
     if not path.exists(db_path):
         print("Creating database file...")
-        Base.metadata.drop_all(bind=homes_engine)
         Base.metadata.create_all(bind=homes_engine)
     else:
         print("Database file already exists.")
@@ -104,142 +93,52 @@ def replace_old_homes_db():
     else:
         print(f"Old database {old_db_path} does not exist")
     
-def process_row(row_data):
-    try:
-        mls, price, address, description, availability, bedrooms, bath, full, half, acres, age, sqft, fireplace, basement, garage, spaces, count, image_urls = row_data
-        
-        cost_formatted = f"${price:,.2f}"
+def process_row(row):
+    cost_formatted = f"${row['price']:,.2f}"
 
-        return {
-            "MLS": mls,
-            "COST": cost_formatted,
-            "ADDRESS": address,
-            "DESCRIPTION": description,
-            "STATUS": availability,
-            "BEDROOMS": bedrooms,
-            "BATH": bath,
-            "FULL": full,
-            "HALF": half,
-            "ACRES": acres,
-            "AGE": age,
-            "SQFT": sqft,
-            "FIREPLACE": fireplace,
-            "BASEMENT": basement,
-            "GARAGE": garage,
-            "SPACES": spaces,
-            "COUNT": count,
-            "URLS": image_urls,
-        }
-    except Exception as e:
-        print(f"Error processing listing {mls}: {e}")
-        return None
+    return {
+        "MLS": row['mls'],
+        "COST": cost_formatted,
+        "ADDRESS": row['address'],
+        "DESCRIPTION": row['description'],
+        "STATUS": row['availability'],
+        "BEDROOMS": row['bedrooms'],
+        "BATH": row['bath'],
+        "FULL": row['full'],
+        "HALF": row['half'],
+        "ACRES": row['acres'], 
+        "AGE": row['age'],
+        "SQFT": row['sqft'],
+        "FIREPLACE": row['fireplace'],
+        "BASEMENT": row['basement'], 
+        "GARAGE": row['garage'],
+        "SPACES": row['spaces'],
+        "COUNT": row['count'],
+    }
+
 
 def get_homes_from_db():
-    session = homes_sessionLocal2()
+    db = None
     try:
-        listings = session.query(Mls_homes).all()
+        db = homes_sessionLocal2()
+        listings = db.query(Mls_homes).all()
+        
+        listings_dict = [listing.__dict__ for listing in listings]
+        print(f"Listings: {listings_dict}")  # Debugging line
+        df = pd.DataFrame(listings_dict)
 
-        if not listings:
-            print("No listings found.")
-            return []
-
-        row_data = [
-            (
-                row.mls,
-                row.price,
-                row.address,
-                row.description,
-                row.availability,
-                row.bedrooms,
-                row.bath,
-                row.full,
-                row.half,
-                row.acres,
-                row.age,
-                row.sqft,
-                row.fireplace,
-                row.basement,
-                row.garage,
-                row.spaces,
-                row.count,
-                [image.urls for image in row.images]
-            )
-            for row in listings
-        ]
-
-        with concurrent.futures.ProcessPoolExecutor() as executor:
-            formatted_listings = list(executor.map(process_row, row_data))
-
-        formatted_listings = [listing for listing in formatted_listings if listing is not None]
-
+        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'full', 'half', 'acres', 'age', 'sqft', 'fireplace', 'basement', 'garage', 'spaces', 'count'}
+        missing_columns = required_columns - set(df.columns)
+        if missing_columns:
+            raise KeyError(f"Missing columns: {', '.join(missing_columns)}")
+        
+        with ThreadPoolExecutor() as executor:
+            formatted_listings = list(executor.map(process_row, df.to_dict(orient='records')))
+        
         return formatted_listings
-    except Exception as e:
-        print(f"An error occurred while retrieving listings: {e}")
+    except Exception:
+        print(f"An error occurred while retrieving listings")
         return []
     finally:
-        session.close()
-
-
-
-def view_images_from_db():
-    import sqlite3
-    conn = sqlite3.connect('brightscrape/brightmls_homes.db')
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM images")
-    image_data = cursor.fetchall()
-    for row in image_data:
-        print(row)
-    conn.close()
-#view_images_from_db()
-
-def add_images_from_folders(base_folder):
-    Base.metadata.create_all(homes_engine2)
-    db = homes_sessionLocal2()
-    try:
-        # Drop the images table if it exists and recreate it
-        Image.__table__.drop(db.bind, checkfirst=True)
-        Base.metadata.create_all(homes_engine2)
-
-        # Query all listings from the database
-        listings = db.query(Mls_homes).all()
-
-        for listing in listings:
-            mls = listing.mls
-            # Construct the folder path based on MLS
-            folder_path = os.path.join(base_folder, mls)
-
-            # Check if the folder exists
-            if os.path.isdir(folder_path):
-                print(f"Found folder for MLS: {mls}")
-
-                # List all image files in the folder
-                for filename in os.listdir(folder_path):
-                    if filename.endswith(('.jpg', '.jpeg', '.png', '.webp')):  # Supported image formats
-                        # Save the relative path
-                        relative_image_url = f'static/homes_images/{mls}/{filename}'
-
-                        # Create a new Image instance
-                        new_image = Image(listing_id=listing.id, urls=relative_image_url)
-
-                        # Add the image to the session
-                        db.add(new_image)
-
-                # Commit after adding new images for the current listing
-                db.commit()
-                print(f"Added images for MLS: {mls}")
-
-            else:
-                print(f"No folder found for MLS: {mls}")
-
-    except Exception as e:
-        print(f"An error occurred while adding images: {e}")
-        db.rollback()
-    finally:
-        db.close()
-
-# Example usage
-base_folder = 'start_files/static/homes_images/'
-
-
-base_folder = 'start_files/static/homes_images/'
-#add_images_from_folders(base_folder)
+        if db:
+            db.close()
