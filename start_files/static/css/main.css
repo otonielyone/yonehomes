@@ -363,6 +363,13 @@ a:focus {
 }
 
 
+.gallery-img {
+    width: 150px;
+    height: 150px;
+    border: 3px solid #a8b8c6;
+    box-shadow: 0 0 10px rgba(168, 184, 198, 0.7);
+}
+
 
 .construction-text {
   color: red;
