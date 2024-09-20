@@ -196,7 +196,10 @@
                     const img = new Image(); // Using Image constructor
                     img.src = photo;
                     img.alt = 'Gallery Image';
-                    img.classList.add('gallery-img'); // Apply the existing CSS class
+                    img.style.width = '150px';
+                    img.style.height = '150px';
+                    img.style.border = '3px solid #a8b8c6';
+                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
 
                     a.appendChild(img);
                     fragment.appendChild(a);
