@@ -1,9 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-}
 
 /* General Styles for Rental Services Text */
 .rental-services h1, h2, p {
@@ -28,6 +23,7 @@ body {
     gap: 16px;
     justify-content: center;
 }
+
 
 .button-text {
     margin-top: 0;
@@ -171,6 +167,7 @@ body {
     font-weight: bold;
     padding-top: 20px;
 }
+
 
 /* Custom Section Background */
 .custom-section {

@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-}
-body {
   color: none; /* Set global text color to white */
   margin: 0;
   padding: 0;
@@ -246,6 +242,8 @@ a:focus {
   margin-top: 25px; /* Add margin on top to separate from main heading */
   margin-bottom: 35px; /* Add margin on bottom to separate from main heading */
 }
+
+
 
 /* Menu Links */
 .menu-link a {
@@ -605,6 +603,7 @@ a:focus {
   text-align: center; /* Center text horizontally */
   z-index: 1000;
 }
+
 
 
 /* Footer Styling */
