@@ -1,15 +1,9 @@
-/* Import Montserrat font with thin weights */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
 
-/* Ensure that the unprefixed appearance property is included */
-.form-control, .custom-select, .custom-control-input {
-  -webkit-appearance: none; /* For WebKit-based browsers like Chrome and Safari */
-  -moz-appearance: none;    /* For Firefox */
-  -ms-appearance: none;     /* For Internet Explorer */
-  appearance: none;         /* Standard property for modern browsers */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
 }
-
-
 body {
   color: none; /* Set global text color to white */
   margin: 0;
@@ -669,6 +663,7 @@ a:focus {
 .footer-info p {
   margin: 5px 0;
   text-align: left !important;
+  line-height: 1.6;
 }
 
 
@@ -678,10 +673,6 @@ a:focus {
   display: block; /* Ensure block display */
   margin: 0 auto; /* Center images horizontally if needed */
 }
-
-
-
-
 
 
 

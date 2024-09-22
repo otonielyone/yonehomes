@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
 /* General Styles for Rental Services Text */
 .rental-services h1, h2, p {
     padding: 10px;
@@ -221,10 +228,6 @@
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Footer Styles */
-.footer p {
-    padding: 0;
-}
 
 /* Search Container */
 .search-container {
