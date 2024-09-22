@@ -75,7 +75,7 @@
     <div class="rental-services" id="rental-services">   
         <div class="rental-services-wrapper">    
             <div class="light-red-text">
-                <h2>POSSIBLE LEASING REQUIREMENTS:</h2>
+                <h2>LEASING REQUIREMENTS:</h2>
                 <p>Rooms may require an application fee ranging from $30 to $60. These applications assist landlords in assessing and comparing their options. Minimum requirements may include a credit score of at least 550, two years of stable employment, and proof of income equivalent to approximately three times the monthly rent. Additionally, many rooms may necessitate a security deposit equal to the first month's rent, which can vary depending on whether the property is privately owned or managed. Rooms may be furnished.</p>
             </div>
 
@@ -302,16 +302,15 @@
                 popupText.className = 'popup-text';
                 popupText.innerHTML = `
                     <hr class="styled-line">
-                    <p>${MLS}</p>
-                    <p>Status: ${STATUS}</p>
-                    <hr class="styled-line">
-                    <p>${COST} Monthly</p>
+                    <p>${COST} Monthly</p><br>
                     <p>${ADDRESS}</p>
                     <hr class="styled-line">
                     <p style="font-weight: bold;">Beds / Bath</p>
                     <p>${BEDROOMS}  /  ${BATH}</p>
                     <hr class="styled-line">
-                    <p>${DESCRIPTION}</p>
+                    <p>${DESCRIPTION}</p><br>
+                    <p>${MLS}</p>
+                    <p>Status: ${STATUS}</p>
                     <hr class="styled-line">
                     <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
                 `;

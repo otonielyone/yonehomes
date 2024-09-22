@@ -3069,3 +3069,4 @@ jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'.
 [2024-09-22 09:17:21 -0400] [1063615] [INFO] Started server process [1063615]
 [2024-09-22 09:17:21 -0400] [1063615] [INFO] Waiting for application startup.
 [2024-09-22 09:17:21 -0400] [1063615] [INFO] Application startup complete.
+[2024-09-22 09:34:20 -0400] [1063658] [WARNING] Invalid HTTP request received.
