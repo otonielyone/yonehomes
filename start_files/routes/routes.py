@@ -12,6 +12,7 @@ from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
 from sqlalchemy import func
 from typing import List
+from PIL import Image
 import logging
 import os
 
@@ -165,32 +166,53 @@ async def home_search(request: Request):
             headers=dict(response.headers),
             status_code=response.status_code
         )
-    
-#def install_backups():
-#    db_path = "brightscrape/brightmls_rentals.db.bak"
-#    new_db_name = db_path[:-4]
-#
-#    if os.path.exists(db_path):
-#        os.rename(db_path, new_db_name)
-#
-#    base_dir = '/var/www/html/fastapi_project/start_files/static/rentals_images/'
-#
-#    for item in os.listdir(base_dir):
-#        item_path = os.path.join(base_dir, item)
-#
-#        if os.path.isdir(item_path) and item.endswith('.bak'):
-#            new_name = item[:-4]
-#            new_path = os.path.join(base_dir, new_name)
-#            try:
-#                shutil.move(item_path, new_path)
-#                print(f"Renamed directory: {item_path} to {new_path}")
-#            except Exception:
-#                print(f"Error renaming directory {item_path} to {new_path}")
-#        
-#        elif os.path.isdir(item_path):
-#            try:
-#                shutil.rmtree(item_path)
-#                print(f"Removed non-backup directory: {item_path}")
-#            except Exception:
-#                print(f"Error removing directory {item_path}")
-#install_backups()
+
+
+@router.get("convert_images_to_webp")
+def convert_images_to_webp():
+    base_folder = 'fastapi_project/start_files/static'  
+    print("Current Working Directory:", os.getcwd())
+    for folder in os.listdir(base_folder):
+        folder_path = os.path.join(base_folder, folder)
+        # Check if it's a directory
+        if os.path.isdir(folder_path):
+            for root, dirs, files in os.walk(folder_path):
+                for file in files:
+                    if file.lower().endswith('.jpg'):
+                        jpg_path = os.path.join(root, file)
+                        webp_path = os.path.splitext(jpg_path)[0] + '.webp'
+                        
+                        # Open the JPEG image and convert it to WebP
+                        with Image.open(jpg_path) as img:
+                            img.save(webp_path, 'WEBP')
+                            print(f'Converted {jpg_path} to {webp_path}')
+
+
+@router.get("restore_backups")
+def restore_backups():
+    db_path = "brightscrape/brightmls_rentals.db.bak"
+    new_db_name = db_path[:-4]
+
+    if os.path.exists(db_path):
+        os.rename(db_path, new_db_name)
+
+    base_dir = '/var/www/html/fastapi_project/start_files/static/rentals_images/'
+
+    for item in os.listdir(base_dir):
+        item_path = os.path.join(base_dir, item)
+
+        if os.path.isdir(item_path) and item.endswith('.bak'):
+            new_name = item[:-4]
+            new_path = os.path.join(base_dir, new_name)
+            try:
+                shutil.move(item_path, new_path)
+                print(f"Renamed directory: {item_path} to {new_path}")
+            except Exception:
+                print(f"Error renaming directory {item_path} to {new_path}")
+        
+        elif os.path.isdir(item_path):
+            try:
+                shutil.rmtree(item_path)
+                print(f"Removed non-backup directory: {item_path}")
+            except Exception:
+                print(f"Error removing directory {item_path}")

@@ -1,4 +1,4 @@
-
+from sqlalchemy.exc import OperationalError, SQLAlchemyError
 from sqlalchemy import create_engine, Column, Integer, String, Float
 from sqlalchemy.orm import declarative_base
 from concurrent.futures import ThreadPoolExecutor
@@ -56,11 +56,16 @@ def init_homes_db():
     db_dir = os.path.dirname(db_path)
     os.makedirs(db_dir, exist_ok=True)
     
-    if not path.exists(db_path):
+    if not os.path.exists(db_path):
         print("Creating database file...")
-        Base.metadata.create_all(bind=homes_engine)
+        try:
+            Base.metadata.drop_all(bind=homes_engine)
+            Base.metadata.create_all(bind=homes_engine)
+            print("Database and tables created successfully.")
+        except SQLAlchemyError as e:
+            print(f"An error occurred while creating the database: {e}")
     else:
-        print("Database file already exists.")
+        print("Database file already exists.")    
 
 
 def replace_old_homes_db():
@@ -142,3 +147,7 @@ def get_homes_from_db():
     finally:
         if db:
             db.close()
+
+
+
+

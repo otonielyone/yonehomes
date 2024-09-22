@@ -1,5 +1,5 @@
 
-import shutil
+from sqlalchemy.exc import OperationalError, SQLAlchemyError
 from sqlalchemy import create_engine, Column, Integer, String, Float
 from concurrent.futures import ThreadPoolExecutor
 from sqlalchemy.exc import SQLAlchemyError
@@ -53,6 +53,7 @@ def init_rentals_db():
     if not os.path.exists(db_path):
         print("Creating database file...")
         try:
+            Base.metadata.drop_all(bind=rentals_engine)
             Base.metadata.create_all(bind=rentals_engine)
             print("Database and tables created successfully.")
         except SQLAlchemyError as e:

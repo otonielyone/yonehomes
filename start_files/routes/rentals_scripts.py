@@ -13,6 +13,8 @@ from contextlib import contextmanager
 from dotenv import load_dotenv
 from selenium import webdriver
 from datetime import datetime
+from io import BytesIO
+from PIL import Image
 import requests
 import logging
 import asyncio
@@ -56,6 +58,11 @@ def prep_directories():
 
 def clean_and_rename_directories():
     base_dir = '/var/www/html/fastapi_project/start_files/static/rentals_images/'
+    csv_path = "/var/www/html/fastapi_project/brightscrape/Export_rentals.csv"
+    
+    if os.path.exists(csv_path):
+        os.remove(csv_path)
+        logger.info(f"Removed csv.")
 
     for item in os.listdir(base_dir):
         item_path = os.path.join(base_dir, item)
@@ -254,10 +261,10 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                         img_url = img.get_attribute('src')
                         if img_url:
                             response = requests.get(img_url)
-                            image_path = os.path.join(save_dir, f'{i + 1}.jpg')
-                            with open(image_path, 'wb') as file:
-                                file.write(response.content)
-                    logger.info(f"Completed image extraction for MLS {mls}.")
+                            if response.status_code == 200:
+                                img = Image.open(BytesIO(response.content))
+                                img.save(os.path.join(save_dir, f'{i + 1}.webp'), 'WEBP')
+                    logger.info(f'Converted images to .webp')
                     
                     db_attempt = 0
                     while db_attempt < max_retries:
@@ -327,7 +334,7 @@ async def start_concurrency(max_retries, min_images, delay, timeout, concurrency
                         max_retries, 
                         delay
                     )
-                except Exception:
+                except (WebDriverException, TimeoutException, StaleElementReferenceException):
                     logger.error(f"Error processing item {item}. Attempt {attempt + 1}/{max_retries}")
                     if attempt < max_retries - 1:
                         await asyncio.sleep(delay)  
@@ -353,7 +360,7 @@ async def start_task_in_loop(concurrency_limit, timeout, max_images, min_images,
         logger.info("Waiting for CSV file to appear...")
         await asyncio.sleep(5) 
     sorted_results = sorted_rentals_by_price(max_price)
-    logger.info(f"cvs count {sorted_results}")
+    logger.info(f"cvs count {len(sorted_results)}")
     init_rentals_db()
     await start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results)
     logger.info("Loop task completed successfully")
@@ -363,21 +370,34 @@ def start_rentals(concurrency_limit, timeout, max_images, min_images, max_price,
     start_time = time.time()
     logger.info(f"Start Time: {datetime.fromtimestamp(start_time).strftime('%Y-%m-%d %H:%M:%S')}")
     prep_directories()
-    try:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete(
-            start_task_in_loop(concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
-        )
-        loop.close()
-    except Exception:
-        logger.error("Error during post-processing")
-        raise 
 
-    replace_old_rentals_db()
-    clean_and_rename_directories()
-    logger.info("Database moved to production") 
-    elapsed_time = time.time() - start_time
-    minutes = int(elapsed_time // 60)
-    seconds = elapsed_time % 60
-    logger.info(f"Elapsed Time: {minutes} minutes {seconds:.2f} seconds")
+    attempt = 0
+    success = False  
+    while attempt < max_retries:
+        try:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(
+                start_task_in_loop(concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
+            )
+            loop.close()
+            success = True  
+            break  
+        except Exception as e:
+            attempt += 1
+            logger.error(f"Attempt {attempt}/{max_retries} failed: {e}")
+            if attempt < max_retries:
+                logger.info(f"Retrying in {delay} seconds...")
+                time.sleep(delay)
+            else:
+                logger.error("Max retries reached. Exiting.")
+                raise
+    if success:
+        replace_old_rentals_db()
+        clean_and_rename_directories()
+        logger.info("Database moved to production") 
+        
+        elapsed_time = time.time() - start_time
+        minutes = int(elapsed_time // 60)
+        seconds = elapsed_time % 60
+        logger.info(f"Elapsed Time: {minutes} minutes {seconds:.2f} seconds")

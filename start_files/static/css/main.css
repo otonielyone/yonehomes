@@ -618,7 +618,6 @@ a:focus {
   background-color: #333333;
   color: #ffffff;
   padding: 20px 0;
-  text-align: left; /* Align footer text to the left */
 }
 
 .footer-content {
@@ -633,7 +632,9 @@ a:focus {
   flex: 1 1 auto; /* Allow columns to grow and shrink, with a base width of 200px */
   padding: 0 10px; /* Add padding for spacing */
   box-sizing: border-box; /* Include padding in width calculation */
-  text-align: center;
+  text-align: left;
+  justify-content: center;
+  align-content: center;
 }
 
 .footer-heading {
@@ -661,11 +662,13 @@ a:focus {
 }
 
 .footer-info {
-  font-size: 14px; /* Ensure this matches the text size below "BROWSE" */
+  font-size: 12px; /* Ensure this matches the text size below "BROWSE" */
+  text-align: left !important;
 }
 
 .footer-info p {
   margin: 5px 0;
+  text-align: left !important;
 }
 
 
@@ -802,26 +805,34 @@ a:focus {
   .custom-column {
     flex: 1 1 100%; /* Each column takes 100% of width */
     max-width: 100%; /* Ensure each column does not exceed 100% width */
-
   }
   
   /* Adjust footer styling for small screens */
   .footer {
-    text-align: center; /* Center align footer content */
+    text-align: center !important; /* Center align footer content */
     padding: 50px;
   }
 
   .footer-content {
     flex-direction: column; /* Stack footer columns vertically */
     align-items: center; /* Center align columns */
-    padding: 0; /* Remove padding for better appearance */
+    margin: 0 !important;
+    height: auto; /* Optional: Limit max width for better appearance */
+    padding: 0 !important;  
   }
 
-  .footer-column, .footer-text, .footer-nav .footer-heading {
+
+  .footer-column, .footer-text, .footer-info, .footer-nav .footer-heading {
     width: 100%; /* Full width for each column */
-    max-width: 400px; /* Optional: Limit max width for better appearance */
-    text-align: center; /* Center text inside each column */
+    max-width: 300px; /* Optional: Limit max width for better appearance */
+    text-align: center !important; /* Center text inside each column */
   }
+
+
+  .footer-info p {
+    text-align: center !important; /* Center text inside each column */
+  }
+
 
   .custom-icon-homepage {
     background-image: url('/static/icons/home.png');
