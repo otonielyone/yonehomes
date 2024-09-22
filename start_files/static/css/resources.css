@@ -95,7 +95,7 @@
 }
 
 .general-options, 
-.grant-options,
+.grant-options, 
 .loan-options {
     margin: 20px auto; /* Vertical margin for spacing */
     padding: 20px;
@@ -109,21 +109,18 @@
     justify-content: center;
 }
 
-.general-option {
-    margin: 20px; /* Vertical margin for spacing */
-}
-
-
 .general-option, 
 .grant-option, 
 .loan-option {
-    width: 100%; /* Full width of the parent */
-    margin-bottom: 15px;
-    padding: 15px;
+    padding: 20px; /* Consistent padding */
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     background-color: #fff;
     transition: transform 0.2s;
+    display: flex; /* Use flexbox for inner content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center align children */
+    justify-content: center; /* Center content */
 }
 
 .general-option h3, 
@@ -143,6 +140,7 @@ p,
 .loan-option p {
     color: #555;
     line-height: 1.6;
+    margin: 0; /* Remove margin for consistent spacing */
 }
 
 .general-option:hover, 
@@ -210,7 +208,7 @@ h2.collapsible:hover {
     }
 
     .welcome-section h2 {
-        font-size: 24px; /* Adjust heading size */
+        font-size: 20px; /* Adjust heading size */
     }
 
 }
