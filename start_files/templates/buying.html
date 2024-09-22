@@ -90,247 +90,251 @@
         </section>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
         
-            // Setup Loader
-            const overlay = document.createElement('div');
-            overlay.style.position = 'fixed';
-            overlay.style.top = '0';
-            overlay.style.left = '0';
-            overlay.style.width = '100%';
-            overlay.style.height = '100%';
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 1)'; // Fully opaque black background
-            overlay.style.zIndex = '9998'; // Below the loader but above other content
-            overlay.style.display = 'none'; // Initially hidden
-    
-            const loader = document.createElement('div');
-            loader.id = 'loader';
-            loader.style.position = 'fixed';
-            loader.style.top = '50%';
-            loader.style.left = '50%';
-            loader.style.transform = 'translate(-50%, -50%)';
-            loader.style.zIndex = '9999'; // Above the overlay
-            loader.style.display = 'flex'; // Use Flexbox
-            loader.style.flexDirection = 'column'; // Stack children vertically
-            loader.style.alignItems = 'center'; // Center children horizontally
-            loader.style.textAlign = 'center'; // Center text
-    
-            const spinner = document.createElement('div');
-            spinner.className = 'spinner';
-            spinner.style.border = '8px solid #f3f3f3'; // Light grey
-            spinner.style.borderTop = '8px solid #3498db'; // Blue
-            spinner.style.borderRadius = '50%';
-            spinner.style.width = '50px'; // Size of the spinner
-            spinner.style.height = '50px'; // Size of the spinner
-            spinner.style.animation = 'spin 1s linear infinite';
-    
-            // Create and style loader text
-            const loaderText = document.createElement('div');
-            loaderText.textContent = 'Please give us a moment while we retrieve the latest listings...';
-            loaderText.style.marginTop = '15px'; // Space between spinner and text
-            loaderText.style.color = '#ffffff'; // Text color
-            loaderText.style.fontSize = '16px'; // Font size
-    
-            loader.appendChild(spinner);
-            loader.appendChild(loaderText);
-            document.body.appendChild(overlay); // Append overlay to body
-            document.body.appendChild(loader); // Append loader to body
-            
-            // Add CSS for spinning animation
-            const style = document.createElement('style');
-            style.innerHTML = `
-                @keyframes spin {
-                    0% { transform: rotate(0deg); }
-                    100% { transform: rotate(360deg); }
-                }
-            `;
-            document.head.appendChild(style);
-    
-            // Show overlay and loader before fetching data
-            overlay.style.display = 'block';
-            loader.style.display = 'flex';
-    
-            // Fetch the full list of listings from the API
-            fetch('/api/view_homes_database')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.homes && Array.isArray(data.homes)) {
-                        allListings = data.homes;
-                        displayListings(allListings.slice(0, numberOfListings));
-                    } else {
-                        console.error('Invalid data format:', data);
-                    }
-                })
-                .catch(error => console.error('Error fetching listings:', error))
-                .finally(() => {
-                    // Hide loader and overlay
-                    loader.style.display = 'none';
-                    overlay.style.display = 'none';
-                });
-    
-            function displayListings(listings) {
-                const container = document.getElementById('dynamic-buttons');
-                container.innerHTML = ''; // Clear previous listings
-                listings.forEach(item => createButtonDiv(item));
+        // Setup Loader
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 1)'; // Transparent black background
+        overlay.style.zIndex = '9998'; // Below the loader but above other content
+        overlay.style.display = 'none'; // Initially hidden
+
+        const loader = document.createElement('div');
+        loader.id = 'loader';
+        loader.style.position = 'fixed';
+        loader.style.top = '50%';
+        loader.style.left = '50%';
+        loader.style.transform = 'translate(-50%, -50%)';
+        loader.style.zIndex = '9999'; // Above the overlay
+        loader.style.display = 'flex'; // Use Flexbox
+        loader.style.flexDirection = 'column'; // Stack children vertically
+        loader.style.alignItems = 'center'; // Center children horizontally
+        loader.style.textAlign = 'center'; // Center text
+
+        const spinner = document.createElement('div');
+        spinner.className = 'spinner';
+        spinner.style.border = '8px solid #f3f3f3'; // Light grey
+        spinner.style.borderTop = '8px solid #3498db'; // Blue
+        spinner.style.borderRadius = '50%';
+        spinner.style.width = '50px'; // Size of the spinner
+        spinner.style.height = '50px'; // Size of the spinner
+        spinner.style.animation = 'spin 1s linear infinite';
+
+        // Create and style loader text
+        const loaderText = document.createElement('div');
+        loaderText.textContent = 'Please give us a moment while we retrieve the latest listings...';
+        loaderText.style.marginTop = '15px'; // Space between spinner and text
+        loaderText.style.color = '#ffffff'; // Text color
+        loaderText.style.fontSize = '16px'; // Font size
+
+        loader.appendChild(spinner);
+        loader.appendChild(loaderText);
+        document.body.appendChild(overlay); // Append overlay to body
+        document.body.appendChild(loader); // Append loader to body
+        
+        // Add CSS for spinning animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
             }
+        `;
+        document.head.appendChild(style);
+
+        const numberOfListings = Infinity; // Number of listings you want to display
+        let allListings = []; // Array to store all listings
+
+        // Show overlay and loader before fetching data
+        overlay.style.display = 'block'; 
+        loader.style.display = 'flex'; 
+
+
+        // Fetch the full list of listings from the API
+        fetch('/api/view_homes_database')
+            .then(response => response.json())
+            .then(data => {
+                if (data.homes && Array.isArray(data.homes)) {
+                    allListings = data.homes;
+                    displayListings(allListings.slice(0, numberOfListings));
+                } else {
+                    console.error('Invalid data format:', data);
+                }
+            })
+            .catch(error => console.error('Error fetching listings:', error))
+            .finally(() => {
+                // Hide loader
+                overlay.style.display = 'none';
+                loader.style.display = 'none';
+            });
+
+        function displayListings(listings) {
+            const container = document.getElementById('dynamic-buttons');
+            container.innerHTML = ''; // Clear previous listings
+            listings.forEach(item => createButtonDiv(item));
+        }
+
+        function createButtonDiv(data) {
+            const { MLS, COST, ADDRESS, BEDROOMS, BATH } = data;
+
+            const buttonDiv = document.createElement('div');
+            buttonDiv.className = 'button-item';
+
+            const button = document.createElement('button');
+            button.style.padding = 0;
+            button.style.border = 'none';
+            button.style.background = 'none';
+
+            const img = document.createElement('img');
+            img.alt = 'Button Image';
+            img.style.width = '150px';
+            img.style.height = '150px';
+            img.style.border = '3px solid #a8b8c6';
+            img.style.borderRadius = '10px';
+            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+            img.src = `static/homes_images/${MLS}/1.webp`; // Use backticks for the path
+
+            // Fallback for image loading
+            img.onerror = () => {
+                img.src = `static/icons/test.jpg`; // Fallback to JPG
+            };
+
+            const textDiv = document.createElement('div');
+            textDiv.className = 'popup-text';
+            textDiv.innerHTML = `Cost: ${formatValue(COST)}<br>${ADDRESS}<br>Beds: ${BEDROOMS} / Baths: ${BATH}`;
+
+            button.appendChild(img);
+            button.appendChild(textDiv);
+            button.onclick = (event) => {
+                event.stopPropagation();
+                showPopup(data);
+            };
+
+            buttonDiv.appendChild(button);
+            document.getElementById('dynamic-buttons').appendChild(buttonDiv);
+        }
+
+        function filterListings(query) {
+            const lowerQuery = query.toLowerCase();
+            const filteredListings = allListings.filter(item =>
+                item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
+            );
+            displayListings(filteredListings.slice(0, numberOfListings));
+        }
+
+        document.getElementById('searchField').addEventListener('input', (event) => {
+            filterListings(event.target.value);
+        });
+
+        function formatValue(value, field) {
+            if (value === null || value === undefined || value === '') {
+                return field === 'SQFT' || field === 'SPACES' ? 'Not Reported' : '0';
+            }
+            return value;
+        }
+
+        function showPopup(data) {
+            const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT } = data;
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+
+            const popupContent = document.createElement('div');
+            popupContent.className = 'popup-content';
+
+            const popupGallery = document.createElement('div');
+            popupGallery.className = 'popup-gallery';
     
-            function createButtonDiv(data) {
-                const { MLS, COST, ADDRESS, BEDROOMS, BATH } = data;
-    
-                const buttonDiv = document.createElement('div');
-                buttonDiv.className = 'button-item';
-    
-                const button = document.createElement('button');
-                button.style.padding = 0;
-                button.style.border = 'none';
-                button.style.background = 'none';
-    
-                const img = document.createElement('img');
-                img.alt = 'Button Image';
+            const fragment = document.createDocumentFragment();
+            const baseURL = `static/homes_images/${MLS}/`;
+
+            for (let i = 1; i <= COUNT; i++) {
+                const photo = `${baseURL}${i}.webp`;
+
+                const a = document.createElement('a');
+                a.href = photo;
+                a.dataset.lightbox = 'gallery';
+
+                const img = new Image(); // Using Image constructor
+                img.src = photo;
+                img.alt = 'Gallery Image';
                 img.style.width = '150px';
                 img.style.height = '150px';
                 img.style.border = '3px solid #a8b8c6';
-                img.style.borderRadius = '10px';
                 img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
-                img.src = `static/homes_images/${MLS}/1.webp`; // Use backticks for the path
-    
-                // Fallback for image loading
-                img.onerror = () => {
-                    img.src = `static/icons/test.jpg`; // Fallback to JPG
-                };
-    
-                const textDiv = document.createElement('div');
-                textDiv.className = 'popup-text';
-                textDiv.innerHTML = `Cost: ${formatValue(COST)}<br>${ADDRESS}<br>Beds: ${BEDROOMS} / Baths: ${BATH}`;
-    
-                button.appendChild(img);
-                button.appendChild(textDiv);
-                button.onclick = (event) => {
-                    event.stopPropagation();
-                    showPopup(data);
-                };
-    
-                buttonDiv.appendChild(button);
-                document.getElementById('dynamic-buttons').appendChild(buttonDiv);
+
+                a.appendChild(img);
+                fragment.appendChild(a);
             }
-    
-            function filterListings(query) {
-                const lowerQuery = query.toLowerCase();
-                const filteredListings = allListings.filter(item =>
-                    item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
-                );
-                displayListings(filteredListings.slice(0, numberOfListings));
-            }
-    
-            document.getElementById('searchField').addEventListener('input', (event) => {
-                filterListings(event.target.value);
+
+            popupGallery.appendChild(fragment); // Append everything at once
+            const popupText = document.createElement('div');
+            popupText.className = 'popup-text';
+            popupText.innerHTML = `
+                <hr class="styled-line">
+                <p>Cost: ${formatValue(COST)}</p>
+                <p>${ADDRESS}</p>
+                <hr class="styled-line">
+                <div class="popup-row">
+                    <div class="popup-item"><div class="popup-title">MLS</div><div class="popup-value">${formatValue(MLS)}</div></div>
+                    <div class="popup-item"><div class="popup-title">Age</div><div class="popup-value">${formatValue(AGE)}</div></div>
+                    <div class="popup-item"><div class="popup-title">Acres</div><div class="popup-value">${formatValue(ACRES)}</div></div>
+                    <div class="popup-item"><div class="popup-title">Sqft</div><div class="popup-value">${formatValue(SQFT, 'SQFT')}</div></div>
+                    <div class="popup-item"><div class="popup-title">Status</div><div class="popup-value">${formatValue(STATUS)}</div></div>
+                    <div class="popup-item"><div class="popup-title">Bedrooms</div><div class="popup-value">${formatValue(BEDROOMS)}</div></div>
+                    <div class="popup-item"><div class="popup-title">Total Bath</div><div class="popup-value">${formatValue(BATH)}</div></div>
+                    <div class="popup-item"><div class="popup-title">Full / Half</div><div class="popup-value">${formatValue(FULL)} / ${formatValue(HALF, 'HALF')}</div></div>
+                    <div class="popup-item"><div class="popup-title">Garage</div><div class="popup-value">${formatValue(GARAGE)}</div></div>
+                    <div class="popup-item"><div class="popup-title">Total Spaces</div><div class="popup-value">${formatValue(SPACES, 'SPACES')}</div></div>
+                    <div class="popup-item"><div class="popup-title">Fireplace</div><div class="popup-value">${formatValue(FIREPLACE)}</div></div>
+                    <div class="popup-item"><div class="popup-title">Basement</div><div class="popup-value">${formatValue(BASEMENT)}</div></div>
+                </div>
+                <hr class="styled-line">
+                <p>${DESCRIPTION}</p>
+                <hr class="styled-line">
+                <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button>
+            `;
+
+            const popupClose = document.createElement('span');
+            popupClose.className = 'popup-close';
+            popupClose.innerHTML = '&times;';
+            popupClose.onclick = () => closePopup(popup);
+
+            popupContent.appendChild(popupGallery);
+            popupContent.appendChild(popupText);
+            popupContent.appendChild(popupClose);
+            popup.appendChild(popupContent);
+            document.body.appendChild(popup);
+
+            // Event listeners for closing the popup
+            document.addEventListener('click', (event) => {
+                if (event.target === popup || event.target.classList.contains('lightbox')) {
+                    closePopup(popup);
+                }
             });
-    
-            function formatValue(value, field) {
-                if (value === null || value === undefined || value === '') {
-                    return field === 'SQFT' || field === 'SPACES' ? 'Not Reported' : '0';
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closePopup(popup);
                 }
-                return value;
-            }
-    
-            function showPopup(data) {
-                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT } = data;
-                const popup = document.createElement('div');
-                popup.className = 'popup';
-    
-                const popupContent = document.createElement('div');
-                popupContent.className = 'popup-content';
-    
-                const popupGallery = document.createElement('div');
-                popupGallery.className = 'popup-gallery';
-        
-                const fragment = document.createDocumentFragment();
-                const baseURL = `static/homes_images/${MLS}/`;
-    
-                for (let i = 1; i <= COUNT; i++) {
-                    const photo = `${baseURL}${i}.webp`;
-    
-                    const a = document.createElement('a');
-                    a.href = photo;
-                    a.dataset.lightbox = 'gallery';
-    
-                    const img = new Image(); // Using Image constructor
-                    img.src = photo;
-                    img.alt = 'Gallery Image';
-                    img.style.width = '150px';
-                    img.style.height = '150px';
-                    img.style.border = '3px solid #a8b8c6';
-                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
-    
-                    a.appendChild(img);
-                    fragment.appendChild(a);
-                }
-    
-                popupGallery.appendChild(fragment); // Append everything at once
-                const popupText = document.createElement('div');
-                popupText.className = 'popup-text';
-                popupText.innerHTML = `
-                    <hr class="styled-line">
-                    <p>Cost: ${formatValue(COST)}</p>
-                    <p>${ADDRESS}</p>
-                    <hr class="styled-line">
-                    <div class="popup-row">
-                        <div class="popup-item"><div class="popup-title">MLS</div><div class="popup-value">${formatValue(MLS)}</div></div>
-                        <div class="popup-item"><div class="popup-title">Age</div><div class="popup-value">${formatValue(AGE)}</div></div>
-                        <div class="popup-item"><div class="popup-title">Acres</div><div class="popup-value">${formatValue(ACRES)}</div></div>
-                        <div class="popup-item"><div class="popup-title">Sqft</div><div class="popup-value">${formatValue(SQFT, 'SQFT')}</div></div>
-                        <div class="popup-item"><div class="popup-title">Status</div><div class="popup-value">${formatValue(STATUS)}</div></div>
-                        <div class="popup-item"><div class="popup-title">Bedrooms</div><div class="popup-value">${formatValue(BEDROOMS)}</div></div>
-                        <div class="popup-item"><div class="popup-title">Total Bath</div><div class="popup-value">${formatValue(BATH)}</div></div>
-                        <div class="popup-item"><div class="popup-title">Full / Half</div><div class="popup-value">${formatValue(FULL)} / ${formatValue(HALF, 'HALF')}</div></div>
-                        <div class="popup-item"><div class="popup-title">Garage</div><div class="popup-value">${formatValue(GARAGE)}</div></div>
-                        <div class="popup-item"><div class="popup-title">Total Spaces</div><div class="popup-value">${formatValue(SPACES, 'SPACES')}</div></div>
-                        <div class="popup-item"><div class="popup-title">Fireplace</div><div class="popup-value">${formatValue(FIREPLACE)}</div></div>
-                        <div class="popup-item"><div class="popup-title">Basement</div><div class="popup-value">${formatValue(BASEMENT)}</div></div>
-                    </div>
-                    <hr class="styled-line">
-                    <p>${DESCRIPTION}</p>
-                    <hr class="styled-line">
-                    <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button>
-                `;
-    
-                const popupClose = document.createElement('span');
-                popupClose.className = 'popup-close';
-                popupClose.innerHTML = '&times;';
-                popupClose.onclick = () => closePopup(popup);
-    
-                popupContent.appendChild(popupGallery);
-                popupContent.appendChild(popupText);
-                popupContent.appendChild(popupClose);
-                popup.appendChild(popupContent);
-                document.body.appendChild(popup);
-    
-                // Event listeners for closing the popup
-                document.addEventListener('click', (event) => {
-                    if (event.target === popup || event.target.classList.contains('lightbox')) {
-                        closePopup(popup);
-                    }
-                });
-    
-                document.addEventListener('keydown', (event) => {
-                    if (event.key === 'Escape') {
-                        closePopup(popup);
-                    }
-                });
-            }
-    
-            function closePopup(popup) {
-                document.body.removeChild(popup);
-            }
-    
-            window.navigateToContact = (MLS, ADDRESS) => {
-                const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
-                window.location.href = `/contact?${queryParams}`;
-            };
-        });
-    </script>
-    
+            });
+        }
+
+        function closePopup(popup) {
+            document.body.removeChild(popup);
+        }
+
+        window.navigateToContact = (MLS, ADDRESS) => {
+            const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
+            window.location.href = `/contact?${queryParams}`;
+        };
+    });
+</script>
 
 
     <!-- Custom Section with Parallax Effect -->
