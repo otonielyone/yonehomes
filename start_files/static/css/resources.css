@@ -41,6 +41,7 @@
     text-align: center;
 }
 
+
 .loan-popup {
     display: none;
     position: fixed;
@@ -78,13 +79,16 @@
     margin-top: 15px;
     padding: 20px; /* Padding around the section */
     text-align: center; /* Center align text */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items */
 }
 
 .welcome-section h2 {
     color: #333; /* Darker color for the heading */
     font-size: 28px; /* Larger font size */
     margin-bottom: 40px; /* Space below the heading */
-    font-weight: 501px;
+    font-weight: 500; /* Corrected font weight */
 }
 
 .welcome-section p {
@@ -92,6 +96,7 @@
     font-size: 16px; /* Comfortable font size for reading */
     line-height: 1.6; /* Increase line height for readability */
     margin-bottom: 10px; /* Space between paragraphs */
+    max-width: 800px; /* Limit the width */
 }
 
 .general-options, 
@@ -219,4 +224,8 @@ h2.collapsible:hover {
     .loan-options {
         max-width: 90%; /* Set max-width to 70% */
     }
-}
+    
+    .loan-officer:first-child {
+        margin-bottom: 60px; /* Add top margin to the first loan officer */
+    }
+    }
