@@ -186,6 +186,18 @@ body {
     grid-gap: 10px; /* Space between items */
 }
 
+.styled-line { 
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.popup-text p {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 .popup-text {
     align-items: center;
     justify-content: center;

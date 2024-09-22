@@ -240,6 +240,9 @@
                 popupText.className = 'popup-text';
                 popupText.innerHTML = `
                     <hr class="styled-line">
+                    <p>${MLS}</p>
+                    <p>Status: ${STATUS}</p>
+                    <hr class="styled-line">
                     <p>${COST} Monthly</p>
                     <p>${ADDRESS}</p>
                     <hr class="styled-line">
@@ -248,10 +251,7 @@
                     <hr class="styled-line">
                     <p>${DESCRIPTION}</p>
                     <hr class="styled-line">
-                    <p>${MLS}</p>
-                    <p>Status: ${STATUS}</p>
                     <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
-                    <hr class="styled-line">
                 `;
     
                 const popupClose = document.createElement('span');
