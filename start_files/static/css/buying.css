@@ -72,7 +72,7 @@
     border-radius: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -90,7 +90,7 @@
     border-radius: 7px;
     border: 1px solid #888f96; /* Changed border color to blue */
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.1); /* Fixed box-shadow color */
-    margin: 20px auto 80px; 
+    margin: 40px auto 80px; 
     text-align: center;
 }
 
@@ -251,5 +251,18 @@
     .popup-text p {
         white-space: normal; /* Allow paragraph wrapping */
         word-wrap: break-word; /* Wrap long words to avoid overflow */
+    }
+
+    #searchField {
+        width: 50%;
+        height: 50px;
+        margin: 0;
+        margin-top: 50px;
+        padding:0;
+        text-align: center;
+    }
+    .mls-search {
+        padding-top: 7px;
+        margin: 40px auto 50px; 
     }
 }

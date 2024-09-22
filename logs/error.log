@@ -1962,3 +1962,149 @@ selenium.common.exceptions.WebDriverException: Message: Service /usr/bin/chromed
 [2024-09-22 02:35:46 -0400] [811084] [INFO] Application startup complete.
 [2024-09-22 03:10:11 -0400] [811083] [WARNING] Invalid HTTP request received.
 [2024-09-22 04:29:53 -0400] [811081] [WARNING] Invalid HTTP request received.
+[2024-09-22 06:21:43 -0400] [811069] [INFO] Handling signal: term
+[2024-09-22 06:21:43 -0400] [811083] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811074] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811078] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811077] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811071] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811076] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811079] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811081] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811073] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811072] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811080] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811085] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811075] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811082] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811084] [INFO] Shutting down
+[2024-09-22 06:21:43 -0400] [811083] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2024-09-22 06:21:43 -0400] [811076] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2024-09-22 06:21:43 -0400] [811077] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811078] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811071] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811074] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811079] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811081] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811078] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811077] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811074] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811071] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811081] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811079] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811078] [INFO] Finished server process [811078]
+[2024-09-22 06:21:43 -0400] [811077] [INFO] Finished server process [811077]
+[2024-09-22 06:21:43 -0400] [811074] [INFO] Finished server process [811074]
+[2024-09-22 06:21:43 -0400] [811071] [INFO] Finished server process [811071]
+[2024-09-22 06:21:43 -0400] [811072] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811073] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811072] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811073] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811072] [INFO] Finished server process [811072]
+[2024-09-22 06:21:43 -0400] [811073] [INFO] Finished server process [811073]
+[2024-09-22 06:21:43 -0400] [811079] [INFO] Finished server process [811079]
+[2024-09-22 06:21:43 -0400] [811081] [INFO] Finished server process [811081]
+[2024-09-22 06:21:43 -0400] [811080] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811080] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811080] [INFO] Finished server process [811080]
+[2024-09-22 06:21:43 -0400] [811085] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811078) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811073) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811071) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811081) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811074) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811075] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:43 -0400] [811075] [INFO] Application shutdown complete.
+[2024-09-22 06:21:43 -0400] [811075] [INFO] Finished server process [811075]
+[2024-09-22 06:21:43 -0400] [811082] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811077) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811072) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811079) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811080) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811069] [ERROR] Worker (pid:811075) was sent SIGTERM!
+[2024-09-22 06:21:43 -0400] [811084] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2024-09-22 06:21:52 -0400] [811084] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2024-09-22 06:21:52 -0400] [811083] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:52 -0400] [811083] [INFO] Application shutdown complete.
+[2024-09-22 06:21:52 -0400] [811083] [INFO] Finished server process [811083]
+[2024-09-22 06:21:52 -0400] [811069] [ERROR] Worker (pid:811083) was sent SIGTERM!
+[2024-09-22 06:21:52 -0400] [811076] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:52 -0400] [811076] [INFO] Application shutdown complete.
+[2024-09-22 06:21:52 -0400] [811076] [INFO] Finished server process [811076]
+[2024-09-22 06:21:52 -0400] [811069] [ERROR] Worker (pid:811076) was sent SIGTERM!
+[2024-09-22 06:21:52 -0400] [811085] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:52 -0400] [811085] [INFO] Application shutdown complete.
+[2024-09-22 06:21:52 -0400] [811085] [INFO] Finished server process [811085]
+[2024-09-22 06:21:52 -0400] [811082] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:52 -0400] [811082] [INFO] Application shutdown complete.
+[2024-09-22 06:21:52 -0400] [811082] [INFO] Finished server process [811082]
+[2024-09-22 06:21:52 -0400] [811069] [ERROR] Worker (pid:811085) was sent SIGTERM!
+[2024-09-22 06:21:52 -0400] [811069] [ERROR] Worker (pid:811082) was sent SIGTERM!
+[2024-09-22 06:21:52 -0400] [811084] [INFO] Waiting for application shutdown.
+[2024-09-22 06:21:52 -0400] [811084] [INFO] Application shutdown complete.
+[2024-09-22 06:21:52 -0400] [811084] [INFO] Finished server process [811084]
+[2024-09-22 06:21:52 -0400] [811069] [ERROR] Worker (pid:811084) was sent SIGTERM!
+[2024-09-22 06:21:52 -0400] [811069] [INFO] Shutting down: Master
+[2024-09-22 06:21:52 -0400] [1043668] [INFO] Starting gunicorn 23.0.0
+[2024-09-22 06:21:52 -0400] [1043668] [INFO] Listening at: http://0.0.0.0:5000 (1043668)
+[2024-09-22 06:21:52 -0400] [1043668] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-09-22 06:21:52 -0400] [1043670] [INFO] Booting worker with pid: 1043670
+[2024-09-22 06:21:52 -0400] [1043671] [INFO] Booting worker with pid: 1043671
+[2024-09-22 06:21:53 -0400] [1043672] [INFO] Booting worker with pid: 1043672
+[2024-09-22 06:21:53 -0400] [1043673] [INFO] Booting worker with pid: 1043673
+[2024-09-22 06:21:53 -0400] [1043674] [INFO] Booting worker with pid: 1043674
+[2024-09-22 06:21:53 -0400] [1043675] [INFO] Booting worker with pid: 1043675
+[2024-09-22 06:21:53 -0400] [1043676] [INFO] Booting worker with pid: 1043676
+[2024-09-22 06:21:53 -0400] [1043677] [INFO] Booting worker with pid: 1043677
+[2024-09-22 06:21:53 -0400] [1043678] [INFO] Booting worker with pid: 1043678
+[2024-09-22 06:21:53 -0400] [1043679] [INFO] Booting worker with pid: 1043679
+[2024-09-22 06:21:53 -0400] [1043680] [INFO] Booting worker with pid: 1043680
+[2024-09-22 06:21:53 -0400] [1043681] [INFO] Booting worker with pid: 1043681
+[2024-09-22 06:21:53 -0400] [1043682] [INFO] Booting worker with pid: 1043682
+[2024-09-22 06:21:53 -0400] [1043689] [INFO] Booting worker with pid: 1043689
+[2024-09-22 06:21:53 -0400] [1043750] [INFO] Booting worker with pid: 1043750
+[2024-09-22 06:21:56 -0400] [1043674] [INFO] Started server process [1043674]
+[2024-09-22 06:21:56 -0400] [1043674] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043674] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043672] [INFO] Started server process [1043672]
+[2024-09-22 06:21:56 -0400] [1043672] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043672] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043679] [INFO] Started server process [1043679]
+[2024-09-22 06:21:56 -0400] [1043679] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043679] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043673] [INFO] Started server process [1043673]
+[2024-09-22 06:21:56 -0400] [1043673] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043673] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043670] [INFO] Started server process [1043670]
+[2024-09-22 06:21:56 -0400] [1043670] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043670] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043671] [INFO] Started server process [1043671]
+[2024-09-22 06:21:56 -0400] [1043671] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043671] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043680] [INFO] Started server process [1043680]
+[2024-09-22 06:21:56 -0400] [1043680] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043680] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043676] [INFO] Started server process [1043676]
+[2024-09-22 06:21:56 -0400] [1043676] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043676] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043677] [INFO] Started server process [1043677]
+[2024-09-22 06:21:56 -0400] [1043677] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043677] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043675] [INFO] Started server process [1043675]
+[2024-09-22 06:21:56 -0400] [1043675] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043675] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043682] [INFO] Started server process [1043682]
+[2024-09-22 06:21:56 -0400] [1043682] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043682] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043678] [INFO] Started server process [1043678]
+[2024-09-22 06:21:56 -0400] [1043678] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043678] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043689] [INFO] Started server process [1043689]
+[2024-09-22 06:21:56 -0400] [1043689] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043689] [INFO] Application startup complete.
+[2024-09-22 06:21:56 -0400] [1043681] [INFO] Started server process [1043681]
+[2024-09-22 06:21:56 -0400] [1043681] [INFO] Waiting for application startup.
+[2024-09-22 06:21:56 -0400] [1043681] [INFO] Application startup complete.
+[2024-09-22 06:21:57 -0400] [1043750] [INFO] Started server process [1043750]
+[2024-09-22 06:21:57 -0400] [1043750] [INFO] Waiting for application startup.
+[2024-09-22 06:21:57 -0400] [1043750] [INFO] Application startup complete.
