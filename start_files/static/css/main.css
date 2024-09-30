@@ -22,7 +22,6 @@ h1, h2, p {
   font-weight: 300; /* Consistent font-weight */
 }
 
-
 .styled-line {
   border: none; /* Remove default border */
   border-top: 1px solid #c5cace; /* Solid line with desired color and thickness */

@@ -55,25 +55,46 @@
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-
-/* Search Container */
-.search-container {
+.search-container label {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    box-sizing: border-box;
+    gap: 5px; /* Space between checkbox and label text */
 }
 
-#searchField {
-    width: 50%;
-    height: 50px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-    text-align: center;
+.small-input {
+    width: 50px; /* Adjust the width to fit approximately 10 characters */
+}
+
+label {
+    font-size: 12px; /* Set font size to 12px */
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 60vw; /* Limit width */
+    margin: 20px auto; /* Center the container */
+}
+
+.search-container input {
+    padding: 10px;
+    border: 2px solid white; /* Blue border */
+    border-radius: 5px; /* Rounded input corners */
+    font-size: 12px; /* Increase font size */
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.search-container input:focus {
+    border-color: white; /* Darker blue on focus */
+    outline: none; /* Remove default outline */
 }
 
 .mls-search {
@@ -175,40 +196,37 @@
     background-color: #0056b3;
 }
 
-/* Media Queries for Responsive Layout */
-@media (max-width: 1200px) {
-    .button-item {
-        flex: 1 1 calc(33.33% - 16px);
-        max-width: calc(33.33% - 16px);
+
+@media (max-width: 978px) {
+    .search-container {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center;
+    }
+    
+    input[type="number"] {
+        width: 150px; /* Full width on small screens */
+        text-align: center;
+    }
+
+    input[type="text"] {
+        width: 150px; /* Full width on small screens */
+        text-align: center;
     }
 }
 
-@media (max-width: 800px) {
-    .button-item {
-        flex: 1 1 calc(50% - 16px);
-        max-width: calc(50% - 16px);
-    }
-}
 
-@media (max-width: 500px) {
+/* Responsive Adjustments */
+@media screen and (max-width: 500px) and (orientation: portrait) {
     .button-item {
         flex: 1 1 100%;
         max-width: 100%;
     }
-}
 
-/* Responsive Adjustments */
-@media screen and (max-width: 500px) and (orientation: portrait) {
     .light-red-text h2 {
         font-size: 16px;
         font-weight: 500;
     }
 
-    #searchField {
-        width: 85%;
-        margin-bottom: 45px;
-    }
-    
     .main-heading {
         z-index: 1000; /* Ensure heading is below popup */
     }
@@ -251,14 +269,6 @@
         word-wrap: break-word; /* Wrap long words to avoid overflow */
     }
 
-    #searchField {
-        width: 50%;
-        height: 50px;
-        margin: 0;
-        margin-top: 50px;
-        padding:0;
-        text-align: center;
-    }
     .mls-search {
         padding-top: 7px;
         margin: 40px auto 50px; 

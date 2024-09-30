@@ -155,7 +155,7 @@ async def export_homes():
 
         download_dir = "/home/oyone/Downloads/"
         csv_path1 = os.path.join(download_dir, "Standard Export.csv")
-        csv_path2 = "/var/www/html/fastapi_project/brightscrape/Export_homes.csv"
+        csv_path2 = "brightscrape/Export_homes.csv"
 
         while not os.path.exists(csv_path1):
             await asyncio.sleep(1)
@@ -173,46 +173,3 @@ async def export_homes():
         if 'driver' in locals() or driver is not None:
             driver.quit()
     
-#    try:
-#        logger.info("Sorting and filtering cvs file..")
-#        csv_path = "/var/www/html/fastapi_project/brightscrape/Export_homes.csv"
-#        all_data = []
-#
-#        async def preprocess_price(price_str: str) -> float:
-#            match = re.search(r'\d+', price_str.replace(',', ''))
-#            if match:
-#                return float(match.group())
-#            return float('inf')
-#
-#        with open(csv_path, mode='r') as data:
-#            data_content = csv.reader(data, delimiter=',')
-#            next(data_content, None)
-#            for row in data_content:
-#                mls = row[0]
-#                street_unit = row[1]
-#                status = row[3]
-#                price = await preprocess_price(row[6])
-#                list_date = row[11]
-#                city = row[22]
-#                state = row[23]
-#                zip_code = row[24]
-#                listing_office = row[37]
-#                listing_office_number = row[38]
-#                listing_agent = row[39]
-#                listing_agent_number = row[40]
-#                listing_agent_email = row[41]
-#                agent_remarks = row[42]
-#                public_remarks = row[44]
-#                bedrooms = row[79]
-#                bath = row[80]
-#
-#                if (max_price is None or price < max_price) and state == 'VA':
-#                    all_data.append((price, mls, street_unit, status, list_date, city, state, zip_code,
-#                                    listing_office, listing_office_number, listing_agent, listing_agent_number,
-#                                    listing_agent_email, agent_remarks, public_remarks, bedrooms, bath))
-#        logger.info(f'Filted and sorted csv: total {len(all_data)}')
-#        return sorted(all_data, key=lambda x: x[0])
-#
-#    except Exception:
-#        logger.error(f"Error during sorting and filtering results")
-#        raise HTTPException(status_code=500, detail="Error during sorting and filtering resultd")
