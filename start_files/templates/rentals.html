@@ -108,9 +108,14 @@
     </div>
 
     
+
     <div class="search-container">
-        <input type="text" id="searchField" placeholder="Filter Rentals">
-    </div>
+        <input type="text" id="searchField" placeholder="Filter Homes">
+        <input class="small-input" type="number" id="costFilter" placeholder="Cost:" />
+        <input type="number" id="bedroomFilter" placeholder="Beds:" min="1" max="20" />
+        <input type="number" id="bathroomFilter" placeholder="Baths:" min="1" max="10" />
+    </div><br><br>
+
 
     <div class="automation">
         <title>Dynamic Button Grid</title>
@@ -253,17 +258,41 @@
                 document.getElementById('dynamic-buttons').appendChild(buttonDiv);
             }
     
+    
+            // Filter functionality
             function filterListings(query) {
                 const lowerQuery = query.toLowerCase();
-                const filteredListings = allListings.filter(item =>
-                    item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
-                );
+                const bedrooms = document.getElementById('bedroomFilter').value;
+                const bathrooms = document.getElementById('bathroomFilter').value;
+                const maxCost = Number(document.getElementById('costFilter').value.replace(/[$,]/g, '')); // Remove $ and commas and convert to number
+
+                const filteredListings = allListings.filter(item => {
+                    const matchesQuery = item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery);
+                    const matchesBedrooms = bedrooms ? item.BEDROOMS >= bedrooms : true;
+                    const matchesBathrooms = bathrooms ? item.BATH >= bathrooms : true;
+                    const matchesCost = maxCost ? parseFloat(item.COST.replace(/[$,]/g, '')) <= maxCost : true;
+                    return matchesQuery && matchesBedrooms && matchesBathrooms && matchesCost;
+                });
+
                 displayListings(filteredListings.slice(0, numberOfListings));
             }
-    
+        
             document.getElementById('searchField').addEventListener('input', (event) => {
                 filterListings(event.target.value);
             });
+
+            document.getElementById('bedroomFilter').addEventListener('input', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+
+            document.getElementById('bathroomFilter').addEventListener('input', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+
+            document.getElementById('costFilter').addEventListener('input', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+
     
             function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT) {
                 const popup = document.createElement('div');

@@ -73,11 +73,22 @@
         </div>
     </div>
 
-
+    <br>
     <div class="search-container">
         <input type="text" id="searchField" placeholder="Filter Homes">
+        <input class="small-input" type="number" id="costFilter" placeholder="Cost:" />
+        <input type="number" id="bedroomFilter" placeholder="Beds:" min="1" max="20" />
+        <input type="number" id="bathroomFilter" placeholder="Baths:" min="1" max="10" />
+        
+        <label>
+            <input type="checkbox" id="basementFilter"> Basement
+        </label>
+        
+        <label>
+            <input type="checkbox" id="garageFilter"> Garage
+        </label>
     </div>
-
+    
     <!-- Button to trigger the /home_search route -->
     <div class="mls-search">
         <a href="http://otonielyone.unitedrealestatewashingtondc.com/index.html" target="_blank">Custom search</a>
@@ -219,25 +230,60 @@
             buttonDiv.appendChild(button);
             document.getElementById('dynamic-buttons').appendChild(buttonDiv);
         }
-
+    
+        // Filter functionality
         function filterListings(query) {
             const lowerQuery = query.toLowerCase();
-            const filteredListings = allListings.filter(item =>
-                item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery)
-            );
+            const bedrooms = document.getElementById('bedroomFilter').value;
+            const bathrooms = document.getElementById('bathroomFilter').value;
+            const maxCost = Number(document.getElementById('costFilter').value.replace(/[$,]/g, '')); // Remove $ and commas and convert to number
+            const hasBasement = document.getElementById('basementFilter').checked;
+            const hasGarage = document.getElementById('garageFilter').checked;
+
+            const filteredListings = allListings.filter(item => {
+                const matchesQuery = item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery);
+                const matchesBedrooms = bedrooms ? item.BEDROOMS >= bedrooms : true;
+                const matchesBathrooms = bathrooms ? item.BATH >= bathrooms : true;
+                const matchesCost = maxCost ? parseFloat(item.COST.replace(/[$,]/g, '')) <= maxCost : true;
+                const matchesBasement = hasBasement ? item.BASEMENT === 'Yes' : true;
+                const matchesGarage = hasGarage ? item.GARAGE === 'Yes' : true;
+                return matchesQuery && matchesBedrooms && matchesBathrooms && matchesCost && matchesBasement && matchesGarage;
+            });
+
             displayListings(filteredListings.slice(0, numberOfListings));
         }
-
+    
         document.getElementById('searchField').addEventListener('input', (event) => {
             filterListings(event.target.value);
         });
 
-        function formatValue(value, field) {
+        document.getElementById('bedroomFilter').addEventListener('input', () => {
+            filterListings(document.getElementById('searchField').value);
+        });
+
+        document.getElementById('bathroomFilter').addEventListener('input', () => {
+            filterListings(document.getElementById('searchField').value);
+        });
+
+        document.getElementById('costFilter').addEventListener('input', () => {
+            filterListings(document.getElementById('searchField').value);
+        });
+
+        document.getElementById('basementFilter').addEventListener('change', () => {
+            filterListings(document.getElementById('searchField').value);
+        });
+
+        document.getElementById('garageFilter').addEventListener('change', () => {
+            filterListings(document.getElementById('searchField').value);
+        });
+
+        function formatValue(value) {
             if (value === null || value === undefined || value === '') {
-                return field === 'SQFT' || field === 'SPACES' ? 'Not Reported' : '0';
+                return '0'; // Return '0' for null, undefined, or empty values
             }
-            return value;
+            return value; // Return the value as is
         }
+
 
         function showPopup(data) {
             const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT } = data;
