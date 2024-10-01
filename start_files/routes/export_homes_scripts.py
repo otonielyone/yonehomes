@@ -1,8 +1,8 @@
+from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from fastapi import APIRouter, HTTPException
@@ -75,7 +75,7 @@ async def async_login(driver: webdriver.Chrome, timeout: int, username: str, pas
         driver.execute_script("arguments[0].scrollIntoView(true);", login_button)
         driver.execute_script("arguments[0].click();", login_button)
 
-    except Exception:
+    except (WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException):
         logger.error(f"Login failed")
         raise
     logger.info("Logged in")
@@ -114,7 +114,7 @@ async def navigate_to_search_page(driver, timeout):
         results.click()
         logger.info("Results tab clicked successfully")
     
-    except TimeoutException:
+    except (WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException):
         logger.error(f"TimeoutException occurred navigating to excel. Refreshing the page and retrying.")
         driver.refresh()
         await navigate_to_search_page(driver, timeout)
@@ -169,7 +169,7 @@ async def export_homes():
             logger.info(f"File moved from {csv_path1} to {csv_path2}")
             break
 
-        except Exception as e:
+        except (WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException) as e:
             logger.error(f"Error during export results on attempt {attempt + 1}: {str(e)}")
             if attempt < MAX_RETRIES - 1:
                 logger.info(f"Retrying in {RETRY_DELAY} seconds...")
