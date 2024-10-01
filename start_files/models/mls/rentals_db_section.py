@@ -1,10 +1,10 @@
-
-from sqlalchemy.exc import OperationalError, SQLAlchemyError
 from sqlalchemy import create_engine, Column, Integer, String, Float
 from concurrent.futures import ThreadPoolExecutor
 from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import inspect
 from os import path
 import pandas as pd
 import logging
@@ -18,7 +18,9 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
-
+DATABASE_URL = "sqlite:///brightscrape/brightmls.db"
+rentals_engine = create_engine(DATABASE_URL)
+rentals_sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=rentals_engine)
 Base = declarative_base()
 
 class Mls_rentals(Base):
@@ -32,21 +34,31 @@ class Mls_rentals(Base):
     bedrooms = Column(String(5), index=True)
     bath = Column(String(5), index=True)
     count = Column(Integer, index=True)
-    
+    hash = Column(String(1000), index=True)
+
     def __repr__(self):
         return '<Mls_rentals {}>'.format(self.mls)
 
-# Setup SQLAlchemy engine and session
-DATABASE_URL = "sqlite:///brightscrape/_rentals_pending.db?timeout=300"
-rentals_engine = create_engine(DATABASE_URL)
-rentals_sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=rentals_engine)
 
-DATABASE_URL2 = "sqlite:///brightscrape/brightmls_rentals.db?timeout=300"
-rentals_engine2 = create_engine(DATABASE_URL2)
-rentals_sessionLocal2 = sessionmaker(autocommit=False, autoflush=False, bind=rentals_engine2)
+class Mls_rentals_temp(Base):
+    __tablename__ = 'mls_rentals_temp'
+    id = Column(Integer, primary_key=True, index=True)
+    mls = Column(String(20), unique=True, index=True)
+    address = Column(String(100), index=True)
+    price = Column(Float, index=True)
+    description = Column(String(1000), index=True)
+    availability = Column(String(20), index=True)
+    bedrooms = Column(String(5), index=True)
+    bath = Column(String(5), index=True)
+    count = Column(Integer, index=True)
+    hash = Column(String(1000), index=True)
+
+    def __repr__(self):
+        return '<Mls_rentals {}>'.format(self.mls)
+
 
 def init_rentals_db():
-    db_path = 'brightscrape/_rentals_pending.db'
+    db_path = 'brightscrape/brightmls.db'
     db_dir = os.path.dirname(db_path)
     os.makedirs(db_dir, exist_ok=True)
     
@@ -61,43 +73,45 @@ def init_rentals_db():
     else:
         print("Database file already exists.")    
 
-def init_rentals2_db():
-    db_path = 'brightscrape/brightmls_rentals.db'
-    db_dir = os.path.dirname(db_path)
-    os.makedirs(db_dir, exist_ok=True)
 
-def replace_old_rentals_db():
-    old_db_path = "brightscrape/_rentals_pending.db"
-    new_db_path = "brightscrape/brightmls_rentals.db"
-    new_db_backup_path = new_db_path + '.bak'
-    
-    if os.path.exists(new_db_backup_path):
-        try:
-            os.remove(new_db_backup_path)
-            print(f"Removed old backup file {new_db_backup_path}")
-        except Exception:
-            print(f"Error removing backup file {new_db_backup_path}")
-            return
-    
-    if os.path.exists(new_db_path):
-        try:
-            os.rename(new_db_path, new_db_backup_path)
-            print(f"Renamed {new_db_path} to {new_db_backup_path}")
-        except Exception:
-            print(f"Error renaming new database to {new_db_backup_path}")
-            return
-    
-    if os.path.exists(old_db_path):
-        try:
-            os.rename(old_db_path, new_db_path)
-            print(f"Renamed {old_db_path} to {new_db_path}")
-        except Exception:
-            print(f"Error renaming old database to {new_db_path}")
-    else:
-        print(f"Old database {old_db_path} does not exist")
+def init_rentals_db_temp():
+    try:
+        with rentals_sessionLocal() as db:
+            logger.info("Reinitializing temporary database...")
+            inspector = inspect(db.get_bind())
+            if not inspector.has_table('mls_rentals'):
+                logger.info("Original Mls_rentals table does not exist. Creating it...")
+                Base.metadata.create_all(bind=db.get_bind(), tables=[Mls_rentals.__table__])
+                logger.info("Original Mls_rentals table created.")
+                
+            Mls_rentals_temp.__table__.drop(db.get_bind(), checkfirst=True)
+            Base.metadata.create_all(bind=db.get_bind(), tables=[Mls_rentals_temp.__table__])
+            original_listings = db.query(Mls_rentals).all()
+            if original_listings:
+                temp_listings = [
+                    Mls_rentals_temp(
+                        mls=item.mls,
+                        address=item.address,
+                        price=item.price,
+                        description=item.description,
+                        availability=item.availability,
+                        bedrooms=item.bedrooms,
+                        bath=item.bath,
+                        count=item.count,
+                        hash=item.hash)
+                    for item in original_listings]
+                if temp_listings: 
+                    db.bulk_save_objects(temp_listings)
+                    db.commit()
+                    logger.info(f"Copied {len(temp_listings)} records from original table to temporary table.")
+                else:
+                    logger.warning("No records found to copy to the temporary table.")
+            else:
+                logger.warning("No records found in the original table.")
+    except SQLAlchemyError as e:
+        logger.error(f"An error occurred while initializing the temporary database: {e}")
 
-
-
+        
 def process_row(row):
     cost_formatted = f"${row['price']:,.2f}"
 
@@ -110,20 +124,26 @@ def process_row(row):
         "BEDROOMS": row['bedrooms'],
         "BATH": row['bath'],
         "COUNT": row['count'],
+        "HASH": row['hash'],
     }
 
 
 def get_rentals_from_db():
+    DATABASE_URL = "sqlite:///brightscrape/brightmls.db"
+    rentals_engine = create_engine(DATABASE_URL)
+    rentals_sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=rentals_engine)
+
+
     db = None
     try:
-        db = rentals_sessionLocal2()
+        db = rentals_sessionLocal()
         listings = db.query(Mls_rentals).all()
         
         listings_dict = [listing.__dict__ for listing in listings]
-        print(f"Listings: {listings_dict}")  # Debugging line
+        print(f"Listings: {listings_dict}")
         df = pd.DataFrame(listings_dict)
         
-        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'count'}
+        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'count', 'hash'}
         missing_columns = required_columns - set(df.columns)
         if missing_columns:
             raise KeyError(f"Missing columns: {', '.join(missing_columns)}")
@@ -138,7 +158,6 @@ def get_rentals_from_db():
     finally:
         if db:
             db.close()
-
 
 
 

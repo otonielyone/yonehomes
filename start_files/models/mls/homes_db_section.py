@@ -1,8 +1,10 @@
-from sqlalchemy.exc import OperationalError, SQLAlchemyError
 from sqlalchemy import create_engine, Column, Integer, String, Float
-from sqlalchemy.orm import declarative_base
 from concurrent.futures import ThreadPoolExecutor
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import inspect
 from os import path
 import pandas as pd
 import logging
@@ -17,6 +19,9 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 
+DATABASE_URL = "sqlite:///brightscrape/brightmls.db"
+homes_engine = create_engine(DATABASE_URL)
+homes_sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=homes_engine)
 Base = declarative_base()
 
 class Mls_homes(Base):
@@ -39,20 +44,38 @@ class Mls_homes(Base):
     garage = Column(String(5), index=True)
     spaces = Column(String(5), index=True)
     count = Column(String(5), index=True)
+    hash = Column(String(1000), index=True)
 
     def __repr__(self):
         return '<Mls_homes {}>'.format(self.mls)
 
-DATABASE_URL = "sqlite:///brightscrape/_homes_pending.db?timeout=300"
-homes_engine = create_engine(DATABASE_URL)
-homes_sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=homes_engine)
+class Mls_homes_temp(Base):
+    __tablename__ = 'mls_homes_temp'
+    id = Column(Integer, primary_key=True, index=True)
+    mls = Column(String(20), unique=True, index=True)
+    address = Column(String(100), index=True)
+    price = Column(Float, index=True)
+    description = Column(String(1000), index=True)
+    availability = Column(String(20), index=True)
+    bedrooms = Column(String(5), index=True)
+    bath = Column(String(5), index=True)
+    full = Column(String(5), index=True)
+    half = Column(String(5), index=True)
+    acres = Column(String(10), index=True)
+    age = Column(String(5), index=True)
+    sqft  = Column(String(5), index=True)
+    fireplace = Column(String(5), index=True)
+    basement = Column(String(5), index=True)
+    garage = Column(String(5), index=True)
+    spaces = Column(String(5), index=True)
+    count = Column(String(5), index=True)
+    hash = Column(String(1000), index=True)
 
-DATABASE_URL2 = "sqlite:///brightscrape/brightmls_homes.db"
-homes_engine2 = create_engine(DATABASE_URL2)
-homes_sessionLocal2 = sessionmaker(autocommit=False, autoflush=False, bind=homes_engine2)
+    def __repr__(self):
+        return '<Mls_homes_temp {}>'.format(self.mls)
 
 def init_homes_db():
-    db_path = 'brightscrape/_homes_pending.db'
+    db_path = 'brightscrape/brightmls.db'
     db_dir = os.path.dirname(db_path)
     os.makedirs(db_dir, exist_ok=True)
     
@@ -68,36 +91,69 @@ def init_homes_db():
         print("Database file already exists.")    
 
 
-def replace_old_homes_db():
-    old_db_path = "brightscrape/_homes_pending.db"
-    new_db_path = "brightscrape/brightmls_homes.db"
-    new_db_backup_path = new_db_path + '.bak'
-    
-    if os.path.exists(new_db_backup_path):
-        try:
-            os.remove(new_db_backup_path)
-            print(f"Removed old backup file {new_db_backup_path}")
-        except Exception:
-            print(f"Error removing backup file {new_db_backup_path}")
-            return
-    
-    if os.path.exists(new_db_path):
-        try:
-            os.rename(new_db_path, new_db_backup_path)
-            print(f"Renamed {new_db_path} to {new_db_backup_path}")
-        except Exception:
-            print(f"Error renaming new database to {new_db_backup_path}")
-            return
-    
-    if os.path.exists(old_db_path):
-        try:
-            os.rename(old_db_path, new_db_path)
-            print(f"Renamed {old_db_path} to {new_db_path}")
-        except Exception:
-            print(f"Error renaming old database to {new_db_path}")
+def check_and_create_original_homes_table(db):
+    inspector = inspect(db.get_bind())
+    if not inspector.has_table('mls_homes'):
+        logger.info("Creating original Mls_homes table...")
+        Base.metadata.create_all(bind=db.get_bind(), tables=[Mls_homes.__table__])
+        logger.info("Original Mls_homes table created.")
+
+def drop_and_create_temp_homes_table(db):
+    Mls_homes_temp.__table__.drop(db.get_bind(), checkfirst=True)
+    Base.metadata.create_all(bind=db.get_bind(), tables=[Mls_homes_temp.__table__])
+    logger.info("Temporary Mls_homes_temp table created.")
+
+def copy_homes_to_temp(db):
+    original_listings = db.query(Mls_homes).all()
+    logger.info(f"Found {len(original_listings)} records in the original table.")
+
+    if original_listings:
+        temp_listings = [
+            Mls_homes_temp(
+                mls=item.mls,
+                address=item.address,
+                price=item.price,
+                description=item.description,
+                availability=item.availability,
+                bedrooms=item.bedrooms,
+                bath=item.bath,
+                full=item.full,
+                half=item.half,
+                acres=item.acres,
+                age=item.age,
+                sqft=item.sqft,
+                fireplace=item.fireplace,
+                basement=item.basement,
+                garage=item.garage,
+                spaces=item.spaces,
+                count=item.count,
+                hash=item.hash
+            )
+            for item in original_listings
+        ]
+        
+        # Batch processing for bulk inserts
+        batch_size = 100
+        for i in range(0, len(temp_listings), batch_size):
+            db.bulk_save_objects(temp_listings[i:i + batch_size])
+        db.commit()
+        logger.info(f"Copied {len(temp_listings)} records from original table to temporary table.")
     else:
-        print(f"Old database {old_db_path} does not exist")
-    
+        logger.warning("No records found in the original table.")
+
+def init_homes_db_temp():
+    try:
+        with homes_sessionLocal() as db:
+            logger.info("Reinitializing temporary database...")
+            check_and_create_original_homes_table(db)
+            drop_and_create_temp_homes_table(db)
+            copy_homes_to_temp(db)
+    except SQLAlchemyError as e:
+        logger.error(f"An error occurred while initializing the temporary database: {e}")
+
+
+
+
 def process_row(row):
     cost_formatted = f"${row['price']:,.2f}"
 
@@ -119,20 +175,21 @@ def process_row(row):
         "GARAGE": row['garage'],
         "SPACES": row['spaces'],
         "COUNT": row['count'],
+        "HASH": row['hash'],
     }
 
 
 def get_homes_from_db():
     db = None
     try:
-        db = homes_sessionLocal2()
+        db = homes_sessionLocal()
         listings = db.query(Mls_homes).all()
         
         listings_dict = [listing.__dict__ for listing in listings]
-        print(f"Listings: {listings_dict}")  # Debugging line
+        print(f"Listings: {listings_dict}") 
         df = pd.DataFrame(listings_dict)
 
-        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'full', 'half', 'acres', 'age', 'sqft', 'fireplace', 'basement', 'garage', 'spaces', 'count'}
+        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'full', 'half', 'acres', 'age', 'sqft', 'fireplace', 'basement', 'garage', 'spaces', 'count', 'hash'}
         missing_columns = required_columns - set(df.columns)
         if missing_columns:
             raise KeyError(f"Missing columns: {', '.join(missing_columns)}")
@@ -147,7 +204,6 @@ def get_homes_from_db():
     finally:
         if db:
             db.close()
-
 
 
 
