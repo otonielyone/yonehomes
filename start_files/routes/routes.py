@@ -14,6 +14,7 @@ from sqlalchemy import func
 from typing import List
 from PIL import Image
 import logging
+import httpx
 import os
 
 
@@ -23,6 +24,9 @@ load_dotenv()
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 RECIPIENT = os.getenv("RECIPIENT")
 SENDER = os.getenv("SENDER")
+MAILJET_API = os.getenv("MAILJET_API")
+MAILJET_SECRET = os.getenv("MAILJET_SECRET")
+
 
 # Set up logger
 logger = logging.getLogger(__name__)
@@ -64,6 +68,8 @@ async def contact(request: Request):
     templates = request.app.state.templates
     return templates.TemplateResponse("contact.html", {"request": request})
 
+
+
 @router.post("/contact")
 async def handle_contact_form(
     request: Request,
@@ -74,24 +80,35 @@ async def handle_contact_form(
     general_inquiry: str = Form(...)
 ):
     logger.info(f"Received contact form submission from {email}")
-
-    message = Mail(
-        from_email=SENDER,
-        to_emails=RECIPIENT,
-        subject='New Contact Form Submission',
-        html_content=f"""
-        <p>First Name: {first_name}</p>
-        <p>Last Name: {last_name}</p>
-        <p>Email: {email}</p>
-        <p>Phone: {phone}</p>
-        <p>General Inquiry: {general_inquiry}</p>
-        """
-    )
+    
+    data = {
+        'FromEmail': SENDER,
+        'FromName': email,  # Replace with your name or company name
+        'Subject': 'New Contact Form Submission',
+        'Text-part': 'Hey Toni, here is another support lead!',
+        'Html-part': f'''
+            <p>First Name: {first_name}</p>
+            <p>Last Name: {last_name}</p>
+            <p>Email: {email}</p>
+            <p>Phone: {phone}</p>
+            <p>General Inquiry: {general_inquiry}</p>
+        ''',        
+        'Recipients': [{ "Email": RECIPIENT }]
+    }
 
     try:
-        sg = SendGridAPIClient(SENDGRID_API_KEY)
-        response = sg.send(message)
-        logger.info(f"SendGrid response status code: {response.status_code}")
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                'https://api.mailjet.com/v3/send',
+                json=data,
+                auth=(MAILJET_API, MAILJET_SECRET)
+            )
+        
+        logger.info(f"Mailjet response status code: {response.status_code}")
+
+        if response.status_code != 200:
+            logger.error(f"Mailjet error: {response.text}")
+            raise HTTPException(status_code=500, detail="Error sending email")
     except Exception as e:
         logger.error(f"Error sending email: {e}")
         raise HTTPException(status_code=500, detail="Error sending email")

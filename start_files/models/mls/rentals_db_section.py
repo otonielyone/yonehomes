@@ -25,8 +25,7 @@ Base = declarative_base()
 
 class Mls_rentals(Base):
     __tablename__ = 'mls_rentals'
-    id = Column(Integer, primary_key=True, index=True)
-    mls = Column(String(20), unique=True, index=True)
+    mls = Column(String(20), primary_key=True, index=True)
     address = Column(String(100), index=True)
     price = Column(Float, index=True)
     description = Column(String(1000), index=True)
@@ -42,8 +41,7 @@ class Mls_rentals(Base):
 
 class Mls_rentals_temp(Base):
     __tablename__ = 'mls_rentals_temp'
-    id = Column(Integer, primary_key=True, index=True)
-    mls = Column(String(20), unique=True, index=True)
+    mls = Column(String(20), primary_key=True, index=True)
     address = Column(String(100), index=True)
     price = Column(Float, index=True)
     description = Column(String(1000), index=True)
