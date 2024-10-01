@@ -129,95 +129,65 @@ async def navigate_to_search_page(driver, timeout):
         driver.refresh()
         await navigate_to_search_page(driver, timeout)
 
+
 async def export_rentals():
-    logger.info("Starting export_results function")
+    logger.info("Starting export_rentals function")
     driver = await async_setup_options()
     timeout = 100
+    MAX_RETRIES = 5
+    RETRY_DELAY = 1
+
     await async_login(driver, timeout, BRIGHTMLS_USERNAME, BRIGHTMLS_PASSWORD)
     await navigate_to_search_page(driver, timeout)
 
-    try:
-        element_present = EC.element_to_be_clickable((By.ID, "m_lnkCheckAllLink"))
-        WebDriverWait(driver, timeout).until(element_present)
+    for attempt in range(MAX_RETRIES):
+        try:
+            element_present = EC.element_to_be_clickable((By.ID, "m_lnkCheckAllLink"))
+            WebDriverWait(driver, timeout).until(element_present)
 
-        all = driver.find_element(by=By.ID, value="m_lnkCheckAllLink")
-        driver.execute_script("arguments[0].click();", all)
-        logger.info("'Check All Results Entries' link clicked successfully")
+            all = driver.find_element(by=By.ID, value="m_lnkCheckAllLink")
+            driver.execute_script("arguments[0].click();", all)
+            logger.info("'Check All Results Entries' link clicked successfully")
 
-        pre_export = driver.find_element(by=By.ID, value="m_lbExport")
-        driver.execute_script("arguments[0].click();", pre_export)
-        logger.info("'Submit Export' button clicked successfully")
+            pre_export = driver.find_element(by=By.ID, value="m_lbExport")
+            driver.execute_script("arguments[0].click();", pre_export)
+            logger.info("'Submit Export' button clicked successfully")
 
-        await asyncio.sleep(2)
+            await asyncio.sleep(2)
 
-        select_element = WebDriverWait(driver, timeout).until(
-            EC.element_to_be_clickable((By.XPATH, "//select[@id='m_ddExport']"))
-        )
-        driver.execute_script("arguments[0].click();", select_element)
-        select_element.send_keys("s")
-        select_element.send_keys(Keys.ENTER)
-        logger.info("Export selected from dropdown")
+            select_element = WebDriverWait(driver, timeout).until(
+                EC.element_to_be_clickable((By.XPATH, "//select[@id='m_ddExport']"))
+            )
+            driver.execute_script("arguments[0].click();", select_element)
+            select_element.send_keys("s")
+            select_element.send_keys(Keys.ENTER)
+            logger.info("Export selected from dropdown")
 
-        export = driver.find_element(by=By.ID, value="m_btnExport")
-        driver.execute_script("arguments[0].click();", export)
-        logger.info("'Export' button clicked successfully")
+            export = driver.find_element(by=By.ID, value="m_btnExport")
+            driver.execute_script("arguments[0].click();", export)
+            logger.info("'Export' button clicked successfully")
 
-        download_dir = "/home/oyone/Downloads/"
-        csv_path1 = os.path.join(download_dir, "Standard Export.csv")
-        csv_path2 = "/var/www/html/fastapi_project/brightscrape/Export_rentals.csv"
+            download_dir = "/home/oyone/Downloads/"
+            csv_path1 = os.path.join(download_dir, "Standard Export.csv")
+            csv_path2 = "/var/www/html/fastapi_project/brightscrape/Export_rentals.csv"
 
-        while not os.path.exists(csv_path1):
-            await asyncio.sleep(1)
-        logger.info(f"File downloaded: {csv_path1}")
-        
-        shutil.move(csv_path1, csv_path2)
-        logger.info(f"File moved from {csv_path1} to {csv_path2}")
- 
-    finally:
-        logger.info('Done fetching csv')
-        if 'driver' in locals() or driver is not None:
-            driver.quit()
-    
-#    try:
-#        logger.info("Sorting and filtering cvs file..")
-#        csv_path = "/var/www/html/fastapi_project/brightscrape/Export_rentals.csv"
-#        all_data = []
-#
-#        async def preprocess_price(price_str: str) -> float:
-#            match = re.search(r'\d+', price_str.replace(',', ''))
-#            if match:
-#                return float(match.group())
-#            return float('inf')
-#
-#        with open(csv_path, mode='r') as data:
-#            data_content = csv.reader(data, delimiter=',')
-#            next(data_content, None)
-#            for row in data_content:
-#                mls = row[0]
-#                street_unit = row[1]
-#                status = row[3]
-#                price = await preprocess_price(row[6])
-#                list_date = row[11]
-#                city = row[22]
-#                state = row[23]
-#                zip_code = row[24]
-#                listing_office = row[37]
-#                listing_office_number = row[38]
-#                listing_agent = row[39]
-#                listing_agent_number = row[40]
-#                listing_agent_email = row[41]
-#                agent_remarks = row[42]
-#                public_remarks = row[44]
-#                bedrooms = row[79]
-#                bath = row[80]
-#
-#                if (max_price is None or price < max_price) and state == 'VA':
-#                    all_data.append((price, mls, street_unit, status, list_date, city, state, zip_code,
-#                                    listing_office, listing_office_number, listing_agent, listing_agent_number,
-#                                    listing_agent_email, agent_remarks, public_remarks, bedrooms, bath))
-#        logger.info(f'Filted and sorted csv: total {len(all_data)}')
-#        return sorted(all_data, key=lambda x: x[0])
-#
-#    except Exception:
-#        logger.error(f"Error during sorting and filtering results")
-#        raise HTTPException(status_code=500, detail="Error during sorting and filtering resultd")#
+            while not os.path.exists(csv_path1):
+                await asyncio.sleep(1)
+            logger.info(f"File downloaded: {csv_path1}")
+
+            shutil.move(csv_path1, csv_path2)
+            logger.info(f"File moved from {csv_path1} to {csv_path2}")
+            break 
+
+        except Exception as e:
+            logger.error(f"Error during export results on attempt {attempt + 1}: {str(e)}")
+            if attempt < MAX_RETRIES - 1:
+                logger.info(f"Retrying in {RETRY_DELAY} seconds...")
+                await asyncio.sleep(RETRY_DELAY)
+            else:
+                logger.error("Max retries reached. Raising HTTPException.")
+                raise HTTPException(status_code=500, detail="Error during export results")
+            
+    logger.info('Done fetching csv')
+    if 'driver' in locals() and driver is not None:
+        driver.quit()

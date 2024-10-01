@@ -97,6 +97,7 @@ label {
     outline: none; /* Remove default outline */
 }
 
+
 .mls-search {
     display: flex;
     flex-direction: column;
@@ -196,24 +197,24 @@ label {
     background-color: #0056b3;
 }
 
-
 @media (max-width: 978px) {
     .search-container {
         flex-direction: column; /* Stack elements vertically */
         text-align: center;
     }
     
-    input[type="number"] {
-        width: 150px; /* Full width on small screens */
-        text-align: center;
-    }
-
+    input[type="number"],
     input[type="text"] {
-        width: 150px; /* Full width on small screens */
-        text-align: center;
+        width: 150px; /* Adjusted width for small screens */
+        margin: 0 auto; /* Center the inputs */
+    }
+    
+    label.left-align {
+        justify-content: flex-start; /* Ensure it stays left-aligned */
+        text-align: left;
+        width: 150px;
     }
 }
-
 
 /* Responsive Adjustments */
 @media screen and (max-width: 500px) and (orientation: portrait) {

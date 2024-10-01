@@ -38,6 +38,20 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
+
+def purge_cloudflare_cache():
+    response = requests.post(
+        f'https://api.cloudflare.com/client/v4/zones/{os.getenv("CLOUDFLARE_ZONE")}/purge_cache',
+        headers={
+            'Authorization': f'Bearer {os.getenv("CLOUDFLARE_API_TOKEN")}',
+            'Content-Type': 'application/json',
+        },
+        json={'purge_everything': True}
+    )
+    return response.json()
+
+
+
 def prep_directories():
     del_dir = '/var/www/html/fastapi_project/start_files/static/rentals_images/'
 
@@ -393,6 +407,7 @@ def start_rentals(concurrency_limit, timeout, max_images, min_images, max_price,
                 logger.error("Max retries reached. Exiting.")
                 raise
     if success:
+        purge_cloudflare_cache()
         replace_old_rentals_db()
         clean_and_rename_directories()
         logger.info("Database moved to production") 

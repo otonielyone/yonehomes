@@ -38,6 +38,20 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
+
+def purge_cloudflare_cache():
+    response = requests.post(
+        f'https://api.cloudflare.com/client/v4/zones/{os.getenv("CLOUDFLARE_ZONE")}/purge_cache',
+        headers={
+            'Authorization': f'Bearer {os.getenv("CLOUDFLARE_API_TOKEN")}',
+            'Content-Type': 'application/json',
+        },
+        json={'purge_everything': True}
+    )
+    return response.json()
+
+
+
 def prep_directories():
     del_dir = '/var/www/html/fastapi_project/start_files/static/homes_images/'
 
@@ -88,8 +102,6 @@ def clean_and_rename_directories():
             new_item_path = os.path.join(base_dir, new_name)
             logger.info(f"Renaming directory: {item_path} to {new_item_path}")
             os.rename(item_path, new_item_path)
-
-
 
 
 def get_end_time_and_elapsed(start_time):
@@ -415,6 +427,7 @@ def start_homes(concurrency_limit, timeout, max_images, min_images, max_price, m
                 logger.error("Max retries reached. Exiting.")
                 raise
     if success:
+        purge_cloudflare_cache()
         replace_old_homes_db()
         clean_and_rename_directories()
         logger.info("Database moved to production") 
