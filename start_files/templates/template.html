@@ -73,7 +73,7 @@
                 <div class="footer-column">
                     <nav class="footer-nav">
                         <ul>
-                            <li><a>BROWSE</span></a></li>
+                            <li><a href="/" class="nav-item"><span class="nav-item-text">BROWSE</span></a></li>
                             <li><a href="/" class="nav-item current"><span class="nav-item-text">HOME</span></a></li>
                             <li><a href="/buying" class="nav-item"><span class="nav-item-text">BUYING</span></a></li>
                             <li><a href="/rentals" class="nav-item"><span class="nav-item-text">RENTALS</span></a></li>
@@ -83,14 +83,16 @@
                     </nav>
                 </div>
                <div class="footer-column">
-                    <div class="footer-info">
-                        <a style="font-size: 16px;">CONTACT</span></a>
-                        <p class="footer-text"><span class="contact-agency">United Real Estate</span></p>
-                        <p class="footer-text"><span class="contact-title">Real Estate, REALTOR®</span></p>
-                        <p class="footer-text"><span class="contact-name">Otoniel (Toni) Yone</span></p>
-                        <p class="footer-text"><span class="contact-email">info@yonehomes.com</span></p>
-                        <p class="footer-text"><span class="contact-phone">1-703-596-2121</span></p>
-                    </div>
+                    <nav class="footer-nav">
+                        <ul>
+                            <li><a class="nav-item" href="#"><span class="nav-item-text">CONTACT</span></a></li>
+                            <li><a class="nav-item" href="#"><span class="nav-item-text">United Real Estate</span></a></li>
+                            <li><a class="nav-item" href="#"><span class="nav-item-text">Real Estate, Realtor®</span></a></li>
+                            <li><a class="nav-item" href="#"><span class="nav-item-text">Otoniel (Toni) Yone</span></a></li>
+                            <li><a class="nav-item" href="mailto:toni@yone.realtor"><span  class="nav-item-text"> toni@yone.Realtor</span></a></li>
+                            <li><a class="nav-item" href="tel:1-703-596-2121"><span class="nav-item-text">1-703-596-2121</span></a></li>
+                        </ul>
+                    </nav>
                 </div>
                 <div class="footer-column">
                     <img src="/static/icons/realtor1.png" alt="Realtor" class="footer-image">
@@ -106,119 +108,119 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox-plus-jquery.min.js"></script>
         <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var hamburgerMenu = document.querySelector('.hamburger-menu');
-    var menuBar = document.querySelector('.menu-bar');
-    var mobileMenu = document.querySelector('.mobile-menu');
-    var menuItems = document.querySelectorAll('.menu-item');
-    var closeMenuIcon = document.querySelector('.close-menu'); // Select the close icon
+            document.addEventListener('DOMContentLoaded', function() {
+                var hamburgerMenu = document.querySelector('.hamburger-menu');
+                var menuBar = document.querySelector('.menu-bar');
+                var mobileMenu = document.querySelector('.mobile-menu');
+                var menuItems = document.querySelectorAll('.menu-item');
+                var closeMenuIcon = document.querySelector('.close-menu'); // Select the close icon
 
-    // Function to update visibility and style based on conditions
-    function updateVisibility() {
-        var isMobileView = window.innerWidth <= 768;
-        var isLandscapeMode = window.innerHeight <= 500 && window.innerWidth > window.innerHeight;
-        var shouldShowHamburger = isMobileView || isLandscapeMode;
+                // Function to update visibility and style based on conditions
+                function updateVisibility() {
+                    var isMobileView = window.innerWidth <= 768;
+                    var isLandscapeMode = window.innerHeight <= 500 && window.innerWidth > window.innerHeight;
+                    var shouldShowHamburger = isMobileView || isLandscapeMode;
 
-        var mobileMenuVisible = mobileMenu && mobileMenu.classList.contains('active');
+                    var mobileMenuVisible = mobileMenu && mobileMenu.classList.contains('active');
 
-        if (hamburgerMenu) {
-            if (mobileMenuVisible) {
-                // Always hide hamburger menu if mobile menu is active
-                hamburgerMenu.classList.add('hide');
-                hamburgerMenu.classList.remove('show');
-                hamburgerMenu.classList.add('active');
-                hamburgerMenu.style.color = ''; // Restore font color
-            } else {
-                // Show hamburger menu based on conditions if mobile menu is not active
-                if (shouldShowHamburger) {
-                    hamburgerMenu.classList.add('show');
-                    hamburgerMenu.classList.remove('hide');
-                    hamburgerMenu.classList.remove('active');
-                } else {
-                    hamburgerMenu.classList.add('hide');
-                    hamburgerMenu.classList.remove('show');
-                    hamburgerMenu.classList.remove('active');
+                    if (hamburgerMenu) {
+                        if (mobileMenuVisible) {
+                            // Always hide hamburger menu if mobile menu is active
+                            hamburgerMenu.classList.add('hide');
+                            hamburgerMenu.classList.remove('show');
+                            hamburgerMenu.classList.add('active');
+                            hamburgerMenu.style.color = ''; // Restore font color
+                        } else {
+                            // Show hamburger menu based on conditions if mobile menu is not active
+                            if (shouldShowHamburger) {
+                                hamburgerMenu.classList.add('show');
+                                hamburgerMenu.classList.remove('hide');
+                                hamburgerMenu.classList.remove('active');
+                            } else {
+                                hamburgerMenu.classList.add('hide');
+                                hamburgerMenu.classList.remove('show');
+                                hamburgerMenu.classList.remove('active');
+                            }
+                            hamburgerMenu.style.color = ''; // Restore font color
+                        }
+                    }
+
+                    // Adjust z-index for menu items
+                    if (mobileMenuVisible) {
+                        menuItems.forEach(function(item) {
+                            item.style.zIndex = '2000'; // Ensure menu items are on top
+                        });
+                    } else {
+                        menuItems.forEach(function(item) {
+                            item.style.zIndex = ''; // Restore default z-index if needed
+                        });
+                    }
                 }
-                hamburgerMenu.style.color = ''; // Restore font color
-            }
-        }
 
-        // Adjust z-index for menu items
-        if (mobileMenuVisible) {
-            menuItems.forEach(function(item) {
-                item.style.zIndex = '2000'; // Ensure menu items are on top
+                // Toggle mobile menu visibility
+                function toggleMobileMenu(event) {
+                    event.stopPropagation();
+                    var isActive = mobileMenu.classList.toggle('active');
+                    updateVisibility(); // Ensure visibility is updated after toggling
+                }
+
+                // Close mobile menu
+                function closeMobileMenu() {
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        updateVisibility(); // Ensure visibility is updated after closing
+                    }
+                }
+
+                // Close mobile menu on any click
+                function handleAnyClick(event) {
+                    // Only close the menu if the click is outside the mobile menu and hamburger menu
+                    if (mobileMenu.classList.contains('active') && !mobileMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                        closeMobileMenu();
+                    }
+                }
+
+                // Handle close icon click
+                function handleCloseIconClick(event) {
+                    closeMobileMenu(); // Close the mobile menu
+                }
+
+                // Ensure click events on menu items work correctly
+                function handleMenuItemClick(event) {
+                    console.log('Menu item clicked:', event.target);
+                    // Optional: Add additional logic if needed
+                }
+
+                // Initialize event listeners and update visibility on load and resize
+                if (hamburgerMenu && mobileMenu) {
+                    updateVisibility();
+
+                    // Toggle mobile menu on hamburger click
+                    hamburgerMenu.addEventListener('click', toggleMobileMenu);
+
+                    // Close mobile menu when clicking anywhere outside
+                    document.addEventListener('click', handleAnyClick);
+
+                    // Close mobile menu on close icon click
+                    if (closeMenuIcon) {
+                        closeMenuIcon.addEventListener('click', handleCloseIconClick);
+                    }
+
+                    // Update visibility on window resize
+                    window.addEventListener('resize', updateVisibility);
+
+                    // Observe changes in the menu bar to update visibility
+                    const observer = new MutationObserver(updateVisibility);
+                    if (menuBar) {
+                        observer.observe(menuBar, { attributes: true, attributeFilter: ['style'] });
+                    }
+                    
+                    // Add click event listeners to menu items
+                    menuItems.forEach(function(item) {
+                        item.addEventListener('click', handleMenuItemClick);
+                    });
+                }
             });
-        } else {
-            menuItems.forEach(function(item) {
-                item.style.zIndex = ''; // Restore default z-index if needed
-            });
-        }
-    }
-
-    // Toggle mobile menu visibility
-    function toggleMobileMenu(event) {
-        event.stopPropagation();
-        var isActive = mobileMenu.classList.toggle('active');
-        updateVisibility(); // Ensure visibility is updated after toggling
-    }
-
-    // Close mobile menu
-    function closeMobileMenu() {
-        if (mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('active');
-            updateVisibility(); // Ensure visibility is updated after closing
-        }
-    }
-
-    // Close mobile menu on any click
-    function handleAnyClick(event) {
-        // Only close the menu if the click is outside the mobile menu and hamburger menu
-        if (mobileMenu.classList.contains('active') && !mobileMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-            closeMobileMenu();
-        }
-    }
-
-    // Handle close icon click
-    function handleCloseIconClick(event) {
-        closeMobileMenu(); // Close the mobile menu
-    }
-
-    // Ensure click events on menu items work correctly
-    function handleMenuItemClick(event) {
-        console.log('Menu item clicked:', event.target);
-        // Optional: Add additional logic if needed
-    }
-
-    // Initialize event listeners and update visibility on load and resize
-    if (hamburgerMenu && mobileMenu) {
-        updateVisibility();
-
-        // Toggle mobile menu on hamburger click
-        hamburgerMenu.addEventListener('click', toggleMobileMenu);
-
-        // Close mobile menu when clicking anywhere outside
-        document.addEventListener('click', handleAnyClick);
-
-        // Close mobile menu on close icon click
-        if (closeMenuIcon) {
-            closeMenuIcon.addEventListener('click', handleCloseIconClick);
-        }
-
-        // Update visibility on window resize
-        window.addEventListener('resize', updateVisibility);
-
-        // Observe changes in the menu bar to update visibility
-        const observer = new MutationObserver(updateVisibility);
-        if (menuBar) {
-            observer.observe(menuBar, { attributes: true, attributeFilter: ['style'] });
-        }
-        
-        // Add click event listeners to menu items
-        menuItems.forEach(function(item) {
-            item.addEventListener('click', handleMenuItemClick);
-        });
-    }
-});
         </script>
 
     </body>
