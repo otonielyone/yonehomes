@@ -1,5 +1,7 @@
+import hashlib
+import sqlite3
 from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException
-from start_files.models.mls.rentals_db_section import rentals_sessionLocal, Mls_rentals, replace_old_rentals_db, init_rentals_db
+from start_files.models.mls.rentals_db_section import rentals_sessionLocal, init_rentals_db, init_rentals_db_temp, Mls_rentals_temp
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from start_files.routes.export_rentals_scripts import export_rentals
@@ -18,7 +20,7 @@ from PIL import Image
 import requests
 import logging
 import asyncio
-import shutil 
+import shutil
 import time
 import csv
 import re
@@ -50,58 +52,53 @@ def purge_cloudflare_cache():
     )
     return response.json()
 
+print(purge_cloudflare_cache())
 
-
-def prep_directories():
-    del_dir = '/var/www/html/fastapi_project/start_files/static/rentals_images/'
-
-    try:
-        for folder in os.listdir(del_dir):
-            folder_path = os.path.join(del_dir, folder)
-            
-            if os.path.isdir(folder_path) and '-pending' in folder:
-                if folder.endswith('-pending'):
-                    logger.info(f"Removing directory: {folder_path}")
-                    shutil.rmtree(folder_path)
-                else:
-                    logger.info(f"Skipping directory: {folder_path}")
-        logger.info(f"Cleanup completed in {del_dir}")
-    except Exception:
-        logger.error(f"Error cleaning directories")
-        raise
 
 def clean_and_rename_directories():
-    base_dir = '/var/www/html/fastapi_project/start_files/static/rentals_images/'
-    csv_path = "/var/www/html/fastapi_project/brightscrape/Export_rentals.csv"
-    
+    base_dir = 'start_files/static/rentals_images/'
+    csv_path = "brightscrape/Export_rentals.csv"
+
     if os.path.exists(csv_path):
         os.remove(csv_path)
-        logger.info(f"Removed csv.")
+        logger.info("Removed CSV.")
 
-    for item in os.listdir(base_dir):
-        item_path = os.path.join(base_dir, item)
-        if os.path.isdir(item_path) and '.bak' in item:
-            print(f"Removing backup directory: {item_path}")
-            shutil.rmtree(item_path)
-
-    for item in os.listdir(base_dir):
-        item_path = os.path.join(base_dir, item)
-
-        if os.path.isdir(item_path):
-            if '-pending' not in item:
-                new_name = item + '.bak'
-                new_path = os.path.join(base_dir, new_name)
-                print(f"Renaming directory: {item_path} to {new_path}")
-                shutil.move(item_path, new_path)
-
-    for item in os.listdir(base_dir):
-        item_path = os.path.join(base_dir, item)
-
-        if os.path.isdir(item_path) and item.endswith('-pending'):
-            new_name = item[:-len('-pending')]
+    for folder in os.listdir(base_dir):
+        folder_path = os.path.join(base_dir, folder)
+            
+        if '-pending' in folder:
+            new_name = folder[:-len('-pending')]
             new_item_path = os.path.join(base_dir, new_name)
-            print(f"Renaming directory: {item_path} to {new_item_path}")
-            os.rename(item_path, new_item_path)
+
+            if os.path.exists(new_item_path):
+                logger.info(f"Removing existing directory to allow overwrite: {new_item_path}")
+                shutil.rmtree(new_item_path) 
+                
+            logger.info(f"Renaming directory: {folder} to {new_item_path}")
+            os.rename(folder_path, new_item_path)
+
+
+
+def replace_and_cleanup_tables():
+    original_table = 'mls_rentals'
+    temp_table = 'mls_rentals_temp'
+    
+    try:
+        conn = sqlite3.connect('brightscrape/brightmls.db')
+        cursor = conn.cursor()
+
+        cursor.execute(f"DELETE FROM {original_table}")
+        cursor.execute(f"INSERT INTO {original_table} SELECT * FROM {temp_table}")
+        cursor.execute(f"DROP TABLE IF EXISTS {temp_table}")
+        conn.commit()
+        logger.info(f"Table '{original_table}' successfully overwritten by '{temp_table}'.")
+        
+    except sqlite3.Error as e:
+        logger.info(f"SQLite error: {e}")
+
+    finally:
+        if conn:
+            conn.close()
 
 
 def get_end_time_and_elapsed(start_time):
@@ -111,7 +108,7 @@ def get_end_time_and_elapsed(start_time):
     formatted_elapsed_time = f"{int(elapsed // 60)}m {int(elapsed % 60)}s"
     return formatted_end_time, formatted_elapsed_time
 
-# Set up Chrome options
+
 def setup_options(max_retries, delay) -> webdriver.Chrome:
     options = ChromeOptions()
     options.add_argument('--headless')
@@ -135,8 +132,9 @@ def setup_options(max_retries, delay) -> webdriver.Chrome:
 
 
 
+
 def sorted_rentals_by_price(max_price) -> list:
-    csv_path = "/var/www/html/fastapi_project/brightscrape/Export_rentals.csv"
+    csv_path = "brightscrape/Export_rentals.csv"
     all_data = []
 
     def preprocess_price(price_str: str) -> float:
@@ -173,35 +171,90 @@ def sorted_rentals_by_price(max_price) -> list:
                                 listing_agent_email, agent_remarks, public_remarks, bedrooms, baths))
     return sorted(all_data, key=lambda x: x[0])
 
+
+
 @contextmanager
 def get_db_session_pending():
-    db = None
-    try:
-        db = rentals_sessionLocal()
-        yield db 
-    except SQLAlchemyError:
-        if db:
-            db.rollback()
-        print(f"Database error") 
-        raise
-    finally:
-        if db:
-            db.close()
+    db = rentals_sessionLocal()
+    yield db 
+    if db:
+        db.close()
 
-def load_page(max_images, min_images, item, timeout, max_retries, delay):
+
+def generate_hash(item_details, image_urls):
+    return hashlib.sha256(f"{item_details}-{len(image_urls)}".encode()).hexdigest()
+
+def save_images(all_imgs, save_dir, max_images):
+    for i, img in enumerate(all_imgs[:max_images]):
+        img_url = img.get_attribute('src')
+        if img_url:
+            response = requests.get(img_url)
+            if response.status_code == 200:
+                img = Image.open(BytesIO(response.content))
+                img.save(os.path.join(save_dir, f'{i + 1}.webp'), 'WEBP')
+
+def add_listing_to_db(db, mls, item, current_hash, img_count):
+    listing = Mls_rentals_temp(
+    mls=mls,
+    address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
+    price=item[0],
+    description=item[14],
+    availability=item[3],
+    bedrooms=item[15],
+    bath=item[16],
+    count=img_count,
+    hash=current_hash
+    )
+    db.add(listing)
+    db.commit()
+
+    
+def update_listing_in_db(db, listing_item, item, current_hash, img_count):
+    listing_item.address = f"{item[2]}, {item[5]}, {item[6]} {item[7]}"
+    listing_item.price = item[0]
+    listing_item.description = item[14]
+    listing_item.availability = item[3]
+    listing_item.bedrooms = item[15]
+    listing_item.bath = item[16]
+    listing_item.count = img_count
+    listing_item.hash = current_hash
+    db.commit()
+
+def check_and_recreate_images(db, mls, all_imgs, max_images):
+    in_place = f'start_files/static/rentals_images/{mls}/'
+    if not os.path.exists(in_place):
+        logger.info(f"Pending directory for {mls} does not exist, updating listing.")
+        save_dir = f'start_files/static/rentals_images/{mls}-pending/'
+        os.makedirs(save_dir, exist_ok=True)
+        save_images(all_imgs, save_dir, max_images)
+        logger.info(f"Recreated image data for {mls}")
+
+def clean_up_temp_listings(sorted_results):
+    with get_db_session_pending() as db:
+        results = {item[1] for item in sorted_results}
+        temp_listings = db.query(Mls_rentals_temp).all()
+        for listing_item in temp_listings:
+            if listing_item.mls not in results:
+                logger.info(f"{listing_item.mls} not in sorted results. Removing from temp database.")
+                db.delete(listing_item)
+                db.commit()
+                logger.info(f"Removed {listing_item.mls} from temp database.")
+
+
+
+def load_page(max_images , min_images, item, timeout, max_retries, delay):
     mls = item[1]
     attempt = 0
 
     while attempt < max_retries:
         driver = None
         db = None
-        
+
         try:
             driver = setup_options(max_retries, delay)
             logger.info(f"Setting up driver for MLS {mls}")
             driver.get("https://matrix.brightmls.com/Matrix/Search/ResidentialLease/ResidentialLease")
 
-            # Login
             logger.info(f"Beginning login for MLS {mls}.")
             username_field = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.NAME, "username")))
             driver.execute_script("arguments[0].scrollIntoView(true);", username_field)
@@ -217,7 +270,6 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
             driver.execute_script("arguments[0].scrollIntoView(true);", login_button)
             driver.execute_script("arguments[0].click();", login_button)
 
-            # Search for MLS
             logger.info(f"Starting to search for MLS {mls}")
             search_bar_locator = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.NAME, "ctl01$m_ucSpeedBar$m_tbSpeedBar")))
             driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_locator)
@@ -255,79 +307,67 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                 driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", open_all)
                 driver.execute_script("arguments[0].click();", open_all)
                 logger.info("Selected images page successfully")
-            
+
                 driver.switch_to.window(driver.window_handles[1])
                 logger.info("Switched to images page successfully")
-                
-                images_locator = (By.XPATH, "//img[contains(@src, 'https://matrixmedia.brightmls.com')]")
-                WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
-                all_imgs = driver.find_elements(*images_locator)
-                logger.info("Fetching images")
-
-                
-                if len(all_imgs) > min_images:
-                    save_dir = f'/var/www/html/fastapi_project/start_files/static/rentals_images/{item[1]}-pending/'
-                    if os.path.exists(save_dir):
-                        shutil.rmtree(save_dir)
-                    os.makedirs(save_dir)
-
-                    for i, img in enumerate(all_imgs[:max_images]):
-                        img_url = img.get_attribute('src')
-                        if img_url:
-                            response = requests.get(img_url)
-                            if response.status_code == 200:
-                                img = Image.open(BytesIO(response.content))
-                                img.save(os.path.join(save_dir, f'{i + 1}.webp'), 'WEBP')
-                    logger.info(f'Converted images to .webp')
-                    
-                    db_attempt = 0
-                    while db_attempt < max_retries:
-                        try:
-                            with get_db_session_pending() as db:
-                                listing_item = db.query(Mls_rentals).filter_by(mls=mls).first()
-                                if not listing_item:
-                                    listing = Mls_rentals(
-                                        mls=mls,
-                                        address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
-                                        price=item[0],
-                                        description=item[14],
-                                        availability=item[3],
-                                        bedrooms=item[15], 
-                                        bath=item[16],
-                                        count=len(all_imgs),
-                                    )
-                                    db.add(listing)
-                                    db.commit()
-                                    logger.info(f"{mls} added to database!")
-                                    break
-                                else:
-                                    logger.info(f"{mls} already exists in database.")
-                            break
-                        except OperationalError as db_error:
-                            logger.error(f"Database error for MLS {mls} on attempt {db_attempt + 1}/{max_retries}: {db_error}")
-                            db_attempt += 1
-                            time.sleep(delay)
-                    
-                    return True
-                else:
-                    logger.info(f'No sufficient images for MLS {mls}, not adding to database')
-                    return False  
             
             except Exception:
                 logger.info(f"{mls} listing has no clickable image section")
-                return False  
-    
+                break
+
+            images_locator = (By.XPATH, "//img[contains(@src, 'https://matrixmedia.brightmls.com')]")
+            WebDriverWait(driver, timeout).until(EC.presence_of_all_elements_located(images_locator))
+            all_imgs = driver.find_elements(*images_locator)
+            logger.info(f"Fetching {mls} images")
+
+            if len(all_imgs) <= min_images:
+                logger.info('Not enough images')
+                return False
+
+            save_dir = f'start_files/static/rentals_images/{mls}-pending/'
+            image_urls = [img.get_attribute('src') for img in all_imgs]
+            current_hash = generate_hash(item, image_urls)
+            
+            with get_db_session_pending() as db:
+                listing_item = db.query(Mls_rentals_temp).filter_by(mls=mls).first()
+
+                if listing_item is None:
+                    logger.info(f"{mls} not found in temp database, adding data.")
+                    os.makedirs(save_dir, exist_ok=True)
+                    save_images(all_imgs, save_dir, max_images)
+                    logger.info(f'Converted images to .webp for {mls}')
+                    add_listing_to_db(db, mls, item, current_hash, len(all_imgs))
+                    logger.info(f"{mls} added to temp database!")
+                else:
+                    logger.info(f"{mls} found in the temp database. Comparing hashes.")
+                    if listing_item.hash != current_hash:
+                        logger.info(f"Changes detected for {mls}. Updating temp database.")
+                        os.makedirs(save_dir, exist_ok=True)
+                        save_images(all_imgs, save_dir, max_images)
+                        logger.info(f'Converted images to .webp for {mls}')
+                        update_listing_in_db(db, listing_item, item, current_hash, len(all_imgs))
+                        logger.info(f"{mls} updated in temp database!")
+                    else:
+                        logger.info(f"No changes detected for {mls}.")
+                        check_and_recreate_images(db, mls, all_imgs, max_images)
+            
+            return True
+                      
         except (WebDriverException, TimeoutException, StaleElementReferenceException):
             logger.error(f"Attempt {attempt + 1} for MLS {mls} failed with error")
             attempt += 1
             time.sleep(delay)
-        
+
         finally:
             if driver:
                 driver.quit()
 
+            logger.info(f'Completed {mls} run')
+            return True                        
+
     logger.error(f"MLS {mls} failed after {max_retries} attempts.")
     return False
+
 
 
 async def start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results: list) -> list:
@@ -369,48 +409,44 @@ async def start_concurrency(max_retries, min_images, delay, timeout, concurrency
 
 async def start_task_in_loop(concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay) -> None:
     await export_rentals()
-    csv_path = "/var/www/html/fastapi_project/brightscrape/Export_rentals.csv"
+    csv_path = "brightscrape/Export_rentals.csv"
     while not os.path.exists(csv_path):
         logger.info("Waiting for CSV file to appear...")
         await asyncio.sleep(5) 
     sorted_results = sorted_rentals_by_price(max_price)
     logger.info(f"cvs count {len(sorted_results)}")
     init_rentals_db()
-    await start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results)
-    logger.info("Loop task completed successfully")
+    init_rentals_db_temp() 
+    logger.info("Initialized temp database 1.")
 
+    await start_concurrency(max_retries, min_images, delay, timeout, concurrency_limit, max_images, sorted_results)
+    clean_up_temp_listings(sorted_results)
+    replace_and_cleanup_tables()
+    logger.info("Loop task completed successfully")
 
 def start_rentals(concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay):
     start_time = time.time()
     logger.info(f"Start Time: {datetime.fromtimestamp(start_time).strftime('%Y-%m-%d %H:%M:%S')}")
-    prep_directories()
-
     attempt = 0
-    success = False  
-    while attempt < max_retries:
-        try:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            loop.run_until_complete(
-                start_task_in_loop(concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
-            )
-            loop.close()
-            success = True  
-            break  
-        except Exception as e:
-            attempt += 1
-            logger.error(f"Attempt {attempt}/{max_retries} failed: {e}")
-            if attempt < max_retries:
-                logger.info(f"Retrying in {delay} seconds...")
-                time.sleep(delay)
-            else:
-                logger.error("Max retries reached. Exiting.")
-                raise
+    success = False
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(
+        start_task_in_loop(concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
+    )
+    loop.close()
+    success = True
     if success:
-        purge_cloudflare_cache()
-        replace_old_rentals_db()
         clean_and_rename_directories()
-        logger.info("Database moved to production") 
+        
+        for attempt in range(max_retries):
+            try:
+                if purge_cloudflare_cache():
+                    logger.info("Purged cache successfully")
+                break 
+            except Exception as e:
+                logger.error(f"Attempt {attempt + 1} to purge cache failed: {e}")
+                time.sleep(delay)
         
         elapsed_time = time.time() - start_time
         minutes = int(elapsed_time // 60)
