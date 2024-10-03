@@ -16,7 +16,6 @@ import csv
 import re
 import os
 
-
 router = APIRouter()
 
 load_dotenv()
