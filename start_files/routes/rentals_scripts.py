@@ -131,11 +131,6 @@ def setup_options(max_retries, delay) -> webdriver.Chrome:
     raise RuntimeError("Failed to start Chrome after multiple attempts")
 
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> main
 def sorted_rentals_by_price(max_price) -> list:
     csv_path = "brightscrape/Export_rentals.csv"
     all_data = []
@@ -187,8 +182,6 @@ def sorted_rentals_by_price(max_price) -> list:
             time.sleep(delay)
 
     raise Exception(f"Failed to read CSV after {max_retries} attempts")
-
-
 
 
 @contextmanager

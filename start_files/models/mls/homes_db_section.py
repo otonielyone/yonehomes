@@ -50,12 +50,7 @@ class Mls_homes(Base):
 
 class Mls_homes_temp(Base):
     __tablename__ = 'mls_homes_temp'
-<<<<<<< HEAD
-    id = Column(Integer, primary_key=True, index=True)
-    mls = Column(String(20), unique=True, index=True)
-=======
     mls = Column(String(20), primary_key=True, index=True)
->>>>>>> main
     address = Column(String(100), index=True)
     price = Column(Float, index=True)
     description = Column(String(1000), index=True)
@@ -191,16 +186,7 @@ def get_homes_from_db():
         listings_dict = [listing.__dict__ for listing in listings]
         print(f"Listings: {listings_dict}") 
         df = pd.DataFrame(listings_dict)
-<<<<<<< HEAD
-
-        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'full', 'half', 'acres', 'age', 'sqft', 'fireplace', 'basement', 'garage', 'spaces', 'count', 'hash'}
-        missing_columns = required_columns - set(df.columns)
-        if missing_columns:
-            raise KeyError(f"Missing columns: {', '.join(missing_columns)}")
-        
-=======
    
->>>>>>> main
         with ThreadPoolExecutor() as executor:
             formatted_listings = list(executor.map(process_row, df.to_dict(orient='records')))
         

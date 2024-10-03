@@ -157,28 +157,6 @@ async def export_homes():
             driver.execute_script("arguments[0].click();", export)
             logger.info("'Export' button clicked successfully")
 
-<<<<<<< HEAD
-        download_dir = "/home/oyone/Downloads/"
-        csv_path1 = os.path.join(download_dir, "Standard Export.csv")
-        csv_path2 = "brightscrape/Export_homes.csv"
-
-        while not os.path.exists(csv_path1):
-            await asyncio.sleep(1)
-        logger.info(f"File downloaded: {csv_path1}")
-        
-        shutil.move(csv_path1, csv_path2)
-        logger.info(f"File moved from {csv_path1} to {csv_path2}")
- 
-    except Exception:
-        logger.error(f"Error during export results")
-        raise HTTPException(status_code=500, detail="Error during export results")
-    
-    finally:
-        logger.info('Done fetching csv')
-        if 'driver' in locals() or driver is not None:
-            driver.quit()
-    
-=======
             download_dir = "/home/oyone/Downloads/"
             csv_path1 = os.path.join(download_dir, "Standard Export.csv")
             csv_path2 = "/var/www/html/fastapi_project/brightscrape/Export_homes.csv"
@@ -203,4 +181,3 @@ async def export_homes():
     logger.info('Done fetching csv')
     if 'driver' in locals() or driver is not None:
         driver.quit()
->>>>>>> main

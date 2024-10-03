@@ -41,12 +41,7 @@ class Mls_rentals(Base):
 
 class Mls_rentals_temp(Base):
     __tablename__ = 'mls_rentals_temp'
-<<<<<<< HEAD
-    id = Column(Integer, primary_key=True, index=True)
-    mls = Column(String(20), unique=True, index=True)
-=======
     mls = Column(String(20), primary_key=True, index=True)
->>>>>>> main
     address = Column(String(100), index=True)
     price = Column(Float, index=True)
     description = Column(String(1000), index=True)
@@ -161,7 +156,6 @@ def get_rentals_from_db():
     finally:
         if db:
             db.close()
-
 
 
 

@@ -1,4 +1,6 @@
 import shutil
+import sqlite3
+import time
 
 import httpx
 from start_files.models.mls.rentals_db_section import get_rentals_from_db
@@ -225,11 +227,11 @@ async def get_home_data(background_tasks: BackgroundTasks, concurrency_limit: in
 
 @router.get('/api/view_homes_database')
 async def api_homes():
-#    try:
+    try:
         listings_data = get_homes_from_db()
-        return {"homes" : listings_data}
-#    except Exception:
-#        raise HTTPException(status_code=500)
+        return {"homes":listings_data}
+    except Exception:
+        raise HTTPException(status_code=500)
 
 @router.get('/api/homes_database_count')
 async def get_total_count():
