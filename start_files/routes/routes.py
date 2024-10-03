@@ -37,7 +37,73 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
+
+
+
+# Function to log analytics
+def log_analytics(data):
+    conn = sqlite3.connect("brightscrape/brightmls.db")
+    cursor = conn.cursor()
+    query = """
+    INSERT INTO analytics (ip_address, user_agent, device_type, os, browser, screen_resolution, 
+                           time_zone, language, path, referrer, entry_page, exit_page, session_duration, 
+                           page_views, click_events, bounce_rate, load_time, session_start, session_end)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """
+    cursor.execute(query, tuple(data.values()))
+    conn.commit()
+    conn.close()
+
+@router.get("/analytics")
+async def analytics(request: Request):
+    start_time = time.time()
     
+    # Capture visitor data
+    ip_address = request.client.host
+    user_agent = request.headers.get('user-agent', 'unknown')
+    referrer = request.headers.get('referer', 'unknown')
+    path = request.url.path
+    entry_page = path
+    
+    # Other analytics data
+    device_type = "mobile" if "Mobile" in user_agent else "desktop"
+    os = "unknown"
+    browser = "unknown"
+    
+    # Call the logic for your route here...
+    
+    # End session and calculate session duration
+    session_duration = time.time() - start_time
+    
+    # Prepare data for logging
+    data = {
+        'ip_address': ip_address,
+        'user_agent': user_agent,
+        'device_type': device_type,
+        'os': os,
+        'browser': browser,
+        'screen_resolution': 'unknown',
+        'time_zone': 'unknown',
+        'language': 'unknown',
+        'path': path,
+        'referrer': referrer,
+        'entry_page': entry_page,
+        'exit_page': path,
+        'session_duration': session_duration,
+        'page_views': 1,
+        'click_events': None,
+        'bounce_rate': 0,
+        'load_time': session_duration,
+        'session_start': time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(start_time)),
+        'session_end': time.strftime('%Y-%m-%d %H:%M:%S')
+    }
+    
+    # Log analytics
+    log_analytics(data)
+
+    return {"message": "Analytics logged successfully."}
+
+
 @router.get("/", response_class=HTMLResponse, name="home")
 async def read_root(request: Request):
     logger.info("Rendering home page")

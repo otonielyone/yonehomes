@@ -2,3 +2,192 @@
 [2024-10-01 06:25:15 -0400] [802592] [WARNING] Invalid HTTP request received.
 [2024-10-01 06:25:15 -0400] [802591] [WARNING] Invalid HTTP request received.
 [2024-10-01 06:25:15 -0400] [802591] [WARNING] Invalid HTTP request received.
+[2024-10-01 08:13:14 -0400] [802592] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 406, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 754, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 774, in app
+    await route.handle(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 295, in handle
+    await self.app(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/starlette/routing.py", line 74, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/fastapi/routing.py", line 297, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/venv/lib/python3.12/site-packages/fastapi/routing.py", line 210, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/start_files/routes/routes.py", line 150, in sort_homes_endpoint
+    logger.info("Starting CSV sort task in the background")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/fastapi_project/start_files/routes/homes_scripts.py", line 191, in sorted_homes_by_price
+    raise Exception(f"Failed to read CSV after {max_retries} attempts")
+Exception: Failed to read CSV after 3 attempts
+[2024-10-02 01:10:06 -0400] [802586] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802591] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802588] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802592] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802587] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802590] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802582] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802584] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802579] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802578] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802589] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802583] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802581] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802585] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802580] [INFO] Shutting down
+[2024-10-02 01:10:06 -0400] [802575] [INFO] Handling signal: term
+[2024-10-02 01:10:06 -0400] [802586] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802588] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802591] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802592] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802586] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802588] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802592] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802586] [INFO] Finished server process [802586]
+[2024-10-02 01:10:06 -0400] [802591] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802588] [INFO] Finished server process [802588]
+[2024-10-02 01:10:06 -0400] [802592] [INFO] Finished server process [802592]
+[2024-10-02 01:10:06 -0400] [802591] [INFO] Finished server process [802591]
+[2024-10-02 01:10:06 -0400] [802590] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802587] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802590] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802590] [INFO] Finished server process [802590]
+[2024-10-02 01:10:06 -0400] [802589] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802587] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802582] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802579] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802584] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802578] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802587] [INFO] Finished server process [802587]
+[2024-10-02 01:10:06 -0400] [802583] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802585] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802581] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802580] [INFO] Waiting for application shutdown.
+[2024-10-02 01:10:06 -0400] [802582] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802579] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802584] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802582] [INFO] Finished server process [802582]
+[2024-10-02 01:10:06 -0400] [802589] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802585] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802581] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802579] [INFO] Finished server process [802579]
+[2024-10-02 01:10:06 -0400] [802583] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802578] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802589] [INFO] Finished server process [802589]
+[2024-10-02 01:10:06 -0400] [802580] [INFO] Application shutdown complete.
+[2024-10-02 01:10:06 -0400] [802584] [INFO] Finished server process [802584]
+[2024-10-02 01:10:06 -0400] [802581] [INFO] Finished server process [802581]
+[2024-10-02 01:10:06 -0400] [802585] [INFO] Finished server process [802585]
+[2024-10-02 01:10:06 -0400] [802578] [INFO] Finished server process [802578]
+[2024-10-02 01:10:06 -0400] [802580] [INFO] Finished server process [802580]
+[2024-10-02 01:10:06 -0400] [802583] [INFO] Finished server process [802583]
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802587) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802582) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802591) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802592) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802590) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802588) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802586) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802589) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802584) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802579) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802580) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802583) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802578) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802581) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [ERROR] Worker (pid:802585) was sent SIGTERM!
+[2024-10-02 01:10:06 -0400] [802575] [INFO] Shutting down: Master
+[2024-10-02 01:10:06 -0400] [1228756] [INFO] Starting gunicorn 23.0.0
+[2024-10-02 01:10:06 -0400] [1228756] [INFO] Listening at: http://192.168.0.200:5000 (1228756)
+[2024-10-02 01:10:06 -0400] [1228756] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-10-02 01:10:06 -0400] [1228760] [INFO] Booting worker with pid: 1228760
+[2024-10-02 01:10:06 -0400] [1228761] [INFO] Booting worker with pid: 1228761
+[2024-10-02 01:10:06 -0400] [1228762] [INFO] Booting worker with pid: 1228762
+[2024-10-02 01:10:06 -0400] [1228763] [INFO] Booting worker with pid: 1228763
+[2024-10-02 01:10:07 -0400] [1228764] [INFO] Booting worker with pid: 1228764
+[2024-10-02 01:10:07 -0400] [1228765] [INFO] Booting worker with pid: 1228765
+[2024-10-02 01:10:07 -0400] [1228775] [INFO] Booting worker with pid: 1228775
+[2024-10-02 01:10:07 -0400] [1228776] [INFO] Booting worker with pid: 1228776
+[2024-10-02 01:10:07 -0400] [1228777] [INFO] Booting worker with pid: 1228777
+[2024-10-02 01:10:07 -0400] [1228778] [INFO] Booting worker with pid: 1228778
+[2024-10-02 01:10:07 -0400] [1228779] [INFO] Booting worker with pid: 1228779
+[2024-10-02 01:10:07 -0400] [1228782] [INFO] Booting worker with pid: 1228782
+[2024-10-02 01:10:07 -0400] [1228783] [INFO] Booting worker with pid: 1228783
+[2024-10-02 01:10:07 -0400] [1228784] [INFO] Booting worker with pid: 1228784
+[2024-10-02 01:10:07 -0400] [1228785] [INFO] Booting worker with pid: 1228785
+[2024-10-02 01:10:11 -0400] [1228765] [INFO] Started server process [1228765]
+[2024-10-02 01:10:11 -0400] [1228765] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228765] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228760] [INFO] Started server process [1228760]
+[2024-10-02 01:10:11 -0400] [1228760] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228760] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228761] [INFO] Started server process [1228761]
+[2024-10-02 01:10:11 -0400] [1228761] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228761] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228764] [INFO] Started server process [1228764]
+[2024-10-02 01:10:11 -0400] [1228764] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228764] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228776] [INFO] Started server process [1228776]
+[2024-10-02 01:10:11 -0400] [1228776] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228776] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228762] [INFO] Started server process [1228762]
+[2024-10-02 01:10:11 -0400] [1228762] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228762] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228763] [INFO] Started server process [1228763]
+[2024-10-02 01:10:11 -0400] [1228763] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228763] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228775] [INFO] Started server process [1228775]
+[2024-10-02 01:10:11 -0400] [1228775] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228775] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228779] [INFO] Started server process [1228779]
+[2024-10-02 01:10:11 -0400] [1228779] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228779] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228782] [INFO] Started server process [1228782]
+[2024-10-02 01:10:11 -0400] [1228782] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228782] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228783] [INFO] Started server process [1228783]
+[2024-10-02 01:10:11 -0400] [1228783] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228783] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228777] [INFO] Started server process [1228777]
+[2024-10-02 01:10:11 -0400] [1228777] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228777] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228778] [INFO] Started server process [1228778]
+[2024-10-02 01:10:11 -0400] [1228778] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228778] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228784] [INFO] Started server process [1228784]
+[2024-10-02 01:10:11 -0400] [1228784] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228784] [INFO] Application startup complete.
+[2024-10-02 01:10:11 -0400] [1228785] [INFO] Started server process [1228785]
+[2024-10-02 01:10:11 -0400] [1228785] [INFO] Waiting for application startup.
+[2024-10-02 01:10:11 -0400] [1228785] [INFO] Application startup complete.
