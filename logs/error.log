@@ -191,3 +191,66 @@ Exception: Failed to read CSV after 3 attempts
 [2024-10-02 01:10:11 -0400] [1228785] [INFO] Started server process [1228785]
 [2024-10-02 01:10:11 -0400] [1228785] [INFO] Waiting for application startup.
 [2024-10-02 01:10:11 -0400] [1228785] [INFO] Application startup complete.
+[2024-10-03 01:04:40 -0400] [1617561] [INFO] Starting gunicorn 23.0.0
+[2024-10-03 01:04:40 -0400] [1617561] [INFO] Listening at: http://192.168.0.200:5000 (1617561)
+[2024-10-03 01:04:40 -0400] [1617561] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-10-03 01:04:40 -0400] [1617563] [INFO] Booting worker with pid: 1617563
+[2024-10-03 01:04:40 -0400] [1617564] [INFO] Booting worker with pid: 1617564
+[2024-10-03 01:04:40 -0400] [1617565] [INFO] Booting worker with pid: 1617565
+[2024-10-03 01:04:41 -0400] [1617566] [INFO] Booting worker with pid: 1617566
+[2024-10-03 01:04:41 -0400] [1617567] [INFO] Booting worker with pid: 1617567
+[2024-10-03 01:04:41 -0400] [1617568] [INFO] Booting worker with pid: 1617568
+[2024-10-03 01:04:41 -0400] [1617569] [INFO] Booting worker with pid: 1617569
+[2024-10-03 01:04:41 -0400] [1617570] [INFO] Booting worker with pid: 1617570
+[2024-10-03 01:04:41 -0400] [1617571] [INFO] Booting worker with pid: 1617571
+[2024-10-03 01:04:41 -0400] [1617572] [INFO] Booting worker with pid: 1617572
+[2024-10-03 01:04:41 -0400] [1617573] [INFO] Booting worker with pid: 1617573
+[2024-10-03 01:04:41 -0400] [1617577] [INFO] Booting worker with pid: 1617577
+[2024-10-03 01:04:41 -0400] [1617578] [INFO] Booting worker with pid: 1617578
+[2024-10-03 01:04:41 -0400] [1617579] [INFO] Booting worker with pid: 1617579
+[2024-10-03 01:04:41 -0400] [1617580] [INFO] Booting worker with pid: 1617580
+[2024-10-03 01:04:44 -0400] [1617563] [INFO] Started server process [1617563]
+[2024-10-03 01:04:44 -0400] [1617563] [INFO] Waiting for application startup.
+[2024-10-03 01:04:44 -0400] [1617563] [INFO] Application startup complete.
+[2024-10-03 01:04:44 -0400] [1617566] [INFO] Started server process [1617566]
+[2024-10-03 01:04:44 -0400] [1617566] [INFO] Waiting for application startup.
+[2024-10-03 01:04:44 -0400] [1617566] [INFO] Application startup complete.
+[2024-10-03 01:04:44 -0400] [1617564] [INFO] Started server process [1617564]
+[2024-10-03 01:04:44 -0400] [1617564] [INFO] Waiting for application startup.
+[2024-10-03 01:04:44 -0400] [1617564] [INFO] Application startup complete.
+[2024-10-03 01:04:44 -0400] [1617565] [INFO] Started server process [1617565]
+[2024-10-03 01:04:44 -0400] [1617565] [INFO] Waiting for application startup.
+[2024-10-03 01:04:44 -0400] [1617565] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617567] [INFO] Started server process [1617567]
+[2024-10-03 01:04:45 -0400] [1617567] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617567] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617570] [INFO] Started server process [1617570]
+[2024-10-03 01:04:45 -0400] [1617570] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617570] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617568] [INFO] Started server process [1617568]
+[2024-10-03 01:04:45 -0400] [1617568] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617568] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617569] [INFO] Started server process [1617569]
+[2024-10-03 01:04:45 -0400] [1617569] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617569] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617578] [INFO] Started server process [1617578]
+[2024-10-03 01:04:45 -0400] [1617578] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617578] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617571] [INFO] Started server process [1617571]
+[2024-10-03 01:04:45 -0400] [1617571] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617571] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617572] [INFO] Started server process [1617572]
+[2024-10-03 01:04:45 -0400] [1617572] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617572] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617573] [INFO] Started server process [1617573]
+[2024-10-03 01:04:45 -0400] [1617573] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617573] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617577] [INFO] Started server process [1617577]
+[2024-10-03 01:04:45 -0400] [1617577] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617577] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617580] [INFO] Started server process [1617580]
+[2024-10-03 01:04:45 -0400] [1617580] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617580] [INFO] Application startup complete.
+[2024-10-03 01:04:45 -0400] [1617579] [INFO] Started server process [1617579]
+[2024-10-03 01:04:45 -0400] [1617579] [INFO] Waiting for application startup.
+[2024-10-03 01:04:45 -0400] [1617579] [INFO] Application startup complete.
