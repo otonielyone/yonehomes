@@ -254,3 +254,137 @@ Exception: Failed to read CSV after 3 attempts
 [2024-10-03 01:04:45 -0400] [1617579] [INFO] Started server process [1617579]
 [2024-10-03 01:04:45 -0400] [1617579] [INFO] Waiting for application startup.
 [2024-10-03 01:04:45 -0400] [1617579] [INFO] Application startup complete.
+[2024-10-03 09:03:58 -0400] [1894010] [INFO] Starting gunicorn 23.0.0
+[2024-10-03 09:03:58 -0400] [1894010] [INFO] Listening at: http://192.168.0.200:5000 (1894010)
+[2024-10-03 09:03:58 -0400] [1894010] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-10-03 09:03:58 -0400] [1894014] [INFO] Booting worker with pid: 1894014
+[2024-10-03 09:03:58 -0400] [1894015] [INFO] Booting worker with pid: 1894015
+[2024-10-03 09:03:58 -0400] [1894016] [INFO] Booting worker with pid: 1894016
+[2024-10-03 09:03:58 -0400] [1894017] [INFO] Booting worker with pid: 1894017
+[2024-10-03 09:03:58 -0400] [1894018] [INFO] Booting worker with pid: 1894018
+[2024-10-03 09:03:58 -0400] [1894019] [INFO] Booting worker with pid: 1894019
+[2024-10-03 09:03:59 -0400] [1894020] [INFO] Booting worker with pid: 1894020
+[2024-10-03 09:03:59 -0400] [1894021] [INFO] Booting worker with pid: 1894021
+[2024-10-03 09:03:59 -0400] [1894024] [INFO] Booting worker with pid: 1894024
+[2024-10-03 09:03:59 -0400] [1894025] [INFO] Booting worker with pid: 1894025
+[2024-10-03 09:03:59 -0400] [1894030] [INFO] Booting worker with pid: 1894030
+[2024-10-03 09:03:59 -0400] [1894038] [INFO] Booting worker with pid: 1894038
+[2024-10-03 09:03:59 -0400] [1894041] [INFO] Booting worker with pid: 1894041
+[2024-10-03 09:03:59 -0400] [1894042] [INFO] Booting worker with pid: 1894042
+[2024-10-03 09:03:59 -0400] [1894043] [INFO] Booting worker with pid: 1894043
+[2024-10-03 09:04:02 -0400] [1894015] [INFO] Started server process [1894015]
+[2024-10-03 09:04:02 -0400] [1894015] [INFO] Waiting for application startup.
+[2024-10-03 09:04:02 -0400] [1894015] [INFO] Application startup complete.
+[2024-10-03 09:04:02 -0400] [1894017] [INFO] Started server process [1894017]
+[2024-10-03 09:04:02 -0400] [1894017] [INFO] Waiting for application startup.
+[2024-10-03 09:04:02 -0400] [1894017] [INFO] Application startup complete.
+[2024-10-03 09:04:02 -0400] [1894014] [INFO] Started server process [1894014]
+[2024-10-03 09:04:02 -0400] [1894014] [INFO] Waiting for application startup.
+[2024-10-03 09:04:02 -0400] [1894014] [INFO] Application startup complete.
+[2024-10-03 09:04:02 -0400] [1894021] [INFO] Started server process [1894021]
+[2024-10-03 09:04:02 -0400] [1894021] [INFO] Waiting for application startup.
+[2024-10-03 09:04:02 -0400] [1894021] [INFO] Application startup complete.
+[2024-10-03 09:04:02 -0400] [1894016] [INFO] Started server process [1894016]
+[2024-10-03 09:04:02 -0400] [1894016] [INFO] Waiting for application startup.
+[2024-10-03 09:04:02 -0400] [1894016] [INFO] Application startup complete.
+[2024-10-03 09:04:02 -0400] [1894018] [INFO] Started server process [1894018]
+[2024-10-03 09:04:02 -0400] [1894018] [INFO] Waiting for application startup.
+[2024-10-03 09:04:02 -0400] [1894018] [INFO] Application startup complete.
+[2024-10-03 09:04:02 -0400] [1894019] [INFO] Started server process [1894019]
+[2024-10-03 09:04:02 -0400] [1894019] [INFO] Waiting for application startup.
+[2024-10-03 09:04:02 -0400] [1894019] [INFO] Application startup complete.
+[2024-10-03 09:04:03 -0400] [1894025] [INFO] Started server process [1894025]
+[2024-10-03 09:04:03 -0400] [1894025] [INFO] Waiting for application startup.
+[2024-10-03 09:04:03 -0400] [1894025] [INFO] Application startup complete.
+[2024-10-03 09:04:03 -0400] [1894024] [INFO] Started server process [1894024]
+[2024-10-03 09:04:03 -0400] [1894024] [INFO] Waiting for application startup.
+[2024-10-03 09:04:03 -0400] [1894024] [INFO] Application startup complete.
+[2024-10-03 09:04:03 -0400] [1894030] [INFO] Started server process [1894030]
+[2024-10-03 09:04:03 -0400] [1894030] [INFO] Waiting for application startup.
+[2024-10-03 09:04:03 -0400] [1894030] [INFO] Application startup complete.
+[2024-10-03 09:04:03 -0400] [1894042] [INFO] Started server process [1894042]
+[2024-10-03 09:04:03 -0400] [1894042] [INFO] Waiting for application startup.
+[2024-10-03 09:04:03 -0400] [1894042] [INFO] Application startup complete.
+[2024-10-03 09:04:03 -0400] [1894041] [INFO] Started server process [1894041]
+[2024-10-03 09:04:03 -0400] [1894041] [INFO] Waiting for application startup.
+[2024-10-03 09:04:03 -0400] [1894041] [INFO] Application startup complete.
+[2024-10-03 09:04:03 -0400] [1894020] [INFO] Started server process [1894020]
+[2024-10-03 09:04:03 -0400] [1894020] [INFO] Waiting for application startup.
+[2024-10-03 09:04:03 -0400] [1894020] [INFO] Application startup complete.
+[2024-10-03 09:04:03 -0400] [1894038] [INFO] Started server process [1894038]
+[2024-10-03 09:04:03 -0400] [1894038] [INFO] Waiting for application startup.
+[2024-10-03 09:04:03 -0400] [1894038] [INFO] Application startup complete.
+[2024-10-03 09:04:03 -0400] [1894043] [INFO] Started server process [1894043]
+[2024-10-03 09:04:03 -0400] [1894043] [INFO] Waiting for application startup.
+[2024-10-03 09:04:03 -0400] [1894043] [INFO] Application startup complete.
+[2024-10-03 10:07:54 -0400] [1401] [INFO] Starting gunicorn 23.0.0
+[2024-10-03 10:07:54 -0400] [1401] [ERROR] Invalid address: ('192.168.0.200', 5000)
+[2024-10-03 10:07:54 -0400] [1401] [ERROR] connection to ('192.168.0.200', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-10-03 10:07:55 -0400] [1401] [ERROR] Invalid address: ('192.168.0.200', 5000)
+[2024-10-03 10:07:55 -0400] [1401] [ERROR] connection to ('192.168.0.200', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-10-03 10:07:56 -0400] [1401] [ERROR] Invalid address: ('192.168.0.200', 5000)
+[2024-10-03 10:07:56 -0400] [1401] [ERROR] connection to ('192.168.0.200', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-10-03 10:07:57 -0400] [1401] [ERROR] Invalid address: ('192.168.0.200', 5000)
+[2024-10-03 10:07:57 -0400] [1401] [ERROR] connection to ('192.168.0.200', 5000) failed: [Errno 99] Cannot assign requested address
+[2024-10-03 10:07:58 -0400] [1401] [INFO] Listening at: http://192.168.0.200:5000 (1401)
+[2024-10-03 10:07:58 -0400] [1401] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-10-03 10:07:58 -0400] [1569] [INFO] Booting worker with pid: 1569
+[2024-10-03 10:07:58 -0400] [1571] [INFO] Booting worker with pid: 1571
+[2024-10-03 10:07:58 -0400] [1572] [INFO] Booting worker with pid: 1572
+[2024-10-03 10:07:58 -0400] [1573] [INFO] Booting worker with pid: 1573
+[2024-10-03 10:07:58 -0400] [1574] [INFO] Booting worker with pid: 1574
+[2024-10-03 10:07:58 -0400] [1575] [INFO] Booting worker with pid: 1575
+[2024-10-03 10:07:58 -0400] [1576] [INFO] Booting worker with pid: 1576
+[2024-10-03 10:07:58 -0400] [1577] [INFO] Booting worker with pid: 1577
+[2024-10-03 10:07:58 -0400] [1578] [INFO] Booting worker with pid: 1578
+[2024-10-03 10:07:58 -0400] [1579] [INFO] Booting worker with pid: 1579
+[2024-10-03 10:07:58 -0400] [1580] [INFO] Booting worker with pid: 1580
+[2024-10-03 10:07:58 -0400] [1581] [INFO] Booting worker with pid: 1581
+[2024-10-03 10:07:58 -0400] [1582] [INFO] Booting worker with pid: 1582
+[2024-10-03 10:07:58 -0400] [1583] [INFO] Booting worker with pid: 1583
+[2024-10-03 10:07:58 -0400] [1584] [INFO] Booting worker with pid: 1584
+[2024-10-03 10:08:02 -0400] [1569] [INFO] Started server process [1569]
+[2024-10-03 10:08:02 -0400] [1569] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1569] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1575] [INFO] Started server process [1575]
+[2024-10-03 10:08:02 -0400] [1575] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1575] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1571] [INFO] Started server process [1571]
+[2024-10-03 10:08:02 -0400] [1571] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1571] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1572] [INFO] Started server process [1572]
+[2024-10-03 10:08:02 -0400] [1572] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1572] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1574] [INFO] Started server process [1574]
+[2024-10-03 10:08:02 -0400] [1574] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1574] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1573] [INFO] Started server process [1573]
+[2024-10-03 10:08:02 -0400] [1573] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1573] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1579] [INFO] Started server process [1579]
+[2024-10-03 10:08:02 -0400] [1579] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1579] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1577] [INFO] Started server process [1577]
+[2024-10-03 10:08:02 -0400] [1577] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1577] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1576] [INFO] Started server process [1576]
+[2024-10-03 10:08:02 -0400] [1576] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1576] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1578] [INFO] Started server process [1578]
+[2024-10-03 10:08:02 -0400] [1578] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1578] [INFO] Application startup complete.
+[2024-10-03 10:08:02 -0400] [1583] [INFO] Started server process [1583]
+[2024-10-03 10:08:02 -0400] [1583] [INFO] Waiting for application startup.
+[2024-10-03 10:08:02 -0400] [1583] [INFO] Application startup complete.
+[2024-10-03 10:08:03 -0400] [1582] [INFO] Started server process [1582]
+[2024-10-03 10:08:03 -0400] [1582] [INFO] Waiting for application startup.
+[2024-10-03 10:08:03 -0400] [1582] [INFO] Application startup complete.
+[2024-10-03 10:08:03 -0400] [1584] [INFO] Started server process [1584]
+[2024-10-03 10:08:03 -0400] [1584] [INFO] Waiting for application startup.
+[2024-10-03 10:08:03 -0400] [1584] [INFO] Application startup complete.
+[2024-10-03 10:08:03 -0400] [1580] [INFO] Started server process [1580]
+[2024-10-03 10:08:03 -0400] [1580] [INFO] Waiting for application startup.
+[2024-10-03 10:08:03 -0400] [1580] [INFO] Application startup complete.
+[2024-10-03 10:08:03 -0400] [1581] [INFO] Started server process [1581]
+[2024-10-03 10:08:03 -0400] [1581] [INFO] Waiting for application startup.
+[2024-10-03 10:08:03 -0400] [1581] [INFO] Application startup complete.

@@ -52,7 +52,16 @@
     
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
-        {% block head %}{% endblock %}
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLW8B5PNHE"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-BLW8B5PNHE');
+        </script>
+                {% block head %}{% endblock %}
     </head>
 
     <body>
