@@ -14,6 +14,7 @@ from sqlalchemy import func
 from typing import List
 from PIL import Image
 import logging
+import httpx
 import os
 
 
@@ -23,6 +24,9 @@ load_dotenv()
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 RECIPIENT = os.getenv("RECIPIENT")
 SENDER = os.getenv("SENDER")
+MAILJET_API = os.getenv("MAILJET_API")
+MAILJET_SECRET = os.getenv("MAILJET_SECRET")
+
 
 # Set up logger
 logger = logging.getLogger(__name__)
@@ -33,7 +37,73 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
+
+
+
+# Function to log analytics
+def log_analytics(data):
+    conn = sqlite3.connect("brightscrape/brightmls.db")
+    cursor = conn.cursor()
+    query = """
+    INSERT INTO analytics (ip_address, user_agent, device_type, os, browser, screen_resolution, 
+                           time_zone, language, path, referrer, entry_page, exit_page, session_duration, 
+                           page_views, click_events, bounce_rate, load_time, session_start, session_end)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """
+    cursor.execute(query, tuple(data.values()))
+    conn.commit()
+    conn.close()
+
+@router.get("/analytics")
+async def analytics(request: Request):
+    start_time = time.time()
     
+    # Capture visitor data
+    ip_address = request.client.host
+    user_agent = request.headers.get('user-agent', 'unknown')
+    referrer = request.headers.get('referer', 'unknown')
+    path = request.url.path
+    entry_page = path
+    
+    # Other analytics data
+    device_type = "mobile" if "Mobile" in user_agent else "desktop"
+    os = "unknown"
+    browser = "unknown"
+    
+    # Call the logic for your route here...
+    
+    # End session and calculate session duration
+    session_duration = time.time() - start_time
+    
+    # Prepare data for logging
+    data = {
+        'ip_address': ip_address,
+        'user_agent': user_agent,
+        'device_type': device_type,
+        'os': os,
+        'browser': browser,
+        'screen_resolution': 'unknown',
+        'time_zone': 'unknown',
+        'language': 'unknown',
+        'path': path,
+        'referrer': referrer,
+        'entry_page': entry_page,
+        'exit_page': path,
+        'session_duration': session_duration,
+        'page_views': 1,
+        'click_events': None,
+        'bounce_rate': 0,
+        'load_time': session_duration,
+        'session_start': time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(start_time)),
+        'session_end': time.strftime('%Y-%m-%d %H:%M:%S')
+    }
+    
+    # Log analytics
+    log_analytics(data)
+
+    return {"message": "Analytics logged successfully."}
+
+
 @router.get("/", response_class=HTMLResponse, name="home")
 async def read_root(request: Request):
     logger.info("Rendering home page")
@@ -64,6 +134,8 @@ async def contact(request: Request):
     templates = request.app.state.templates
     return templates.TemplateResponse("contact.html", {"request": request})
 
+
+
 @router.post("/contact")
 async def handle_contact_form(
     request: Request,
@@ -74,24 +146,35 @@ async def handle_contact_form(
     general_inquiry: str = Form(...)
 ):
     logger.info(f"Received contact form submission from {email}")
-
-    message = Mail(
-        from_email=SENDER,
-        to_emails=RECIPIENT,
-        subject='New Contact Form Submission',
-        html_content=f"""
-        <p>First Name: {first_name}</p>
-        <p>Last Name: {last_name}</p>
-        <p>Email: {email}</p>
-        <p>Phone: {phone}</p>
-        <p>General Inquiry: {general_inquiry}</p>
-        """
-    )
+    
+    data = {
+        'FromEmail': SENDER,
+        'FromName': email,  # Replace with your name or company name
+        'Subject': 'New Contact Form Submission',
+        'Text-part': 'Hey Toni, here is another support lead!',
+        'Html-part': f'''
+            <p>First Name: {first_name}</p>
+            <p>Last Name: {last_name}</p>
+            <p>Email: {email}</p>
+            <p>Phone: {phone}</p>
+            <p>General Inquiry: {general_inquiry}</p>
+        ''',        
+        'Recipients': [{ "Email": RECIPIENT }]
+    }
 
     try:
-        sg = SendGridAPIClient(SENDGRID_API_KEY)
-        response = sg.send(message)
-        logger.info(f"SendGrid response status code: {response.status_code}")
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                'https://api.mailjet.com/v3/send',
+                json=data,
+                auth=(MAILJET_API, MAILJET_SECRET)
+            )
+        
+        logger.info(f"Mailjet response status code: {response.status_code}")
+
+        if response.status_code != 200:
+            logger.error(f"Mailjet error: {response.text}")
+            raise HTTPException(status_code=500, detail="Error sending email")
     except Exception as e:
         logger.error(f"Error sending email: {e}")
         raise HTTPException(status_code=500, detail="Error sending email")

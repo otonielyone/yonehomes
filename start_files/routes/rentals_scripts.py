@@ -131,11 +131,17 @@ def setup_options(max_retries, delay) -> webdriver.Chrome:
     raise RuntimeError("Failed to start Chrome after multiple attempts")
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> main
 def sorted_rentals_by_price(max_price) -> list:
     csv_path = "brightscrape/Export_rentals.csv"
     all_data = []
+
+    max_retries = 3
+    delay = 2
 
     def preprocess_price(price_str: str) -> float:
         match = re.search(r'\d+', price_str.replace(',', ''))
@@ -143,33 +149,45 @@ def sorted_rentals_by_price(max_price) -> list:
             return float(match.group())
         return float('inf')
 
-    with open(csv_path, mode='r') as data:
-        data_content = csv.reader(data, delimiter=',')
-        next(data_content, None)
-        for row in data_content:
-            mls = row[0]
-            street_unit = row[1]
-            status = row[3]
-            price = preprocess_price(row[6])
-            list_date = row[11]
-            city = row[22]
-            state = row[23]
-            zip_code = row[24]
-            listing_office = row[37]
-            listing_office_number = row[38]
-            listing_agent = row[39]
-            listing_agent_number = row[40]
-            listing_agent_email = row[41]
-            agent_remarks = row[42]
-            public_remarks = row[44]
-            bedrooms = row[79]
-            baths = row[80]
+    logger.info('Opening csv for rentals')
+    
+    for attempt in range(max_retries):
+        try:
+            with open(csv_path, mode='r') as data:
+                data_content = csv.reader(data, delimiter=',')
+                next(data_content, None)
+                for row in data_content:
+                    mls = row[0]
+                    street_unit = row[1]
+                    status = row[3]
+                    price = preprocess_price(row[6])
+                    list_date = row[11]
+                    city = row[22]
+                    state = row[23]
+                    zip_code = row[24]
+                    listing_office = row[37]
+                    listing_office_number = row[38]
+                    listing_agent = row[39]
+                    listing_agent_number = row[40]
+                    listing_agent_email = row[41]
+                    agent_remarks = row[42]
+                    public_remarks = row[44]
+                    bedrooms = row[79]
+                    baths = row[80]
 
-            if (max_price is None or price < max_price) and state == 'VA':
-                all_data.append((price, mls, street_unit, status, list_date, city, state, zip_code,
-                                listing_office, listing_office_number, listing_agent, listing_agent_number,
-                                listing_agent_email, agent_remarks, public_remarks, bedrooms, baths))
-    return sorted(all_data, key=lambda x: x[0])
+                    if (max_price is None or price < max_price) and state == 'VA':
+                        all_data.append((price, mls, street_unit, status, list_date, city, state, zip_code,
+                                         listing_office, listing_office_number, listing_agent, listing_agent_number,
+                                         listing_agent_email, agent_remarks, public_remarks, bedrooms, baths))
+            logger.info('Finished reading csv for rentals')
+            return sorted(all_data, key=lambda x: x[0])
+        
+        except Exception as e:
+            logger.error(f"Attempt {attempt + 1} failed: {e}")
+            time.sleep(delay)
+
+    raise Exception(f"Failed to read CSV after {max_retries} attempts")
+
 
 
 

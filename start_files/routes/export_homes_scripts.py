@@ -1,8 +1,8 @@
+from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from fastapi import APIRouter, HTTPException
@@ -75,7 +75,7 @@ async def async_login(driver: webdriver.Chrome, timeout: int, username: str, pas
         driver.execute_script("arguments[0].scrollIntoView(true);", login_button)
         driver.execute_script("arguments[0].click();", login_button)
 
-    except Exception:
+    except (WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException):
         logger.error(f"Login failed")
         raise
     logger.info("Logged in")
@@ -114,7 +114,7 @@ async def navigate_to_search_page(driver, timeout):
         results.click()
         logger.info("Results tab clicked successfully")
     
-    except TimeoutException:
+    except (WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException):
         logger.error(f"TimeoutException occurred navigating to excel. Refreshing the page and retrying.")
         driver.refresh()
         await navigate_to_search_page(driver, timeout)
@@ -124,35 +124,40 @@ async def export_homes():
     logger.info("Starting export_results function")
     driver = await async_setup_options()
     timeout = 100
+    MAX_RETRIES = 5
+    RETRY_DELAY = 1
+
     await async_login(driver, timeout, BRIGHTMLS_USERNAME, BRIGHTMLS_PASSWORD)
     await navigate_to_search_page(driver, timeout)
 
-    try:
-        element_present = EC.element_to_be_clickable((By.ID, "m_lnkCheckAllLink"))
-        WebDriverWait(driver, timeout).until(element_present)
+    for attempt in range(MAX_RETRIES):
+        try:
+            element_present = EC.element_to_be_clickable((By.ID, "m_lnkCheckAllLink"))
+            WebDriverWait(driver, timeout).until(element_present)
 
-        all = driver.find_element(by=By.ID, value="m_lnkCheckAllLink")
-        driver.execute_script("arguments[0].click();", all)
-        logger.info("'Check All Results Entries' link clicked successfully")
+            all = driver.find_element(by=By.ID, value="m_lnkCheckAllLink")
+            driver.execute_script("arguments[0].click();", all)
+            logger.info("'Check All Results Entries' link clicked successfully")
 
-        pre_export = driver.find_element(by=By.ID, value="m_lbExport")
-        driver.execute_script("arguments[0].click();", pre_export)
-        logger.info("'Submit Export' button clicked successfully")
+            pre_export = driver.find_element(by=By.ID, value="m_lbExport")
+            driver.execute_script("arguments[0].click();", pre_export)
+            logger.info("'Submit Export' button clicked successfully")
 
-        await asyncio.sleep(2)
+            await asyncio.sleep(2)
 
-        select_element = WebDriverWait(driver, timeout).until(
-            EC.element_to_be_clickable((By.XPATH, "//select[@id='m_ddExport']"))
-        )
-        driver.execute_script("arguments[0].click();", select_element)
-        select_element.send_keys("s")
-        select_element.send_keys(Keys.ENTER)
-        logger.info("Export selected from dropdown")
+            select_element = WebDriverWait(driver, timeout).until(
+                EC.element_to_be_clickable((By.XPATH, "//select[@id='m_ddExport']"))
+            )
+            driver.execute_script("arguments[0].click();", select_element)
+            select_element.send_keys("s")
+            select_element.send_keys(Keys.ENTER)
+            logger.info("Export selected from dropdown")
 
-        export = driver.find_element(by=By.ID, value="m_btnExport")
-        driver.execute_script("arguments[0].click();", export)
-        logger.info("'Export' button clicked successfully")
+            export = driver.find_element(by=By.ID, value="m_btnExport")
+            driver.execute_script("arguments[0].click();", export)
+            logger.info("'Export' button clicked successfully")
 
+<<<<<<< HEAD
         download_dir = "/home/oyone/Downloads/"
         csv_path1 = os.path.join(download_dir, "Standard Export.csv")
         csv_path2 = "brightscrape/Export_homes.csv"
@@ -173,3 +178,29 @@ async def export_homes():
         if 'driver' in locals() or driver is not None:
             driver.quit()
     
+=======
+            download_dir = "/home/oyone/Downloads/"
+            csv_path1 = os.path.join(download_dir, "Standard Export.csv")
+            csv_path2 = "/var/www/html/fastapi_project/brightscrape/Export_homes.csv"
+
+            while not os.path.exists(csv_path1):
+                await asyncio.sleep(1)
+            logger.info(f"File downloaded: {csv_path1}")
+
+            shutil.move(csv_path1, csv_path2)
+            logger.info(f"File moved from {csv_path1} to {csv_path2}")
+            break
+
+        except (WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException) as e:
+            logger.error(f"Error during export results on attempt {attempt + 1}: {str(e)}")
+            if attempt < MAX_RETRIES - 1:
+                logger.info(f"Retrying in {RETRY_DELAY} seconds...")
+                await asyncio.sleep(RETRY_DELAY)
+            else:
+                logger.error("Max retries reached. Raising HTTPException.")
+                raise HTTPException(status_code=500, detail="Error during export results")
+
+    logger.info('Done fetching csv')
+    if 'driver' in locals() or driver is not None:
+        driver.quit()
+>>>>>>> main

@@ -76,6 +76,7 @@
     <br>
     <div class="search-container">
         <input type="text" id="searchField" placeholder="Filter Homes">
+<<<<<<< HEAD
         <input class="small-input" type="number" id="costFilter" placeholder="Cost:" />
         <input type="number" id="bedroomFilter" placeholder="Beds:" min="1" max="20" />
         <input type="number" id="bathroomFilter" placeholder="Baths:" min="1" max="10" />
@@ -85,10 +86,25 @@
         </label>
         
         <label>
+=======
+        <input class="small-input" type="number" id="costFilter" placeholder="Max Cost:" />
+        <input type="number" id="bedroomFilter" placeholder="Beds:" min="1" max="20" />
+        <input type="number" id="bathroomFilter" placeholder="Baths:" min="1" max="10" />
+        
+        <label class="left-align">
+            <input type="checkbox" id="basementFilter"> Basement
+        </label>
+        
+        <label class="left-align">
+>>>>>>> main
             <input type="checkbox" id="garageFilter"> Garage
         </label>
     </div>
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> main
     <!-- Button to trigger the /home_search route -->
     <div class="mls-search">
         <a href="http://otonielyone.unitedrealestatewashingtondc.com/index.html" target="_blank">Custom search</a>
@@ -185,11 +201,14 @@
                 loader.style.display = 'none';
             });
 
-        function displayListings(listings) {
-            const container = document.getElementById('dynamic-buttons');
-            container.innerHTML = ''; // Clear previous listings
-            listings.forEach(item => createButtonDiv(item));
-        }
+            function displayListings(listings) {
+                const container = document.getElementById('dynamic-buttons');
+                container.innerHTML = '';
+                listings.forEach(item => {
+                    createButtonDiv(item);
+                });
+            }
+    
 
         function createButtonDiv(data) {
             const { MLS, COST, ADDRESS, BEDROOMS, BATH } = data;
@@ -209,12 +228,10 @@
             img.style.border = '3px solid #a8b8c6';
             img.style.borderRadius = '10px';
             img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
-            img.src = `static/homes_images/${MLS}/1.webp`; // Use backticks for the path
+            img.setAttribute('data-src', `static/homes_images/${MLS}/1.webp`); // Set data-src for lazy loading
 
             // Fallback for image loading
-            img.onerror = () => {
-                img.src = `static/icons/test.jpg`; // Fallback to JPG
-            };
+            const fallbackImage = 'static/icons/test.jpg';
 
             const textDiv = document.createElement('div');
             textDiv.className = 'popup-text';
@@ -224,12 +241,31 @@
             button.appendChild(textDiv);
             button.onclick = (event) => {
                 event.stopPropagation();
-                showPopup(data);
+                showPopup(data);            
             };
 
             buttonDiv.appendChild(button);
             document.getElementById('dynamic-buttons').appendChild(buttonDiv);
+<<<<<<< HEAD
         }
+=======
+
+            // Lazy load the image using Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const image = entry.target;
+                        image.src = image.dataset.src; // Load the actual image
+                        image.onerror = () => { // Fallback to default image on error
+                            image.src = fallbackImage;
+                        };
+                        observer.unobserve(image); // Stop observing the loaded image
+                    }
+                });
+            });
+            observer.observe(img); // Start observing the image
+        }    
+>>>>>>> main
     
         // Filter functionality
         function filterListings(query) {
@@ -313,6 +349,7 @@
                 img.style.height = '150px';
                 img.style.border = '3px solid #a8b8c6';
                 img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+                img.loading = 'lazy';  // Add lazy loading
 
                 a.appendChild(img);
                 fragment.appendChild(a);

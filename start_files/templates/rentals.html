@@ -110,8 +110,13 @@
     
 
     <div class="search-container">
+<<<<<<< HEAD
         <input type="text" id="searchField" placeholder="Filter Homes">
         <input class="small-input" type="number" id="costFilter" placeholder="Cost:" />
+=======
+        <input type="text" id="searchField" placeholder="Filter Rentals">
+        <input class="small-input" type="number" id="costFilter" placeholder="Max Cost:" />
+>>>>>>> main
         <input type="number" id="bedroomFilter" placeholder="Beds:" min="1" max="20" />
         <input type="number" id="bathroomFilter" placeholder="Baths:" min="1" max="10" />
     </div><br><br>
@@ -203,8 +208,8 @@
                     console.error('Error fetching listings:', error);
                 })
                 .finally(() => {
-                    overlay.style.display = 'none'; // Remove overlay after data is processed
-                    loader.style.display = 'none'; // Remove loader after data is processed
+                    overlay.style.display = 'none'; 
+                    loader.style.display = 'none'; 
                 });
     
             function displayListings(listings) {
@@ -233,15 +238,10 @@
                 img.style.border = '3px solid #a8b8c6';
                 img.style.borderRadius = '10px';
                 img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+                img.setAttribute('data-src', `static/rentals_images/${MLS}/1.webp`); // Set data-src for lazy loading
     
-                // Attempt to load JPG first, then fall back to WEBP
-                const imagePath = `static/rentals_images/${MLS}/1.webp`;
-                img.src = imagePath;
-    
-                img.onerror = () => {
-                    // Fallback to a default image if the image fails to load
-                    img.src = 'static/icons/test.jpg';
-                };
+                // Fallback image path for error handling
+                const fallbackImage = 'static/icons/test.jpg';
     
                 const textDiv = document.createElement('div');
                 textDiv.className = 'popup-text';
@@ -256,8 +256,25 @@
     
                 buttonDiv.appendChild(button);
                 document.getElementById('dynamic-buttons').appendChild(buttonDiv);
-            }
     
+<<<<<<< HEAD
+=======
+                // Lazy load the image using Intersection Observer
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const image = entry.target;
+                            image.src = image.dataset.src; // Load the actual image
+                            image.onerror = () => { // Fallback to default image on error
+                                image.src = fallbackImage;
+                            };
+                            observer.unobserve(image); // Stop observing the loaded image
+                        }
+                    });
+                });
+                observer.observe(img); // Start observing the image
+            }    
+>>>>>>> main
     
             // Filter functionality
             function filterListings(query) {
@@ -321,7 +338,8 @@
                     img.style.height = '150px';
                     img.style.border = '3px solid #a8b8c6';
                     img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
-    
+                    img.loading = 'lazy';  // Add lazy loading
+
                     a.appendChild(img);
                     fragment.appendChild(a);
                 }

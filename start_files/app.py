@@ -13,7 +13,11 @@ def create_app() -> FastAPI:
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
             logging.StreamHandler(),
+<<<<<<< HEAD
             logging.FileHandler("logs/yonehomes.log")
+=======
+            logging.FileHandler("/var/www/html/fastapi_project/logs/yonehomes.log")
+>>>>>>> main
         ]
     )
     

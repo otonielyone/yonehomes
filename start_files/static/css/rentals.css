@@ -274,17 +274,29 @@ margin-bottom: 15px;
 @media (max-width: 978px) {
     .search-container {
         flex-direction: column; /* Stack elements vertically */
+<<<<<<< HEAD
         text-align: center;
+=======
+        text-align: left;
+>>>>>>> main
     }
 
     input[type="number"] {
         width: 150px; /* Full width on small screens */
+<<<<<<< HEAD
         text-align: center;
+=======
+        text-align: left;
+>>>>>>> main
     }
 
     input[type="text"] {
         width: 150px; /* Full width on small screens */
+<<<<<<< HEAD
         text-align: center;
+=======
+        text-align: left;
+>>>>>>> main
     }
 }
 
