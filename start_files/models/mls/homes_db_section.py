@@ -43,6 +43,12 @@ class Mls_homes(Base):
     garage = Column(String(5), index=True)
     spaces = Column(String(5), index=True)
     count = Column(String(5), index=True)
+    ownership = Column(String(20), index=True)
+    senior = Column(String(5), index=True)
+    condo =  Column(String(5), index=True)
+    hoa =  Column(String(5), index=True)
+    fee = Column(String(20), index=True)
+    freq =  Column(String(20), index=True)
     hash = Column(String(1000), index=True)
 
     def __repr__(self):
@@ -67,6 +73,12 @@ class Mls_homes_temp(Base):
     garage = Column(String(5), index=True)
     spaces = Column(String(5), index=True)
     count = Column(String(5), index=True)
+    ownership = Column(String(20), index=True)
+    senior = Column(String(5), index=True)
+    condo =  Column(String(5), index=True)
+    hoa =  Column(String(5), index=True)
+    fee = Column(String(20), index=True)
+    freq =  Column(String(20), index=True)
     hash = Column(String(1000), index=True)
 
     def __repr__(self):
@@ -125,6 +137,12 @@ def copy_homes_to_temp(db):
                 garage=item.garage,
                 spaces=item.spaces,
                 count=item.count,
+                ownership=item.ownership,
+                senior=item.senior,
+                condo =item.condo,  
+                hoa =item.hoa,  
+                fee =item.fee, 
+                freq =item.freq, 
                 hash=item.hash
             )
             for item in original_listings
@@ -173,6 +191,12 @@ def process_row(row):
         "GARAGE": row['garage'],
         "SPACES": row['spaces'],
         "COUNT": row['count'],
+        "OWNERSHIP": row['ownership'],
+        "SENIOR": row['senior'],
+        "CONDO": row['condo'],
+        "HOA": row['hoa'],
+        "FEE": row['fee'],
+        "FREQ": row['freq'],
         "HASH": row['hash'],
     }
 

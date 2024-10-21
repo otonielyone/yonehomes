@@ -1,140 +1,60 @@
+/* Global Styles */
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #0d47a1, #42a5f5);
-  margin: 0;
-  padding: 0;
-  color: #e0e0e0; 
-  overflow-x: hidden; 
-}
-
-.container {
-  max-width: 1300px;
-  margin: auto;
-  padding: 40px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 25px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px); 
-  transition: transform 0.3s, box-shadow 0.3s; /* Added transition for smooth effect */
-}
-
-.container:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
+  font-family: 'Arial', sans-serif; /* Set a clean and modern font */
+  background: linear-gradient(135deg, #1e3c72, #2a69ac); /* Background gradient */
+  color: #ffffff; /* Text color */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Use flexbox for centering */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center elements horizontally */
 }
 
 h1 {
-  color: #ffffff; 
-  text-align: center;
-  font-size: 4rem; /* Slightly smaller */
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px; /* Reduced spacing */
-  animation: fadeIn 1s ease-in-out; 
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adding a subtle shadow */
+  font-size: 3rem; /* Large heading font size */
+  margin: 20px 0; /* Vertical spacing around heading */
+  text-transform: uppercase; /* Uppercase text for emphasis */
+  text-align: center; /* Center-align the heading */
+  letter-spacing: 2px; /* Spacing between letters */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
+/* Chart Container Styles */
 .charts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
-  gap: 20px; /* Space between cards */
+  display: grid; /* Use grid layout for charts */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 20px; /* Space between chart elements */
+  padding: 20px; /* Padding around the container */
+  max-width: 1200px; /* Maximum width for container */
+  width: 100%; /* Full width */
 }
 
-.card {
-  background: linear-gradient(145deg, #ffffff, #e3f2fd);
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  margin-bottom: 30px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  text-align: center;
-  border: 2px solid #ffffff;
+/* Canvas Styles */
+canvas {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background for charts */
+  border-radius: 10px; /* Rounded corners for the canvas */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect for canvas */
+  transition: transform 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+/* Hover Effect for Canvases */
+canvas:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
-.card h2 {
-  color: #333333; /* Darker text for better readability */
-  margin-bottom: 10px;
-  font-size: 2rem; /* Responsive font size */
-}
-
-.card p {
-  color: #555555; /* Neutral gray for text */
-  font-size: 1.5rem; /* Adjusted font size */
-  font-weight: bold;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.card p:hover {
-  color: #ff9800; /* Neon color on hover */
-  transform: scale(1.1); 
-}
-
-.text-2xl {
-  color: white; /* Darker shade for better contrast */
-  font-weight: 700; /* Bold font for prominence */
-  font-size: 1.5rem; /* Increased size for emphasis */
-  text-align: center; /* Center text */
-  margin-bottom: 15px; /* Increased spacing below the title */
-  text-shadow: 1px 1px 2px rgba(27, 25, 24, 0.762); /* Enhanced text shadow for depth */
-  letter-spacing: 1px; /* Added letter spacing for a modern look */
-  padding: 10px; /* Padding around text */
-  border-radius: 8px; /* Rounded corners for a softer look */
-  transition: transform 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.table-container {
-  margin-top: 40px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 30px;
-  background: rgba(255, 255, 255, 0.8); /* Slight background color for tables */
-  border-radius: 10px; /* Rounded corners */
-  overflow: hidden; /* For rounded corners on table cells */
-}
-
-th, td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  font-size: 1.5rem;
-}
-
-th {
-  background-color: #ff9800;
-  color: white;
-  text-transform: uppercase; /* Uppercase text for headers */
-}
-
-tr:hover {
-  background-color: rgba(66, 165, 245, 0.3); /* Slight hover effect on rows */
-  color: #000; /* Change text color on hover */
-}
-
-@media (max-width: 640px) {
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
   h1 {
-      font-size: 3.5rem;
-  }
-
-  .card h2 {
-      font-size: 1.5rem;
-  }
-
-  .card p {
-      font-size: 1.2rem;
+      font-size: 2.5rem; /* Smaller font size on smaller screens */
   }
 }
 
-/* Keyframes for Animations */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+@media (max-width: 480px) {
+  h1 {
+      font-size: 2rem; /* Further reduce font size for mobile */
+  }
 
+  .charts-container {
+      grid-template-columns: 1fr; /* Single column layout for mobile */
+  }
+}

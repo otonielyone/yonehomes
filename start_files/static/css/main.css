@@ -367,7 +367,6 @@ a:focus {
 
 
 
-
 /* Custom Section with Background Image */
 .custom-section {
   background-image: url('/static/icons/rental-custom.jpg');
@@ -434,6 +433,7 @@ a:focus {
   justify-content: center; /* Center icon vertically within the space */
   height: calc(100% - 40px); /* Adjust based on the height of the button and desired spacing */
 }
+
 
 /* Icon Styling */
 .custom-icon-homepage,

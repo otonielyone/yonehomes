@@ -49,7 +49,6 @@ def purge_cloudflare_cache():
     )
     return response.json()
 
-print(purge_cloudflare_cache())
 
 
 def clean_and_rename_directories():
@@ -166,6 +165,12 @@ def sorted_homes_by_price(max_price) -> list:
                     agent_remarks = row[42]
                     public_remarks = row[44]
                     acres = row[60]
+                    ownership = row[65]
+                    senior = row[66]
+                    condo = row[67]
+                    hoa = row[68]
+                    fee = row[69]
+                    freq = row[70]
                     age = row[73]
                     int_sqft = row[74]
                     bedrooms = row[79]
@@ -180,7 +185,7 @@ def sorted_homes_by_price(max_price) -> list:
                     if (max_price is None or price < max_price) and state == 'VA':
                         all_data.append((price, mls, street_unit, status, list_date, city, state, zip_code,
                                          listing_office, listing_office_number, listing_agent, listing_agent_number,
-                                         listing_agent_email, agent_remarks, public_remarks, bedrooms, baths, bath_full, bath_half, acres, age, int_sqft, fireplace, basement, garage, garage_spaces))
+                                         listing_agent_email, agent_remarks, public_remarks, bedrooms, baths, bath_full, bath_half, acres, age, int_sqft, fireplace, basement, garage, garage_spaces, ownership, senior, condo, hoa, fee, freq))
             logger.info('Finished reading csv')
             return sorted(all_data, key=lambda x: x[0])
         
@@ -213,6 +218,8 @@ def save_images(all_imgs, save_dir, max_images):
                 img.save(os.path.join(save_dir, f'{i + 1}.webp'), 'WEBP')
 
 def add_listing_to_db(db, mls, item, current_hash, img_count):
+    fee = "" if item[30] == '$' else item[30]
+
     listing = Mls_homes_temp(
         mls=mls,
         address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
@@ -231,12 +238,20 @@ def add_listing_to_db(db, mls, item, current_hash, img_count):
         garage=item[24],
         spaces=item[25],
         count=img_count,
+        ownership=item[26],
+        senior=item[27],
+        condo=item[28],
+        hoa=item[29],
+        fee=fee,
+        freq=item[31],
         hash=current_hash
     )
     db.add(listing)
     db.commit()
 
 def update_listing_in_db(db, listing_item, item, current_hash, img_count):
+    fee = "" if item[30] == '$' else item[30]
+
     listing_item.address = f"{item[2]}, {item[5]}, {item[6]} {item[7]}"
     listing_item.price = item[0]
     listing_item.description = item[14]
@@ -253,6 +268,12 @@ def update_listing_in_db(db, listing_item, item, current_hash, img_count):
     listing_item.garage = item[24]
     listing_item.spaces = item[25]
     listing_item.count = img_count
+    listing_item.ownership=item[26]
+    listing_item.senior=item[27]
+    listing_item.condo=item[28]
+    listing_item.hoa=item[29]
+    listing_item.fee=fee
+    listing_item.freq=item[31]
     listing_item.hash = current_hash
     db.commit()
 
@@ -365,8 +386,12 @@ def load_page(max_images, min_images, item, timeout, max_retries, delay):
                     os.makedirs(save_dir, exist_ok=True)
                     save_images(all_imgs, save_dir, max_images)
                     logger.info(f'Converted images to .webp for {mls}')
-                    add_listing_to_db(db, mls, item, current_hash, len(all_imgs))
-                    logger.info(f"{mls} added to temp database!")
+                    try:
+                        add_listing_to_db(db, mls, item, current_hash, len(all_imgs))
+                        logger.info(f"{mls} added to temp database!")
+                    except Exception as e:
+                        logger.info(f"{mls} something failed adding to database: {e}")
+               
                 else:
                     logger.info(f"{mls} found in the temp database. Comparing hashes.")
                     if listing_item.hash != current_hash:

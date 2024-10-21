@@ -1,7 +1,2 @@
-2024-10-05 05:35:03,421 - start_files.routes.routes - INFO - Starting MLS rentals gathering task
-2024-10-05 05:35:03,431 - start_files.routes.rentals_scripts - INFO - Start Time: 2024-10-05 05:35:03
-2024-10-05 05:35:03,432 - start_files.routes.export_rentals_scripts - INFO - Starting export_rentals function
-2024-10-05 05:35:03,432 - start_files.routes.export_rentals_scripts - INFO - Setting up async driver
-2024-10-05 05:35:03,997 - start_files.routes.export_rentals_scripts - INFO - Chrome options setup complete
-2024-10-05 05:35:03,997 - start_files.routes.export_rentals_scripts - INFO - About to Begin Login
-2024-10-05 05:35:06,446 - start_files.routes.export_rentals_scripts - INFO - Navigating to search page
+2024-10-21 01:22:34,789 - start_files.routes.routes - INFO - Rendering home page
+2024-10-21 01:26:39,026 - start_files.routes.routes - INFO - Rendering home page

@@ -87,6 +87,14 @@
         <label class="left-align">
             <input type="checkbox" id="garageFilter"> Garage
         </label>
+
+        <label class="left-align">
+            <input type="checkbox" id="condoFilter"> Condo
+        </label>
+
+        <label class="left-align">
+            <input type="checkbox" id="hoaFilter"> HOA
+        </label>
     </div>
     
     
@@ -140,7 +148,7 @@
 
         // Create and style loader text
         const loaderText = document.createElement('div');
-        loaderText.textContent = 'Please give us a moment while we retrieve the latest listings...';
+        loaderText.textContent = 'Please give a moment while the system retrieves the latest availibilities...';
         loaderText.style.marginTop = '15px'; // Space between spinner and text
         loaderText.style.color = '#ffffff'; // Text color
         loaderText.style.fontSize = '16px'; // Font size
@@ -169,7 +177,7 @@
 
 
         // Fetch the full list of listings from the API
-        fetch('/api/view_homes_database')
+        fetch('/view_homes_database')
             .then(response => response.json())
             .then(data => {
                 if (data.homes && Array.isArray(data.homes)) {
@@ -196,7 +204,7 @@
     
 
         function createButtonDiv(data) {
-            const { MLS, COST, ADDRESS, BEDROOMS, BATH } = data;
+            const { MLS, COST, ADDRESS, BEDROOMS, BATH, CONDO, HOA, FEE, FREQ, BASEMENT, GARAGE } = data;
 
             const buttonDiv = document.createElement('div');
             buttonDiv.className = 'button-item';
@@ -213,20 +221,40 @@
             img.style.border = '3px solid #a8b8c6';
             img.style.borderRadius = '10px';
             img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
-            img.setAttribute('data-src', `static/homes_images/${MLS}/1.webp`); // Set data-src for lazy loading
+            img.setAttribute('data-src', `static/homes_images/${MLS}/1.webp`); // Lazy load setup
 
             // Fallback for image loading
             const fallbackImage = 'static/icons/test.jpg';
 
             const textDiv = document.createElement('div');
             textDiv.className = 'popup-text';
-            textDiv.innerHTML = `Cost: ${formatValue(COST)}<br>${ADDRESS}<br>Beds: ${BEDROOMS} / Baths: ${BATH}`;
+            // Create the dynamic text content
+            let infoHTML = `
+                Cost: ${formatValue(COST)}<br>
+                Address: ${ADDRESS}<br>
+                Beds: ${BEDROOMS} / Baths: ${BATH}
+            `;
+
+            if (CONDO === 'Yes' || HOA === 'Yes') {
+                infoHTML += '<br>';
+                if (CONDO === 'Yes' && HOA === 'Yes') {
+                    infoHTML += 'Condo: Yes';
+                } else if (CONDO === 'Yes') {
+                    infoHTML += 'Condo: Yes';
+                } else {
+                    infoHTML += 'HOA: Yes';
+                }
+
+            }
+
+            textDiv.innerHTML = infoHTML;
 
             button.appendChild(img);
             button.appendChild(textDiv);
+
             button.onclick = (event) => {
                 event.stopPropagation();
-                showPopup(data);            
+                showPopup(data);
             };
 
             buttonDiv.appendChild(button);
@@ -238,16 +266,16 @@
                     if (entry.isIntersecting) {
                         const image = entry.target;
                         image.src = image.dataset.src; // Load the actual image
-                        image.onerror = () => { // Fallback to default image on error
-                            image.src = fallbackImage;
-                        };
+                        image.onerror = () => { image.src = fallbackImage; }; // Fallback on error
                         observer.unobserve(image); // Stop observing the loaded image
                     }
                 });
             });
             observer.observe(img); // Start observing the image
-        }    
+        } 
     
+
+
         // Filter functionality
         function filterListings(query) {
             const lowerQuery = query.toLowerCase();
@@ -256,6 +284,8 @@
             const maxCost = Number(document.getElementById('costFilter').value.replace(/[$,]/g, '')); // Remove $ and commas and convert to number
             const hasBasement = document.getElementById('basementFilter').checked;
             const hasGarage = document.getElementById('garageFilter').checked;
+            const isCondo = document.getElementById('condoFilter').checked;
+            const isHoa = document.getElementById('hoaFilter').checked;
 
             const filteredListings = allListings.filter(item => {
                 const matchesQuery = item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery);
@@ -264,7 +294,9 @@
                 const matchesCost = maxCost ? parseFloat(item.COST.replace(/[$,]/g, '')) <= maxCost : true;
                 const matchesBasement = hasBasement ? item.BASEMENT === 'Yes' : true;
                 const matchesGarage = hasGarage ? item.GARAGE === 'Yes' : true;
-                return matchesQuery && matchesBedrooms && matchesBathrooms && matchesCost && matchesBasement && matchesGarage;
+                const matchesCondo = isCondo ? item.CONDO === 'Yes' : true;
+                const matchesHoa = isHoa ? item.HOA === 'Yes' : true;
+                return matchesQuery && matchesBedrooms && matchesBathrooms && matchesCost && matchesBasement && matchesGarage && matchesCondo && matchesHoa;
             });
 
             displayListings(filteredListings.slice(0, numberOfListings));
@@ -294,6 +326,14 @@
             filterListings(document.getElementById('searchField').value);
         });
 
+        document.getElementById('condoFilter').addEventListener('change', () => {
+            filterListings(document.getElementById('searchField').value);
+        });
+        
+        document.getElementById('hoaFilter').addEventListener('change', () => {
+            filterListings(document.getElementById('searchField').value);
+        });
+
         function formatValue(value) {
             if (value === null || value === undefined || value === '') {
                 return '0'; // Return '0' for null, undefined, or empty values
@@ -303,7 +343,7 @@
 
 
         function showPopup(data) {
-            const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT } = data;
+            const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, CONDO, HOA, FEE, FREQ} = data;
             const popup = document.createElement('div');
             popup.className = 'popup';
 
@@ -345,7 +385,6 @@
                 <p>${ADDRESS}</p>
                 <hr class="styled-line">
                 <div class="popup-row">
-                    <div class="popup-item"><div class="popup-title">MLS</div><div class="popup-value">${formatValue(MLS)}</div></div>
                     <div class="popup-item"><div class="popup-title">Age</div><div class="popup-value">${formatValue(AGE)}</div></div>
                     <div class="popup-item"><div class="popup-title">Acres</div><div class="popup-value">${formatValue(ACRES)}</div></div>
                     <div class="popup-item"><div class="popup-title">Sqft</div><div class="popup-value">${formatValue(SQFT, 'SQFT')}</div></div>
@@ -357,13 +396,38 @@
                     <div class="popup-item"><div class="popup-title">Total Spaces</div><div class="popup-value">${formatValue(SPACES, 'SPACES')}</div></div>
                     <div class="popup-item"><div class="popup-title">Fireplace</div><div class="popup-value">${formatValue(FIREPLACE)}</div></div>
                     <div class="popup-item"><div class="popup-title">Basement</div><div class="popup-value">${formatValue(BASEMENT)}</div></div>
+                    ${(CONDO === 'Yes' || HOA === 'Yes') ? `
+                        <div class="popup-item">
+                            <div class="popup-title">
+                                ${CONDO === 'Yes' && HOA === 'Yes' ? 'Fees:' 
+                                : CONDO === 'Yes' ? 'Fees:' 
+                                : 'HOA'}
+                            </div>
+                            <div class="popup-value">
+                                ${FEE && FREQ ? `${FEE} (${FREQ})` : 'N/A'}
+                            </div>
+                        </div>
+                    ` : ''}
+
                 </div>
                 <hr class="styled-line">
                 <p>${DESCRIPTION}</p>
                 <hr class="styled-line">
+                <p>${formatValue(MLS)}<p>
+                <hr class="styled-line">
                 <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button>
-            `;
+                <p style="font-size: 8px; background-color: #fafafa; padding: 10px; border: 1px solid #ccc; border-radius: 5px; text-align: center; width: 100%; box-sizing: border-box; margin: 0;">
+                    <strong class="custom-strong">Content Disclosure</strong><br>
+                    Photographs are © BRIGHT, All Rights Reserved. Information Deemed Reliable But Not Guaranteed.
+                    The data on this site is NOT sourced from BRIGHT MLS Automation, Bright MLS IDX, or its database.
+                    It is extracted from common information available to all realtor agents with membership.
+                    This information is for informational purposes only and is intended for use by potential clients.
+                    The most current facts are provided upon request. No values should be considered appraisals.
+                    This site is automatically updated daily: rental listings at 2 AM and listings for purchase at 4 AM.
+                    Please note that some properties may no longer be available. For inquiries, please contact above.
+                </p>
 
+            `;
             const popupClose = document.createElement('span');
             popupClose.className = 'popup-close';
             popupClose.innerHTML = '&times;';
@@ -400,11 +464,21 @@
     });
 </script>
 
+<div class="content-disclosure">
+    <strong class="custom-strong">Content Disclosure</strong><br>
+    Photographs are © BRIGHT, All Rights Reserved. Information Deemed Reliable But Not Guaranteed.
+    The data on this site is NOT sourced from BRIGHT MLS Automation, Bright MLS IDX, or its database.
+    It is extracted from common information available to all realtor agents with membership.
+    This information is for informational purposes only and is intended for use by potential clients.
+    The most current facts are provided upon request. No values should be considered appraisals.
+    This site is automatically updated daily: rental listings at 2 AM and listings for purchase at 4 AM.
+    Please note that some properties may no longer be available. For inquiries, please contact above.
+</div>
 
     <!-- Custom Section with Parallax Effect -->
     <div class="custom-section" id="main-section">
         <div class="custom-header">
-            <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+            <h2 class="custom-heading">YONEHOMES IS HERE TO HELP</h2>
         </div>
 
         <div class="custom-container">

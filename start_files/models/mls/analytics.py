@@ -32,6 +32,7 @@ class Analytics(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     ip_address = Column(String, nullable=False, index=True)
     hostname = Column(String, nullable=False, index=True)
+    date = Column(Date)
     first_seen = Column(DateTime, default=func.now())
     last_seen = Column(DateTime, default=func.now(), onupdate=func.now())
     
@@ -40,7 +41,7 @@ class Analytics(Base):
     sub_info = relationship("SubTable", back_populates="main_info", cascade="all, delete-orphan")
 
     def __repr__(self):
-        return f"<Analytics(ip_address={self.ip_address}, hostname={self.hostname}, first_seen={self.first_seen}, last_seen={self.last_seen})>"
+        return f"<Analytics(ip_address={self.ip_address}, hostname={self.hostname}, date={self.date}, first_seen={self.first_seen}, last_seen={self.last_seen})>"
 
 class SubTable(Base):
     __tablename__ = 'sub_table'
@@ -198,7 +199,6 @@ def get_analytics_from_db():
         if db:
             db.close()
 
-
 def get_sub_table_from_db():
     db = None
     try:
@@ -211,14 +211,13 @@ def get_sub_table_from_db():
         with ThreadPoolExecutor() as executor:
             sub_table_data = list(executor.map(process_subtable_row, df.to_dict(orient='records')))
                 
-        return sub_table_data
+        return sub_table_data  # Return the entire list
     except Exception as e:
         print(f"An error occurred while retrieving listings: {e}")
-        return [], []
+        return []  # Return an empty list in case of error
     finally:
         if db:
             db.close()
-
 
 
 #drop_tables()

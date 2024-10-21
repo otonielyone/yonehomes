@@ -1,189 +1,80 @@
-{% extends "template.html" %}
-
-{% block head %}
-    <link rel="stylesheet" href="/static/css/main.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
     <link rel="stylesheet" href="/static/css/dashboard.css">
-
-    <!-- Google Analytics Tracking Code -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLW8B5PNHE"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BLW8B5PNHE');
-    </script>
-
-    <!-- Chart.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-{% endblock %}
-
-{% block body %}
-<div class="container mx-auto p-4 bg-gradient-to-r from-blue-100 to-blue-200 min-h-screen">
-    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Google Analytics Dashboard</h1>
-
-    <div id="analyticsContainer" class="charts-container grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-        <div>
-            <h2 class="text-2xl font-bold mb-4">Sessions Over Time</h2>
-            <canvas id="sessionsChart"></canvas>
-        </div>
-        <div>
-            <h2 class="text-2xl font-bold mb-4">New Users Over Time</h2>
-            <canvas id="newUsersChart"></canvas>
-        </div>
-        <div>
-            <h2 class="text-2xl font-bold mb-4">Active Users Over Time</h2>
-            <canvas id="activeUsersChart"></canvas>
-        </div>
-        <div>
-            <h2 class="text-2xl font-bold mb-4">Bounce Rate</h2>
-            <canvas id="bounceRateChart"></canvas>
-        </div>
-        <div>
-            <h2 class="text-2xl font-bold mb-4">Average Session Duration (seconds)</h2>
-            <canvas id="avgSessionDurationChart"></canvas>
-        </div>
-        <div>
-            <h2 class="text-2xl font-bold mb-4">Page Views per Session</h2>
-            <canvas id="screenPageViewsChart"></canvas>
-        </div>
-        <div>
-            <h2 class="text-2xl font-bold mb-4">User Engagement Time (seconds)</h2>
-            <canvas id="engagementTimeChart"></canvas>
-        </div>
-        <div>
-            <h2 class="text-2xl font-bold mb-4">User Demographics</h2>
-            <canvas id="userDemographicsChart"></canvas>
-        </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Ensure Chart.js is loaded -->
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <div class="charts-container">
+        <canvas id="chart1" width="400" height="200"></canvas>
+        <canvas id="chart2" width="400" height="200"></canvas>
+        <canvas id="chart3" width="400" height="200"></canvas>
+        <canvas id="chart4" width="400" height="200"></canvas>
+        <canvas id="chart5" width="400" height="200"></canvas>
+        <canvas id="chart6" width="400" height="200"></canvas>
+        <canvas id="chart7" width="400" height="200"></canvas>
+        <canvas id="chart8" width="400" height="200"></canvas>
     </div>
-</div>
 
-<script>
-    async function fetchAnalyticsData() {
-        try {
-            const response = await fetch(`/api/view_analytics_database`);
-            const data = await response.json();
+    <script>
+        // Function to create a chart
+        function createChart(canvasId, data) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
 
-            console.log('Fetched data:', data); // Check the fetched data
+            const labels = data.labels || [];
+            const activeUsers = data.active_users || [];
 
-            if (data.analytics && Array.isArray(data.analytics) && data.subtable) {
-                renderAnalyticsData(data.analytics, data.subtable);
-            } else {
-                console.error('Invalid data format:', data);
+            // Check if there is data before creating the chart
+            if (labels.length === 0 || activeUsers.length === 0) {
+                console.warn(`No data available for ${canvasId}`);
+                return; // Skip chart creation if no data
             }
-        } catch (error) {
-            console.error('Error fetching analytics data:', error);
-        }
-    }
 
-    function renderAnalyticsData(analyticsData, subData) {
-        console.log('Subdata to render:', subData); // Check the subData
-
-        if (subData && subData.length > 0) {
-            renderCharts(subData);
-        } else {
-            console.error('No data to render charts');
-        }
-    }
-
-    function renderCharts(subData) {
-        // Extract relevant data from subData for charts
-        const dates = subData.map(item => item.DATE);
-        const sessions = subData.map(item => item.SESSIONS);
-        const newUsers = subData.map(item => item.NEW_USERS);
-        const activeUsers = subData.map(item => item.ACTIVE_USERS);
-        const bounceRate = subData.map(item => (item.BOUNCE_RATE * 100).toFixed(2));
-        const avgSessionDuration = subData.map(item => item.AVERAGE_SESSION_DURATION);
-        const screenPageViews = subData.map(item => item.SCREEN_PAGE_VIEWS_PER_SESSION);
-        const engagementTime = subData.map(item => item.USER_ENGAGEMENT_TIME);
-
-        // User Demographics
-        const userDemographics = subData.reduce((acc, item) => {
-            acc[item.USER_GENDER] = (acc[item.USER_GENDER] || 0) + 1;
-            return acc;
-        }, {});
-
-        // Render Sessions Chart
-        createChart('sessionsChart', 'line', 'Sessions', sessions, dates, 'rgba(54, 162, 235, 0.2)', 'rgba(54, 162, 235, 1)');
-
-        // Render New Users Chart
-        createChart('newUsersChart', 'line', 'New Users', newUsers, dates, 'rgba(75, 192, 192, 0.2)', 'rgba(75, 192, 192, 1)');
-
-        // Render Active Users Chart
-        createChart('activeUsersChart', 'line', 'Active Users', activeUsers, dates, 'rgba(153, 102, 255, 0.2)', 'rgba(153, 102, 255, 1)');
-
-        // Render Bounce Rate Chart
-        createChart('bounceRateChart', 'bar', 'Bounce Rate (%)', bounceRate, dates, 'rgba(255, 99, 132, 0.2)', 'rgba(255, 99, 132, 1)');
-
-        // Render Average Session Duration Chart
-        createChart('avgSessionDurationChart', 'line', 'Avg Session Duration (seconds)', avgSessionDuration, dates, 'rgba(255, 206, 86, 0.2)', 'rgba(255, 206, 86, 1)');
-
-        // Render Page Views per Session Chart
-        createChart('screenPageViewsChart', 'line', 'Page Views per Session', screenPageViews, dates, 'rgba(153, 102, 255, 0.2)', 'rgba(153, 102, 255, 1)');
-
-        // Render User Engagement Time Chart
-        createChart('engagementTimeChart', 'line', 'User Engagement Time (seconds)', engagementTime, dates, 'rgba(75, 192, 192, 0.2)', 'rgba(75, 192, 192, 1)');
-
-        // User Demographics Bar Chart
-        renderDemographicsChart(userDemographics);
-    }
-
-    function createChart(chartId, chartType, label, data, labels, bgColor, borderColor) {
-        const ctx = document.getElementById(chartId).getContext('2d');
-        new Chart(ctx, {
-            type: chartType,
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: label,
-                    data: data,
-                    backgroundColor: bgColor,
-                    borderColor: borderColor,
-                    borderWidth: 2,
-                    fill: true
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { beginAtZero: true }
-                }
-            }
-        });
-    }
-
-    function renderDemographicsChart(demographics) {
-        const demographicsCtx = document.getElementById('userDemographicsChart').getContext('2d');
-        const labels = Object.keys(demographics);
-        const data = Object.values(demographics);
-        
-        const backgroundColors = labels.map((_, index) => {
-            return `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.5)`;
-        });
-
-        new Chart(demographicsCtx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'User Demographics (Gender)',
-                    data: data,
-                    backgroundColor: backgroundColors,
-                    borderColor: backgroundColors.map(color => color.replace(/0.5/, '1')),
-                    borderWidth: 1,
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Active Users',
+                        data: activeUsers,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-    }
+            });
+        }
 
-    // Fetch analytics data on page load
-    document.addEventListener('DOMContentLoaded', fetchAnalyticsData);
-</script>
-{% endblock %}
+        async function loadCharts() {
+            try {
+                // Replace with your actual property ID
+                const propertyId = "YOUR_ACTUAL_PROPERTY_ID";
+                const periods = ["1d", "1w", "1m", "1y", "all"];
+                
+                for (let i = 0; i < periods.length; i++) {
+                    const response = await fetch(`/api/dashboard?property_id=${propertyId}&period=${periods[i]}`);
+                    const data = await response.json(); // Assuming the response is JSON
+                    createChart(`chart${i + 1}`, data);
+                }
+            } catch (error) {
+                console.error('Error loading charts:', error);
+            }
+        }
+
+        // Call loadCharts when the page loads
+        window.onload = loadCharts;
+    </script>
+</body>
+</html>

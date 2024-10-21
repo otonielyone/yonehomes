@@ -169,8 +169,8 @@ async def export_homes():
             logger.info(f"File moved from {csv_path1} to {csv_path2}")
             break
 
-        except (WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException) as e:
-            logger.error(f"Error during export results on attempt {attempt + 1}: {str(e)}")
+        except (WebDriverException, TimeoutException, NoSuchElementException, StaleElementReferenceException):
+            logger.error(f"Error during export results on attempt {attempt + 1}:")
             if attempt < MAX_RETRIES - 1:
                 logger.info(f"Retrying in {RETRY_DELAY} seconds...")
                 await asyncio.sleep(RETRY_DELAY)

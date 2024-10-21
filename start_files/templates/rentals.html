@@ -189,7 +189,7 @@
             loader.style.display = 'flex'; 
     
             // Fetch the full list of listings from the API
-            fetch('/api/view_rentals_database')
+            fetch('/view_rentals_database')
                 .then(response => response.json())
                 .then(data => {
                     if (data.rentals && Array.isArray(data.rentals)) {
@@ -352,6 +352,18 @@
                     <p>Status: ${STATUS}</p>
                     <hr class="styled-line">
                     <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
+
+                    <p style="font-size: 8px; background-color: #fafafa; padding: 10px; border: 1px solid #ccc; border-radius: 5px; text-align: center; width: 100%; box-sizing: border-box; margin: 0;">
+                        <strong class="custom-strong">Content Disclosure</strong><br>
+                        Photographs are © BRIGHT, All Rights Reserved. Information Deemed Reliable But Not Guaranteed.
+                        The data on this site is NOT sourced from BRIGHT MLS Automation, Bright MLS IDX, or its database.
+                        It is extracted from common information available to all realtor agents with membership.
+                        This information is for informational purposes only and is intended for use by potential clients.
+                        The most current facts are provided upon request. No values should be considered appraisals.
+                        This site is automatically updated daily: rental listings at 2 AM and listings for purchase at 4 AM.
+                        Please note that some properties may no longer be available. For inquiries, please contact above.
+                    </p>
+
                 `;
     
                 const popupClose = document.createElement('span');
@@ -388,8 +400,17 @@
             };
         });
     </script>
-        
-
+    
+    <div class="content-disclosure">
+        <strong class="custom-strong">Content Disclosure</strong><br>
+        Photographs are © BRIGHT, All Rights Reserved. Information Deemed Reliable But Not Guaranteed.
+        The data on this site is NOT sourced from BRIGHT MLS Automation, Bright MLS IDX, or its database.
+        It is extracted from common information available to all realtor agents with membership.
+        This information is for informational purposes only and is intended for use by potential clients.
+        The most current facts are provided upon request. No values should be considered appraisals.
+        This site is automatically updated daily: rental listings at 2 AM and listings for purchase at 4 AM.
+        Please note that some properties may no longer be available. For inquiries, please contact above.
+    </div>
 
     <!-- Custom Section with Parallax Effect -->
     <div class="custom-section" id="main-section">
@@ -440,3 +461,5 @@
     
 
 {% endblock %}
+
+

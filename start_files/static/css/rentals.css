@@ -6,6 +6,18 @@
     text-align: center; /* Center align heading text */
 }
 
+.content-disclosure {
+    font-size: 8px !important;
+    background-color: #fafafa;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
 /* For Dynamic Button Grid Section */
 .button-grid-container {
     display: flex;
@@ -77,20 +89,6 @@
     border: none;
 }
 
-/* Media Queries for Responsive Layout */
-@media (max-width: 1200px) {
-    .button-item {
-        flex: 1 1 calc(33.33% - 16px);
-        max-width: calc(33.33% - 16px);
-    }
-}
-
-@media (max-width: 800px) {
-    .button-item {
-        flex: 1 1 calc(50% - 16px);
-        max-width: calc(50% - 16px);
-    }
-}
 
 @media (max-width: 500px) {
     .button-item {
@@ -107,6 +105,10 @@
     height: 100%;
     color: #ffffff;
     text-align: center;
+}
+
+.content-disclosure {
+    font-size: 8px !important;
 }
 
 /* Specific Styles for Rental Services Section */
@@ -166,6 +168,12 @@
     color: #a91909;
     font-weight: bold;
     padding-top: 20px;
+}
+
+
+.custom-strong {
+    font-weight: 500;
+    margin-bottom: 5px !important;
 }
 
 
@@ -288,10 +296,23 @@ margin-bottom: 15px;
     }
 }
 
+
+
+     
+
+
 /* Responsive Adjustments */
 @media screen and (max-width: 500px) and (orientation: portrait) {s
-   
+    .button-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
     
+    .content-disclosure {
+        font-size: 8px !important;
+    }
+
+
     .main-heading {
         z-index: 1000; /* Ensure heading is below popup */
     }
@@ -306,7 +327,7 @@ margin-bottom: 15px;
     /* Ensure gallery is centered and items are 3 per row */
     .popup-row {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
+        grid-template-columns: repeat(4, 1fr); /* 3 columns on mobile */
         grid-gap: 10px; /* Add space between items */
         justify-content: center; /* Center the grid items */
     }

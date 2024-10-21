@@ -32,6 +32,10 @@ class Mls_rentals(Base):
     availability = Column(String(20), index=True)
     bedrooms = Column(String(5), index=True)
     bath = Column(String(5), index=True)
+    condo =  Column(String(5), index=True)
+    hoa =  Column(String(5), index=True)
+    fee =  Column(String(20), index=True)
+    freq =  Column(String(20), index=True)
     count = Column(Integer, index=True)
     hash = Column(String(1000), index=True)
 
@@ -48,6 +52,10 @@ class Mls_rentals_temp(Base):
     availability = Column(String(20), index=True)
     bedrooms = Column(String(5), index=True)
     bath = Column(String(5), index=True)
+    condo =  Column(String(5), index=True)
+    hoa =  Column(String(5), index=True)
+    fee =  Column(String(20), index=True)
+    freq =  Column(String(20), index=True)
     count = Column(Integer, index=True)
     hash = Column(String(1000), index=True)
 
@@ -96,6 +104,10 @@ def init_rentals_db_temp():
                         bedrooms=item.bedrooms,
                         bath=item.bath,
                         count=item.count,
+                        condo =item.condo,  
+                        hoa =item.hoa,  
+                        fee =item.fee, 
+                        freq =item.freq, 
                         hash=item.hash)
                     for item in original_listings]
                 if temp_listings: 
@@ -121,6 +133,10 @@ def process_row(row):
         "STATUS": row['availability'],
         "BEDROOMS": row['bedrooms'],
         "BATH": row['bath'],
+        "CONDO": row['condo'],
+        "HOA": row['hoa'],
+        "FEE": row['fee'],
+        "FREQ": row['freq'],
         "COUNT": row['count'],
         "HASH": row['hash'],
     }
@@ -140,12 +156,7 @@ def get_rentals_from_db():
         listings_dict = [listing.__dict__ for listing in listings]
         print(f"Listings: {listings_dict}")
         df = pd.DataFrame(listings_dict)
-        
-        required_columns = {'mls', 'price', 'address', 'description', 'availability', 'bedrooms', 'bath', 'count', 'hash'}
-        missing_columns = required_columns - set(df.columns)
-        if missing_columns:
-            raise KeyError(f"Missing columns: {', '.join(missing_columns)}")
-        
+                
         with ThreadPoolExecutor() as executor:
             formatted_listings = list(executor.map(process_row, df.to_dict(orient='records')))
         

@@ -52,7 +52,6 @@ def purge_cloudflare_cache():
     )
     return response.json()
 
-print(purge_cloudflare_cache())
 
 
 def clean_and_rename_directories():
@@ -167,13 +166,17 @@ def sorted_rentals_by_price(max_price) -> list:
                     listing_agent_email = row[41]
                     agent_remarks = row[42]
                     public_remarks = row[44]
+                    condo = row[67]
+                    hoa = row[68]
+                    fee = row[69]
+                    freq = row[70]
                     bedrooms = row[79]
                     baths = row[80]
 
                     if (max_price is None or price < max_price) and state == 'VA':
                         all_data.append((price, mls, street_unit, status, list_date, city, state, zip_code,
                                          listing_office, listing_office_number, listing_agent, listing_agent_number,
-                                         listing_agent_email, agent_remarks, public_remarks, bedrooms, baths))
+                                         listing_agent_email, agent_remarks, public_remarks, bedrooms, baths, condo, hoa, fee, freq))
             logger.info('Finished reading csv for rentals')
             return sorted(all_data, key=lambda x: x[0])
         
@@ -205,31 +208,44 @@ def save_images(all_imgs, save_dir, max_images):
                 img.save(os.path.join(save_dir, f'{i + 1}.webp'), 'WEBP')
 
 def add_listing_to_db(db, mls, item, current_hash, img_count):
+    fee = "" if item[19] == '$' else item[19]
+    
     listing = Mls_rentals_temp(
-    mls=mls,
-    address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
-    price=item[0],
-    description=item[14],
-    availability=item[3],
-    bedrooms=item[15],
-    bath=item[16],
-    count=img_count,
-    hash=current_hash
+        mls=mls,
+        address=f"{item[2]}, {item[5]}, {item[6]} {item[7]}",
+        price=item[0],
+        description=item[14],
+        availability=item[3],
+        bedrooms=item[15],
+        bath=item[16],
+        condo=item[17],
+        hoa=item[18],
+        fee=fee,
+        freq=item[20],
+        count=img_count,
+        hash=current_hash
     )
     db.add(listing)
     db.commit()
 
-    
 def update_listing_in_db(db, listing_item, item, current_hash, img_count):
+    fee = "" if item[19] == '$' else item[19]
+
     listing_item.address = f"{item[2]}, {item[5]}, {item[6]} {item[7]}"
     listing_item.price = item[0]
     listing_item.description = item[14]
     listing_item.availability = item[3]
     listing_item.bedrooms = item[15]
     listing_item.bath = item[16]
+    listing_item.condo = item[17]
+    listing_item.hoa = item[18]
+    listing_item.fee = fee
+    listing_item.freq = item[20]
     listing_item.count = img_count
     listing_item.hash = current_hash
+
     db.commit()
+
 
 def check_and_recreate_images(db, mls, all_imgs, max_images):
     in_place = f'start_files/static/rentals_images/{mls}/'
@@ -286,6 +302,7 @@ def load_page(max_images , min_images, item, timeout, max_retries, delay):
             driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_locator)
             driver.execute_script("arguments[0].click();", search_bar_locator)
             search_bar_locator.send_keys(mls)
+            
             logger.info(f"Entering {mls} in search bar")
             search_bar_submit = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, "ctl01_m_ucSpeedBar_m_lnkGo")))
             driver.execute_script("arguments[0].scrollIntoView(true);", search_bar_submit)
@@ -347,8 +364,12 @@ def load_page(max_images , min_images, item, timeout, max_retries, delay):
                     os.makedirs(save_dir, exist_ok=True)
                     save_images(all_imgs, save_dir, max_images)
                     logger.info(f'Converted images to .webp for {mls}')
-                    add_listing_to_db(db, mls, item, current_hash, len(all_imgs))
-                    logger.info(f"{mls} added to temp database!")
+                    try:
+                        add_listing_to_db(db, mls, item, current_hash, len(all_imgs))
+                        logger.info(f"{mls} added to temp database!")
+                    except Exception as e:
+                        logger.info(f"{mls} something failed adding to database: {e}")
+
                 else:
                     logger.info(f"{mls} found in the temp database. Comparing hashes.")
                     if listing_item.hash != current_hash:
