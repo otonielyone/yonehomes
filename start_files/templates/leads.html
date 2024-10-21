@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Listings</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="static/css/leads.css">
+    <link rel="stylesheet" href="static/css/leads_tab1.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 </head>
@@ -14,7 +14,7 @@
    <!-- Main Loader -->
     <div class="loader" id="loader">
         <div class="spinner"></div>
-        <div class="loading-message"><br>Please give us a moment while we retrieve the latest listings...</div>    
+        <div class="loading-message"><br>Retrieving leads...</div>    
     </div>
 
 <div class="container">
@@ -26,6 +26,10 @@
         <div class="tab" data-tab="tab2">Customer Relationship Management</div>
     </div>
     
+
+
+    <!-- Tab 1: MLS Leads -->
+    <div id="tab1" class="tab-content active">
 <!-- Button to start leads gathering -->
 <form id="leadsForm" action="/api/populate_leads_database" method="get">
     <button class="get" type="submit" id="startButton">Generate New Leads</button>
@@ -73,9 +77,7 @@
 </script>
 
 
-    <!-- Tab 1: MLS Leads -->
-    <div id="tab1" class="tab-content active">
-        <div class="table-container">
+<div class="table-container">
             <table id="basicInfoTable" class="display" style="display: none;">
                 <thead>
                     <tr>
@@ -91,103 +93,88 @@
                 </thead>
                 <tbody>
                     {% for listing in leads %}
-                    <tr>
-                        <td style="position: relative;">
-                            <span class="toggle mls-toggle" data-target="remarksDetails{{ loop.index }}">+</span>
-                            {{ listing.MLS }}
-                            <div class="remarks-content toggle-content" id="remarksDetails{{ loop.index }}" style="display: none;">
-                                <p>Remarks: {{ listing.Remarks }}</p>
-                            </div>
-                        </td>
-                        <td>{{ listing.Status }}</td>
-                        <td>{{ listing.Owner_Phone }}</td>
-                        <td style="position: relative;">
-                            <span class="toggle owner-toggle" data-target="ownerNameDetails{{ loop.index }}">+</span>
-                            Owner Name
-                            <div class="owner-details toggle-content" id="ownerNameDetails{{ loop.index }}" style="display: none;">
-                                <p>Owner Name: {{ listing.Owner_Names }}</p>
-                                <p>First Name: {{ listing.Owner_First_Name }}</p>
-                                <p>Last Name: {{ listing.Owner_Last_Name }}</p>
-                            </div>
-                        </td>
-                        <td style="position: relative;">
-                            <span class="toggle owner-info-toggle" data-target="ownerInfoDetails{{ loop.index }}">+</span>
-                            Owner Info
-                            <div class="owner-info toggle-content" id="ownerInfoDetails{{ loop.index }}" style="display: none;">
-                                <p>Sale Amount: {{ listing.Sale_Amount }}</p>
-                                <p>List Price: {{ listing.List_Price }}</p>
-                                <p>Owner Occupied: {{ listing.Owner_Occupied }}</p>
-                            </div>
-                        </td>
-                        <td style="position: relative;">
-                            <span class="toggle prior-agent-toggle" data-target="priorAgentDetails{{ loop.index }}">+</span>
-                            Prior Agent Details
-                            <div class="prior-agent-details toggle-content" id="priorAgentDetails{{ loop.index }}" style="display: none;">
-                                <p>Agent Name: {{ listing.Agent_Name }}</p>
-                                <p>Office Name: {{ listing.Office_Name }}</p>
-                            </div>
-                        </td>
-                        <td>
-                            <select class="call-status">
-                                <option value="">Select Status</option>
-                                <option value="No Answer">No Answer</option>
-                                <option value="Follow Up">Follow Up</option>
-                                <option value="Called">Called</option>
-                            </select>
-                        </td>
-                        <td class="notes-column">
-                            <button class="add-notes" data-mls="{{ listing.MLS }}">Notes</button>
-                            <div class="notes-input toggle-content" style="display: none;">
-                                <textarea id="notes-{{ listing.MLS }}" rows="2" placeholder="Enter your notes here..." class="notes-textarea"></textarea>
-                                <button class="save-notes" data-mls="{{ listing.MLS }}">Save</button>
-                                <button class="delete-notes" data-mls="{{ listing.MLS }}">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
+                        {% if listing.Owner_Phone %}
+                        <tr>
+                            <td style="position: relative;">
+                                <span class="toggle mls-toggle" data-target="remarksDetails{{ loop.index }}">+</span>
+                                {{ listing.MLS }}
+                                <div class="remarks-content toggle-content" id="remarksDetails{{ loop.index }}" style="display: none;">
+                                    <p>Remarks: {{ listing.Remarks }}</p>
+                                </div>
+                            </td>
+                            <td>{{ listing.Status }}</td>
+                            <td>{{ listing.Owner_Phone }}</td>
+                            <td style="position: relative;">
+                                <span class="toggle owner-toggle" data-target="ownerNameDetails{{ loop.index }}">+</span>
+                                Owner Name
+                                <div class="owner-details toggle-content" id="ownerNameDetails{{ loop.index }}" style="display: none;">
+                                    <p>Owner Name: {{ listing.Owner_Names }}</p>
+                                    <p>First Name: {{ listing.Owner_First_Name }}</p>
+                                    <p>Last Name: {{ listing.Owner_Last_Name }}</p>
+                                </div>
+                            </td>
+                            <td style="position: relative;">
+                                <span class="toggle owner-info-toggle" data-target="ownerInfoDetails{{ loop.index }}">+</span>
+                                Owner Info
+                                <div class="owner-info toggle-content" id="ownerInfoDetails{{ loop.index }}" style="display: none;">
+                                    <p>Sale Amount: {{ listing.Sale_Amount }}</p>
+                                    <p>List Price: {{ listing.List_Price }}</p>
+                                    <p>Owner Occupied: {{ listing.Owner_Occupied }}</p>
+                                    <p>Owner Address: {{ listing.Owner_Address }}</p>
+                                </div>
+                            </td>
+                            <td style="position: relative;">
+                                <span class="toggle prior-agent-toggle" data-target="priorAgentDetails{{ loop.index }}">+</span>
+                                Prior Agent Details
+                                <div class="prior-agent-details toggle-content" id="priorAgentDetails{{ loop.index }}" style="display: none;">
+                                    <p>Agent Name: {{ listing.Agent_Name }}</p>
+                                    <p>Office Name: {{ listing.Office_Name }}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <select class="call-status">
+                                    <option value="">Select Status</option>
+                                    <option value="No Answer">No Answer</option>
+                                    <option value="Follow Up">Follow Up</option>
+                                    <option value="Called">Called</option>
+                                </select>
+                            </td>
+                            <td class="notes-column">
+                                <button class="add-notes" data-mls="{{ listing.MLS }}">Notes</button>
+                                <div class="notes-input toggle-content" style="display: none;">
+                                    <textarea id="notes-{{ listing.MLS }}" rows="2" placeholder="Enter your notes here..." class="notes-textarea"></textarea>
+                                    <button class="save-notes" data-mls="{{ listing.MLS }}">Save</button>
+                                    <button class="delete-notes" data-mls="{{ listing.MLS }}">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
 
-                
+
     <!-- Tab 2: Customer Relationship Management -->
     <div id="tab2" class="tab-content">
-        <div class="table-container">
-            <table id="crmTable" class="display" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Customer</th>
-                        <th>Email</th>
-                        <th class="notes-column">Notes</th>
-                        <th>Actions</th> <!-- New column for action buttons -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="customer-name">
-                            <input type="text" placeholder="Enter customer name" class="customer-name" />
-                        </td>
-                        <td class="customer-email">
-                            <input type="email" placeholder="Enter customer email" class="customer-email" />
-                        </td>
-                        <td class="customer-notes">
-                            <input type="text" placeholder="Enter notes" class="customer-notes" />
-                        </td>
-                        <td> <!-- Action buttons -->
-                            <button class="save-info" 
-                                    data-name="" 
-                                    data-email="" 
-                                    data-notes="">Save</button>
-                            <button class="delete-info" data-email="">Delete</button>
-                        </td>
-                    </tr>
-                    <!-- You can add more manual entry rows here -->
-                </tbody>
-            </table>
-        </div>
+        <div id="tab2Content"></div> <!-- Content will be loaded here -->
     </div>
-
+    <script>
+        $(document).ready(function() {
+            $('.tab[data-tab="tab2"]').on('click', function() {
+                $('#tab2Content').load('leads2', function(response, status, xhr) {
+                    if (status == "error") {
+                        $('#tab2Content').html("<p>Error loading content: " + xhr.status + " " + xhr.statusText + "</p>");
+                    }
+                });
+                // Switch to tab 2 content view
+                $('.tab-content').removeClass('active');
+                $('#tab2').addClass('active');
+            });
+        });
+    </script>
+    
 
 
 <!-- Footer -->
