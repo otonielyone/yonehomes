@@ -193,7 +193,7 @@ async def export_leads():
 
             download_dir = "/home/oyone/Downloads/"
             csv_path1 = os.path.join(download_dir, "Public Record Export.csv")
-            csv_path2 = "/var/www/html/fastapi_project/brightscrape/Export_public_record.csv"
+            csv_path2 = "/var/www/html/yonehomes/brightscrape/Export_public_record.csv"
 
             while not os.path.exists(csv_path1):
                 await asyncio.sleep(1)
@@ -216,7 +216,7 @@ async def export_leads():
 
             download_dir = "/home/oyone/Downloads/"
             csv_path3 = os.path.join(download_dir, "Exchange.csv")
-            csv_path4 = "/var/www/html/fastapi_project/brightscrape/Export_exchange.csv"
+            csv_path4 = "/var/www/html/yonehomes/brightscrape/Export_exchange.csv"
 
 
             while not os.path.exists(csv_path3):

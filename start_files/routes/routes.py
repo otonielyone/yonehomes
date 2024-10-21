@@ -15,10 +15,11 @@ from google.oauth2 import service_account
 from datetime import datetime, timedelta
 from fastapi import APIRouter, Request
 from typing import Any, Dict, List
-from fastapi import HTTPException
+from fastapi import HTTPException, Depends
 from sqlalchemy import desc, func
 from collections import Counter
 from dotenv import load_dotenv
+from pydantic import BaseModel
 import logging
 import httpx
 import os
@@ -150,7 +151,6 @@ async def view_leads(request: Request):
     
     templates = request.app.state.templates
     return templates.TemplateResponse("leads.html", {"request": request, "leads": leads, "crm_entries": crm_entries})
-
 
 @router.get("/contact", response_class=HTMLResponse, name="contact")
 async def contact(request: Request):
@@ -559,3 +559,58 @@ async def delete_customer_info(request: Request):
         return response  # Return the message directly
     else:
         raise HTTPException(status_code=404, detail='Notes not found or could not be deleted')
+
+
+
+####################
+####### LEADS ######
+####################
+class ContactCreate(BaseModel):
+    name: str
+    email: str
+    notes: str = ''
+
+class ContactResponse(ContactCreate):
+    id: int
+
+@router.post("/create_contacts/", response_model=ContactResponse)
+def create_contact(contact: ContactCreate):
+    db = leads_sessionLocal()
+    try:
+        db_contact = CRM(**contact.model_dump())
+        db.add(db_contact)
+        db.commit()
+        db.refresh(db_contact)
+        return db_contact
+    finally:
+        db.close()
+
+@router.get("/create_contacts/", response_model=List[ContactResponse])
+def read_contacts(skip: int = 0, limit: int = 10):
+    db = leads_sessionLocal()
+    try:
+        contacts = db.query(CRM).offset(skip).limit(limit).all()
+        return contacts
+    finally:
+        db.close()
+
+
+@router.delete("/delete_contact/{contact_id}/", response_model=dict)
+def delete_contact(contact_id: int):
+    db = leads_sessionLocal()
+    try:
+        contact = db.query(CRM).filter(CRM.id == contact_id).first()
+        if contact is None:
+            raise HTTPException(status_code=404, detail="Contact not found")
+        db.delete(contact)
+        db.commit()
+        return {"message": f"Contact {contact_id} deleted successfully"}
+    finally:
+        db.close()
+
+@router.get("/leads2", response_class=HTMLResponse, name="leads2")
+async def leads2(request: Request):
+    logger.info("Rendering leads2 page")
+    templates = request.app.state.templates
+    return templates.TemplateResponse("leads2.html", {"request": request})
+

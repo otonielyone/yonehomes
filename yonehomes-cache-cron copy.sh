@@ -14,7 +14,7 @@ def purge_cloudflare_cache():
 
 def set_cache_headers():
     # Your logic to set cache headers
-    os.system('find /var/www/html/fastapi_project/start_files/static/ -type f \\( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" \\) -exec touch -d "tomorrow" {} \\;')
+    os.system('find /var/www/html/yonehomes/start_files/static/ -type f \\( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" \\) -exec touch -d "tomorrow" {} \\;')
 
 if __name__ == "__main__":
     # Set the cache headers for all images

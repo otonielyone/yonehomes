@@ -2,13 +2,12 @@ import os
 import requests
 import time
 import logging
-import subprocess
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 
 # Define the directory and virtual environment
-project_directory = "/var/www/html/fastapi_project"
+project_directory = "/var/www/html/yonehomes"
 venv_python = os.path.join(project_directory, ".venv", "bin", "python")
 
 # Change to the project directory

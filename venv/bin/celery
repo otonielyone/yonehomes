@@ -1,4 +1,4 @@
-#!/var/www/html/fastapi_project/venv/bin/python3
+#!/var/www/html/yonehomes/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

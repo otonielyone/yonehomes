@@ -168,7 +168,7 @@ async def export_rentals():
 
             download_dir = "/home/oyone/Downloads/"
             csv_path1 = os.path.join(download_dir, "Standard Export.csv")
-            csv_path2 = "/var/www/html/fastapi_project/brightscrape/Export_rentals.csv"
+            csv_path2 = "/var/www/html/yonehomes/brightscrape/Export_rentals.csv"
 
             while not os.path.exists(csv_path1):
                 await asyncio.sleep(1)

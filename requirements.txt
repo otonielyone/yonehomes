@@ -11,3 +11,10 @@ jsonify
 joblib
 celery
 pillow
+flask
+sqlalchemy
+pandas
+google-analytics-data
+httpx
+python-multipart
+requests
