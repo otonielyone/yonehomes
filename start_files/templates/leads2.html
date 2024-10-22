@@ -2,176 +2,238 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/leads_tab2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM System</title>
 </head>
 <body>
-    <h1>CRM System</h1>
+    <div class="content-wrapper">
+        <div id="form">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="notes" placeholder="Notes"></textarea>
+            <button id="add-contact">Add Contact</button>
+        </div>
+        <div id="contact-list">
+            <h3>Contacts</h3>
+            <!-- Contact list will be populated here -->
+        </div>
+        <div id="contact-details" style="display: none;"> <!-- Start hidden -->
+            <h3>Contact Details</h3>
+            <p><strong>Email:</strong> <span id="details-email"></span></p>
+            <textarea id="extra-notes" placeholder="View/add notes here..."></textarea>
+            <div class="button-container">
+                <button id="save-notes">Save Notes</button>
+                <button id="follow-up-button">Follow Up</button>
+            </div>
+            <div class="follow-up-container" id="follow-up-form" style="display: none;">
+                <h3>Follow Up</h3>
+                <input type="text" id="follow-up-name" placeholder="Name" required>
+                <input type="email" id="follow-up-email" placeholder="Email" required>
+                <textarea id="follow-up-comments" placeholder="Comments"></textarea>
+                <button id="draft-button">Draft</button>
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+        
+        <script>
+            let lastClickedContactId = null; 
 
-    <div id="form">
-        <input type="text" id="name" placeholder="Name" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <textarea id="notes" placeholder="Notes"></textarea>
-        <button id="add-contact">Add</button>
-    </div>
+            async function loadContacts() {
+                try {
+                    const response = await fetch('/create_contacts/');
+                    if (!response.ok) throw new Error(`Failed to fetch contacts: ${response.status}`);
+                    const contacts = await response.json();
+                    displayContacts(contacts);
+                    initAddContactButton(); // Re-initialize Add Contact button listener after loading contacts
+                } catch (error) {
+                    console.error('Error loading contacts:', error);
+                    document.getElementById('contact-list').innerHTML = `<p>Error loading contacts: ${error.message}</p>`;
+                    clearContactDetails();
+                }
+            }
 
-    <div id="contact-list"></div>
+            function displayContacts(contacts) {
+                const contactList = document.getElementById('contact-list');
+                contactList.innerHTML = '<h3>Contacts</h3>'; 
 
-    <div id="contact-details">
-        <h3>Contact Details</h3>
-        <p><strong>Email:</strong> <span id="details-email"></span></p>
-        <textarea id="extra-notes" placeholder="view/add notes here..."></textarea>
-        <button id="save-notes">Save</button>
-    </div>
+                contacts.forEach(contact => {
+                    const contactItem = document.createElement('div');
+                    contactItem.className = 'contact-item';
+                    contactItem.dataset.id = contact.id; 
+                    
+                    const nameSpan = document.createElement('span');
+                    nameSpan.className = 'contact-name';
+                    nameSpan.innerText = contact.name;
+                    
+                    const deleteButton = document.createElement('button');
+                    deleteButton.className = 'delete-btn';
+                    deleteButton.innerText = 'Delete';
+                    deleteButton.onclick = function(e) {
+                        e.stopPropagation();
+                        deleteContact(contact.id);
+                    };
 
-    <script>
-        // Function to load all contacts from the database
-        async function loadContacts() {
-            console.log('loadContacts function called');
-            try {
-                console.log('Fetching contacts...');
+                    contactItem.appendChild(nameSpan);
+                    contactItem.appendChild(deleteButton);
+
+                    contactItem.onclick = function() {
+                        if (lastClickedContactId === contact.id) {
+                            clearContactDetails();
+                            lastClickedContactId = null;
+                        } else {
+                            showContactDetails(contact);
+                            toggleContactDetails(true);
+                            lastClickedContactId = contact.id;
+                        }
+                    };
+
+                    contactList.appendChild(contactItem);
+                });
+
+                // Only assign listeners once when contacts are loaded
+                assignDetailButtonListeners();
+            }
+
+            function showContactDetails(contact) {
+                document.getElementById('details-email').innerText = contact.email;
+                document.getElementById('extra-notes').value = contact.notes;
+            }
+
+            function toggleContactDetails(show) {
+                const contactDetails = document.getElementById('contact-details');
+                contactDetails.style.display = show ? 'block' : 'none';
+            }
+
+            function clearContactDetails() {
+                document.getElementById('details-email').innerText = '';
+                document.getElementById('extra-notes').value = '';
+                document.getElementById('contact-details').style.display = 'none';
+            }
+
+            function initAddContactButton() {
+                const addButton = document.getElementById('add-contact');
+                addButton.onclick = async function() {
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const notes = document.getElementById('notes').value;
+
+                    if (!name || !email) {
+                        alert("Please fill in all required fields.");
+                        return;
+                    }
+
+                    try {
+                        const response = await fetch('/create_contacts/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, email, notes })
+                        });
+
+                        if (!response.ok) throw new Error(`Failed to add contact: ${response.status}`);
+                        loadContacts(); // Refresh the contact list
+                        document.getElementById('name').value = '';
+                        document.getElementById('email').value = '';
+                        document.getElementById('notes').value = '';
+                    } catch (error) {
+                        console.error('Error adding contact:', error);
+                        alert(`Failed to add contact: ${error.message}`);
+                    }
+                };
+            }
+
+            async function deleteContact(contactId) {
+                try {
+                    const response = await fetch(`/delete_contact/${contactId}/`, {
+                        method: 'DELETE'
+                    });
+
+                    if (!response.ok) throw new Error(`Failed to delete contact: ${response.status}`);
+                    loadContacts(); // Refresh the contact list
+                } catch (error) {
+                    console.error('Error deleting contact:', error);
+                    alert(`Failed to delete contact: ${error.message}`);
+                }
+            }
+
+            function assignDetailButtonListeners() {
+                document.getElementById('save-notes').onclick = async function() {
+                    const email = document.getElementById('details-email').innerText;
+                    const extraNotes = document.getElementById('extra-notes').value;
+
+                    const contactId = await getContactIdByEmail(email);
+                    if (!contactId) {
+                        alert("Contact not found.");
+                        return;
+                    }
+
+                    try {
+                        const response = await fetch(`/update_contact/${contactId}/`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ notes: extraNotes })
+                        });
+
+                        if (!response.ok) throw new Error(`Failed to save notes: ${response.status}`);
+                        alert('Notes saved successfully!');
+                    } catch (error) {
+                        console.error('Error saving notes:', error);
+                        alert(`Failed to save notes: ${error.message}`);
+                    }
+                };
+
+                document.getElementById('follow-up-button').onclick = function() {
+                    const followUpForm = document.getElementById('follow-up-form');
+                    followUpForm.style.display = followUpForm.style.display === 'none' ? 'block' : 'none'; // Toggle visibility
+                };
+
+                document.getElementById('draft-button').onclick = function() {
+                    const name = document.getElementById('follow-up-name').value;
+                    const email = document.getElementById('follow-up-email').value;
+                    const comments = document.getElementById('follow-up-comments').value;
+
+                    console.log('Draft saved:', { name, email, comments });
+                    alert('Draft saved!');
+                };
+
+                document.getElementById('send-button').onclick = async function() {
+                    const name = document.getElementById('follow-up-name').value;
+                    const email = document.getElementById('follow-up-email').value;
+                    const comments = document.getElementById('follow-up-comments').value;
+
+                    try {
+                        const response = await fetch('/send_email/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, email, comments })
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`Failed to send email: ${response.status} ${response.statusText}`);
+                        }
+
+                        alert('Email sent successfully!');
+                        document.getElementById('follow-up-form').reset(); // Clear the form after sending
+                    } catch (error) {
+                        console.error('Error sending email:', error);
+                        alert(`Failed to send email: ${error.message}`);
+                    }
+                };
+            }
+
+            async function getContactIdByEmail(email) {
                 const response = await fetch('/create_contacts/');
-                console.log('Fetch response:', response);
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch contacts: ${response.status} ${response.statusText}`);
-                }
-
                 const contacts = await response.json();
-                console.log('Contacts received:', contacts);
-                displayContacts(contacts);
-            } catch (error) {
-                console.error('Error loading contacts:', error);
-                document.getElementById('contact-list').innerHTML = `<p>Error loading contacts: ${error.message}</p>`;
-                clearContactDetails();  // Clear details on error
-            }
-        }
-
-        // Function to display contacts in the view box
-        function displayContacts(contacts) {
-            console.log('displayContacts function called with:', contacts);
-            const contactList = document.getElementById('contact-list');
-            contactList.innerHTML = ''; // Clear the list
-
-            if (contacts.length === 0) {
-                contactList.innerHTML = '<p>No contacts found.</p>';
-                clearContactDetails(); // Clear details when no contacts
-                return;
+                const contact = contacts.find(contact => contact.email === email);
+                return contact ? contact.id : null;
             }
 
-            contacts.forEach(contact => {
-                const contactItem = document.createElement('div');
-                contactItem.className = 'contact-item';
-                
-                const nameSpan = document.createElement('span');
-                nameSpan.className = 'contact-name';
-                nameSpan.innerText = contact.name;
-                
-                const deleteButton = document.createElement('button');
-                deleteButton.className = 'delete-btn';
-                deleteButton.innerText = 'Delete';
-                deleteButton.onclick = function(e) {
-                    e.stopPropagation(); // Prevent triggering the contact item click
-                    deleteContact(contact.id);
-                };
-
-                contactItem.appendChild(nameSpan);
-                contactItem.appendChild(deleteButton);
-
-                // Show contact details on click
-                contactItem.onclick = function() {
-                    document.getElementById('details-email').innerText = contact.email;
-                    document.getElementById('extra-notes').value = contact.notes; // Set the value of the extra notes textarea
-                    document.getElementById('contact-details').style.display = 'block';
-                };
-
-                contactList.appendChild(contactItem);
-            });
-            console.log('Contacts displayed in the list');
-        }
-
-        // Function to clear contact details
-        function clearContactDetails() {
-            document.getElementById('details-email').innerText = '';
-            document.getElementById('extra-notes').value = ''; // Clear extra notes
-            document.getElementById('contact-details').style.display = 'none'; // Hide details section
-        }
-
-        // Function to add a new contact to the database
-        document.getElementById('add-contact').onclick = async function() {
-            console.log('Add contact button clicked');
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const notes = document.getElementById('notes').value;
-
-            try {
-                console.log('Sending new contact data:', { name, email, notes });
-                const response = await fetch('/create_contacts/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, notes })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Failed to add contact: ${response.status} ${response.statusText}`);
-                }
-                
-                const newContact = await response.json();
-                console.log('New contact added:', newContact);
-                loadContacts(); // Refresh the contact list
-                
-                // Clear input fields after saving
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('notes').value = '';
-            } catch (error) {
-                console.error('Error adding contact:', error);
-                alert(`Failed to add contact: ${error.message}`);
-            }
-        };
-
-        // Function to delete a contact
-        async function deleteContact(contactId) {
-            try {
-                const response = await fetch(`/delete_contact/${contactId}/`, {
-                    method: 'DELETE'
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Failed to delete contact: ${response.status} ${response.statusText}`);
-                }
-
-                console.log(`Contact ${contactId} deleted successfully`);
-                loadContacts(); // Refresh the contact list
-            } catch (error) {
-                console.error('Error deleting contact:', error);
-                alert(`Failed to delete contact: ${error.message}`);
-            }
-        }
-
-        // Function to save additional notes
-        document.getElementById('save-notes').onclick = function() {
-            const email = document.getElementById('details-email').innerText;
-            const extraNotes = document.getElementById('extra-notes').value;
-
-            // Implement saving logic for extraNotes here if needed
-            console.log('Saving extra notes for:', email);
-            alert('Extra notes saved!'); // Placeholder alert
-        };
-
-        // Load contacts when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOMContentLoaded event fired');
+            // Load contacts on page load
             loadContacts();
-        });
 
-        // Additional check to ensure loadContacts is called
-        console.log('Script loaded, calling loadContacts immediately');
-        loadContacts();
-    </script>
-
-
-
+            // Add event listener for the existing tab click
+            document.querySelector('.tab[data-tab="tab2"]').onclick = loadContacts; // Load contacts when tab2 is clicked
+        </script>
+    </div>
 </body>
 </html>

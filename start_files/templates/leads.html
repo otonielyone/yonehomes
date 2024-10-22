@@ -6,443 +6,343 @@
     <title>Property Listings</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="static/css/leads_tab1.css">
+    <style>
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tab.active {
+            background-color: #f1f1f1;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        .btn-done {
+            background-color: #4CAF50 !important;
+            color: white !important;
+            cursor: not-allowed !important;
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
-
-   <!-- Main Loader -->
     <div class="loader" id="loader">
         <div class="spinner"></div>
         <div class="loading-message"><br>Retrieving leads...</div>    
     </div>
 
-<div class="container">
-    <h1 class="banner">MLS LEADS</h1>
-    
-
-    <div class="tabs">
-        <div class="tab active" data-tab="tab1">MLS Leads</div>
-        <div class="tab" data-tab="tab2">Customer Relationship Management</div>
-    </div>
-    
-
-
-    <!-- Tab 1: MLS Leads -->
-    <div id="tab1" class="tab-content active">
-<!-- Button to start leads gathering -->
-<form id="leadsForm" action="/api/populate_leads_database" method="get">
-    <button class="get" type="submit" id="startButton">Generate New Leads</button>
-</form>
-
-<div id="timer" style="font-size: 12px; margin-top: 10px;"></div>
-
-<script>
-    function startTimer(duration, display) {
-        let timer = duration, minutes, seconds;
-        const countdownInterval = setInterval(() => {
-            minutes = Math.floor(timer / 60);
-            seconds = timer % 60;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-            display.textContent = `Time remaining: ${minutes}:${seconds}`;
-
-            if (--timer < 0) {
-                clearInterval(countdownInterval);
-                const button = document.getElementById('startButton');
-                button.textContent = 'Refresh Page';
-                button.type = 'button'; // Change button type to prevent form submission
-                button.onclick = () => location.reload(); // Refresh page when clicked
-                button.disabled = false; // Enable the button
-            }
-        }, 1000);
-    }
-
-    document.getElementById('leadsForm').onsubmit = async (event) => {
-        event.preventDefault();
-        const button = document.getElementById('startButton');
-        button.disabled = true;
-
-        const timerDisplay = document.getElementById('timer');
-        startTimer(60, timerDisplay);
-
-        try {
-            const response = await fetch('/api/populate_leads_database');
-            const result = await response.json();
-            document.getElementById('responseMessage').innerText = result.message;
-        } catch (error) {
-            document.getElementById('responseMessage').innerText = 
-                'Error: Unable to fetch leads data.';
-        }
-    };
-</script>
-
-
-<div class="table-container">
-            <table id="basicInfoTable" class="display" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>MLS</th>
-                        <th>Status</th>
-                        <th>Owner Phone</th>
-                        <th>Owner Name</th>
-                        <th>Owner Info</th>
-                        <th>Prior Agent</th>
-                        <th>Call Status</th>
-                        <th class="notes-column">Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for listing in leads %}
-                        {% if listing.Owner_Phone %}
-                        <tr>
-                            <td style="position: relative;">
-                                <span class="toggle mls-toggle" data-target="remarksDetails{{ loop.index }}">+</span>
-                                {{ listing.MLS }}
-                                <div class="remarks-content toggle-content" id="remarksDetails{{ loop.index }}" style="display: none;">
-                                    <p>Remarks: {{ listing.Remarks }}</p>
-                                </div>
-                            </td>
-                            <td>{{ listing.Status }}</td>
-                            <td>{{ listing.Owner_Phone }}</td>
-                            <td style="position: relative;">
-                                <span class="toggle owner-toggle" data-target="ownerNameDetails{{ loop.index }}">+</span>
-                                Owner Name
-                                <div class="owner-details toggle-content" id="ownerNameDetails{{ loop.index }}" style="display: none;">
-                                    <p>Owner Name: {{ listing.Owner_Names }}</p>
-                                    <p>First Name: {{ listing.Owner_First_Name }}</p>
-                                    <p>Last Name: {{ listing.Owner_Last_Name }}</p>
-                                </div>
-                            </td>
-                            <td style="position: relative;">
-                                <span class="toggle owner-info-toggle" data-target="ownerInfoDetails{{ loop.index }}">+</span>
-                                Owner Info
-                                <div class="owner-info toggle-content" id="ownerInfoDetails{{ loop.index }}" style="display: none;">
-                                    <p>Sale Amount: {{ listing.Sale_Amount }}</p>
-                                    <p>List Price: {{ listing.List_Price }}</p>
-                                    <p>Owner Occupied: {{ listing.Owner_Occupied }}</p>
-                                    <p>Owner Address: {{ listing.Owner_Address }}</p>
-                                </div>
-                            </td>
-                            <td style="position: relative;">
-                                <span class="toggle prior-agent-toggle" data-target="priorAgentDetails{{ loop.index }}">+</span>
-                                Prior Agent Details
-                                <div class="prior-agent-details toggle-content" id="priorAgentDetails{{ loop.index }}" style="display: none;">
-                                    <p>Agent Name: {{ listing.Agent_Name }}</p>
-                                    <p>Office Name: {{ listing.Office_Name }}</p>
-                                </div>
-                            </td>
-                            <td>
-                                <select class="call-status">
-                                    <option value="">Select Status</option>
-                                    <option value="No Answer">No Answer</option>
-                                    <option value="Follow Up">Follow Up</option>
-                                    <option value="Called">Called</option>
-                                </select>
-                            </td>
-                            <td class="notes-column">
-                                <button class="add-notes" data-mls="{{ listing.MLS }}">Notes</button>
-                                <div class="notes-input toggle-content" style="display: none;">
-                                    <textarea id="notes-{{ listing.MLS }}" rows="2" placeholder="Enter your notes here..." class="notes-textarea"></textarea>
-                                    <button class="save-notes" data-mls="{{ listing.MLS }}">Save</button>
-                                    <button class="delete-notes" data-mls="{{ listing.MLS }}">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-
-    <!-- Tab 2: Customer Relationship Management -->
-    <div id="tab2" class="tab-content">
-        <div id="tab2Content"></div> <!-- Content will be loaded here -->
-    </div>
-    <script>
-        $(document).ready(function() {
-            $('.tab[data-tab="tab2"]').on('click', function() {
-                $('#tab2Content').load('leads2', function(response, status, xhr) {
-                    if (status == "error") {
-                        $('#tab2Content').html("<p>Error loading content: " + xhr.status + " " + xhr.statusText + "</p>");
-                    }
-                });
-                // Switch to tab 2 content view
-                $('.tab-content').removeClass('active');
-                $('#tab2').addClass('active');
-            });
-        });
-    </script>
-    
-
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-column">
-            <nav class="footer-nav">
-                <ul>
-                    <li><a class="nav-item" href="#" onclick="event.preventDefault();"><span class="nav-item-text">BROWSE</span></a></li>                            
-                    <li><a href="/" class="nav-item current"><span class="nav-item-text">HOME</span></a></li>
-                    <li><a href="/buying" class="nav-item"><span class="nav-item-text">BUYING</span></a></li>
-                    <li><a href="/rentals" class="nav-item"><span class="nav-item-text">RENTALS</span></a></li>
-                    <li><a href="/resources" class="nav-item"><span class="nav-item-text">RESOURCES</span></a></li>
-                    <li><a href="/contact" class="nav-item"><span class="nav-item-text">CONTACT</span></a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="footer-column">
-            <nav class="footer-nav">
-                <ul>
-                    <li><a class="nav-item" href="#" onclick="event.preventDefault();"><span class="nav-item-text">CONTACT</span></a></li>                            
-                    <li><a class="nav-item" href="#" onclick="event.preventDefault();"><span class="nav-item-text">United Real Estate</span></a></li>
-                    <li><a class="nav-item" href="#" onclick="event.preventDefault();"><span class="nav-item-text">Real Estate, Realtor®</span></a></li>
-                    <li><a class="nav-item" href="#" onclick="event.preventDefault();"><span class="nav-item-text">Otoniel (Toni) Yone</span></a></li>
-                    <li><a class="nav-item" href="mailto:toni@yone.realtor"><span class="nav-item-text">info@yonehomes.com</span></a></li>                            
-                    <li><a class="nav-item" href="tel:1-703-596-2121"><span class="nav-item-text">1-571-208-9384</span></a></li>                        
-                </ul>
-            </nav>
-        </div>
-        <div class="footer-column">
-            <img src="/static/icons/realtor1.png" alt="Realtor" class="footer-image">
-        </div>
-        <div class="footer-column">
-            <img src="/static/icons/united.svg" alt="United Logo" class="footer-image">
-        </div>
-    </div>
-</footer>
-
-<script>
-    $(document).ready(function() {
-        $('#loader').show();
-    
-        // Initialize the MLS Leads DataTable
-        const leadsTable = $('#basicInfoTable').DataTable({
-            pageLength: 10,
-            responsive: true,
-            initComplete: function() {
-                $('#loader').hide();
-                $('#basicInfoTable').show();
-                $('.toggle-content').hide();
-            }
-        });
-    
-        // Initialize the Customer Table DataTable
-        const customerTable = $('#crmTable').DataTable({
-            pageLength: 10,
-            responsive: true,
-            initComplete: function() {
-                $('#crmTable').show(); // Ensure it shows correctly
-            }
-        });
-    
-        // Toggle remarks and owner details
-        $('#basicInfoTable tbody').on('click', '.toggle', function() {
-            const target = $(this).data('target');
-            const content = $('#' + target);
-            const icon = $(this);
-            content.toggle();
-            icon.text(content.is(':visible') ? '-' : '+');
-        });
-    
-        // Notes button click to show/hide notes input for leads
-        $('#basicInfoTable tbody').on('click', '.add-notes', function() {
-            const mls = $(this).data('mls');
-            const notesInput = $(this).siblings('.notes-input');
-    
-            notesInput.toggle();
-    
-            if (notesInput.is(':visible')) {
-                $.ajax({
-                    url: '/get_notes',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({ mls: mls }),
-                    success: function(data) {
-                        $('#notes-' + mls).val(data.notes);
-                    },
-                    error: function() {
-                        alert('Failed to load notes.');
-                    }
-                });
-            }
-        });
-    
-        // Save notes functionality for leads
-        $('#basicInfoTable tbody').on('click', '.save-notes', function() {
-            const mls = $(this).data('mls');
-            const notes = $('#notes-' + mls).val();
-    
-            $.ajax({
-                url: '/save_notes',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ mls: mls, notes: notes }),
-                success: function() {
-                    alert('Notes saved successfully!');
-                },
-                error: function() {
-                    alert('Failed to save notes.');
-                }
-            });
-        });
-    
-        // Delete notes functionality for leads
-        $('#basicInfoTable tbody').on('click', '.delete-notes', function() {
-            const mls = $(this).data('mls');
-    
-            $.ajax({
-                url: '/delete_notes',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ mls: mls }),
-                success: function() {
-                    $('#notes-' + mls).val('');
-                    alert('Notes deleted successfully!');
-                },
-                error: function() {
-                    alert('Failed to delete notes.');
-                }
-            });
-        });
-    
-        // Notes button click to show/hide notes input for customers
-        $('#customerTable tbody').on('click', '.add-notes', function() {
-            const email = $(this).data('email');
-            const notesInput = $(this).siblings('.notes-input');
-    
-            notesInput.toggle();
-    
-            if (notesInput.is(':visible')) {
-                $.ajax({
-                    url: '/get_customer_notes',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({ email: email }),
-                    success: function(data) {
-                        $('#notes-' + email).val(data.notes);
-                    },
-                    error: function() {
-                        alert('Failed to load notes.');
-                    }
-                });
-            }
-        });
-    
-        // Save notes functionality for customers
-        $('#customerTable tbody').on('click', '.save-notes', function() {
-            const email = $(this).data('email');
-            const notes = $('#notes-' + email).val();
-    
-            $.ajax({
-                url: '/save_customer_notes',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ email: email, notes: notes }),
-                success: function() {
-                    alert('Notes saved successfully!');
-                },
-                error: function() {
-                    alert('Failed to save notes.');
-                }
-            });
-        });
-    
-        // Delete notes functionality for customers
-        $('#customerTable tbody').on('click', '.delete-notes', function() {
-            const email = $(this).data('email');
-    
-            $.ajax({
-                url: '/delete_customer_notes',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ email: email }),
-                success: function() {
-                    $('#notes-' + email).val('');
-                    alert('Notes deleted successfully!');
-                },
-                error: function() {
-                    alert('Failed to delete notes.');
-                }
-            });
-        });
-
-        // Save customer info
-        $('#crmTable tbody').on('click', '.save-info', function() {
-            const row = $(this).closest('tr');
-            const customerName = row.find('.customer-name input').val();
-            const customerEmail = row.find('.customer-email input').val();
-            const customerNotes = row.find('.customer-notes input').val();
-
-            if (!customerName || !customerEmail) {
-                alert("Please enter both the customer name and email.");
-                return;
-            }
-
-            const data = {
-                name: customerName,
-                email: customerEmail,
-                notes: customerNotes,
-            };
-
-            $.ajax({
-                url: '/save_customer_info',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(data),
-                success: function() {
-                    alert('Customer info saved successfully!');
-                    // Optionally, clear the inputs or update the table
-                },
-                error: function(jqXHR) {
-                    console.error('Failed to save customer info:', jqXHR);
-                    const errorMsg = jqXHR.responseJSON ? jqXHR.responseJSON.message : 'An unknown error occurred.';
-                    alert('Failed to save customer info: ' + errorMsg);
-                }
-            });
-        });
-
-
-        // Delete customer info
-        $('#crmTable tbody').on('click', '.delete-info', function() {
-            const row = $(this).closest('tr');
-            const customerEmail = row.find('.customer-email input').val();
-
-            if (!customerEmail) {
-                alert("Email is required to delete.");
-                return;
-            }
-
-            $.ajax({
-                url: '/delete_customer_info',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ email: customerEmail }),
-                success: function() {
-                    alert('Customer info deleted successfully!');
-                    // Optionally, you can remove the row from the table
-                    row.remove();
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error('Failed to delete customer info:', textStatus, errorThrown);
-                    alert('Failed to delete customer info. ' + (jqXHR.responseJSON ? jqXHR.responseJSON.message : 'Please try again.'));
-                }
-            });
-        });
-
-
-
-        // Tab switching functionality
-        $('.tab').click(function() {
-            const tabId = $(this).data('tab');
-            $('.tab, .tab-content').removeClass('active');
-            $(this).addClass('active');
-            $('#' + tabId).addClass('active');
-        });
-    });
-    </script>
+    <div class="container">
+        <h1 class="banner">MLS LEADS</h1>
         
+        <div class="tabs">
+            <div class="tab active" data-tab="tab1">MLS Leads</div>
+            <div class="tab" data-tab="tab2">Customer Relationship Management</div>
+        </div>
 
+        <div id="tab1" class="tab-content active">
+            <form id="leadsForm" action="/api/populate_leads_database" method="get">
+                <button class="get" type="submit" id="startButton">Generate New Leads</button>
+            </form>
+
+            <div id="timer" style="font-size: 12px; margin-top: 10px;"></div>
+
+            <div class="table-container">
+                <table id="basicInfoTable" class="display" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>MLS</th>
+                            <th>Status</th>
+                            <th>Owner Phone</th>
+                            <th>Owner Name</th>
+                            <th>Owner Info</th>
+                            <th>Prior Agent</th>
+                            <th>Call Status</th>
+                            <th class="notes-column">Notes</th>
+                            <th class="crm-column">Add to CRM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for listing in leads %}
+                            {% if listing.Owner_Phone %}
+                            <tr>
+                                <td style="position: relative;">
+                                    <span class="toggle mls-toggle" data-target="remarksDetails{{ loop.index }}">+</span>
+                                    {{ listing.MLS }}
+                                    <div class="remarks-content toggle-content" id="remarksDetails{{ loop.index }}" style="display: none;">
+                                        <p>Remarks: {{ listing.Remarks }}</p>
+                                    </div>
+                                </td>
+                                <td>{{ listing.Status }}</td>
+                                <td>{{ listing.Owner_Phone }}</td>
+                                <td style="position: relative;">
+                                    <span class="toggle owner-toggle" data-target="ownerNameDetails{{ loop.index }}">+</span>
+                                    Owner Name
+                                    <div class="owner-details toggle-content" id="ownerNameDetails{{ loop.index }}" style="display: none;">
+                                        <p>Owner Name: {{ listing.Owner_Names }}</p>
+                                        <p>First Name: {{ listing.Owner_First_Name }}</p>
+                                        <p>Last Name: {{ listing.Owner_Last_Name }}</p>
+                                    </div>
+                                </td>
+                                <td style="position: relative;">
+                                    <span class="toggle owner-info-toggle" data-target="ownerInfoDetails{{ loop.index }}">+</span>
+                                    Owner Info
+                                    <div class="owner-info toggle-content" id="ownerInfoDetails{{ loop.index }}" style="display: none;">
+                                        <p>Sale Amount: {{ listing.Sale_Amount }}</p>
+                                        <p>List Price: {{ listing.List_Price }}</p>
+                                        <p>Owner Occupied: {{ listing.Owner_Occupied }}</p>
+                                        <p>Owner Address: {{ listing.Owner_Address }}</p>
+                                    </div>
+                                </td>
+                                <td style="position: relative;">
+                                    <span class="toggle prior-agent-toggle" data-target="priorAgentDetails{{ loop.index }}">+</span>
+                                    Prior Agent Details
+                                    <div class="prior-agent-details toggle-content" id="priorAgentDetails{{ loop.index }}" style="display: none;">
+                                        <p>Agent Name: {{ listing.Agent_Name }}</p>
+                                        <p>Office Name: {{ listing.Office_Name }}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <select class="call-status">
+                                        <option value="">Select Status</option>
+                                        <option value="No Answer">No Answer</option>
+                                        <option value="Follow Up">Follow Up</option>
+                                        <option value="Called">Called</option>
+                                    </select>
+                                </td>
+                                <td class="notes-column">
+                                    <button class="add-notes" data-mls="{{ listing.MLS }}">Notes</button>
+                                    <div class="notes-input toggle-content" style="display: none;">
+                                        <div class="buttons-container">
+                                            <textarea id="notes-{{ listing.MLS }}" rows="2" placeholder="Enter your notes here..." class="notes-textarea"></textarea>
+                                            <button class="save-notes" data-mls="{{ listing.MLS }}">Save</button>
+                                            <button class="delete-notes" data-mls="{{ listing.MLS }}">Delete</button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button 
+                                        class="add-to-crm" 
+                                        data-mls="{{ listing.MLS }}" 
+                                        data-owner-names="{{ listing.Owner_Names }}" 
+                                        data-owner-phone="{{ listing.Owner_Phone }}"
+                                        data-added="false">Add to CRM</button>
+                                </td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <div id="tab2Content"></div>
+        </div>
+    </div>
+
+    <script>
+        // Timer functionality
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            const countdownInterval = setInterval(() => {
+                minutes = Math.floor(timer / 60);
+                seconds = timer % 60;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+                display.textContent = `Time remaining: ${minutes}:${seconds}`;
+
+                if (--timer < 0) {
+                    clearInterval(countdownInterval);
+                    const button = document.getElementById('startButton');
+                    button.textContent = 'Refresh Page';
+                    button.type = 'button';
+                    button.onclick = () => location.reload();
+                    button.disabled = false;
+                }
+            }, 1000);
+        }
+
+        // Form submission handler
+        document.getElementById('leadsForm').onsubmit = async (event) => {
+            event.preventDefault();
+            const button = document.getElementById('startButton');
+            button.disabled = true;
+
+            const timerDisplay = document.getElementById('timer');
+            startTimer(60, timerDisplay);
+
+            try {
+                const response = await fetch('/api/populate_leads_database');
+                const result = await response.json();
+                document.getElementById('responseMessage').innerText = result.message;
+            } catch (error) {
+                document.getElementById('responseMessage').innerText = 'Error: Unable to fetch leads data.';
+            }
+        };
+
+        $(document).ready(function() {
+            // Initialize DataTable
+            const table = $('#basicInfoTable').DataTable({
+                pageLength: 10,
+                responsive: true,
+                initComplete: function() {
+                    $('#loader').hide();
+                    $('#basicInfoTable').show();
+                    $('.toggle-content').hide();
+                }
+            });
+
+            // Notes functionality
+            function handleNotes(action, identifier, notes = null) {
+                let url = '';
+                const data = { [identifier.includes('@') ? 'email' : 'mls']: identifier };
+                
+                if (action === 'get') {
+                    url = identifier.includes('@') ? '/get_customer_notes' : '/get_notes';
+                    if (notes) data.notes = notes;
+                } else if (action === 'save') {
+                    url = identifier.includes('@') ? '/save_customer_notes' : '/save_notes';
+                    data.notes = notes;
+                } else if (action === 'delete') {
+                    url = identifier.includes('@') ? '/delete_customer_notes' : '/delete_notes';
+                }
+
+                $.ajax({
+                    url: url,
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function(response) {
+                        if (action === 'get' && response.notes) {
+                            $('#notes-' + identifier).val(response.notes);
+                        }
+                    },
+                    error: function() {
+                        console.error(`Failed to ${action} notes.`);
+                    }
+                });
+            }
+
+            // Toggle functionality
+            $('#basicInfoTable tbody').on('click', '.toggle', function() {
+                const target = $(this).data('target');
+                const content = $('#' + target);
+                content.toggle();
+                $(this).text(content.is(':visible') ? '-' : '+');
+            });
+
+            // Notes button click handler
+            $('#basicInfoTable tbody').on('click', '.add-notes', function() {
+                const mls = $(this).data('mls');
+                const notesInput = $(this).siblings('.notes-input');
+                notesInput.toggle();
+                if (notesInput.is(':visible')) {
+                    handleNotes('get', mls);
+                }
+            });
+
+            // Save notes handler
+            $('#basicInfoTable tbody').on('click', '.save-notes', function() {
+                const mls = $(this).data('mls');
+                const notes = $('#notes-' + mls).val();
+                handleNotes('save', mls, notes);
+            });
+
+            // Delete notes handler
+            $('#basicInfoTable tbody').on('click', '.delete-notes', function() {
+                const mls = $(this).data('mls');
+                handleNotes('delete', mls);
+                $('#notes-' + mls).val('');
+            });
+
+            // Add to CRM functionality
+            $('#basicInfoTable').on('click', '.add-to-crm', async function(e) {
+                const button = $(this);
+                
+                // Prevent multiple submissions
+                if (button.data('added') === true || button.hasClass('btn-done')) {
+                    return;
+                }
+
+                // Disable button immediately
+                button.prop('disabled', true);
+
+                // Get data attributes
+                const contactData = {
+                    name: button.data('owner-names'),
+                    email: button.data('owner-phone'),
+                    notes: button.closest('tr').find('.notes-textarea').val() || ''
+                };
+
+                try {
+                    const response = await fetch('/create_contacts/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        body: JSON.stringify(contactData)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    // Mark as added and update button appearance
+                    button.data('added', true)
+                          .addClass('btn-done')
+                          .text('Done')
+                          .prop('disabled', true);
+
+                } catch (error) {
+                    console.error('Failed to add contact:', error);
+                    // Re-enable button on error
+                    button.prop('disabled', false);
+                }
+            });
+
+            // Tab switching functionality
+            $('.tab').on('click', function() {
+                const targetTab = $(this).data('tab');
+                $('.tab').removeClass('active');
+                $('.tab-content').removeClass('active');
+                $(this).addClass('active');
+                $('#' + targetTab).addClass('active');
+
+                if (targetTab === 'tab2') {
+                    $('#tab2Content').load('leads2', function(response, status, xhr) {
+                        if (status == "error") {
+                            $('#tab2Content').html("<p>Error loading content: " + xhr.status + " " + xhr.statusText + "</p>");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

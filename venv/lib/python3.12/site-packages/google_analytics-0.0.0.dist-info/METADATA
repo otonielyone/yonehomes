@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: google-analytics
+Version: 0.0.0
+Summary: A google analytics client library
+Home-page: https://github.com/davebelais/google-analytics
+Author: David Belais
+Author-email: david@belais.me
+License: MIT
+Keywords: google analytics
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: sob
+
+UNKNOWN
+
+

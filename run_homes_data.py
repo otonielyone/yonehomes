@@ -15,7 +15,7 @@ os.chdir(project_directory)
 logging.info(f"Changed working directory to: {os.getcwd()}")
 
 # API URL
-API_URL = "https://www.yonehomes.com/api/populate_homes_database"
+API_URL = "http://www.yonehomes.com/api/populate_homes_database"
 
 # Parameters
 PARAMS = {

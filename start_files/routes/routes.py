@@ -586,10 +586,10 @@ def create_contact(contact: ContactCreate):
         db.close()
 
 @router.get("/create_contacts/", response_model=List[ContactResponse])
-def read_contacts(skip: int = 0, limit: int = 10):
+def read_contacts(skip: int = 0):
     db = leads_sessionLocal()
     try:
-        contacts = db.query(CRM).offset(skip).limit(limit).all()
+        contacts = db.query(CRM).offset(skip).all() 
         return contacts
     finally:
         db.close()
@@ -607,6 +607,29 @@ def delete_contact(contact_id: int):
         return {"message": f"Contact {contact_id} deleted successfully"}
     finally:
         db.close()
+
+
+from fastapi import HTTPException
+
+# Define a new ContactUpdate model for updating notes
+class ContactUpdate(BaseModel):
+    notes: str
+
+@router.put("/update_contact/{contact_id}/", response_model=ContactResponse)
+def update_contact(contact_id: int, contact: ContactUpdate):
+    db = leads_sessionLocal()
+    try:
+        db_contact = db.query(CRM).filter(CRM.id == contact_id).first()
+        if db_contact is None:
+            raise HTTPException(status_code=404, detail="Contact not found")
+        
+        db_contact.notes = contact.notes
+        db.commit()
+        db.refresh(db_contact)
+        return db_contact
+    finally:
+        db.close()
+
 
 @router.get("/leads2", response_class=HTMLResponse, name="leads2")
 async def leads2(request: Request):
