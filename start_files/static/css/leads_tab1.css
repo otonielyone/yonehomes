@@ -1,3 +1,18 @@
+:root {
+    --primary-color: #007BFF;
+    --background-color-light: #f9f9f9;
+    --background-color: #f5f5f5;
+    --section-bg-color: #FAFAFA;
+    --section-bg-color-light: #f1f1f1;
+    --text-color: #34495e;
+    --border-color: #ccc;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --highlight-color: #ffffff;
+    --coral-color: #ff6b81;
+}
+
+
 /* General styles */
 body {
     font-family: 'Roboto', 'Arial', sans-serif;
@@ -34,19 +49,18 @@ header {
     color: white;
     border: none;
     border-radius: 8px; /* Slightly more rounded */
-    padding: 10px 10px; /* Adjusted padding for better proportions */
+    padding: 8px 0; /* Adjusted padding for better proportions */
     font-weight: 500; /* Bold text */
+    margin-bottom: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
-    width: 100%;
-    font-size: 16px;
+    width: 150px !important;
+    font-size: 14px;
 }
 
 .get:hover {
     background-color: #34495e; /* Darker green on hover */
     transform: translateY(-3px); /* Slightly more lift effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
 #responseMessage {
@@ -110,6 +124,40 @@ h1 {
     font-size: 16px; /* Font size */
     text-align: center; /* Center text */
 }
+
+.tabs {
+    display: flex;
+    justify-content: center; /* Center the tabs */
+    border-bottom: 2px solid #ccc;
+    width: 100vw; /* Full width of the viewport */
+}
+
+.tab {
+    flex: 1; /* Make each tab take up equal space */
+    text-align: center; /* Center the text inside the tabs */
+    padding: 10px 0; /* Adjust padding for better appearance */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 50vw; /* Ensure each tab takes 50% of viewport width */
+}
+
+.tab.active {
+    background-color: #f1f1f1;
+    border-bottom: 2px solid #007bff;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
 
 #basicInfoTable {
     width: 100%;
@@ -218,12 +266,25 @@ table.dataTable tbody td {
     font-size: 10px; /* Changed to match table row font size */
 }
 
+    
+.btn-done {
+    background-color: var(--success-color) !important;
+    color: var(--background-white) !important;
+    cursor: not-allowed !important;
+}
+
 .custom-select::after {
     content: '\25BC';
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
+}
+
+.crm-column,
+.add-to-crm {
+    justify-content: center !important;
+    text-align: center;
 }
 
 .paginate_button,
@@ -348,10 +409,16 @@ footer {
     pointer-events: none; /* Prevent interaction while hiding */
 }
 
-@media (max-width: 768px) {
+
+@media (min-width: 768px) {
     .save-notes,
     .delete-notes {
         width: 37%; /* Adjust the width as needed */
         padding: 5px; /* Adjusted padding for better touch */
-        }
+    }
+
+    .get {
+        width: 100%;
+    }
+    
 }

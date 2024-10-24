@@ -6,48 +6,6 @@
     <title>Property Listings</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="static/css/leads_tab1.css">
-    <style>
-        .tabs {
-            display: flex;
-            border-bottom: 2px solid #ccc;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .tab.active {
-            background-color: #f1f1f1;
-            border-bottom: 2px solid #007bff;
-        }
-
-        .tab-content {
-            display: none;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-top: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .loader {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-        }
-
-        .btn-done {
-            background-color: #4CAF50 !important;
-            color: white !important;
-            cursor: not-allowed !important;
-        }
-    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 </head>
@@ -58,11 +16,11 @@
     </div>
 
     <div class="container">
-        <h1 class="banner">MLS LEADS</h1>
+        <h1 class="banner">YONE CRM</h1>
         
         <div class="tabs">
-            <div class="tab active" data-tab="tab1">MLS Leads</div>
-            <div class="tab" data-tab="tab2">Customer Relationship Management</div>
+            <div class="tab active" data-tab="tab1">Leads</div>
+            <div class="tab" data-tab="tab2">Management</div>
         </div>
 
         <div id="tab1" class="tab-content active">

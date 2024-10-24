@@ -26,6 +26,7 @@ import csv
 import re
 import os
 
+
 # Load environment variables
 load_dotenv()
 BRIGHTMLS_USERNAME = os.getenv("BRIGHTMLS")
@@ -207,7 +208,7 @@ def save_images(all_imgs, save_dir, max_images):
                 img = Image.open(BytesIO(response.content))
                 img.save(os.path.join(save_dir, f'{i + 1}.webp'), 'WEBP')
 
-def add_listing_to_db(db, mls, item, current_hash, img_count):
+def add_listing_to_db(db, mls, item, current_hash, img_count, formatted_time):
     fee = "" if item[19] == '$' else item[19]
     
     listing = Mls_rentals_temp(
@@ -223,12 +224,13 @@ def add_listing_to_db(db, mls, item, current_hash, img_count):
         fee=fee,
         freq=item[20],
         count=img_count,
+        formatted_time = formatted_time,
         hash=current_hash
     )
     db.add(listing)
     db.commit()
 
-def update_listing_in_db(db, listing_item, item, current_hash, img_count):
+def update_listing_in_db(db, listing_item, item, current_hash, img_count, formatted_time):
     fee = "" if item[19] == '$' else item[19]
 
     listing_item.address = f"{item[2]}, {item[5]}, {item[6]} {item[7]}"
@@ -242,6 +244,7 @@ def update_listing_in_db(db, listing_item, item, current_hash, img_count):
     listing_item.fee = fee
     listing_item.freq = item[20]
     listing_item.count = img_count
+    listing_item.formatted_time = formatted_time
     listing_item.hash = current_hash
 
     db.commit()
@@ -355,6 +358,8 @@ def load_page(max_images , min_images, item, timeout, max_retries, delay):
             save_dir = f'start_files/static/rentals_images/{mls}-pending/'
             image_urls = [img.get_attribute('src') for img in all_imgs]
             current_hash = generate_hash(item, image_urls)
+            end_time = time.time()
+            formatted_time = datetime.fromtimestamp(end_time).strftime('%Y-%m-%d %H:%M:%S')
             
             with get_db_session_pending() as db:
                 listing_item = db.query(Mls_rentals_temp).filter_by(mls=mls).first()
@@ -365,7 +370,7 @@ def load_page(max_images , min_images, item, timeout, max_retries, delay):
                     save_images(all_imgs, save_dir, max_images)
                     logger.info(f'Converted images to .webp for {mls}')
                     try:
-                        add_listing_to_db(db, mls, item, current_hash, len(all_imgs))
+                        add_listing_to_db(db, mls, item, current_hash, len(all_imgs),formatted_time)
                         logger.info(f"{mls} added to temp database!")
                     except Exception as e:
                         logger.info(f"{mls} something failed adding to database: {e}")
@@ -377,7 +382,7 @@ def load_page(max_images , min_images, item, timeout, max_retries, delay):
                         os.makedirs(save_dir, exist_ok=True)
                         save_images(all_imgs, save_dir, max_images)
                         logger.info(f'Converted images to .webp for {mls}')
-                        update_listing_in_db(db, listing_item, item, current_hash, len(all_imgs))
+                        update_listing_in_db(db, listing_item, item, current_hash, len(all_imgs),formatted_time)
                         logger.info(f"{mls} updated in temp database!")
                     else:
                         logger.info(f"No changes detected for {mls}.")
@@ -480,7 +485,13 @@ def start_rentals(concurrency_limit, timeout, max_images, min_images, max_price,
                 logger.error(f"Attempt {attempt + 1} to purge cache failed: {e}")
                 time.sleep(delay)
         
-        elapsed_time = time.time() - start_time
-        minutes = int(elapsed_time // 60)
-        seconds = elapsed_time % 60
-        logger.info(f"Elapsed Time: {minutes} minutes {seconds:.2f} seconds")
+        # Calculate end time and elapsed time
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        elapsed_time_str = f"{int(elapsed_time // 60)}m {elapsed_time % 60:.2f}s"
+        logger.info(f"Elapsed Time: {elapsed_time_str}")
+
+
+
+
+

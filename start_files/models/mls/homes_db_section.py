@@ -49,6 +49,7 @@ class Mls_homes(Base):
     hoa =  Column(String(5), index=True)
     fee = Column(String(20), index=True)
     freq =  Column(String(20), index=True)
+    formatted_time = Column(String(20), index=True)
     hash = Column(String(1000), index=True)
 
     def __repr__(self):
@@ -79,6 +80,7 @@ class Mls_homes_temp(Base):
     hoa =  Column(String(5), index=True)
     fee = Column(String(20), index=True)
     freq =  Column(String(20), index=True)
+    formatted_time = Column(String(20), index=True)
     hash = Column(String(1000), index=True)
 
     def __repr__(self):
@@ -142,7 +144,8 @@ def copy_homes_to_temp(db):
                 condo =item.condo,  
                 hoa =item.hoa,  
                 fee =item.fee, 
-                freq =item.freq, 
+                freq =item.freq,
+                formatted_time = item.formatted_time,
                 hash=item.hash
             )
             for item in original_listings
@@ -197,6 +200,7 @@ def process_row(row):
         "HOA": row['hoa'],
         "FEE": row['fee'],
         "FREQ": row['freq'],
+        "TIME":row['formatted_time'],
         "HASH": row['hash'],
     }
 
@@ -224,4 +228,3 @@ def get_homes_from_db():
 
 
 
-print(len(get_homes_from_db()))

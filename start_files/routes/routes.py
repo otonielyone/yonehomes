@@ -1,12 +1,9 @@
 from start_files.models.mls.leads_db_section import leads_sessionLocal, Mls_leads, get_notes_from_db, save_notes_from_db, delete_notes_from_db, NoteResponse, save_customer_info_in_db, CRM
 from start_files.models.mls.analytics import Analytics, analytics_sessionLocal, get_analytics_from_db, get_sub_table_from_db, SubTable
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, StreamingResponse
-from google.analytics.data_v1beta.types import DateRange, Metric, Dimension, RunReportRequest
-from google.analytics.data_v1beta import BetaAnalyticsDataClient, RunReportRequest
 from fastapi import APIRouter, Form, Request, HTTPException, BackgroundTasks
 from start_files.models.mls.rentals_db_section import get_rentals_from_db
 from start_files.models.mls.homes_db_section import get_homes_from_db
-from google.analytics.data_v1beta import BetaAnalyticsDataClient
 from start_files.routes.rentals_scripts import start_rentals
 from start_files.routes.leads_scripts import start_leads
 from start_files.routes.homes_scripts import start_homes
@@ -100,11 +97,12 @@ async def buying(request: Request):
     templates = request.app.state.templates
     return templates.TemplateResponse("buying.html", {"request": request})
 
-@router.get("/rentals", response_class=HTMLResponse, name="rentals")
+
+@router.get("/rentals", response_class=HTMLResponse)
 async def rentals(request: Request):
-    logger.info("Rendering rentals page")
     templates = request.app.state.templates
     return templates.TemplateResponse("rentals.html", {"request": request})
+
 
 @router.get("/leads", response_class=HTMLResponse, name="leads")
 async def view_leads(request: Request):
@@ -418,7 +416,7 @@ async def dashboard(request: Request):
 @router.get("/api/populate_homes_database", response_model=dict, name="import")
 async def get_home_data(background_tasks: BackgroundTasks, request: Request, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, min_images: int = 2, max_images: int = 100, max_price: int = 500000):
     logger.info("Starting MLS homes gathering task")
-    background_tasks.add_task(start_homes, concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
+    background_tasks.add_task(start_homes,concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
     return JSONResponse(content={"message": "MLS data gathering home task started in the background"})
 
 @router.get("/api/populate_rentals_database", response_model=dict, name="import")
@@ -449,6 +447,7 @@ async def api_homes(request: Request):
 async def api_rentals(request: Request):
     try:
         listings_data = get_rentals_from_db()
+        logger.info(listings_data)
         return {"rentals":listings_data}
     except Exception:
         raise HTTPException(status_code=500)

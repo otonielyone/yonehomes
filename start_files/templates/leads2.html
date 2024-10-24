@@ -3,30 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="static/css/leads_tab2.css">
+    <link href='https://unpkg.com/@fullcalendar/core@5.10.1/main.min.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalendar/daygrid@5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://unpkg.com/@fullcalendar/core@5.10.1/main.min.js'></script>
+    <script src='https://unpkg.com/@fullcalendar/daygrid@5.10.1/main.min.js'></script>
+    <script src='https://unpkg.com/@fullcalendar/interaction@5.10.1/main.min.js'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM System</title>
 </head>
+
 <body>
+    <script>
+        // Toggle Add Contact Form
+        document.getElementById('toggle-form-add').addEventListener('click', function() {
+            const formAdd = document.getElementById('form-add');
+            formAdd.style.display = (formAdd.style.display === 'none' || formAdd.style.display === '') ? 'block' : 'none';
+        });
+
+        // Toggle Contact List
+        document.getElementById('toggle-form-list').addEventListener('click', function() {
+            const formList = document.getElementById('form-list');
+            formList.style.display = (formList.style.display === 'none' || formList.style.display === '') ? 'block' : 'none';
+        });
+
+        // Toggle Contact List
+        document.getElementById('toggle-form-details').addEventListener('click', function() {
+            const formList = document.getElementById('form-details');
+            formList.style.display = (formList.style.display === 'none' || formList.style.display === '') ? 'block' : 'none';
+        });
+
+        // Toggle Contact List
+        document.getElementById('toggle-form-email').addEventListener('click', function() {
+            const formList = document.getElementById('form-email');
+            formList.style.display = (formList.style.display === 'none' || formList.style.display === '') ? 'block' : 'none';
+        });
+
+        // Toggle Contact List
+        document.getElementById('toggle-form-appointment').addEventListener('click', function() {
+            const formList = document.getElementById('form-appointment');
+            formList.style.display = (formList.style.display === 'none' || formList.style.display === '') ? 'block' : 'none';
+        });
+    </script>
+
     <div class="content-wrapper">
-        <div id="form">
+        <button id="toggle-form-add">Add Contact</button> <!-- Button for adding contact -->
+        <div id="form-add" style="display: none;"> <!-- Unique ID for add contact form -->
+            <h3>Add Contact</h3>
             <input type="text" id="name" placeholder="Name" required>
             <input type="email" id="email" placeholder="Email" required>
             <textarea id="notes" placeholder="Notes"></textarea>
-            <button id="add-contact">Add Contact</button>
+            <button id="add-contact-button">Add Contact</button>
         </div>
-        <div id="contact-list">
-            <h3>Contacts</h3>
-            <!-- Contact list will be populated here -->
-        </div>
-        <div id="contact-details" style="display: none;"> <!-- Start hidden -->
-            <h3>Contact Details</h3>
-            <p><strong>Email:</strong> <span id="details-email"></span></p>
-            <textarea id="extra-notes" placeholder="View/add notes here..."></textarea>
-            <div class="button-container">
-                <button id="save-notes">Save Notes</button>
-                <button id="follow-up-button">Follow Up</button>
+
+        <button id="toggle-form-list">Contact List</button> <!-- Button for contact list -->
+        <div id="form-list" style="display: none;"> <!-- Unique ID for contact list -->
+            <h3>Contact List</h3>
+            <div id="contact-list">
+                <!-- Contact list will be populated here -->
             </div>
-            <div class="follow-up-container" id="follow-up-form" style="display: none;">
+        
+            <button id="toggle-form-details">Contact Details</button> <!-- Button for adding contact -->
+            <div id="form-details" style="display: none;"> <!-- Unique ID for add contact form -->
+                <h3>Contact Details</h3>
+                <p><strong>Email:</strong> <span id="details-email"></span></p>
+                <textarea id="extra-notes" placeholder="View/add notes here..."></textarea>
+                <div class="button-container">
+                    <button id="save-notes-button">Save Notes</button>
+                    <button id="follow-up-button">Follow Up</button>
+                    <button id="set-appointment-button">Set Appointment</button> 
+                </div>
+            </div>
+        
+            <button id="toggle-form-email">Send Email</button> <!-- Button for adding contact -->
+            <div id="form-email" style="display: none;"> <!-- Unique ID for add contact form -->        
                 <h3>Follow Up</h3>
                 <input type="text" id="follow-up-name" placeholder="Name" required>
                 <input type="email" id="follow-up-email" placeholder="Email" required>
@@ -34,9 +83,68 @@
                 <button id="draft-button">Draft</button>
                 <button id="send-button">Send</button>
             </div>
-        </div>
         
+            <button id="toggle-form-appointment">Add Appointment</button> <!-- Button for adding contact -->
+            <div id="form-appointment" style="display: none;"> <!-- Unique ID for add contact form -->        
+                <h3>Set Appointment</h3>
+                <textarea id="appointment-comments" placeholder="Comments"></textarea>
+                <div class="date-picker-container mt-2">
+                    <input type="date" id="appointment-date" class="appointment-input" />
+                    <button id="confirm-appointment-button" class="confirm-button mt-2">Confirm Appointment</button>
+                </div>
+            </div>
+        
+            <div id="calendar" style="margin-top: 20px;"></div>
+        </div>
+    </div>
+
         <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize FullCalendar
+                const calendarEl = document.getElementById('calendar');
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    editable: true,
+                    selectable: true,
+                    dateClick: function(info) {
+                        const selectedDate = info.dateStr;
+                        const comments = prompt('Add comments for this appointment:');
+                        if (comments) {
+                            calendar.addEvent({
+                                title: comments,
+                                start: selectedDate,
+                                allDay: true
+                            });
+                        }
+                    },
+                    events: [] // Load events here if needed
+                });
+
+                calendar.render();
+
+                // Confirm appointment button
+                document.getElementById('confirm-appointment-button').onclick = function() {
+                    const selectedDate = document.getElementById('appointment-date').value;
+                    const comments = document.getElementById('appointment-comments').value;
+                    const name = document.getElementById('appointment-name').value;
+                    const email = document.getElementById('appointment-email').value;
+
+                    if (!selectedDate || !name || !email) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+
+                    calendar.addEvent({
+                        title: `${name} - ${comments}`,
+                        start: selectedDate,
+                        allDay: true
+                    });
+
+                    alert(`Appointment confirmed for ${selectedDate} with comments: "${comments}"`);
+                    document.getElementById('appointment-form').reset(); // Clear the form after confirmation
+                };
+            });
+
             let lastClickedContactId = null; 
 
             async function loadContacts() {
@@ -91,7 +199,6 @@
                     contactList.appendChild(contactItem);
                 });
 
-                // Only assign listeners once when contacts are loaded
                 assignDetailButtonListeners();
             }
 
@@ -112,7 +219,7 @@
             }
 
             function initAddContactButton() {
-                const addButton = document.getElementById('add-contact');
+                const addButton = document.getElementById('add-contact-button');
                 addButton.onclick = async function() {
                     const name = document.getElementById('name').value;
                     const email = document.getElementById('email').value;
@@ -157,7 +264,7 @@
             }
 
             function assignDetailButtonListeners() {
-                document.getElementById('save-notes').onclick = async function() {
+                document.getElementById('save-notes-button').onclick = async function() {
                     const email = document.getElementById('details-email').innerText;
                     const extraNotes = document.getElementById('extra-notes').value;
 
@@ -185,6 +292,11 @@
                 document.getElementById('follow-up-button').onclick = function() {
                     const followUpForm = document.getElementById('follow-up-form');
                     followUpForm.style.display = followUpForm.style.display === 'none' ? 'block' : 'none'; // Toggle visibility
+                };
+
+                document.getElementById('set-appointment-button').onclick = function() {
+                    const appointmentForm = document.getElementById('appointment-form');
+                    appointmentForm.style.display = appointmentForm.style.display === 'none' ? 'block' : 'none'; // Toggle visibility
                 };
 
                 document.getElementById('draft-button').onclick = function() {
@@ -234,6 +346,6 @@
             // Add event listener for the existing tab click
             document.querySelector('.tab[data-tab="tab2"]').onclick = loadContacts; // Load contacts when tab2 is clicked
         </script>
-    </div>
+        
 </body>
 </html>

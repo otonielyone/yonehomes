@@ -205,31 +205,44 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .home-services-wrapper, .service-items-container {
+@media screen and (max-width: 768px) {
+    .home-services-wrapper, .service-items-container,
+    .why-us-container {
         flex-direction: column;
         align-items: center;
         min-width: 100%;
     }
 
-    .image {
-        width: 100%; /* Ensure the image scales to fit container width */
+    .image, .main-image {
+        width: 100%; /* Ensure images scale to fit container width */
         height: auto; /* Maintain aspect ratio */
-        margin-right: 0;
+        margin-right: 0; /* Reset margin for mobile */
     }
 
-    .main-image {
-        min-width: auto;
-        height: auto;
+    .main-heading {
+        font-size: 28px; /* Consistent heading size */
     }
 
-    .why-us-container {
-        min-width: 100%;
-        flex-direction: column;
+    .sub-heading {
+        font-size: 16px; /* Consistent sub-heading size */
+    }
+
+    .button_link {
+        font-size: 14px;   
+        width: 150px; /* Fixed width for buttons */
     }
 
     .reason {
         flex: 1;
-        max-width: 100%;
+        max-width: 100%; /* Full width for reasons */
     }
-} 
+
+    #header-info-container {
+        margin-bottom: 20px; /* Spacing adjustment */
+    }
+
+    /* Additional styles for small portrait devices */
+    @media screen and (max-width: 500px) and (orientation: portrait) {
+        /* Any specific overrides for portrait orientation can go here */
+    }
+}

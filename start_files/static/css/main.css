@@ -23,13 +23,19 @@ h1, h2, p {
   font-weight: 300; /* Consistent font-weight */
 }
 
+
 .styled-line {
   border: none; /* Remove default border */
   border-top: 1px solid #c5cace; /* Solid line with desired color and thickness */
-  margin: 20px 0; /* Adjust space above and below the line */
+  margin-bottom: 10px; /* Adjust space above and below the line */
   width: 100%; /* Full width */
 }
 
+
+.info-section p {
+  font-size: 8px; /* Smaller font size */
+  margin-top: 15px;
+}
 
 .popup-row {
   display: flex;
@@ -674,6 +680,59 @@ a:focus {
   margin: 0 auto; /* Center images horizontally if needed */
 }
 
+.hidden {
+  opacity: 0; /* Make it invisible */
+  pointer-events: none; /* Prevent it from blocking interactions */
+  display: none; /* Hides the element */}
+
+
+.content-disclosure {
+  font-size: 10px;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.custom-strong {
+  font-weight: 500;
+  margin: 5px;
+}
+
+
+#header-info-container {
+  display: flex;              /* Enable flexbox */
+  flex-direction: column;     /* Arrange children vertically */
+  align-items: center;        /* Center horizontally */
+  text-align: center;         /* Center text */
+  margin-top: 10px; 
+  margin-bottom: 20px; 
+  padding: 10px 0; 
+  border-radius: 8px; 
+  max-width: 1000px;
+  margin-left: auto;          /* Center the container */
+  margin-right: auto;         /* Center the container */
+
+}
+
+.header-text {
+  color: white;
+  font-size: 16px;
+  width: auto; /* Change this to auto or a specific value */
+  max-width: 100%; /* Ensure it doesn't exceed the parent width */
+  text-align: center; /* Center text */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  width: 60vw;
+}
+
+.header-logo {
+  width: 350px;  /* Set desired width */
+  height: auto;  /* Maintain aspect ratio */
+  display: block; 
+  margin: 10px auto 0; /* Center the image and add space above */
+}
 
 
 
@@ -703,6 +762,18 @@ a:focus {
     background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
   }
 
+  .header-logo {
+    width: 200px;  /* Set desired width */
+    height: auto;  /* Maintain aspect ratio */
+    display: block; 
+    margin: 10px auto 0; /* Center the image and add space above */
+  }
+
+  .header-text {
+    color: white;
+    font-size: 10px;
+    margin: 2px;
+  }
 }
 
 
@@ -731,6 +802,11 @@ a:focus {
     background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
   }
 
+  .header-text {
+    color: white;
+    font-size: 10px;
+    margin: 2px;
+  }
 }
 
 
@@ -756,6 +832,18 @@ a:focus {
     background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
   }
 
+  .header-logo {
+    width: 200px;  /* Set desired width */
+    height: auto;  /* Maintain aspect ratio */
+    display: block; 
+    margin: 10px auto 0; /* Center the image and add space above */
+  }
+
+  .header-text {
+    color: white;
+    font-size: 10px;
+    margin: 2px;
+  }
 }
 
 /* Portrait mode for very small screens (e.g., Galaxy Fold front thin screen) */
@@ -876,14 +964,29 @@ a:focus {
     font-size: 15px; /* Adjust size as needed */
   } 
 
-  /* Menu Item Styling */
+    /* Menu Item Styling */
   .menu-item {
-  padding-top: 10px; 
-  padding-bottom: 10px; /* Increase left padding for indentation */
-  padding-left: 0;
-  margin-left: 0;
-}
+    padding-top: 10px; 
+    padding-bottom: 10px; /* Increase left padding for indentation */
+    padding-left: 0;
+    margin-left: 0;
+  }
+  
   .button-link {
     border: 1px solid #ffffff;
   }
+
+  .header-logo {
+    width: 150px;  /* Set desired width */
+    height: auto;  /* Maintain aspect ratio */
+    display: block; 
+    margin: 10px auto 0; 
+  }
+
+  .header-text {
+    color: white;
+    font-size: 10px;
+    margin: 2px;
+  }
+    
 }

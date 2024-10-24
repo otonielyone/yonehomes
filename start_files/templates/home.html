@@ -19,6 +19,8 @@
 {% block body %}    
     <div class="home-page-menu">
         <!-- Main Menu Bar -->
+
+
         <nav class="menu-bar">
             <!-- Left Column with Menu Links -->
             <div class="menu-column left-column">
@@ -28,21 +30,38 @@
                 <a href="/contact" class="menu-link">CONTACT</a>
             </div>
 
-            <!-- Right Column with Language Icon -->
-            <div class="menu-column right-column">
+           <!-- Right Column with Logo and Language Icon -->
+           <div class="menu-column right-column" style="display: flex; align-items: center;">
                 <a href="#" class="language-icon">
-                    <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
                 </a>
             </div>
         </nav>
-            
+                    
         <!-- Hamburger Menu Icon -->
         <nav class="hamburger-menu" id="hamburger-menu">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </nav>
+
+        <script>
+            document.addEventListener("scroll", function() {
+                const footerInfo = document.getElementById("header-info-container");
+                const headerTexts = document.querySelectorAll(".header-text"); // Select all header-text elements
+                const scrollPosition = window.scrollY;
         
+                // Change this value to determine when to hide the text (e.g., 50px from top)
+                if (scrollPosition > 50) {
+                    footerInfo.classList.add("hidden");
+                    headerTexts.forEach(headerText => headerText.classList.add("hidden")); // Hide all header-text elements
+                } else {
+                    footerInfo.classList.remove("hidden");
+                    headerTexts.forEach(headerText => headerText.classList.remove("hidden")); // Show all header-text elements
+                }
+            });
+        </script>
+              
 
         <!-- Mobile Menu -->
         <nav class="mobile-menu" id="mobile-menu">
@@ -53,6 +72,7 @@
             <a href="/contact" class="menu-item">Contact</a>
         </nav>
     </div>
+
 
     <!-- Image/Video Background Container -->
     <div class="image-header-container">
@@ -65,6 +85,11 @@
             <!-- Overlay Content Section -->
             <div class="overlay-content">
                 <div class="text-content">
+                    <div id="header-info-container">
+                        <img src="/static/icons/united3.png" alt="United Logo" class="header-logo">
+                        <p class="header-text">TONI YONE - LICENSE STATE: VA 
+                    </div>
+                    
                     <h1 class="main-heading">Exceeding Expectations</h1>
                     <h1 class="sub-heading">Gain What You DESERVE, Don't Settle For Less</h1>
                 </div>

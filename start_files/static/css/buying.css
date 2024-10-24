@@ -7,17 +7,6 @@
     background: none; /* Ensure no background color */
 }
 
-.content-disclosure {
-    font-size: 8px !important;
-    background-color: #fafafa;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-}
 
 /* Desktop layout: 3 rows with 4 columns */
 .popup-row {
@@ -107,12 +96,6 @@ label {
 .search-container input:focus {
     border-color: white; /* Darker blue on focus */
     outline: none; /* Remove default outline */
-}
-
-
-.custom-strong {
-    font-weight: 500;
-    margin-bottom: 5px !important;
 }
 
 

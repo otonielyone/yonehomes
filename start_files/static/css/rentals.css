@@ -1,23 +1,5 @@
 
 
-/* General Styles for Rental Services Text */
-.rental-services h1, h2, p {
-    padding: 10px;
-    text-align: center; /* Center align heading text */
-}
-
-.content-disclosure {
-    font-size: 8px !important;
-    background-color: #fafafa;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-}
-
 /* For Dynamic Button Grid Section */
 .button-grid-container {
     display: flex;
@@ -36,12 +18,10 @@
     justify-content: center;
 }
 
-
 .button-text {
     margin-top: 0;
     padding: 20px;
     font-size: 12px;
-
 }
 
 /* Button Item Styles */
@@ -89,14 +69,6 @@
     border: none;
 }
 
-
-@media (max-width: 500px) {
-    .button-item {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-}
-
 /* Ensure Text Is Properly Visible in the Overlay */
 .overlay-content {
     display: flex;
@@ -111,6 +83,13 @@
     font-size: 8px !important;
 }
 
+
+/* General Styles for Rental Services Text */
+.rental-services h1, h2, p {
+    padding: 10px;
+    text-align: center;
+}
+
 /* Specific Styles for Rental Services Section */
 .rental-services {
     display: flex;
@@ -122,9 +101,12 @@
 
 .rental-services-wrapper {
     width: 75%;
-    max-width: 1200px; /* Adjust based on your design */
+    max-width: 1200px;
     padding: 20px;
     box-sizing: border-box;
+    display: flex;           /* Added */
+    flex-direction: column;  /* Added */
+    align-items: center;     /* Added */
 }
 
 .rental-services p,
@@ -133,9 +115,32 @@
     text-align: center;
 }
 
+
+.requirements-container {
+    display: flex;
+    justify-content: space-between; /* Space between sections */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Limit max width */
+    margin: 0 auto; /* Center the container */
+}
+
+.expandable-section {
+    flex: 1; /* Allow sections to grow */
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f9f9f9b8;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 50vw;
+    margin: 20px auto;
+}
+
+/* Rest of your existing CSS remains the same... */
 /* Text Color Classes */
 .black-text {
-    color: #000000; /* Set text color to black */
+    color: #000000;
     font-weight: 300;
     text-align: center;
     padding-top: 20px;
@@ -170,13 +175,6 @@
     padding-top: 20px;
 }
 
-
-.custom-strong {
-    font-weight: 500;
-    margin-bottom: 5px !important;
-}
-
-
 /* Custom Section Background */
 .custom-section {
     background-size: cover;
@@ -184,16 +182,17 @@
     margin-top: 20px;
     padding: 20px;
 }
+
 /* Desktop layout: 3 rows with 4 columns */
 .popup-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    grid-gap: 10px; /* Space between items */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
 }
 
-.styled-line { 
-margin-top: 15px;
-margin-bottom: 15px;
+.styled-line {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .popup-text p {
@@ -209,13 +208,12 @@ margin-bottom: 15px;
     align-content: center;
 }
 
-
 .popup-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 15px; /* Increased for better separation */
+    margin-bottom: 15px;
 }
 
 .popup-gallery img {
@@ -230,26 +228,24 @@ margin-bottom: 15px;
 }
 
 .contact-button {
-    display: block; /* Ensures it takes up the full width of its container */
-    margin: 20px auto; /* Centers the button horizontally with auto margins */
-    padding: 10px 20px; /* Adjust padding for the button size */
-    background-color: #007BFF; /* Button color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Optional: round the edges */
-    text-align: center; /* Centers the button text */
-    cursor: pointer; /* Change cursor on hover */
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .contact-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
-
 
 .small-input {
-    width: 50px; /* Adjust the width to fit approximately 10 characters */
+    width: 50px;
 }
-
 
 .search-container {
     display: flex;
@@ -257,52 +253,84 @@ margin-bottom: 15px;
     justify-content: center;
     gap: 15px;
     padding: 15px;
-    background-color: #f9f9f9b8; /* Light background for contrast */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    max-width: 50vw; /* Limit width */
-    margin: 20px auto; /* Center the container */
+    background-color: #f9f9f9b8;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 50vw;
+    margin: 20px auto;
 }
 
 .search-container input {
     padding: 10px;
-    border: 2px solid white; /* Blue border */
-    border-radius: 5px; /* Rounded input corners */
-    font-size: 16px; /* Increase font size */
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    transition: border-color 0.3s; /* Smooth transition for border color */
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
 }
 
 .search-container input:focus {
-    border-color: white; /* Darker blue on focus */
-    outline: none; /* Remove default outline */
+    border-color: white;
+    outline: none;
 }
 
 
-@media (max-width: 978px) {
+.expand-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.expand-button:hover {
+    background-color: #e9ecef;
+}
+
+.expand-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.section-content {
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: white;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 978px) {
+    .language-toggle-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .language-toggle-container button {
+        width: 150px;
+    }
+
     .search-container {
-        flex-direction: column; /* Stack elements vertically */
+        flex-direction: column;
         text-align: left;
     }
 
-    input[type="number"] {
-        width: 150px; /* Full width on small screens */
-        text-align: left;
-    }
-
+    input[type="number"],
     input[type="text"] {
-        width: 150px; /* Full width on small screens */
+        width: 150px;
         text-align: left;
     }
 }
 
-
-
-     
-
-
-/* Responsive Adjustments */
-@media screen and (max-width: 500px) and (orientation: portrait) {s
+@media screen and (max-width: 500px) and (orientation: portrait) {
     .button-item {
         flex: 1 1 100%;
         max-width: 100%;
@@ -312,50 +340,65 @@ margin-bottom: 15px;
         font-size: 8px !important;
     }
 
-
     .main-heading {
-        z-index: 1000; /* Ensure heading is below popup */
+        z-index: 1000;
     }
         
     .popup-text {
-        font-size: 10px; /* General text, smaller for mobile */
-        white-space: normal; /* Allow paragraphs to wrap properly */
-        overflow-x: hidden; /* Hide horizontal overflow */
-        font-weight: normal; /* Set the same weight as the text inside the button */
+        font-size: 10px;
+        white-space: normal;
+        overflow-x: hidden;
+        font-weight: normal;
     }
 
-    /* Ensure gallery is centered and items are 3 per row */
     .popup-row {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 3 columns on mobile */
-        grid-gap: 10px; /* Add space between items */
-        justify-content: center; /* Center the grid items */
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        justify-content: center;
     }
 
-    /* Ensure titles are visible */
     .popup-title {
-        font-size: 12px; /* Ensure title font size is slightly larger */
-        font-weight: bold; /* Make sure titles are bold */
-        color: #000; /* Set title color to black for visibility */
-        display: block; /* Ensure titles are displayed as block */
-        text-align: center; /* Center the title text */
+        font-size: 12px;
+        font-weight: bold;
+        color: #000;
+        display: block;
+        text-align: center;
     }
 
-    /* Ensure full values for variables, no truncation */
     .popup-value {
-        font-size: 10px; /* Keep variable values at 10px */
-        white-space: normal; /* Ensure values are not cut off */
-        overflow-wrap: break-word; /* Allow text to wrap */
-        text-align: center; /* Center the values */
+        font-size: 10px;
+        white-space: normal;
+        overflow-wrap: break-word;
+        text-align: center;
     }
 
-    /* Ensure description displays fully as a paragraph */
     .popup-text p {
-        white-space: normal; /* Allow paragraph wrapping */
-        word-wrap: break-word; /* Wrap long words to avoid overflow */
+        white-space: normal;
+        word-wrap: break-word;
     }
     
-    .light-red-text h2{
-        font-size: 20px;
+    .light-red-text h2 {
+        font-size: 10px;
+    }
+
+    .requirements-container {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .expandable-section {
+        max-width: 100%; /* Allow full width on mobile */
+        margin: 5px 0; /* Add some margin for spacing */
+        font-size: 10px;
+    }
+    
+    .expand-button {
+        padding: 12px;
+        font-size: 10px;
+    }
+
+    .section-content {
+        padding: 15px;
     }
 }

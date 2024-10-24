@@ -37,6 +37,7 @@ class Mls_rentals(Base):
     fee =  Column(String(20), index=True)
     freq =  Column(String(20), index=True)
     count = Column(Integer, index=True)
+    formatted_time = Column(String(20), index=True)
     hash = Column(String(1000), index=True)
 
     def __repr__(self):
@@ -57,6 +58,7 @@ class Mls_rentals_temp(Base):
     fee =  Column(String(20), index=True)
     freq =  Column(String(20), index=True)
     count = Column(Integer, index=True)
+    formatted_time = Column(String(20), index=True)
     hash = Column(String(1000), index=True)
 
     def __repr__(self):
@@ -108,6 +110,7 @@ def init_rentals_db_temp():
                         hoa =item.hoa,  
                         fee =item.fee, 
                         freq =item.freq, 
+                        formatted_time = item.formatted_time,
                         hash=item.hash)
                     for item in original_listings]
                 if temp_listings: 
@@ -138,6 +141,7 @@ def process_row(row):
         "FEE": row['fee'],
         "FREQ": row['freq'],
         "COUNT": row['count'],
+        "TIME":row['formatted_time'],
         "HASH": row['hash'],
     }
 
@@ -167,7 +171,3 @@ def get_rentals_from_db():
     finally:
         if db:
             db.close()
-
-
-
-

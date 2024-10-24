@@ -1,6 +1,6 @@
 from fastapi.responses import RedirectResponse
 from starlette.middleware.base import BaseHTTPMiddleware
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import Depends, FastAPI, HTTPException, Request
 from start_files.config import get_templates
 from start_files.routes.routes import router
 from fastapi.staticfiles import StaticFiles
@@ -44,6 +44,7 @@ def create_app() -> FastAPI:
         ]
     )
     
+    # Initialize state variables
     templates = get_templates()
     app.state.templates = templates
     
