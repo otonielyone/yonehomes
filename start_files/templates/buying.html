@@ -1,0 +1,539 @@
+{% extends "template.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/buying.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+{% endblock %}
+
+{% block title %}Buy, Own, Sell a Home | Yone Homes | Your Real Estate Experts{% endblock %}
+{% block meta_description %}Yone Homes offers comprehensive services for buying, owning, and selling homes in Northern Virginia and the DC Metro area. Get expert advice and support for all your real estate needs.{% endblock %}
+{% block meta_keywords %}buy a home, sell a home, own a home, real estate services, Northern Virginia real estate, DC Metro real estate{% endblock %}
+{% block og_title %}Buy, Own, Sell a Home with Yone Homes | Expert Real Estate Services{% endblock %}
+{% block og_description %}Whether you're buying, owning, or selling a home, Yone Homes provides expert services and support in Northern Virginia and the DC Metro area. Let us help you with all your real estate needs.{% endblock %}
+{% block og_image %}https://www.yonehomes.com/static/images/buy-sell-og.jpg{% endblock %}
+{% block og_url %}https://www.yonehomes.com/buy-sell{% endblock %}
+{% block twitter_title %}Buy, Own, Sell a Home with Yone Homes | Expert Real Estate Services{% endblock %}
+{% block twitter_description %}Get expert help from Yone Homes for buying, owning, and selling homes in Northern Virginia and the DC Metro area. We're here for all your real estate needs.{% endblock %}
+{% block twitter_image %}https://www.yonehomes.com/static/images/buy-sell-twitter.jpg{% endblock %}
+
+{% block body %}
+    <div class="buying-page-menu">
+        <!-- Main Menu Bar -->
+        <nav class="menu-bar">
+            <!-- Left Column with Menu Links -->
+            <div class="menu-column left-column">
+                <a href="/" class="menu-link">HOME</a>
+                <a href="/resources" class="menu-link">RESOURCES</a>
+                <a href="/rentals" class="menu-link">RENTALS</a>
+                <a href="/contact" class="menu-link">CONTACT</a>
+            </div>
+
+            <!-- Right Column with Language Icon -->
+            <div class="menu-column right-column">
+                <a href="#" class="language-icon">
+                    <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+                </a>
+            </div>
+        </nav>
+            
+        <!-- Hamburger Menu Icon -->
+        <nav class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </nav>
+        
+
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobile-menu">
+            <div class="close-menu">X</div> <!-- Close icon -->
+            <a href="/" class="menu-item">HOME</a>
+            <a href="/resources" class="menu-item">RESOURCES</a>
+            <a href="/rentals" class="menu-item">RENTALS</a>
+            <a href="/contact" class="menu-item">CONTACT</a>
+        </nav>
+    </div>    
+
+    <!-- Image/Video Background Container -->
+    <div class="image-header-container">
+        <!-- Video Background Section -->
+        <div class="video-background-wrapper">
+            <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+            src="/static/icons/buy1.mp4"></video>
+
+            <!-- Overlay Content Section -->
+            <div class="overlay-content">
+                <div class="text-content">
+                    <h1 class="buy-heading">FIND YOUR HOME TODAY!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+    <div class="search-container">
+        <input type="text" id="searchField" placeholder="Filter Homes">
+        <input class="small-input" type="number" id="costFilter" placeholder="Max Cost:" />
+        <input type="number" id="bedroomFilter" placeholder="Beds:" min="1" max="20" />
+        <input type="number" id="bathroomFilter" placeholder="Baths:" min="1" max="10" />
+        
+        <label class="left-align">
+            <input type="checkbox" id="basementFilter"> Basement
+        </label>
+        
+        <label class="left-align">
+            <input type="checkbox" id="garageFilter"> Garage
+        </label>
+
+        <label class="left-align">
+            <input type="checkbox" id="condoFilter"> Condo
+        </label>
+
+        <label class="left-align">
+            <input type="checkbox" id="hoaFilter"> HOA
+        </label>
+    </div>
+    
+    
+    <!-- Button to trigger the /home_search route -->
+    <div class="mls-search">
+        <a href="http://otonielyone.unitedrealestatewashingtondc.com/index.html" target="_blank">Custom search</a>
+    </div>
+
+    <!-- Example Dynamic Listings Section -->
+    <div class="automation">
+        <section id="dynamic-buttons" class="button-grid">
+            <!-- Buttons will be dynamically added here -->
+        </section>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Setup Loader
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 1)'; // Transparent black background
+            overlay.style.zIndex = '9998'; // Below the loader but above other content
+            overlay.style.display = 'none'; // Initially hidden
+
+            const loader = document.createElement('div');
+            loader.id = 'loader';
+            loader.style.position = 'fixed';
+            loader.style.top = '50%';
+            loader.style.left = '50%';
+            loader.style.transform = 'translate(-50%, -50%)';
+            loader.style.zIndex = '9999'; // Above the overlay
+            loader.style.display = 'flex'; // Use Flexbox
+            loader.style.flexDirection = 'column'; // Stack children vertically
+            loader.style.alignItems = 'center'; // Center children horizontally
+            loader.style.textAlign = 'center'; // Center text
+
+            const spinner = document.createElement('div');
+            spinner.className = 'spinner';
+            spinner.style.border = '8px solid #f3f3f3'; // Light grey
+            spinner.style.borderTop = '8px solid #3498db'; // Blue
+            spinner.style.borderRadius = '50%';
+            spinner.style.width = '50px'; // Size of the spinner
+            spinner.style.height = '50px'; // Size of the spinner
+            spinner.style.animation = 'spin 1s linear infinite';
+
+            // Create and style loader text
+            const loaderText = document.createElement('div');
+            loaderText.textContent = 'Please give a moment while the system retrieves the latest availibilities...';
+            loaderText.style.marginTop = '15px'; // Space between spinner and text
+            loaderText.style.color = '#ffffff'; // Text color
+            loaderText.style.fontSize = '16px'; // Font size
+
+            loader.appendChild(spinner);
+            loader.appendChild(loaderText);
+            document.body.appendChild(overlay); // Append overlay to body
+            document.body.appendChild(loader); // Append loader to body
+            
+            // Add CSS for spinning animation
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+
+            const numberOfListings = Infinity; // Number of listings you want to display
+            let allListings = []; // Array to store all listings
+
+            // Show overlay and loader before fetching data
+            overlay.style.display = 'block'; 
+            loader.style.display = 'flex'; 
+
+
+            // Fetch the full list of listings from the API
+            fetch('/view_homes_database')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.homes && Array.isArray(data.homes)) {
+                        allListings = data.homes;
+                        displayListings(allListings.slice(0, numberOfListings));
+                    } else {
+                        console.error('Invalid data format:', data);
+                    }
+                })
+                .catch(error => console.error('Error fetching listings:', error))
+                .finally(() => {
+                    // Hide loader
+                    overlay.style.display = 'none';
+                    loader.style.display = 'none';
+                });
+
+                function displayListings(listings) {
+                    const container = document.getElementById('dynamic-buttons');
+                    container.innerHTML = '';
+                    listings.forEach(item => {
+                        createButtonDiv(item);
+                    });
+                }
+        
+
+            function createButtonDiv(data) {
+                const { MLS, COST, ADDRESS, BEDROOMS, BATH, CONDO, HOA, FEE, FREQ, BASEMENT, GARAGE, TIME } = data;
+
+                const buttonDiv = document.createElement('div');
+                buttonDiv.className = 'button-item';
+
+                const button = document.createElement('button');
+                button.style.padding = 0;
+                button.style.border = 'none';
+                button.style.background = 'none';
+
+                const img = document.createElement('img');
+                img.alt = 'Button Image';
+                img.style.width = '150px';
+                img.style.height = '150px';
+                img.style.border = '3px solid #a8b8c6';
+                img.style.borderRadius = '10px';
+                img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+                img.setAttribute('data-src', `static/homes_images/${MLS}/1.webp`); // Lazy load setup
+
+                // Fallback for image loading
+                const fallbackImage = 'static/icons/test.jpg';
+
+                const textDiv = document.createElement('div');
+                textDiv.className = 'popup-text';
+                // Create the dynamic text content
+                let infoHTML = `
+                    Cost: ${formatValue(COST)}<br>
+                    Address: ${ADDRESS}<br>
+                    Beds: ${BEDROOMS} / Baths: ${BATH}
+                `;
+
+                if (CONDO === 'Yes' || HOA === 'Yes') {
+                    infoHTML += '<br>';
+                    if (CONDO === 'Yes' && HOA === 'Yes') {
+                        infoHTML += 'Condo: Yes';
+                    } else if (CONDO === 'Yes') {
+                        infoHTML += 'Condo: Yes';
+                    } else {
+                        infoHTML += 'HOA: Yes';
+                    }
+
+                }
+
+                textDiv.innerHTML = infoHTML;
+
+                button.appendChild(img);
+                button.appendChild(textDiv);
+
+                button.onclick = (event) => {
+                    event.stopPropagation();
+                    showPopup(data);
+                };
+
+                buttonDiv.appendChild(button);
+                document.getElementById('dynamic-buttons').appendChild(buttonDiv);
+
+                // Lazy load the image using Intersection Observer
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const image = entry.target;
+                            image.src = image.dataset.src; // Load the actual image
+                            image.onerror = () => { image.src = fallbackImage; }; // Fallback on error
+                            observer.unobserve(image); // Stop observing the loaded image
+                        }
+                    });
+                });
+                observer.observe(img); // Start observing the image
+            } 
+        
+
+
+            // Filter functionality
+            function filterListings(query) {
+                const lowerQuery = query.toLowerCase();
+                const bedrooms = document.getElementById('bedroomFilter').value;
+                const bathrooms = document.getElementById('bathroomFilter').value;
+                const maxCost = Number(document.getElementById('costFilter').value.replace(/[$,]/g, '')); // Remove $ and commas and convert to number
+                const hasBasement = document.getElementById('basementFilter').checked;
+                const hasGarage = document.getElementById('garageFilter').checked;
+                const isCondo = document.getElementById('condoFilter').checked;
+                const isHoa = document.getElementById('hoaFilter').checked;
+
+                const filteredListings = allListings.filter(item => {
+                    const matchesQuery = item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery);
+                    const matchesBedrooms = bedrooms ? item.BEDROOMS >= bedrooms : true;
+                    const matchesBathrooms = bathrooms ? item.BATH >= bathrooms : true;
+                    const matchesCost = maxCost ? parseFloat(item.COST.replace(/[$,]/g, '')) <= maxCost : true;
+                    const matchesBasement = hasBasement ? item.BASEMENT === 'Yes' : true;
+                    const matchesGarage = hasGarage ? item.GARAGE === 'Yes' : true;
+                    const matchesCondo = isCondo ? item.CONDO === 'Yes' : true;
+                    const matchesHoa = isHoa ? item.HOA === 'Yes' : true;
+                    return matchesQuery && matchesBedrooms && matchesBathrooms && matchesCost && matchesBasement && matchesGarage && matchesCondo && matchesHoa;
+                });
+
+                displayListings(filteredListings.slice(0, numberOfListings));
+            }
+        
+            document.getElementById('searchField').addEventListener('input', (event) => {
+                filterListings(event.target.value);
+            });
+
+            document.getElementById('bedroomFilter').addEventListener('input', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+
+            document.getElementById('bathroomFilter').addEventListener('input', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+
+            document.getElementById('costFilter').addEventListener('input', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+
+            document.getElementById('basementFilter').addEventListener('change', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+
+            document.getElementById('garageFilter').addEventListener('change', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+
+            document.getElementById('condoFilter').addEventListener('change', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+            
+            document.getElementById('hoaFilter').addEventListener('change', () => {
+                filterListings(document.getElementById('searchField').value);
+            });
+
+            function formatValue(value) {
+                if (value === null || value === undefined || value === '') {
+                    return '0'; // Return '0' for null, undefined, or empty values
+                }
+                return value; // Return the value as is
+            }
+
+
+            function showPopup(data) {
+                const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, FULL, HALF, ACRES, AGE, SQFT, FIREPLACE, BASEMENT, GARAGE, SPACES, COUNT, CONDO, HOA, FEE, FREQ, TIME, LISTING_OFFICE, LISTING_OFFICE_NUMBER, LISTING_AGENT, LISTING_AGENT_NUMBER, LISTING_AGENT_EMAIL} = data;
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+
+                const popupContent = document.createElement('div');
+                popupContent.className = 'popup-content';
+
+                const popupGallery = document.createElement('div');
+                popupGallery.className = 'popup-gallery';
+        
+                const fragment = document.createDocumentFragment();
+                const baseURL = `static/homes_images/${MLS}/`;
+
+                for (let i = 1; i <= COUNT; i++) {
+                    const photo = `${baseURL}${i}.webp`;
+
+                    const a = document.createElement('a');
+                    a.href = photo;
+                    a.dataset.lightbox = 'gallery';
+
+                    const img = new Image(); // Using Image constructor
+                    img.src = photo;
+                    img.alt = 'Gallery Image';
+                    img.style.width = '150px';
+                    img.style.height = '150px';
+                    img.style.border = '3px solid #a8b8c6';
+                    img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+                    img.loading = 'lazy';  // Add lazy loading
+
+                    a.appendChild(img);
+                    fragment.appendChild(a);
+                }
+
+                //<button onclick="toggleListingInfo()">Toggle Listing Info</button>                
+                popupGallery.appendChild(fragment); // Append everything at once
+                const popupText = document.createElement('div');
+                popupText.className = 'popup-text';
+                popupText.innerHTML = `
+                    <div class="listing-office-info">
+                        <p>Photographs listed by:</p>
+                        <p>${LISTING_OFFICE}</p>
+                        <p>${LISTING_AGENT}</p>
+                        <p>For more info reach out below.</p>
+                    </div>
+                    <hr class="styled-line">
+                    <p>Cost: ${formatValue(COST)}</p>
+                    <p>${ADDRESS}</p>
+                    <hr class="styled-line">
+                    <div class="popup-row">
+                        <div class="popup-item"><div class="popup-title">Age</div><div class="popup-value">${formatValue(AGE)}</div></div>
+                        <div class="popup-item"><div class="popup-title">Acres</div><div class="popup-value">${formatValue(ACRES)}</div></div>
+                        <div class="popup-item"><div class="popup-title">Sqft</div><div class="popup-value">${formatValue(SQFT, 'SQFT')}</div></div>
+                        <div class="popup-item"><div class="popup-title">Status</div><div class="popup-value">${formatValue(STATUS)}</div></div>
+                        <div class="popup-item"><div class="popup-title">Bedrooms</div><div class="popup-value">${formatValue(BEDROOMS)}</div></div>
+                        <div class="popup-item"><div class="popup-title">Total Bath</div><div class="popup-value">${formatValue(BATH)}</div></div>
+                        <div class="popup-item"><div class="popup-title">Full / Half</div><div class="popup-value">${formatValue(FULL)} / ${formatValue(HALF, 'HALF')}</div></div>
+                        <div class="popup-item"><div class="popup-title">Garage</div><div class="popup-value">${formatValue(GARAGE)}</div></div>
+                        <div class="popup-item"><div class="popup-title">Total Spaces</div><div class="popup-value">${formatValue(SPACES, 'SPACES')}</div></div>
+                        <div class="popup-item"><div class="popup-title">Fireplace</div><div class="popup-value">${formatValue(FIREPLACE)}</div></div>
+                        <div class="popup-item"><div class="popup-title">Basement</div><div class="popup-value">${formatValue(BASEMENT)}</div></div>
+                        ${(CONDO === 'Yes' || HOA === 'Yes') ? `
+                            <div class="popup-item">
+                                <div class="popup-title">
+                                    ${CONDO === 'Yes' && HOA === 'Yes' ? 'Fees:' 
+                                    : CONDO === 'Yes' ? 'Fees:' 
+                                    : 'HOA'}
+                                </div>
+                                <div class="popup-value">
+                                    ${FEE && FREQ ? `${FEE} (${FREQ})` : 'N/A'}
+                                </div>
+                            </div>
+                        ` : ''}
+
+                    </div>
+                    <hr class="styled-line">
+                    <p>${DESCRIPTION}</p>
+                    <hr class="styled-line">
+                    <p>${formatValue(MLS)}<p>
+                    <hr class="styled-line">
+                    <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button>
+                    <p style="font-size: 8px; background-color: #fafafa; padding: 10px; border: 1px solid #ccc; border-radius: 5px; text-align: center; width: 100%; box-sizing: border-box; margin: 0;">
+                    <strong class="custom-strong">Content Disclosure</strong><br>
+                        Photographs are © BRIGHT, All Rights Reserved. The data on this site is NOT sourced from BRIGHT MLS
+                        Automation, Bright MLS IDX, or its database. Values presented on this site should not be considered 
+                        appraisals. This site is automatically updated daily. By using this site, you acknowledge that all 
+                        information provided is for promotional and informational purposes. Content is not guaranteed to be 
+                        accurate, complete, reliable, current, or error-free. For most accurate infomration reach out direcly.
+                    </p>
+                            
+                    <hr class="styled-line">
+                    <div class="info-section">
+                        <p>Last Update: ${TIME || "No updates yet."}</p>
+                    </div>                    
+                `;
+                const popupClose = document.createElement('span');
+                popupClose.className = 'popup-close';
+                popupClose.innerHTML = '&times;';
+                popupClose.onclick = () => closePopup(popup);
+
+                popupContent.appendChild(popupGallery);
+                popupContent.appendChild(popupText);
+                popupContent.appendChild(popupClose);
+                popup.appendChild(popupContent);
+                document.body.appendChild(popup);
+
+                // Event listeners for closing the popup
+                document.addEventListener('click', (event) => {
+                    if (event.target === popup || event.target.classList.contains('lightbox')) {
+                        closePopup(popup);
+                    }
+                });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') {
+                        closePopup(popup);
+                    }
+                });
+            }
+
+            function closePopup(popup) {
+                document.body.removeChild(popup);
+            }
+
+            window.navigateToContact = (MLS, ADDRESS) => {
+                const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
+                window.location.href = `/contact?${queryParams}`;
+            };
+
+            // Function to toggle visibility
+            //function toggleListingInfo() {
+            //    const listingInfo = document.querySelector('.listing-office-info');
+            //    listingInfo.classList.toggle('show-listing-info');
+            //}
+
+            // Assuming you have a button to toggle
+            //const toggleButton = document.createElement('button');
+            //toggleButton.innerHTML = 'Show Listing Office Info';
+            //toggleButton.onclick = toggleListingInfo;
+
+            // Append the button to your popup or wherever appropriate
+            //popupContent.appendChild(toggleButton);
+
+        });
+    </script>
+
+
+    <!-- Custom Section with Parallax Effect -->
+    <div class="custom-section" id="main-section">
+        <div class="custom-header">
+            <h2 class="custom-heading">YONEHOMES IS HERE TO HELP</h2>
+        </div>
+
+        <div class="custom-container">
+            <div class="custom-row">
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-homepage"></span>
+                    </div>
+                    <a class="custom-button-link" href="/">
+                        <span class="button-text">HOME PAGE</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-home"></span>
+                    </div>
+                    <a class="custom-button-link" href="/rentals" id="button-search-homes">
+                        <span class="button-text">FIND RENTALS</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-contact"></span>
+                    </div>
+                    <a class="custom-button-link" href="/contact">
+                        <span class="button-text">LEAVE A MESSAGE</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-head"></span>
+                    </div>
+                    <a class="custom-button-link" href="/resources">
+                        <span class="button-text">FIND RESOURCES</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

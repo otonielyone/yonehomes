@@ -1,0 +1,533 @@
+
+{% extends "template.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/rentals.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+{% endblock %}
+
+{% block title %}Find Rentals | Yone Homes | Rooms, Apartments, and Private Spaces{% endblock %}
+{% block meta_description %}Discover a variety of rental options with Yone Homes, including rooms, apartments, and private spaces. Explore our listings in Northern Virginia and the DC Metro area.{% endblock %}
+{% block meta_keywords %}find rentals, rooms for rent, apartments for rent, private spaces, Northern Virginia rentals, DC Metro rentals{% endblock %}
+{% block og_title %}Find Rentals with Yone Homes | Rooms, Apartments, and More{% endblock %}
+{% block og_description %}Explore a wide range of rental properties with Yone Homes. From rooms to apartments and private spaces, we offer diverse options in Northern Virginia and the DC Metro area.{% endblock %}
+{% block og_image %}https://www.yonehomes.com/static/images/rentals-og.jpg{% endblock %}
+{% block og_url %}https://www.yonehomes.com/rentals{% endblock %}
+{% block twitter_title %}Find Rentals with Yone Homes | Rooms, Apartments, Private Spaces{% endblock %}
+{% block twitter_description %}Find your next rental with Yone Homes. We offer rooms, apartments, and private spaces in Northern Virginia and the DC Metro area.{% endblock %}
+{% block twitter_image %}https://www.yonehomes.com/static/images/rentals-twitter.jpg{% endblock %}
+
+{% block body %}
+    <div class="rentals-page-menu">
+        <!-- Main Menu Bar -->
+        <nav class="menu-bar">
+            <!-- Left Column with Menu Links -->
+            <div class="menu-column left-column">
+                <a href="/" class="menu-link">HOME</a>
+                <a href="/buying" class="menu-link">BUYING</a>
+                <a href="/resources" class="menu-link">RESOURCES</a>
+                <a href="/contact" class="menu-link">CONTACT</a>
+            </div>
+            <!-- Right Column with Language Icon -->
+            <div class="menu-column right-column">
+                <a href="#" class="language-icon">
+                    <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hamburger Menu Icon -->
+        <nav class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobile-menu">
+            <div class="close-menu">X</div> <!-- Close icon -->
+            <a href="/" class="menu-item">HOME</a>
+            <a href="/buying" class="menu-item">BUYING</a>
+            <a href="/resources" class="menu-item">RESOURCES</a>
+            <a href="/contact" class="menu-item">CONTACT</a>
+        </nav>
+    </div>
+
+    <!-- Image/Video Background Container -->
+    <div class="image-header-container">
+        <!-- Video Background Section -->
+        <div class="video-background-wrapper">
+            <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+            src="/static/icons/rentals1.mp4"></video>
+
+            <!-- Overlay Content Section -->
+            <div class="overlay-content">
+                <div class="text-content">
+                    <h1 class="main-heading">SEE BELOW FOR ROOMS AND APARTMENTS!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Leasing Qualifications Section -->
+    <div class="rental-services" id="rental-services">   
+        <div class="rental-services-wrapper">    
+            <!-- Expandable English Section -->
+        <div class="requirements-container">
+            <div class="expandable-section">
+                <button class="expand-button" onclick="toggleSection('english-section')">
+                    English - Leasing Requirements
+                    <span class="expand-icon">▼</span>
+                </button>
+                <div id="english-section" class="section-content" style="display: none;">
+                    <div class="light-red-text">
+                        <p>Many rooms come with application fees between $30 and $60, making it easy for landlords to find the right fit for their properties. A refundable security deposit equal to your first month's rent may be required to cover any damages during your stay. To qualify, you typically need a credit score of at least 500 and proof of steady income—about two to three times the monthly rent.</p> 
+                        <p>Note: If you do not meet these requirements, the landlord may raise the security deposit amount in order to facilitate approval.</p>
+                    </div>
+        
+                    <div class="navy-blue-text">
+                        <a href="/contact">
+                            <span class="text">Click here to request Availabilities!</span>
+                        </a>
+                    </div>
+                    <div class="black-text">
+                        <p>A signed agreement is necessary to physically enter properties.</p>
+                        <p>We aim to show listings where the Landlords opt into covering a referral fee.</p>
+                        <p>Our fee is 25% of the first month's rent. If covered, our services would come at no cost to you.</p>
+                    </div>
+                    <div class="light-green-text">
+                        <a href="/static/icons/NVARK1282.pdf">
+                            Download Rental Representation Agreement
+                        </a>
+                    </div>
+                </div>  
+            </div>
+
+            <!-- Expandable Spanish Section -->
+            <div class="expandable-section">
+                <button class="expand-button" onclick="toggleSection('spanish-section')">
+                    Español - Condiciones De Rentas
+                    <span class="expand-icon">▼</span>
+                </button>
+                <div id="spanish-section" class="section-content" style="display: none;">
+                    <div class="light-red-text">
+                        <p>Muchas habitaciones tienen tarifas de solicitud que oscilan entre $30 y $60, facilitando a los propietarios encontrar inquilinos adecuados para sus propiedades. Puede que se requiera un depósito de seguridad reembolsable equivalente al primer mes de alquiler para cubrir cualquier daño durante tu estancia. Para calificar, generalmente necesitas un puntaje de crédito de al menos 500 y prueba de ingresos estables—aproximadamente de dos a tres veces el alquiler mensual.</p> 
+                        <p>Nota: Si no cumples con estos requisitos, el propietario puede aumentar el monto del depósito de seguridad para facilitar la aprobación.</p>
+                    </div>
+                    <div class="navy-blue-text">
+                        <a href="/contact">
+                            <span class="text">¡Haz clic aquí para solicitar disponibilidades!</span>
+                        </a>
+                    </div>
+                    <div class="black-text">
+                        <p>Es necesario un acuerdo firmado para ingresar físicamente a las propiedades.</p>
+                        <p>Nuestro objetivo es mostrar listados donde los propietarios opten por cubrir una tarifa de referencia.</p>
+                        <p>Nuestra tarifa es del 25% del primer mes de alquiler. Si es cubierta, nuestros servicios no tendrán costo para ti.</p>
+                    </div>
+                    <div class="light-green-text">
+                        <a href="/static/icons/NVARK1282.pdf">
+                            Descargar Acuerdo de Representación de Alquiler
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- Add this script section just before the closing body tag -->
+            <script>
+                function toggleSection(sectionId) {
+                    const section = document.getElementById(sectionId);
+                    const button = section.previousElementSibling;
+                    const icon = button.querySelector('.expand-icon');
+                    
+                    // Close all other sections first
+                    document.querySelectorAll('.section-content').forEach(content => {
+                        if (content.id !== sectionId && content.style.display === 'block') {
+                            content.style.display = 'none';
+                            content.previousElementSibling.querySelector('.expand-icon').textContent = '▼';
+                        }
+                    });
+
+                    // Toggle the clicked section
+                    if (section.style.display === 'none') {
+                        section.style.display = 'block';
+                        icon.textContent = '▲';
+                    } else {
+                        section.style.display = 'none';
+                        icon.textContent = '▼';
+                    }
+                }
+            </script>
+            <div class="search-container">
+                <input type="text" id="searchField" placeholder="Filter Rentals">
+                <input class="small-input" type="number" id="costFilter" placeholder="Max Cost:" />
+                <input type="number" id="bedroomFilter" placeholder="Beds:" min="1" max="20" />
+                <input type="number" id="bathroomFilter" placeholder="Baths:" min="1" max="10" />
+            </div><br><br>
+
+
+
+            <div class="automation">
+                <title>Dynamic Button Grid</title>
+                <section id="dynamic-buttons" class="button-grid">
+                    <!-- Dynamic buttons will be inserted here -->
+                </section>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+            
+                    // Setup Loader
+                    const overlay = document.createElement('div');
+                    overlay.style.position = 'fixed';
+                    overlay.style.top = '0';
+                    overlay.style.left = '0';
+                    overlay.style.width = '100%';
+                    overlay.style.height = '100%';
+                    overlay.style.backgroundColor = 'rgba(0, 0, 0, 1)'; // Transparent black background
+                    overlay.style.zIndex = '9998'; // Below the loader but above other content
+                    overlay.style.display = 'none'; // Initially hidden
+            
+                    const loader = document.createElement('div');
+                    loader.id = 'loader';
+                    loader.style.position = 'fixed';
+                    loader.style.top = '50%';
+                    loader.style.left = '50%';
+                    loader.style.transform = 'translate(-50%, -50%)';
+                    loader.style.zIndex = '9999'; // Above the overlay
+                    loader.style.display = 'flex'; // Use Flexbox
+                    loader.style.flexDirection = 'column'; // Stack children vertically
+                    loader.style.alignItems = 'center'; // Center children horizontally
+                    loader.style.textAlign = 'center'; // Center text
+            
+                    const spinner = document.createElement('div');
+                    spinner.className = 'spinner';
+                    spinner.style.border = '8px solid #f3f3f3'; // Light grey
+                    spinner.style.borderTop = '8px solid #3498db'; // Blue
+                    spinner.style.borderRadius = '50%';
+                    spinner.style.width = '50px'; // Size of the spinner
+                    spinner.style.height = '50px'; // Size of the spinner
+                    spinner.style.animation = 'spin 1s linear infinite';
+            
+                    // Create and style loader text
+                    const loaderText = document.createElement('div');
+                    loaderText.textContent = 'Please give us a moment while we retrieve the latest listings...';
+                    loaderText.style.marginTop = '15px'; // Space between spinner and text
+                    loaderText.style.color = '#ffffff'; // Text color
+                    loaderText.style.fontSize = '16px'; // Font size
+            
+                    loader.appendChild(spinner);
+                    loader.appendChild(loaderText);
+                    document.body.appendChild(overlay); // Append overlay to body
+                    document.body.appendChild(loader); // Append loader to body
+                    
+                    // Add CSS for spinning animation
+                    const style = document.createElement('style');
+                    style.innerHTML = `
+                        @keyframes spin {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                        }
+                    `;
+                    document.head.appendChild(style);
+            
+                    const numberOfListings = Infinity; // Number of listings you want to display
+                    let allListings = []; // Array to store all listings
+            
+                    // Show overlay and loader before fetching data
+                    overlay.style.display = 'block'; 
+                    loader.style.display = 'flex'; 
+            
+                    // Fetch the full list of listings from the API
+                    fetch('/view_rentals_database')
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.rentals && Array.isArray(data.rentals)) {
+                                allListings = data.rentals;
+                                displayListings(allListings.slice(0, numberOfListings));
+                                console.log(data); // Check if LISTING_OFFICE and others are in the response
+                            } else {
+                                console.error('Invalid data format:', data);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching listings:', error);
+                        })
+                        .finally(() => {
+                            overlay.style.display = 'none'; 
+                            loader.style.display = 'none'; 
+                        });
+            
+                    function displayListings(listings) {
+                        const container = document.getElementById('dynamic-buttons');
+                        container.innerHTML = '';
+                        listings.forEach(item => {
+                            console.log(item.LISTING_OFFICE); // Example check
+                            createButtonDiv(item);
+                        });
+                    }
+            
+                    function createButtonDiv(data) {
+                        const { MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, TIME, LISTING_OFFICE, LISTING_OFFICE_NUMBER, LISTING_AGENT, LISTING_AGENT_NUMBER, LISTING_AGENT_EMAIL } = data;
+            
+                        const buttonDiv = document.createElement('div');
+                        buttonDiv.className = 'button-item';
+            
+                        const button = document.createElement('button');
+                        button.style.padding = 0;
+                        button.style.border = 'none';
+                        button.style.background = 'none';
+            
+                        const img = document.createElement('img');
+                        img.alt = 'Button Image';
+                        img.style.width = '150px';
+                        img.style.height = '150px';
+                        img.style.border = '3px solid #a8b8c6';
+                        img.style.borderRadius = '10px';
+                        img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+                        img.setAttribute('data-src', `static/rentals_images/${MLS}/1.webp`); // Set data-src for lazy loading
+            
+                        // Fallback image path for error handling
+                        const fallbackImage = 'static/icons/test.jpg';
+            
+                        const textDiv = document.createElement('div');
+                        textDiv.className = 'popup-text';
+                        textDiv.innerHTML = `${COST}<br>Beds: ${BEDROOMS} / Baths: ${BATH}<br>${ADDRESS}`;
+            
+                        button.appendChild(img);
+                        button.appendChild(textDiv);
+                        button.onclick = (event) => {
+                            event.stopPropagation();
+                            showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, TIME, LISTING_OFFICE, LISTING_OFFICE_NUMBER, LISTING_AGENT, LISTING_AGENT_NUMBER, LISTING_AGENT_EMAIL);
+                        };
+            
+                        buttonDiv.appendChild(button);
+                        document.getElementById('dynamic-buttons').appendChild(buttonDiv);
+            
+                        // Lazy load the image using Intersection Observer
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    const image = entry.target;
+                                    image.src = image.dataset.src; // Load the actual image
+                                    image.onerror = () => { // Fallback to default image on error
+                                        image.src = fallbackImage;
+                                    };
+                                    observer.unobserve(image); // Stop observing the loaded image
+                                }
+                            });
+                        });
+                        observer.observe(img); // Start observing the image
+                    }    
+            
+                    // Filter functionality
+                    function filterListings(query) {
+                        const lowerQuery = query.toLowerCase();
+                        const bedrooms = document.getElementById('bedroomFilter').value;
+                        const bathrooms = document.getElementById('bathroomFilter').value;
+                        const maxCost = Number(document.getElementById('costFilter').value.replace(/[$,]/g, '')); // Remove $ and commas and convert to number
+
+                        const filteredListings = allListings.filter(item => {
+                            const matchesQuery = item.ADDRESS.toLowerCase().includes(lowerQuery) || item.MLS.toLowerCase().includes(lowerQuery);
+                            const matchesBedrooms = bedrooms ? item.BEDROOMS >= bedrooms : true;
+                            const matchesBathrooms = bathrooms ? item.BATH >= bathrooms : true;
+                            const matchesCost = maxCost ? parseFloat(item.COST.replace(/[$,]/g, '')) <= maxCost : true;
+                            return matchesQuery && matchesBedrooms && matchesBathrooms && matchesCost;
+                        });
+
+                        displayListings(filteredListings.slice(0, numberOfListings));
+                    }
+                
+                    document.getElementById('searchField').addEventListener('input', (event) => {
+                        filterListings(event.target.value);
+                    });
+
+                    document.getElementById('bedroomFilter').addEventListener('input', () => {
+                        filterListings(document.getElementById('searchField').value);
+                    });
+
+                    document.getElementById('bathroomFilter').addEventListener('input', () => {
+                        filterListings(document.getElementById('searchField').value);
+                    });
+
+                    document.getElementById('costFilter').addEventListener('input', () => {
+                        filterListings(document.getElementById('searchField').value);
+                    });
+
+
+
+                    function showPopup(MLS, COST, ADDRESS, DESCRIPTION, STATUS, BEDROOMS, BATH, COUNT, TIME, LISTING_OFFICE, LISTING_OFFICE_NUMBER, LISTING_AGENT, LISTING_AGENT_NUMBER, LISTING_AGENT_EMAIL) {
+                        const popup = document.createElement('div');
+                        popup.className = 'popup';
+             
+            
+                        const popupContent = document.createElement('div');
+                        popupContent.className = 'popup-content';
+            
+                        const popupGallery = document.createElement('div');
+                        popupGallery.className = 'popup-gallery';
+            
+                        const fragment = document.createDocumentFragment();
+                        const baseURL = `static/rentals_images/${MLS}/`;
+            
+                        for (let i = 1; i <= COUNT; i++) {
+                            const photo = `${baseURL}${i}.webp`;
+            
+                            const a = document.createElement('a');
+                            a.href = photo;
+                            a.dataset.lightbox = 'gallery';
+            
+                            const img = new Image(); // Using Image constructor
+                            img.src = photo;
+                            img.alt = 'Gallery Image';
+                            img.style.width = '150px';
+                            img.style.height = '150px';
+                            img.style.border = '3px solid #a8b8c6';
+                            img.style.boxShadow = '0 0 10px rgba(168, 184, 198, 0.7)';
+                            img.loading = 'lazy';  // Add lazy loading
+
+                            a.appendChild(img);
+                            fragment.appendChild(a);
+                        }
+                    //<button onclick="toggleListingInfo()">Toggle Listing Info</button>                                    
+                        popupGallery.appendChild(fragment); // Append everything at once
+                        const popupText = document.createElement('div');
+                        popupText.className = 'popup-text';
+                        popupText.innerHTML = `
+                        <div class="listing-office-info">
+                            <p>Photographs listed by:</p>
+                            <p>${LISTING_OFFICE}</p>
+                            <p>${LISTING_AGENT}</p>
+                            <p>For more info reach out below.</p>
+                        </div>
+                            <hr class="styled-line">
+                            <p>${COST} Monthly</p><br>
+                            <p>${ADDRESS}</p>
+                            <hr class="styled-line">
+                            <p style="font-weight: bold;">Beds / Bath</p>
+                            <p>${BEDROOMS}  /  ${BATH}</p>
+                            <hr class="styled-line">
+                            <p>${DESCRIPTION}</p><br>
+                            <p>${MLS}</p>
+                            <p>Status: ${STATUS}</p>
+                            <hr class="styled-line">
+                            <button class="contact-button" onclick="navigateToContact('${MLS}', '${ADDRESS}')">Click here to request more information</button><br><br>
+
+                            <p style="font-size: 8px; background-color: #fafafa; padding: 10px; border: 1px solid #ccc; border-radius: 5px; text-align: center; width: 100%; box-sizing: border-box; margin: 0;">
+                            <strong class="custom-strong">Content Disclosure</strong><br>
+                                Photographs are © BRIGHT, All Rights Reserved. The data on this site is NOT sourced from BRIGHT MLS
+                                Automation, Bright MLS IDX, or its database. Values presented on this site should not be considered 
+                                appraisals. This site is automatically updated daily. By using this site, you acknowledge that all 
+                                information provided is for promotional and informational purposes. Content is not guaranteed to be 
+                                accurate, complete, reliable, current, or error-free. For most accurate infomration reach out direcly.
+                            </p>
+                            <hr class="styled-line">
+                            <div class="info-section">
+                                <p>Last Update: ${TIME || "No updates yet."}</p>
+                            </div>                    
+                        `;
+            
+                        const popupClose = document.createElement('span');
+                        popupClose.className = 'popup-close';
+                        popupClose.innerHTML = '&times;';
+                        popupClose.onclick = () => closePopup(popup);
+            
+                        popupContent.appendChild(popupGallery);
+                        popupContent.appendChild(popupText);
+                        popupContent.appendChild(popupClose);
+                        popup.appendChild(popupContent);
+                        document.body.appendChild(popup);
+            
+                        document.addEventListener('click', (event) => {
+                            if (event.target === popup || event.target.classList.contains('lightbox')) {
+                                closePopup(popup);
+                            }
+                        });
+            
+                        document.addEventListener('keydown', (event) => {
+                            if (event.key === 'Escape') {
+                                closePopup(popup);
+                            }
+                        });
+                    }
+            
+                    function closePopup(popup) {
+                        document.body.removeChild(popup);
+                    }
+            
+                    window.navigateToContact = (MLS, ADDRESS) => {
+                        const queryParams = new URLSearchParams({ MLS, ADDRESS }).toString();
+                        window.location.href = `/contact?${queryParams}`;
+                    };
+
+                    // Function to toggle visibility
+                    //function toggleListingInfo() {
+                    //    const listingInfo = document.querySelector('.listing-office-info');
+                    //    listingInfo.classList.toggle('show-listing-info');
+                    //}
+
+                    // Assuming you have a button to toggle
+                    //const toggleButton = document.createElement('button');
+                    //toggleButton.innerHTML = 'Show Listing Office Info';
+                    //toggleButton.onclick = toggleListingInfo;
+
+                    // Append the button to your popup or wherever appropriate
+                    //popupContent.appendChild(toggleButton);
+                });
+            </script>
+        </div>
+    </div>
+
+
+    <!-- Custom Section with Parallax Effect -->
+    <div class="custom-section" id="main-section">
+        <div class="custom-header">
+            <h2 class="custom-heading">WE ARE HERE TO HELP</h2>
+        </div>
+
+        <div class="custom-container">
+            <div class="custom-row">
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-homepage"></span>
+                    </div>
+                    <a class="custom-button-link" href="/">
+                        <span class="button-text">HOME PAGE</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-home"></span>
+                    </div>
+                    <a class="custom-button-link" href="/buying" id="button-search-homes">
+                        <span class="button-text">SEARCH HOMES</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-contact"></span>
+                    </div>
+                    <a class="custom-button-link" href="/contact">
+                        <span class="button-text">LEAVE A MESSAGE</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-head"></span>
+                    </div>
+                    <a class="custom-button-link" href="/resources">
+                        <span class="button-text">FIND RESOURCES</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}
+

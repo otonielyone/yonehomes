@@ -1,0 +1,1758 @@
+/* General Styles */
+.buy-heading {
+    font-size: 36px;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 500; /* Thin weight for headings */
+    background: none; /* Ensure no background color */
+}
+
+
+/* Desktop layout: 3 rows with 4 columns */
+.popup-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-gap: 10px; /* Space between items */
+}
+
+.popup-text {
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.popup-text p {
+    margin-top: 5px;
+    padding-top: 0;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+}
+
+
+.listing-office-info {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    font-size: 6px;
+}
+
+/* Hide the listing office info by default 
+.listing-office-info {
+    display: none;
+}
+.show-listing-info {
+    display: block;
+}
+
+*/
+
+
+.popup-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px; /* Increased for better separation */
+}
+
+.popup-gallery img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.popup-gallery img:hover {
+    opacity: 0.8;
+}
+
+.contact-button {
+    display: block; /* Ensures it takes up the full width of its container */
+    margin: 20px auto; /* Centers the button horizontally with auto margins */
+    padding: 10px 20px; /* Adjust padding for the button size */
+    background-color: #007BFF; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Optional: round the edges */
+    text-align: center; /* Centers the button text */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+.contact-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.search-container label {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between checkbox and label text */
+}
+
+.small-input {
+    width: 50px; /* Adjust the width to fit approximately 10 characters */
+}
+
+label {
+    font-size: 12px; /* Set font size to 12px */
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 70vw; /* Limit width */
+    margin: 20px auto; /* Center the container */
+}
+
+.search-container input {
+    padding: 10px;
+    border: 2px solid white; /* Blue border */
+    border-radius: 5px; /* Rounded input corners */
+    font-size: 12px; /* Increase font size */
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.search-container input:focus {
+    border-color: white; /* Darker blue on focus */
+    outline: none; /* Remove default outline */
+}
+
+
+.warning-message {
+    color: red;
+    font-weight: bold;
+    border: 2px solid red; /* Border color */
+    background-color: #f8f8f8; /* Light background color */
+    padding: 15px; /* Padding inside the box */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 9px;
+}
+
+
+
+.mls-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: #007bff;
+    max-width: 200px; 
+    border-radius: 7px;
+    border: 1px solid #888f96; /* Changed border color to blue */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1); /* Fixed box-shadow color */
+    margin: 40px auto 80px; 
+    text-align: center;
+}
+
+/* For Dynamic Button Grid Section */
+.button-grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Button Grid Styles */
+.button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.button-text {
+    margin-top: 0;
+    padding: 20px;
+    font-size: 12px;
+
+}
+
+/* Button Item Styles */
+.button-item {
+    flex: 1 1 calc(25% - 16px);
+    box-sizing: border-box;
+    max-width: calc(25% - 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Ensure Button Elements Have No Borders */
+.button-item button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none; /* Removes default focus outline */
+}
+
+/* Ensure Image Within Button Has No Border */
+.button-item img {
+    width: 100px;
+    height: auto;
+    border: none;
+}
+
+/* Remove Focus and Active Styles for Button */
+.button-item button:focus,
+.button-item button:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Remove Border When Button Is Clicked or Focused */
+.button-item button:focus img,
+.button-item button:active img {
+    border: none;
+}
+
+.contact-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 978px) {
+    .search-container {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center;
+    }
+    
+    input[type="number"],
+    input[type="text"] {
+        width: 150px; /* Adjusted width for small screens */
+        margin: 0 auto; /* Center the inputs */
+    }
+    
+    label.left-align {
+        justify-content: flex-start; /* Ensure it stays left-aligned */
+        text-align: left;
+        width: 150px;
+    }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 500px) and (orientation: portrait) {
+    .button-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .content-disclosure {
+        font-size: 8px !important;
+    }
+        
+    .main-heading {
+        z-index: 1000; /* Ensure heading is below popup */
+    }
+        
+    .popup-text {
+        font-size: 10px; /* General text, smaller for mobile */
+        white-space: normal; /* Allow paragraphs to wrap properly */
+        overflow-x: hidden; /* Hide horizontal overflow */
+        font-weight: normal; /* Set the same weight as the text inside the button */
+    }
+
+    /* Ensure gallery is centered and items are 3 per row */
+    .popup-row {
+        display: grid;
+        grid-gap: 10px; /* Add space between items */
+        justify-content: center; /* Center the grid items */
+    }
+
+    /* Ensure titles are visible */
+    .popup-title {
+        font-size: 12px; /* Ensure title font size is slightly larger */
+        font-weight: bold; /* Make sure titles are bold */
+        color: #000; /* Set title color to black for visibility */
+        display: block; /* Ensure titles are displayed as block */
+        text-align: center; /* Center the title text */
+    }
+
+    /* Ensure full values for variables, no truncation */
+    .popup-value {
+        font-size: 10px; /* Keep variable values at 10px */
+        white-space: normal; /* Ensure values are not cut off */
+        overflow-wrap: break-word; /* Allow text to wrap */
+        text-align: center; /* Center the values */
+    }
+
+    /* Ensure description displays fully as a paragraph */
+    .popup-text p {
+        white-space: normal; /* Allow paragraph wrapping */
+        word-wrap: break-word; /* Wrap long words to avoid overflow */
+    }
+
+    .light-red-text h2 {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .mls-search {
+        padding-top: 7px;
+        margin: 40px auto 50px; 
+    }
+
+    .warning-message {
+        font-size: 8px;
+    }
+
+    .listing-office-info p {
+        font-size: 4px !important;
+    }
+    
+
+}

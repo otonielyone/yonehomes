@@ -1,0 +1,229 @@
+/* General Styles */
+body {
+    color: black;
+}
+
+/* Contact Container Styling */
+.contact-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;  /* Light background for the entire container */
+    border-radius: 8px;
+    width: 100%;
+  }
+  
+  /* Distinguish the top section by giving it a background color and adding padding */
+  .contact-container .contact-top {
+    background-color: #455a649a;  /* Make the background dark blue to distinguish */
+    color: white;  /* Set text color to white for contrast */
+    padding: 15px 20px;  /* Add padding for space around the text */
+    border-radius: 8px;  /* Rounded corners */
+    margin-bottom: 20px;  /* Space below the top section */
+  }
+  
+  /* Make the top section's text larger and more prominent */
+  .contact-container .contact-top h1 {
+    font-size: 32px; /* Larger font size for the header */
+    margin-bottom: 10px; /* Spacing below the header */
+  }
+  
+  /* Additional emphasis for the contact info section */
+  .contact-container .contact-top p {
+    font-size: 20px; /* Slightly larger font size */
+  }
+  
+  /* Contact Info Styling */
+  .contact-info {
+    font-size: 14px;
+    color: #455a64;
+  }
+  
+  .contact-info p {
+    margin: 5px 0;
+  }
+  
+  /* Optional: Style for the bottom section of the contact info */
+  .contact-container .contact-bottom {
+    font-size: 14px;
+    color: #283593; /* Lighter blue color */
+  }
+  
+  .contact-info {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.contact-info-sec1 {
+padding-bottom: 5px;
+}
+
+
+.contact-info-sec2 {
+    padding-bottom: 20px;
+}
+
+.contact-heading {
+    font-size: 36px;
+    margin: 10px 0;
+    color: white; 
+    text-align: center;
+    font-weight: 500; /* Thin weight for headings */
+    background: none; /* Ensure no background color */
+    padding: 0; /* Remove padding if any */  
+}
+
+/* Contact Form Styles */
+
+.contact-form-container {
+    width: 50vw;
+    margin: 40px auto; /* Adds space around the form and centers it horizontally */
+    padding: 40px;
+    padding-bottom: 50px;
+    background: #f9f9f9; /* Light background color for the form */
+    border-radius: 8px; /* Rounded corners for the form container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+}
+
+/* Heading inside the form */
+.contact-form-container h1 {
+    font-size: 24px;
+    margin-bottom: 35px;
+    color: #333; /* Darker color for the heading */
+}
+
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+    text-align: center; 
+}
+
+/* Label Styling */
+.form-group label {
+    display: block;
+    font-weight: 600; /* Bold labels for better readability */
+    margin-bottom: 5px;
+    
+    
+    color: #555; /* Darker color for labels */
+}
+
+/* Input and Textarea Styling */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd; /* Light border color */
+    border-radius: 4px; /* Slightly rounded corners for input fields */
+    box-sizing: border-box; /* Ensures padding and border are included in the total width */
+    font-size: 16px;
+}
+
+textarea {
+    text-align: center;
+    resize: vertical;
+    font-size: 14px !important;  
+    text-align: center;     
+    justify-content: center; 
+    font-family: Arial, sans-serif; 
+    color: rgb(185, 185, 185);
+    }
+
+textarea::placeholder {
+    text-align: center;
+    justify-content: center;
+    font-size: 14px !important;
+    color: rgb(185, 185, 185);
+}
+
+/* Textarea Styling */
+.form-group textarea {
+    resize: vertical; /* Allows vertical resizing only */
+}
+
+/* Submit Button Styling */
+button[type="submit"] {
+    background-color: #007BFF; /* Primary button color */
+    color: white; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px; /* Rounded corners for the button */
+    font-size: 16px;
+    cursor: pointer; /* Pointer cursor on hover */
+    display: block; /* Ensure the button is a block element */
+    margin: 20px auto; /* Center the button horizontally with margin around it */
+}
+
+/* Hover Effect for Submit Button */
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Media Query for Centering Text on Screens 1000px or Smaller */
+
+@media screen and (max-width: 1000px) {
+
+    .contact-heading {
+        text-align: center; /* Center the heading text */
+    }
+
+    .form-group label {
+        text-align: center; /* Center labels inside the form group */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"],
+    .form-group textarea {
+        display: inline-block; /* Make inputs and textarea inline-block for centering */
+        text-align: center; /* Center text inside the input fields */
+    }
+
+    button[type="submit"] {
+        display: block; /* Ensure the button is a block element */
+        margin: 20px auto; /* Center the button horizontally */
+    }
+}
+
+
+/* Portrait mode for very small screens (e.g., Galaxy Fold front thin screen) */
+@media screen and (max-width: 500px) and (orientation: portrait) {
+    .contact-form-container {
+        width: 65vw;
+    }
+    
+    .image-header-container {
+        height: 100vh; /* Use viewport height for portrait mode */
+        width: 100vw; /* Use viewport height for portrait mode */
+    
+    }
+
+    /* Input and Textarea Styling */
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"],
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd; /* Light border color */
+        border-radius: 4px; /* Slightly rounded corners for input fields */
+        box-sizing: border-box; /* Ensures padding and border are included in the total width */
+        font-size: 14px;
+    }
+
+    textarea{
+        font-size: 10px;          
+    }
+
+    textarea::placeholder {
+        font-size: 10px;          
+    }
+
+}

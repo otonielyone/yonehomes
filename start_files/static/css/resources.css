@@ -1,0 +1,231 @@
+
+
+.resource-heading {
+    font-size: 36px;
+    margin: 10px 0;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    display: flex; /* Added */
+    flex-direction: column; /* Added */
+    align-items: center; /* Added */
+}
+
+.headshot-jeff,
+.headshot-chris {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.loan-officers-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.loan-officer {
+    flex: 1;
+    max-width: 300px;
+    margin: 10px;
+    text-align: center;
+}
+
+
+.loan-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loan-popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    max-width: 400px; 
+    width: 90%; 
+    margin: auto; 
+    transform: translateY(80%); 
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.welcome-section {
+    margin-top: 15px;
+    padding: 20px; /* Padding around the section */
+    text-align: center; /* Center align text */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items */
+}
+
+.welcome-section h2 {
+    color: #333; /* Darker color for the heading */
+    font-size: 28px; /* Larger font size */
+    margin-bottom: 40px; /* Space below the heading */
+    font-weight: 500; /* Corrected font weight */
+}
+
+.welcome-section p {
+    color: #555; /* Slightly lighter text for paragraphs */
+    font-size: 16px; /* Comfortable font size for reading */
+    line-height: 1.6; /* Increase line height for readability */
+    margin-bottom: 10px; /* Space between paragraphs */
+    max-width: 800px; /* Limit the width */
+}
+
+.general-options, 
+.grant-options, 
+.loan-options {
+    margin: 20px auto; /* Vertical margin for spacing */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 800px; /* Full width within the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content inside the sections */
+    justify-content: center;
+}
+
+.general-option, 
+.grant-option, 
+.loan-option {
+    padding: 20px; /* Consistent padding */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.2s;
+    display: flex; /* Use flexbox for inner content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center align children */
+    justify-content: center; /* Center content */
+}
+
+.general-option h3, 
+.grant-option h3, 
+.loan-option h3 {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 500;     
+    letter-spacing: 1px; /* Slightly increase spacing between letters */
+    line-height: 1.5;
+}
+
+p,
+.general-option p, 
+.grant-option p, 
+.loan-option p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0; /* Remove margin for consistent spacing */
+}
+
+.general-option:hover, 
+.grant-option:hover, 
+.loan-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    width: 250px; 
+    margin: 0 5px; 
+    background-color: transparent;
+    color: #666; 
+    padding: 15px; 
+    text-align: center;
+    font-size: 12px; 
+    cursor: pointer;
+    border: 2px solid lightgray; 
+    border-radius: 8px; 
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 400; 
+}
+
+button:hover {
+    background-color: #666; 
+    color: white; 
+}
+
+.loan-officer .button-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 10px; 
+    width: 100%; 
+}
+
+h2.collapsible {
+    cursor: pointer;
+    color: #666; 
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+h2.collapsible:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Adjust hover effect */
+}
+
+.content {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 0 0 5px 5px;
+    font-weight: bold;
+    display: none; /* Initially hidden */
+    color: #666; 
+}
+
+.footer-info p {
+    color: white;
+}
+
+@media screen and (max-width: 500px) and (orientation: portrait) {
+    .welcome-section p {
+        max-width: 65%; /* Set max width to 50% */
+    }
+
+    .welcome-section h2 {
+        font-size: 20px; /* Adjust heading size */
+    }
+
+}
+ 
+@media screen and (max-width: 968px) and (orientation: portrait) {
+    .general-options, 
+    .grant-options,
+    .loan-options {
+        max-width: 90%; /* Set max-width to 70% */
+    }
+    
+    .loan-officer:first-child {
+        margin-bottom: 60px; /* Add top margin to the first loan officer */
+    }
+    }

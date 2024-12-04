@@ -1,0 +1,441 @@
+
+
+/* For Dynamic Button Grid Section */
+.button-grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Button Grid Styles */
+.button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.button-text {
+    margin-top: 0;
+    padding: 20px;
+    font-size: 12px;
+}
+
+
+.listing-office-info p {
+    font-size: 6px;
+}
+
+/* Hide the listing office info by default 
+.listing-office-info {
+    display: none;
+}
+.show-listing-info {
+    display: block;
+}
+
+*/
+
+
+/* Button Item Styles */
+.button-item {
+    flex: 1 1 calc(25% - 16px);
+    box-sizing: border-box;
+    max-width: calc(25% - 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Ensure Button Elements Have No Borders */
+.button-item button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none; /* Removes default focus outline */
+}
+
+/* Ensure Image Within Button Has No Border */
+.button-item img {
+    width: 100px;
+    height: auto;
+    border: none;
+}
+
+/* Remove Focus and Active Styles for Button */
+.button-item button:focus,
+.button-item button:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Remove Border When Button Is Clicked or Focused */
+.button-item button:focus img,
+.button-item button:active img {
+    border: none;
+}
+
+/* Ensure Text Is Properly Visible in the Overlay */
+.overlay-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #ffffff;
+    text-align: center;
+}
+
+.content-disclosure {
+    font-size: 8px !important;
+}
+
+
+/* General Styles for Rental Services Text */
+.rental-services h1, h2, p {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Specific Styles for Rental Services Section */
+.rental-services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.rental-services-wrapper {
+    width: 75%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;           /* Added */
+    flex-direction: column;  /* Added */
+    align-items: center;     /* Added */
+}
+
+.rental-services p,
+.rental-services h2 {
+    margin: 0;
+    text-align: center;
+}
+
+
+.requirements-container {
+    display: flex;
+    justify-content: space-between; /* Space between sections */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Limit max width */
+    margin: 0 auto; /* Center the container */
+}
+
+.expandable-section {
+    flex: 1; /* Allow sections to grow */
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f9f9f9b8;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 50vw;
+    margin: 20px auto;
+}
+
+/* Rest of your existing CSS remains the same... */
+/* Text Color Classes */
+.black-text {
+    color: #000000;
+    font-weight: 300;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.black-text p {
+    color: rgb(0, 0, 0);
+}
+
+.light-green-text {
+    color: green;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.navy-blue-text {
+    color: rgb(37, 71, 221);
+    padding-top: 20px;
+    text-align: center;
+}
+
+.warning-message {
+    color: red;
+    font-weight: bold;
+    border: 2px solid red; /* Border color */
+    background-color: #f8f8f8; /* Light background color */
+    padding: 15px !important; /* Padding inside the box */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 9px;
+}
+
+
+
+.light-red-text {
+    color: #c0392b;
+    font-weight: 300;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.dark-red-text {
+    color: #a91909;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+/* Custom Section Background */
+.custom-section {
+    background-size: cover;
+    background-position: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Desktop layout: 3 rows with 4 columns */
+.popup-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.styled-line {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.popup-text p {
+    margin-top: 5px;
+    padding-top: 0;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+}
+
+.popup-text {
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.popup-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.popup-gallery img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.popup-gallery img:hover {
+    opacity: 0.8;
+}
+
+.contact-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    background-color: #0056b3;
+}
+
+.small-input {
+    width: 50px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f9f9f9b8;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 50vw;
+    margin: 20px auto;
+}
+
+.search-container input {
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+.search-container input:focus {
+    border-color: white;
+    outline: none;
+}
+
+
+.expand-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.expand-button:hover {
+    background-color: #e9ecef;
+}
+
+.expand-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.section-content {
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: white;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 978px) {
+    .language-toggle-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .language-toggle-container button {
+        width: 150px;
+    }
+
+    .search-container {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        width: 150px;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 500px) and (orientation: portrait) {
+    .button-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    
+    .content-disclosure {
+        font-size: 8px !important;
+    }
+
+    .main-heading {
+        z-index: 1000;
+    }
+        
+    .popup-text {
+        font-size: 10px;
+        white-space: normal;
+        overflow-x: hidden;
+        font-weight: normal;
+    }
+
+    .popup-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        justify-content: center;
+    }
+
+    .popup-title {
+        font-size: 12px;
+        font-weight: bold;
+        color: #000;
+        display: block;
+        text-align: center;
+    }
+
+    .popup-value {
+        font-size: 10px;
+        white-space: normal;
+        overflow-wrap: break-word;
+        text-align: center;
+    }
+
+    .popup-text p {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+    
+    .light-red-text h2 {
+        font-size: 10px;
+    }
+
+    .requirements-container {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .expandable-section {
+        max-width: 100%; /* Allow full width on mobile */
+        margin: 5px 0; /* Add some margin for spacing */
+        font-size: 10px;
+    }
+    
+    .expand-button {
+        padding: 12px;
+        font-size: 10px;
+    }
+
+    .section-content {
+        padding: 15px;
+    }
+
+    .warning-message {
+        font-size: 8px;
+    }
+
+    .listing-office-info p {
+        font-size: 4px !important;
+    }
+
+}

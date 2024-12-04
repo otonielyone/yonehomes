@@ -1,0 +1,218 @@
+{% extends "template.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+{% endblock %}
+
+{% block title %}Welcome to Yone Homes | Find Your Dream Home in Northern Virginia & DC Metro{% endblock %}
+{% block meta_description %}Discover exceptional real estate services with Yone Homes. Explore buying, renting, and other home services in Northern Virginia and the DC Metro area. Find your perfect home today!{% endblock %}
+{% block meta_keywords %}real estate, Northern Virginia, DC Metro, homes for sale, rentals, real estate services, home buying, home renting{% endblock %}
+{% block og_title %}Welcome to Yone Homes | Find Your Dream Home{% endblock %}
+{% block og_description %}Yone Homes provides top-notch real estate services for buying and renting homes in Northern Virginia and the DC Metro area. Explore our services and find your ideal home with us.{% endblock %}
+{% block og_image %}https://www.yonehomes.com/static/images/home-og.jpg{% endblock %}
+{% block og_url %}https://www.yonehomes.com{% endblock %}
+{% block twitter_title %}Welcome to Yone Homes | Find Your Dream Home{% endblock %}
+{% block twitter_description %}Explore Yone Homes for all your real estate needs in Northern Virginia and the DC Metro area. We help you find the perfect home or rental with ease.{% endblock %}
+{% block twitter_image %}https://www.yonehomes.com/static/images/home-twitter.jpg{% endblock %}
+
+{% block body %}    
+    <div class="home-page-menu">
+        <!-- Main Menu Bar -->
+
+
+        <nav class="menu-bar">
+            <!-- Left Column with Menu Links -->
+            <div class="menu-column left-column">
+                <a href="/buying" class="menu-link">BUYING</a>
+                <a href="/rentals" class="menu-link">RENTALS</a>
+                <a href="/resources" class="menu-link">RESOURCES</a>
+                <a href="/contact" class="menu-link">CONTACT</a>
+            </div>
+
+           <!-- Right Column with Logo and Language Icon -->
+           <div class="menu-column right-column" style="display: flex; align-items: center;">
+                <a href="#" class="language-icon">
+                <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
+                </a>
+            </div>
+        </nav>
+                    
+        <!-- Hamburger Menu Icon -->
+        <nav class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </nav>
+
+        <script>
+            document.addEventListener("scroll", function() {
+                const footerInfo = document.getElementById("header-info-container");
+                const headerTexts = document.querySelectorAll(".header-text"); // Select all header-text elements
+                const scrollPosition = window.scrollY;
+        
+                // Change this value to determine when to hide the text (e.g., 50px from top)
+                if (scrollPosition > 50) {
+                    footerInfo.classList.add("hidden");
+                    headerTexts.forEach(headerText => headerText.classList.add("hidden")); // Hide all header-text elements
+                } else {
+                    footerInfo.classList.remove("hidden");
+                    headerTexts.forEach(headerText => headerText.classList.remove("hidden")); // Show all header-text elements
+                }
+            });
+        </script>
+              
+
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobile-menu">
+            <div class="close-menu">X</div> <!-- Close icon -->
+            <a href="/buying" class="menu-item">BUYING</a>
+            <a href="/rentals" class="menu-item">RENTALS</a>
+            <a href="/resources" class="menu-item">Resources</a>
+            <a href="/contact" class="menu-item">Contact</a>
+        </nav>
+    </div>
+
+
+    <!-- Image/Video Background Container -->
+    <div class="image-header-container">
+        <!-- Video Background Section -->
+        <div class="video-background-wrapper">
+            <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+            poster="https://lirp.cdn-website.com/94fbcdbc/dms3rep/multi/opt/eBDyby3ZSoyoF57tIbLK_NAR+VIDEO+.v2.0000000-1920w.jpg"
+            src="/static/icons/homevideo.mp4"></video>
+
+            <!-- Overlay Content Section -->
+            <div class="overlay-content">
+                <div class="text-content">
+                    <div id="header-info-container">
+                        <!-- <img src="/static/icons/united3.png" alt="United Logo" class="header-logo"> -->
+                        <img src="/static/icons/samson.png" alt="Samson Properties Logo" class="header-logo">
+                        <p class="header-text">TONI YONE - LICENSE STATE: VA 
+                    </div>
+                    
+                    <h1 class="main-heading">Exceeding Expectations</h1>
+                    <h1 class="sub-heading">Gain What You DESERVE, Don't Settle For Less</h1>
+                </div>
+
+                <div class="button-group">
+                    <a class="button-link" href="/buying" id="button-search-homes">
+                        FIND HOMES 
+                    </a>
+                    <a class="button-link" href="/rentals" id="button-rentals">
+                        FIND RENTALS
+                    </a>
+                    <a class="button-link" href="/resources" id="button-pre-approved">
+                        GET PRE-APPROVED
+                    </a>
+
+                    <a class="button-link" href="/contact" id="contact">
+                        CONTACT
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Home Services Section -->
+    <div class="home-services" id="home-services">
+        <div class="home-services-wrapper">
+            <div class="service-container">
+                <h1>Home Services</h1>
+                <div class="service-item">
+                    <h2>Buyer's Representative</h2>
+                    <p>As your Buyer's Representative, Yonehomes can make the process of house hunting much easier and more efficient than if you did it all yourself.</p>
+                </div>
+                <div class="service-item">
+                    <h2>Seller's Representative</h2>
+                    <p>Selling a house on your own can be a daunting task, but with Yonehome's Toni Yone, a trusted realtor by your side, it becomes a breeze.</p>
+                </div>
+                <div class="service-item">
+                    <h2>Looking for a Room or Apartment?</h2>
+                    <p>Reach out today, and Yonehomes will dedicate time to fulfilling your unique needs and preferences. Yonehomes can make anything possible. Find your dream space today!</p>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="/static/icons/merged_image.jpg" alt="Home Services">
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Work With Us Section -->
+    <div class="why-us" id="why-us">
+        <h1>Why Work With Yonehomes?</h1>
+        <p class="sub-heading">Simply, Yonehomes is the Best. With top-notch service and commitment to all that is second-to-none.</p>
+        <div class="why-us-container">
+            <div class="reason">
+                <h2>Market Expertise</h2>
+                <p>Yonehomes provide's detailed information about neighborhoods, opportunities, and programs to guide you through the process.</p>
+            </div>
+            <div class="reason">
+                <h2>Client-Focused</h2>
+                <p>Yonehomes values your time and work to understand your needs and preferences, ensuring a productive collaboration.</p>
+            </div>
+            <div class="reason">
+                <h2>Responsive</h2>
+                <p>Yonehomes is here to answer your questions and make sure you feel confident in your real estate decisions.</p>
+            </div>
+            <div class="reason">
+                <h2>Connected</h2>
+                <p>Yonehomes can connect you with top professionals, including mortgage brokers, real estate attorneys, and more.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Section with Parallax Effect -->
+    <div class="custom-section" id="main-section">
+        <div class="custom-header">
+
+            <h2 class="custom-heading">YONEHOMES IS HERE TO HELP</h2>
+        </div>
+
+        <div class="custom-container">
+            <div class="custom-row">
+                <div class="custom-column">
+            
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-home"></span>
+                    </div>
+                    <a class="custom-button-link" href="/buying" id="button-search-homes">
+                        <span class="button-text">SEARCH HOMES</span>
+                    </a>
+                </div>
+                
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-rentals"></span>
+                    </div>
+                    <a class="custom-button-link" href="/rentals">
+                        <span class="button-text">FIND RENTALS</span>
+                    </a>
+                </div>
+
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-head"></span>
+                    </div>
+                    <a class="custom-button-link" href="/resources">
+                        <span class="button-text">FIND RESOURCES</span>
+                    </a>
+                </div>
+                
+                <div class="custom-column">
+                    <div class="custom-icon-widget">
+                        <span class="custom-icon-contact"></span>
+                    </div>
+                    <a class="custom-button-link" href="/contact">
+                        <span class="button-text">LEAVE A MESSAGE</span>
+                    </a>
+                </div>
+            
+            </div>
+        </div>
+    </div>  
+    
+{% endblock %}
+

@@ -1,0 +1,250 @@
+
+
+.home-services {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    background-color: none;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center; /* Center items horizontally */
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+.home-services::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.home-services {
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    scrollbar-width: none; /* For Firefox */
+}
+
+.home-services h1 {
+    color: #000;
+}
+
+/* Wrapper to hold both image and text content */
+.home-services-wrapper {
+    display: flex;
+    flex-direction: row; /* Ensure horizontal layout */
+    gap: 50px; /* Add space between items */
+    align-items: center; /* Center items vertically within the wrapper */
+    justify-content: center; /* Center the content within the container */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    margin-top: 10px; /* Add padding to avoid touching edges */
+    width: auto;
+}
+
+
+
+/* Service Item Styling */
+.service-item {
+    max-width: 800px; /* Fixed width for each service item */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden; /* Prevent content from overflowing */
+    margin-bottom: 20px;
+    white-space: normal; /* Allow text to wrap onto multiple lines */
+}
+
+.service-item h1, .service-item h2, .service-item p {
+    margin: 0;
+    padding: 0;
+}
+
+.service-item h1 {
+    font-size: 24px;
+    text-align: center; /* Center align heading text */
+    color: black;
+    margin-bottom: 20px; /* Match padding with common-heading */
+    font-weight: 400; /* Match font weight with why-us */
+}
+
+.service-item h2 {
+    font-size: 18px;
+    text-align: center; /* Center align heading text */
+    margin: 10px auto; /* Match padding with common-subheading */
+    font-weight: 400; /* Match font weight with why-us */
+}
+
+.service-item p {
+    font-size: 14px;
+    margin: 10px 0; /* Match padding with common-text */
+    font-weight: 300; /* Match font weight with why-us */
+}
+
+/* Service item background colors */
+.service-item:nth-of-type(1) {
+    background-color: #2a6d9a; /* Dark Blue */
+    color: white;
+}
+
+.service-item:nth-of-type(2) {
+    background-color: #e2e2e2; /* Light Gray */
+    color: black;
+}
+
+.service-item:nth-of-type(3) {
+    background-color: #2596be; /* Blue */
+    color: white;
+}
+
+/* Container for service items */
+.service-items-container {
+    display: flex;
+    flex-direction: row; /* Ensure horizontal layout */
+    gap: 20px; /* Space between items */
+    padding-top: 20px; /* Add padding to avoid touching edges */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    padding-bottom: 0;
+    justify-content: flex-end; /* Align content to the right */
+}
+
+/* Container for image */
+.image {
+    display: flex;
+    justify-content: flex-start; /* Align image content to the left */
+    align-items: center;
+    position: relative;
+    height: 100%; /* Make the image fill the container height */
+    background-color: none;
+    overflow: hidden; /* Hide parts of the image that extend beyond the container */
+}
+
+/* Adjust image to fit container and prevent overflow */
+.image img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Why Work With Us Section */
+.why-us {
+    background-color: #fff;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+}
+
+.why-us h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px; /* Standardized margin for heading */
+    font-weight: 400; /* Match font weight with service-items */
+}
+
+.why-us p.sub-heading {
+    font-size: 16px;
+    color: #333;
+    margin: 10px auto 20px auto; /* Standardized margin for sub-heading */
+    max-width: 800px;
+    font-weight: 300; /* Match font weight with service-items */
+}
+
+.why-us-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0;
+    width: 100%;
+    min-width: 100vw;
+    scroll-behavior: smooth;
+    justify-content: center; /* Center horizontally */
+}
+
+.why-us-container::-webkit-scrollbar {
+    display: none;
+}
+
+.why-us-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.reason {
+    flex: 0 0 300px;
+    padding: 20px;
+    background-color: #e2e2e2;
+    color: black;
+    text-align: center; /* Center align reason text */
+}
+
+.reason:nth-of-type(2) {
+    background-color: #f3f3f3;
+}
+
+.reason:nth-of-type(3) {
+    background-color: #2596be;
+    color: white;
+}
+
+.reason:nth-of-type(4) {
+    background-color: #2a6d9a;
+    color: white;
+}
+
+.reason h2 {
+    font-size: 18px;
+    text-align: center; /* Center align heading text */
+    margin: 10px auto; /* Match padding with common-subheading */
+    font-weight: 400; /* Match font weight with service-items */
+}
+
+.reason p {
+    font-size: 14px;
+    text-align: center; /* Center align heading text */
+    margin: 10px auto; /* Match padding with common-subheading */
+    font-weight: 300; /* Match font weight with service-items */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .home-services-wrapper, .service-items-container,
+    .why-us-container {
+        flex-direction: column;
+        align-items: center;
+        min-width: 100%;
+    }
+
+    .image, .main-image {
+        width: 100%; /* Ensure images scale to fit container width */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 0; /* Reset margin for mobile */
+    }
+
+    .main-heading {
+        font-size: 28px; /* Consistent heading size */
+    }
+
+    .sub-heading {
+        font-size: 16px; /* Consistent sub-heading size */
+    }
+
+    .button_link {
+        font-size: 14px;   
+        width: 150px; /* Fixed width for buttons */
+    }
+
+    .reason {
+        flex: 1;
+        max-width: 100%; /* Full width for reasons */
+    }
+
+    #header-info-container {
+        margin-bottom: 20px; /* Spacing adjustment */
+    }
+
+    /* Additional styles for small portrait devices */
+    @media screen and (max-width: 500px) and (orientation: portrait) {
+        /* Any specific overrides for portrait orientation can go here */
+    }
+}
