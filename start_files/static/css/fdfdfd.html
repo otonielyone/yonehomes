@@ -1,0 +1,1377 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Title and Meta Description -->
+    <title>Yone Homes | Let Us Help You Find Your Home! We cover Northern Virginia & DC Metro Region</title>
+    <meta name="description" content="Yone Homes provides exceptional residential real estate services in Northern Virginia and the DC Metro area. From private rooms and apartments to entire homes, our team is dedicated to finding the perfect space for you.">
+    <meta name="keywords" content="real estate, homes for sale, apartments, private rooms, property listings, real estate agency, Northern Virginia, DC Metro real estate">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Yone Homes | Let Us Help You Find Your Home! We cover Northern Virginia & DC Metro Region" />
+    <meta property="og:description" content="Yone Homes offers a wide range of residential real estate services across Northern Virginia and the DC Metro area. Whether you're searching for private rooms, apartments, or full homes, our team is committed to helping you find the perfect fit." />
+    <meta property="og:image" content="https://www.yonehomes.com/static/icons/united.svg" />
+    <meta property="og:url" content="https://www.yonehomes.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Yone Homes" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yone Homes | Let Us Help You Find Your Home! We cover Northern Virginia & DC Metro Region" />
+    <meta name="twitter:description" content="Yone Homes offers comprehensive residential real estate services in Northern Virginia and the DC Metro area. From private rooms to entire homes, our dedicated team is here to help you find the ideal living space." />
+    <meta name="twitter:image" content="https://www.yonehomes.com/static/icons/united.svg" />
+    <meta name="twitter:site" content="@yonehomes" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
+
+        body {
+        background-color: white;        
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        box-sizing: border-box;
+        text-decoration: none;
+        }
+
+        /* Hide links */
+          .container,
+          .nav-link[href="/resources.php"],
+          .nav-link[aria-label="Agents"]{
+            display: none !important;
+        }
+
+        /* Style the submenu popup */
+        .sub-menu {
+            background-color: rgba(0, 0, 0, 0.8) !important; /* Black transparent background */
+            position: absolute !important; /* Ensure the menu pops up */
+            left: 0 !important; /* Push content to the left */
+            top: 100% !important; /* Position below the parent item */
+            padding: 10px !important; /* Add padding for spacing */
+            display: none !important; /* Initially hide the submenu */
+            z-index: 9999 !important; /* Ensure it appears on top */
+        }
+
+        /* Style the submenu items */
+        .sub-menu li {
+            text-align: left !important; /* Align text to the left */
+            margin: 0 !important; /* Remove any default margins */
+            list-style: none !important; /* Remove bullet points */
+        }
+
+        /* Style links inside the submenu */
+        .sub-menu li a {
+            color: #fff !important; /* White text for contrast */
+            text-decoration: none !important; /* Remove underlines */
+            display: block !important; /* Ensure links are block-level */
+            padding: 5px 10px !important; /* Add padding for touch-friendly design */
+        }
+
+        /* Show submenu on hover */
+        .nav-item-parent:hover .sub-menu {
+            display: block !important; /* Make the submenu visible */
+        }
+
+        .inner-layout.navbar-toggler.pull-xs-right.hidden-lg-up {
+            margin-right: 20px !important;
+        }
+
+        .p-t-3,
+        .p-b-2,
+        .container-fluid,
+        .main,
+        #categories{
+            padding: 0 !important;
+            margin: 0 !important;
+        
+        }
+
+        /* Style the mobile menu toggle button */
+        .navbar-toggler {
+            position: fixed !important; /* Make the toggle button fixed */
+            top: 10px !important; /* Position it at 10px from the top of the screen */
+            left: 10px !important; /* Position it at 10px from the left of the screen */
+            z-index: 10000 !important; /* Ensure it sits above the menu */
+            background-color: transparent !important; /* Make toggle button background transparent */
+            border: none !important; /* Remove border from all states */
+            color: #fff !important; /* Make toggle button color white for visibility */
+            font-size: 1rem !important; /* Reduced from 2rem */
+        }
+
+        /* Ensure no border when aria-expanded is true */
+        .navbar-toggler[aria-expanded="true"] {
+            border: none !important; /* No border when expanded */
+        }
+
+        /* Default styles for the hamburger (3 lines) */
+        .navbar-toggler span {
+            display: block;
+            width: 12.5px; /* Reduced from 25px */
+            height: 1.5px; /* Reduced from 3px */
+            border: none; /* No border for the lines */
+            background-color: #fff;
+            margin: 2.5px auto; /* Reduced from 5px */
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+
+        /* When the menu is open, change the hamburger to an "X" */
+        .navbar-toggler:not(.collapsed) span:nth-child(1) {
+            transform: rotate(45deg) translate(2.5px, 2.5px); /* Reduced from 5px */
+        }
+
+        .navbar-toggler:not(.collapsed) span:nth-child(2) {
+            opacity: 0; /* Hide the middle line */
+        }
+
+        .navbar-toggler:not(.collapsed) span:nth-child(3) {
+            transform: rotate(-45deg) translate(2.5px, -2.5px); /* Reduced from 5px */
+        }
+
+        /* Ensure that when the button is collapsed, it shows the hamburger (3 lines) */
+        .navbar-toggler.collapsed span {
+            transform: none !important;
+            opacity: 1 !important;
+        }
+
+        /* Optional: Style for the "X" (when the menu is open) */
+        .navbar-toggler.collapsed {
+            background: transparent !important;
+            border: none !important; /* No border around the button */
+        }
+
+        /* Specific rule for the default state when no aria-expanded is set */
+        .navbar-toggler:not([aria-expanded]) span {
+            transform: none !important; /* Ensure no transformation */
+            opacity: 1 !important; /* Show all 3 lines */
+        }
+
+        /* Remove borders when the toggle button is hovered */
+        .navbar-toggler:hover, 
+        .navbar-toggler:focus, 
+        .navbar-toggler:active {
+            border: none !important; /* No border when active or focused */
+            outline: none !important; /* Remove the outline as well */
+        }
+
+        /* Ensure the mobile menu styles */
+        .nav-primary .nav-link {
+            text-decoration: none; /* Removes underline from links */
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 400;
+            background: transparent;
+            font-size: 16px;
+        }
+
+        .nav-item .nav-item-text,
+        .contact-title {
+            text-decoration: none; /* Removes underline from links */
+            background: transparent;
+            font-size: 12px;
+            font-family: 'Montserrat', sans-serif !important;
+            text-align: left;
+            padding: 0; /* Use '0' instead of 'none' */
+            font-weight: 400;
+        }
+
+        /* Mobile-specific styles for the nav-primary-wrapper */
+        .nav .nav-pills .nav-primary,
+        .nav-primary-wrapper.collapsing,
+        .nav-primary-wrapper.collapsing .nav-item a,
+        .nav-primary-wrapper.collapsing .nav-item:first-child a,
+        .nav-primary-wrapper.collapsing .sub-menu {
+            display: none !important;
+        }
+
+        .nav-primary-wrapper.collapse.in {
+            background-color: rgba(0, 0, 0, 0.9) !important; /* Darken background slightly */
+            padding: 20px !important; /* Add padding for spacing */
+            position: fixed !important; /* Fix to the screen */
+            top: 0 !important; /* Start at the top */
+            left: 0 !important; /* Start at the left */
+            width: 100vw !important; /* Full viewport width */
+            height: 100vh !important; /* Full viewport height */
+            z-index: 9999 !important; /* Ensure it appears above everything */
+            overflow-y: auto !important; /* Allow scrolling if content exceeds screen height */
+        }
+
+        /* Ensure mobile submenu styling */
+        .nav-primary-wrapper.collapse.in .sub-menu {
+            position: relative !important; /* Proper alignment for mobile view */
+            background-color: rgba(0, 0, 0, 0.9) !important; /* Match parent menu background */
+            display: none !important; /* Initially hidden */
+            padding: 10px !important; /* Add padding for submenu items */
+            width: 100% !important; /* Full width submenu */
+        }
+
+        /* Show submenu when parent is active */
+        .nav-item-parent.active .sub-menu {
+            display: block !important; /* Show the submenu */
+        }
+
+        /* First menu item - Add padding-top to create space below the toggle */
+        .nav-primary-wrapper.collapse.in .nav-item:first-child a {
+            color: #fff !important; /* White text for the first menu item */
+            padding: 15px 10px !important; /* Add padding for easier usability */
+            display: block !important; /* Block-level for touch-friendly design */
+            text-align: left !important; /* Align to the left */
+            width: 100% !important; /* Full width links */
+            padding-top: 50px !important; /* Push first menu item down */
+            background-color: transparent !important; /* Ensure background is not highlighted */
+        }
+
+        /* Normalize styles for all menu items */
+        .nav-primary-wrapper.collapse.in .nav-item a {
+            padding-top: 15px !important; /* Normal padding for all items */
+            padding-bottom: 15px !important; /* Ensure all items have bottom padding */
+            color: #fff !important; /* White text for all menu items */
+            text-decoration: none !important; /* No underline */
+            display: block !important; /* Block-level for touch-friendly design */
+            text-align: left !important; /* Left-align text */
+            background-color: transparent !important; /* Ensure no background color on any menu item */
+            transition: background-color 0.3s ease !important; /* Smooth transition for hover effects */
+        }
+
+        /* Add hover effect to menu items */
+        .nav-primary-wrapper.collapse.in .nav-item a:hover {
+            background-color: rgba(255, 255, 255, 0.2) !important; /* Light highlight on hover */
+            color: #fff !important; /* Ensure text color stays white */
+        }
+
+        /* Submenu links for mobile */
+        .nav-primary-wrapper.collapse.in .sub-menu li a {
+            padding: 10px !important; /* Add touch-friendly padding */
+            color: #fff !important; /* Ensure good contrast */
+        }
+
+        /* Ensure the active menu item stays normal without any active color */
+        .nav-primary-wrapper.collapse.in .nav-item.active a {
+            background-color: transparent !important; /* Remove background highlight on active state */
+            color: #fff !important; /* Ensure active text color stays white */
+        }
+        
+                
+                #header.home, #header.sell:not(.alt-sell-success) {
+                    position: absolute !important;  /* Absolutely position the element */
+                    background-color: transparent !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    right: 0 !important;
+                    bottom: 0 !important;
+                    z-index: 9999 !important;      /* Ensure it stays on top of everything */
+                }
+
+                #header {
+                    height: 110px !important;      /* Ensure the header stays the same height */
+                    position: fixed !important;    /* Fix the position of the header */
+                    top: 0 !important;
+                    right: 0 !important;
+                    left: 0 !important;
+                    padding: 4px 15px !important;
+                    background-color: #fff !important;
+                    z-index: 17 !important;        /* Lower z-index than .home */
+                }
+
+                .p-t-3.p-b-3.background-white,
+                .cover-title,
+                .cover,
+                #fixed-header-spacer,
+                #primary-logo,
+                .information-bar,
+                .cover-center, 
+                .agent,
+                .list-inline,
+                #about {
+                    display: none;
+                }
+
+                /* First Document CSS */
+                h1, h2, p {
+                margin: 10px auto;
+                padding: 0;
+                overflow: hidden;
+                text-align: center;
+                overflow-wrap: break-word;
+                font-weight: 300;
+                }
+
+                .separator {
+                border: 0;
+                border-top: 2px solid #ccc;
+                margin: 20px 0;
+                }
+
+                .custom-strong {
+                font-weight: bold;
+                }
+
+                .disclosure {
+                font-size: 8px;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                padding: 0 20px;
+                }
+
+                .styled-line {
+                border: none;
+                border-top: 1px solid #c5cace;
+                margin-bottom: 10px;
+                width: 100%;
+                }
+
+                /* Home Services Specific Styles */
+                .home-services {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: none;
+                    box-sizing: border-box;
+                    width: 100%;
+                    align-items: center;
+                }
+
+                .home-services::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .home-services {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+
+                .home-services h1 {
+                    color: #000;
+                }
+
+                .home-services-wrapper {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 50px;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: nowrap;
+                    box-sizing: border-box;
+                    margin-top: 10px;
+                    width: auto;
+                }
+
+                .service-item {
+                    max-width: 800px;
+                    padding: 20px;
+                    box-sizing: border-box;
+                    border: 1px solid #ddd;
+                    color: black;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    overflow: hidden;
+                    margin-bottom: 20px;
+                    white-space: normal;
+                }
+
+                .service-item h1, .service-item h2, .service-item p {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .service-item h1 {
+                    font-size: 24px;
+                    text-align: center;
+                    color: black;
+                    margin-bottom: 20px;
+                    font-weight: 400;
+                }
+
+                .service-item h2 {
+                    font-size: 18px;
+                    text-align: center;
+                    margin: 10px auto;
+                    font-weight: 400;
+                }
+
+                .service-item p {
+                    font-size: 14px;
+                    margin: 10px 0;
+                    font-weight: 300;
+                }
+
+                .service-item:nth-of-type(1) {
+                    background-color: #2a6d9a;
+                    color: white;
+                }
+
+                .service-item:nth-of-type(2) {
+                    background-color: #e2e2e2;
+                    color: black;
+                }
+
+                .service-item:nth-of-type(3) {
+                    background-color: #2596be;
+                    color: white;
+                }
+
+                .service-items-container {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                    padding-top: 20px;
+                    box-sizing: border-box;
+                    padding-bottom: 0;
+                    justify-content: flex-end;
+                }
+
+                .image {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    position: relative;
+                    height: 100%;
+                    background-color: none;
+                    overflow: hidden;
+                }
+
+                .image img {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                .why-us {
+                    background-color: #fff;
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .why-us h1 {
+                    font-size: 24px;
+                    color: #333;
+                    margin-bottom: 20px;
+                    font-weight: 400;
+                }
+
+                .why-us p.sub-heading {
+                    font-size: 16px;
+                    color: #333;
+                    margin: 10px auto 20px auto;
+                    max-width: 800px;
+                    font-weight: 300;
+                }
+
+                .why-us-container {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    gap: 20px;
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    padding: 0;
+                    width: 100%;
+                    min-width: 100vw;
+                    scroll-behavior: smooth;
+                    justify-content: center;
+                }
+
+                .why-us-container::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .why-us-container {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+
+                .reason {
+                    flex: 0 0 300px;
+                    padding: 20px;
+                    background-color: #e2e2e2;
+                    color: black;
+                    text-align: center;
+                }
+
+                .reason:nth-of-type(2) {
+                    background-color: #f3f3f3;
+                }
+
+                .reason:nth-of-type(3) {
+                    background-color: #2596be;
+                    color: white;
+                }
+
+                .reason:nth-of-type(4) {
+                    background-color: #2a6d9a;
+                    color: white;
+                }
+
+                .reason h2 {
+                    font-size: 18px;
+                    text-align: center;
+                    margin: 10px auto;
+                    font-weight: 400;
+                }
+
+                .reason p {
+                    font-size: 14px;
+                    text-align: center;
+                    margin: 10px auto;
+                    font-weight: 300;
+                }
+
+                .info-section p {
+                    font-size: 8px; /* Smaller font size */
+                    margin-top: 15px;
+                }
+
+                .service-container h1 {
+                padding: 10px;
+                padding-bottom: 20px;
+                }
+
+                .site-header {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                }
+
+                .row-flex{
+                padding-top: 15px; 
+                }
+
+                a:hover,
+                a:active,
+                .button-link:hover,
+                .button-link:active,
+                .button-text:hover,
+                .button-text:active {
+                color: inherit; /* Inherit color from parent */
+                background-color: rgba(255, 255, 255, 0.1); /* Fade effect on hover and active */
+                text-decoration: none; /* Ensure no underline or decoration */
+                overflow: hidden; /* or auto */
+                font-weight: 450;
+                }
+
+                /* Ensure links have a consistent color across states */
+                a,
+                a:active,
+                a:hover,
+                a:focus {
+                color: inherit; /* Inherit color from parent */
+                text-decoration: none; /* Ensure no underline or decoration */
+                }
+
+                /* HEADINGS */
+                .main-heading, .sub-heading {
+                font-size: 36px;
+                margin: 10px 0;
+                font-weight: 500; /* Thicker weight for headings */
+                background: none; /* Ensure no background color */
+                padding: 0; /* Remove padding if any */
+                }
+
+                .sub-heading {
+                font-size: 24px;
+                margin-top: 25px; /* Add margin on top to separate from main heading */
+                margin-bottom: 35px; /* Add margin on bottom to separate from main heading */
+                }
+
+
+                .gallery-img {
+                    border: 3px solid #a8b8c6;
+                    box-shadow: 0 0 10px rgba(168, 184, 198, 0.7);
+                }
+
+
+                .construction-text {
+                color: red;
+                }
+
+
+
+                /* Custom Section with Background Image */
+                .custom-section {
+                background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/rental-custom.jpg');
+                background-size: cover;
+                background-position: center;
+                margin: 0;
+                color: white;
+                padding: 25px;
+                background-attachment: fixed;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative; /* Position relative for absolute positioning of text */
+                overflow: hidden; /* Hide overflow */
+                }
+                .custom-container {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                width: 100%;
+                max-width: 1440px;
+                background: none;
+                overflow: hidden; /* Ensure no overflow */
+                box-sizing: border-box;
+                }
+
+
+                /* Row to handle horizontal scrolling */
+                .custom-row {
+                display: flex;
+                flex-wrap: nowrap; /* Prevent wrapping */
+                gap: 20px;
+                margin: 0; /* Remove margins for alignment */
+                width: 100%; /* Full width of the container */
+                overflow-x: auto; /* Add horizontal scrollbar if content overflows */
+                overflow-y: hidden; /* Hide vertical scrollbar */
+                scrollbar-width: none; /* Hide scrollbar in Firefox */
+                -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+                }
+
+                .custom-row::-webkit-scrollbar {
+                display: none; /* Hide scrollbar in WebKit browsers */
+                }
+
+                /* Column styling */
+                .custom-column {
+                flex: 0 0 375px; /* Fixed width for columns */
+                height: 200px;
+                background: transparent;
+                text-align: center;
+                margin: 0 auto; /* Center column horizontally */
+                position: relative; 
+                border: 2px solid #ffffff;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between; /* Space out content vertically */
+                padding: 0 20px; /* Add padding for alignment */
+                }
+
+                /* Icon Wrapper */
+                .custom-icon-widget {
+                display: flex;
+                flex-direction: column;
+                justify-content: center; /* Center icon vertically within the space */
+                height: calc(100% - 40px); /* Adjust based on the height of the button and desired spacing */
+                }
+
+
+                /* Icon Styling */
+                .custom-icon-homepage,
+                .custom-icon-home,
+                .custom-icon-rentals,
+                .custom-icon-head,
+                .custom-icon-contact {
+                background-size: contain;
+                background-repeat: no-repeat;
+                filter: brightness(0) invert(1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto; /* Center icon horizontally */
+                }
+
+                .custom-icon-homepage {
+                background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/home.png');
+                width: 60px;
+                height: 60px;
+                }
+
+                .custom-icon-home {
+                background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/search.png');
+                width: 95px;
+                height: 95px;
+                }
+
+                .custom-icon-head {
+                background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/head.png');
+                width: 100px;
+                height: 100px;
+                }
+
+                .custom-icon-contact {
+                background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/contact.png');
+                width: 105px;
+                height: 105px;
+                }
+
+                .custom-icon-rentals {
+                background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/hand.png');
+                width: 85px;
+                height: 85px;
+                }
+
+                /* Button Link Styling */
+                .custom-button-link {
+                font-size: 14px;
+                line-height: 40px;
+                font-weight: bold;
+                width: 200px;
+                box-sizing: border-box;
+                text-decoration: none;        
+                background: none;
+                color: #ffffff;
+                border: 2px solid #ffffff;
+                overflow: hidden; /* or auto */
+                border-radius: 1px;
+                display: block; /* Ensure it takes up space as a block element */
+                text-align: center; /* Center text inside the button */
+                margin: 0 auto; /* Center button horizontally */
+                margin-bottom: 25px; /* Fixed margin from the bottom */
+                }
+
+
+                /* Button Group */
+                .button-group {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                margin: 25px 0;
+                }
+
+                .button-link {
+                text-decoration: none;
+                background: none;
+                width: 250px; /* Fixed width for all buttons */
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 1px;
+                color: #ffffff;
+                font-weight: 450;
+                border: 2px solid #ffffff;
+                font-size: 14px;
+                box-sizing: border-box;
+                white-space: nowrap; /* Prevent text from wrapping */
+                overflow: hidden; /* Hide overflow if text exceeds button width */
+                text-overflow: ellipsis; /* Add ellipsis if text overflows */
+                }
+
+
+                .custom-button-link:active a {
+                color: #ffffff;
+                text-decoration: none;
+                justify-content: center;
+                }
+
+
+                .button-text:active a {
+                color: #ffffff;
+                text-decoration: none;
+                justify-content: center;
+                overflow: hidden; /* or auto */
+                }
+
+                /* Language Icon */
+                .language-icon img {
+                width: 24px;
+                }
+
+                /* Video Background Section */
+                .video-background-wrapper {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                }
+
+                .video-background-frame {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: -1;
+                }
+
+                /* Overlay Content */
+                .overlay-content {
+                position: absolute;
+                z-index: 1;
+                color: #ffffff;
+                text-align: center;
+                padding: 20px;
+                width: 100%; /* Ensure full width for centering */
+                height: 100%; /* Ensure full height for vertical centering */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; /* Center both horizontally and vertically */
+                box-sizing: border-box;
+                }
+
+                /* Image/Video Background Container */
+                .image-header-container {
+                position: relative;
+                width: 100%;
+                height: 100vh; /* Full viewport height */
+                overflow: hidden;
+                margin: 0;
+                display: flex;
+                align-items: center; /* Vertically center content */
+                justify-content: center; /* Center horizontally */
+                }
+
+                /* Placeholder style */
+                .placeholder {
+                display: flex; /* Use flexbox for centering */
+                justify-content: center; /* Center horizontally */
+                align-items: center; /* Center vertically */
+                height: 50vh; /* Take up the full viewport height */
+                width: 100vw; /* Take up the full viewport width */
+                text-align: center; /* Center text horizontally */
+                z-index: 1000;
+                }
+
+
+
+                /* Footer Styling */
+                .footer {
+                background-color: #333333;
+                color: #ffffff;
+                padding: 20px 0;
+                }
+
+                .footer-content {
+                display: flex;
+                flex-wrap: wrap; /* Allow columns to wrap */
+                justify-content: space-between; /* Space out columns evenly */
+                padding: 0 20px; /* Add padding for spacing */
+                gap: 20px; /* Add gap between columns */
+                }
+
+                .footer-column {
+                flex: 1 1 auto; /* Allow columns to grow and shrink, with a base width of 200px */
+                padding: 0 0px; /* Add padding for spacing */
+                box-sizing: border-box; /* Include padding in width calculation */
+                text-align: left;
+                justify-content: center;
+                align-content: center;
+                }
+
+
+                .footer-heading {
+                font-size: 18px;
+                margin-bottom: 10px;
+                font-weight: bold;
+                }
+
+                .footer-nav ul {
+                list-style-type: none;
+                padding: 0;
+                }
+
+                .footer-nav li {
+                    margin-bottom: 5px;
+                }
+
+                .footer-nav a {
+                    color: #ffffff;
+                    text-decoration: none;
+                }
+
+                .footer-nav a:hover {
+                    color: #ffffff;
+                }
+
+                .footer-info {
+                    font-size: 12px; /* Ensure this matches the text size below "BROWSE" */
+                    text-align: left !important;
+                }
+
+                .footer-info p {
+                    margin: 5px 0;
+                    text-align: left !important;
+                    line-height: 1.6;
+                }
+
+
+                /* Footer Image Styling */
+                .footer-image {
+                    display: block; /* Ensure block display */
+                    margin: 0 auto; /* Center images horizontally */
+                }
+
+
+                /* Target the last image (inside the fourth footer-column) */
+                .footer-column:nth-child(3) .footer-image {
+                    width: 70px; /* Adjust the width for the last image */
+                    height: auto; /* Maintain aspect ratio */
+                }
+
+
+                /* Optional: Adjust the width/height of the 2nd image if necessary */
+                .footer-image:nth-child(1) {
+                    width: 200px; /* Maintain aspect ratio */
+                }
+
+
+                .hidden {
+                    opacity: 0; /* Make it invisible */
+                    pointer-events: none; /* Prevent it from blocking interactions */
+                    display: none; /* Hides the element */
+                }
+
+
+                .content-disclosure {
+                    font-size: 10px;
+                    padding: 10px;
+                    color: white;
+                    text-align: center;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                .custom-strong {
+                    font-weight: 500;
+                    margin: 5px;
+                }
+
+
+                #header-info-container {
+                    display: flex;              /* Enable flexbox */
+                    flex-direction: column;     /* Arrange children vertically */
+                    align-items: center;        /* Center horizontally */
+                    text-align: center;         /* Center text */
+                    margin-top: 10px; 
+                    margin-bottom: 20px; 
+                    padding: 10px 0; 
+                    border-radius: 8px; 
+                    max-width: 1000px;
+                    margin-left: auto;          /* Center the container */
+                    margin-right: auto;         /* Center the container */
+                }
+
+                .header-text {
+                    color: white;
+                    font-size: 16px;
+                    width: auto; /* Change this to auto or a specific value */
+                    max-width: 100%; /* Ensure it doesn't exceed the parent width */
+                    text-align: center; /* Center text */
+                    margin-left: auto; /* Center horizontally */
+                    margin-right: auto; /* Center horizontally */
+                    width: 60vw;
+                }
+
+                .header-logo {
+                    width: 350px;  /* Set desired width */
+                    height: auto;  /* Maintain aspect ratio */
+                    display: block; 
+                    margin: 10px auto 0; /* Center the image and add space above */
+                }
+
+
+                /* Mobile and Responsive Design */
+                @media screen and (max-width: 768px) {
+                    .home-services-wrapper, .service-items-container,
+                    .why-us-container {
+                        flex-direction: column;
+                        align-items: center;
+                        min-width: 100%;
+                    }
+
+                    .image, .main-image {
+                        width: 100%;
+                        height: auto;
+                        margin-right: 0;
+                    }
+
+                    .main-heading {
+                        font-size: 28px;
+                    }
+
+                    .sub-heading {
+                        font-size: 16px;
+                    }
+
+                    .button_link {
+                        font-size: 14px;   
+                        width: 150px;
+                        border-radius: 1px;
+                        border: 1px solid #ffffff;
+                    }           
+
+                    /* Button Link Styling */
+                    .custom-button-link {
+                        border: 1px solid #ffffff;
+                        border-radius: 1px;
+                    }
+
+
+                    .reason {
+                        flex: 1;
+                        max-width: 100%;
+                    }
+
+                    #header-info-container {
+                        margin-bottom: 20px;
+                    }
+                }
+
+
+                /* Mobile view for screens up to 768px wide */
+                @media screen and (max-width: 768px) {
+                    .image-header-container {
+                    height: 100vh; /* Use viewport height for portrait mode */
+                
+                    }
+                
+                    /* Target the last image (inside the fourth footer-column) */
+                    .footer-column:nth-child(3) .footer-image {
+                    width: 70px; /* Adjust the width for the last image */
+                    height: auto; /* Maintain aspect ratio */
+                    }
+                
+                    /* Optional: Adjust the width/height of the 2nd image if necessary */
+                    .footer-image:nth-child(1) {
+                    width: 150px; /* Maintain aspect ratio */
+                    }
+                
+                    /* HEADINGS */
+                    .main-heading {
+                    font-size: 30px;
+                    margin: 10px 0;
+                    font-weight: 500; /* Thicker weight for headings */
+                    background: none; /* Ensure no background color */
+                    padding: 0; /* Remove padding */
+                    }
+                
+                    .sub-heading {
+                    font-size: 20px;
+                    margin: 25px 0; /* Add margin above and below to separate from main heading */
+                    }
+                
+                
+                /* Button Link Styling */
+                .custom-button-link {
+                    border: 1px solid #ffffff;
+                    border-radius: 1px;
+                }
+
+
+                .button-link {
+                    width: 200px; /* Fixed width for buttons */
+                    height: 50px;
+                    font-size: 14px;
+                    border-radius: 1px;
+                    border: 1px solid #ffffff;
+                }
+                
+                    .custom-column {
+                    flex: 1 1 100%; /* Each column takes 100% of width */
+                    max-width: 100%; /* Ensure each column does not exceed 100% width */
+                    }
+                    
+                    /* Adjust footer styling for small screens */
+                    .footer {
+                    text-align: center !important; /* Center align footer content */
+                    padding: 50px;
+                    }
+                
+                    .footer-content {
+                    flex-direction: column; /* Stack footer columns vertically */
+                    align-items: center; /* Center align columns */
+                    margin: 0 !important;
+                    height: auto; /* Optional: Limit max width for better appearance */
+                    padding: 0 !important;  
+                    }
+                
+                    .footer-column, .footer-text, .footer-info, .footer-nav .footer-heading {
+                    width: 100%; /* Full width for each column */
+                    max-width: 300px; /* Optional: Limit max width for better appearance */
+                    text-align: center !important; /* Center text inside each column */
+                    }
+                
+                
+                    .footer-info p {
+                    text-align: center !important; /* Center text inside each column */
+                    }
+                
+                
+                    .custom-icon-homepage {
+                    background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/home.png');
+                    width: 35px;
+                    height: 35px;
+                    }
+                
+                    .custom-icon-home {
+                    background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/search.png');
+                    width: 65px;
+                    height: 65px;
+                    }
+                
+                    .custom-icon-head {
+                    background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/head.png');
+                    width: 70px;
+                    height: 70px;
+                    }
+                
+                    .custom-icon-contact {
+                    background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/contact.png');
+                    width: 75px;
+                    height: 75px;
+                    }
+                
+                    .custom-icon-rentals {
+                    background-image: url('https://raw.githubusercontent.com/otonielyone/yonehomes/main/start_files/static/icons/hand.png');
+                    width: 55px;
+                    height: 55px;
+                    }
+                
+                    /* Column styling */
+                    .custom-column {
+                    height: 150px;
+                    }
+                
+                    .header-logo {
+                    width: 150px;  /* Set desired width */
+                    height: auto;  /* Maintain aspect ratio */
+                    display: block; 
+                    margin: 10px auto 0; 
+                    }
+                
+                    .header-text {
+                    color: white;
+                    font-size: 10px;
+                    margin: 2px;
+                    }
+
+                }
+
+        a:hover,
+        a:active,
+        .button-link:hover,
+        .button-link:active,
+        .button-text:hover,
+        .button-text:active,
+        .menu-link:hover,
+        .menu-link:active,
+        .menu-item:hover,
+        .menu-item:active {
+        color: inherit; /* Inherit color from parent */
+        background-color: rgba(255, 255, 255, 0.1); /* Fade effect on hover and active */
+        text-decoration: none; /* Ensure no underline or decoration */
+        overflow: hidden; /* or auto */
+        }
+
+
+        /* Menu Links */
+        .menu-link a {
+        display: block; /* Ensures the anchor tag fills the menu item container */
+        text-align: left; /* Aligns text inside the anchor tag to the left */
+        text-decoration: none;
+        }
+
+        .menu-link {
+        margin: 15px;
+        font-weight: 1000px;
+        color: #ffffff; /* White text color */
+        text-decoration: none;
+        }
+
+        .menu-bar {
+        margin: 20px;
+        }
+
+        /* Menu Item Styling */
+        .menu-item {
+        display: block;
+        padding: 10px 20px; /* Increase left padding for indentation */
+        color: #ffffff; /* White text color */
+        text-transform: uppercase; /* Uppercase text */
+        text-align: left;
+        background: transparent; /* Transparent background */
+        transition: background-color 0.3s ease; /* Smooth background color transition */
+        }
+
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+        display: none; /* Hide by default, show on mobile */
+        cursor: pointer;
+        text-align: left;
+        padding: 15px;
+        position: fixed;
+        top: 0; /* Position at the top */
+        left: 0;
+        width: 100%;
+        z-index: 1000; /* High z-index to ensure it floats above other content */
+        }
+
+
+        /* Ensure links have a consistent color across states */
+        a,
+        a:active,
+        a:hover,
+        a:focus {
+          color: inherit; /* Inherit color from parent */
+          text-decoration: none; /* Ensure no underline or decoration */
+        }
+
+
+        .hamburger-menu .bar {
+        background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white bars */
+        height: 3px; /* Bar height */
+        width: 25px; /* Bar width */
+        margin: 5px 0; /* Space between bars */
+        border-radius: 2px; /* Rounded corners */
+        }
+
+        .hamburger-menu.active .bar {
+        background-color: #ffffff9c; /* White or desired color when active */
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+        padding: 20px;
+        display: none; /* Hide by default */
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 1000; /* High z-index to ensure it floats above other content */
+        background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+        transition: transform 0.3s ease;
+        transform: translateY(-100%);
+        }
+
+        .mobile-menu.active {
+        display: block; /* Show when active */
+        transform: translateY(0);
+        }
+
+        /* Menu Bar */
+        .menu-bar {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex: 0 0 auto;
+        white-space: nowrap;
+        background: transparent; /* Transparent background */
+        position: fixed; /* Fixed position */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000; /* Ensure it floats above other content */
+        }
+
+        /* Hide scrollbars in menu bar */
+        .menu-bar::-webkit-scrollbar {
+        display: none; /* Hide scrollbar in WebKit browsers */
+        }
+
+        .menu-bar {
+        scrollbar-width: none; /* Hide scrollbar in Firefox */
+        -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+        }
+
+        /* Close icon styles */
+        .close-menu {
+        position: absolute; /* Position it in the top-right corner */
+        top: 25px;
+        right: 70px;
+        font-size: 25px; /* Adjust size as needed */
+        color: white; /* White color for the 'X' */
+        cursor: pointer; /* Change cursor to pointer to indicate clickability */
+        z-index: 2100; /* Ensure it's above other elements in the menu */
+        }
+
+
+        /* Mobile view for screens up to 768px wide */
+        @media screen and (max-width: 768px) {
+
+        .menu-bar {
+            display: none; /* Hide the menu bar */
+        }
+
+        .hamburger-menu {
+            display: block; /* Show the hamburger menu */
+        }
+        
+        .hamburger-menu.active {
+            background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+        }
+
+        .hamburger-menu.active .bar {
+            background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+        }
+
+        .close-menu {
+            position: absolute; /* Position it in the top-right corner */
+            top: 10px;
+            right: 55px;
+            font-size: 15px; /* Adjust size as needed */
+        } 
+
+
+            /* Menu Item Styling */
+        .menu-item {
+            padding-top: 10px; 
+            padding-bottom: 10px; /* Increase left padding for indentation */
+            padding-left: 0;
+            margin-left: 0;
+        }
+    }
+
+
+
+        /* Wide screens (e.g., Galaxy Fold sideways) */
+        @media screen and (min-width: 1469px) {
+        .menu-bar {
+            display: none; /* Hide the menu bar */
+            overflow: hidden;
+        }
+        
+        .hamburger-menu {
+            display: block; /* Show the hamburger menu on mobile view */
+            overflow: hidden;
+        }
+
+        .hamburger-menu.active {
+            background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+        }
+
+        .hamburger-menu.active .bar {
+            background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+        }
+    }
+
+
+
+        /* Landscape mode for devices with a max-width of 908px */
+        @media screen and (max-width: 908px) and (orientation: landscape) {
+
+        .menu-bar {
+            display: none; /* Hide the menu bar */
+            overflow: hidden;
+        }
+        
+
+        .hamburger-menu {
+            display: block; /* Show the hamburger menu on mobile view */
+            overflow: hidden;
+        }  
+
+
+        .hamburger-menu.active {
+            background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+        }
+
+        .hamburger-menu.active .bar {
+            background-color: transparent; /* Replace 'None' with 'transparent' or desired color */
+        }
+    }
+
+</style>
+
+</head>
