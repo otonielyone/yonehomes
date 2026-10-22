@@ -10,3 +10,10 @@ start_files/static/rentals_images/
 # Ignore .env file
 .env
 *.json
+venv/
+__pycache__/
+.env
+certs/
+logs/
+*.zip
+*.bak
