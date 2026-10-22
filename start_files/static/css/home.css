@@ -1,151 +1,176 @@
+/* Hero buttons (overrides main.css) */
+.button-link {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+.button-link:hover,
+.button-link:focus-visible {
+    background-color: #ffffff;
+    color: #14354d;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
 
+/* Help section boxes and buttons */
+.custom-column {
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.custom-column:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.4);
+}
+.custom-button-link {
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+.custom-button-link:hover,
+.custom-button-link:focus-visible {
+    background-color: #ffffff;
+    color: #14354d;
+}
 
+/* Home Services */
 .home-services {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    background-color: none;
-    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    align-items: center; /* Center items horizontally */
+    box-sizing: border-box;
+    padding: 20px 16px 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-
-/* Hide scrollbar but keep scrolling functionality */
-.home-services::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
-}
-
-.home-services {
-    -ms-overflow-style: none; /* For Internet Explorer and Edge */
-    scrollbar-width: none; /* For Firefox */
-}
+.home-services::-webkit-scrollbar { display: none; }
 
 .home-services h1 {
     color: #000;
 }
 
-/* Wrapper to hold both image and text content */
 .home-services-wrapper {
     display: flex;
-    flex-direction: row; /* Ensure horizontal layout */
-    gap: 50px; /* Add space between items */
-    align-items: center; /* Center items vertically within the wrapper */
-    justify-content: center; /* Center the content within the container */
-    flex-wrap: nowrap; /* Prevent wrapping */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
-    margin-top: 10px; /* Add padding to avoid touching edges */
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    margin-top: 10px;
     width: auto;
 }
 
-
-
-/* Service Item Styling */
+/* Service boxes */
 .service-item {
-    max-width: 800px; /* Fixed width for each service item */
-    padding: 20px;
+    max-width: 800px;
+    padding: 22px 24px;
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
     color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    overflow: hidden; /* Prevent content from overflowing */
+    overflow: hidden;
     margin-bottom: 20px;
-    white-space: normal; /* Allow text to wrap onto multiple lines */
+    white-space: normal;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
 }
 
 .service-item h1, .service-item h2, .service-item p {
     margin: 0;
     padding: 0;
 }
-
-.service-item h1 {
-    font-size: 24px;
-    text-align: center; /* Center align heading text */
-    color: black;
-    margin-bottom: 20px; /* Match padding with common-heading */
-    font-weight: 400; /* Match font weight with why-us */
-}
-
 .service-item h2 {
-    font-size: 18px;
-    text-align: center; /* Center align heading text */
-    margin: 10px auto; /* Match padding with common-subheading */
-    font-weight: 400; /* Match font weight with why-us */
+    font-size: 19px;
+    text-align: center;
+    margin: 10px auto;
+    font-weight: 500;
 }
-
 .service-item p {
     font-size: 14px;
-    margin: 10px 0; /* Match padding with common-text */
-    font-weight: 300; /* Match font weight with why-us */
+    line-height: 1.6;
+    margin: 10px 0;
+    font-weight: 300;
 }
 
-/* Service item background colors */
 .service-item:nth-of-type(1) {
-    background-color: #2a6d9a; /* Dark Blue */
+    background: linear-gradient(135deg, #2a6d9a, #225a80);
     color: white;
 }
-
 .service-item:nth-of-type(2) {
-    background-color: #e2e2e2; /* Light Gray */
+    background: linear-gradient(135deg, #efefef, #dedede);
     color: black;
 }
-
 .service-item:nth-of-type(3) {
-    background-color: #2596be; /* Blue */
+    background: linear-gradient(135deg, #2596be, #1e7fa2);
     color: white;
 }
 
-/* Container for service items */
 .service-items-container {
     display: flex;
-    flex-direction: row; /* Ensure horizontal layout */
-    gap: 20px; /* Space between items */
-    padding-top: 20px; /* Add padding to avoid touching edges */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    flex-direction: row;
+    gap: 20px;
+    padding-top: 20px;
+    box-sizing: border-box;
     padding-bottom: 0;
-    justify-content: flex-end; /* Align content to the right */
+    justify-content: flex-end;
 }
 
-/* Container for image */
 .image {
     display: flex;
-    justify-content: flex-start; /* Align image content to the left */
+    justify-content: flex-start;
     align-items: center;
     position: relative;
-    height: 100%; /* Make the image fill the container height */
-    background-color: none;
-    overflow: hidden; /* Hide parts of the image that extend beyond the container */
+    height: 100%;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
-
-/* Adjust image to fit container and prevent overflow */
 .image img {
     max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
 }
+.image:hover img { transform: scale(1.03); }
 
-/* Why Work With Us Section */
+/* Why Work With Us */
 .why-us {
     background-color: #fff;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
+    align-items: center;
 }
-
 .why-us h1 {
     font-size: 24px;
     color: #333;
-    margin-bottom: 20px; /* Standardized margin for heading */
-    font-weight: 400; /* Match font weight with service-items */
+    margin-bottom: 20px;
+    font-weight: 400;
 }
-
 .why-us p.sub-heading {
     font-size: 16px;
     color: #333;
-    margin: 10px auto 20px auto; /* Standardized margin for sub-heading */
+    margin: 10px auto 20px auto;
     max-width: 800px;
-    font-weight: 300; /* Match font weight with service-items */
+    font-weight: 300;
 }
 
 .why-us-container {
@@ -154,97 +179,79 @@
     gap: 20px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0;
+    padding: 10px 0 16px;
     width: 100%;
-    min-width: 100vw;
     scroll-behavior: smooth;
-    justify-content: center; /* Center horizontally */
-}
-
-.why-us-container::-webkit-scrollbar {
-    display: none;
-}
-
-.why-us-container {
-    -ms-overflow-style: none;
+    justify-content: center;
     scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+.why-us-container::-webkit-scrollbar { display: none; }
 
 .reason {
     flex: 0 0 300px;
-    padding: 20px;
+    padding: 24px 20px;
     background-color: #e2e2e2;
     color: black;
-    text-align: center; /* Center align reason text */
+    text-align: center;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.reason:nth-of-type(2) {
-    background-color: #f3f3f3;
+.reason:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
 }
-
-.reason:nth-of-type(3) {
-    background-color: #2596be;
-    color: white;
-}
-
-.reason:nth-of-type(4) {
-    background-color: #2a6d9a;
-    color: white;
-}
+.reason:nth-of-type(2) { background-color: #f3f3f3; }
+.reason:nth-of-type(3) { background-color: #2596be; color: white; }
+.reason:nth-of-type(4) { background-color: #2a6d9a; color: white; }
 
 .reason h2 {
-    font-size: 18px;
-    text-align: center; /* Center align heading text */
-    margin: 10px auto; /* Match padding with common-subheading */
-    font-weight: 400; /* Match font weight with service-items */
+    font-size: 19px;
+    text-align: center;
+    margin: 10px auto;
+    font-weight: 500;
 }
-
 .reason p {
     font-size: 14px;
-    text-align: center; /* Center align heading text */
-    margin: 10px auto; /* Match padding with common-subheading */
-    font-weight: 300; /* Match font weight with service-items */
+    line-height: 1.6;
+    text-align: center;
+    margin: 10px auto;
+    font-weight: 300;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-    .home-services-wrapper, .service-items-container,
-    .why-us-container {
+    .home-services-wrapper, .service-items-container {
         flex-direction: column;
         align-items: center;
-        min-width: 100%;
+        gap: 24px;
     }
-
-    .image, .main-image {
-        width: 100%; /* Ensure images scale to fit container width */
-        height: auto; /* Maintain aspect ratio */
-        margin-right: 0; /* Reset margin for mobile */
+    .why-us-container {
+        justify-content: flex-start;
+        scroll-snap-type: x mandatory;
+        padding-left: 16px;
+        padding-right: 16px;
+        box-sizing: border-box;
     }
-
-    .main-heading {
-        font-size: 28px; /* Consistent heading size */
-    }
-
-    .sub-heading {
-        font-size: 16px; /* Consistent sub-heading size */
-    }
-
-    .button_link {
-        font-size: 14px;   
-        width: 150px; /* Fixed width for buttons */
-    }
-
     .reason {
-        flex: 1;
-        max-width: 100%; /* Full width for reasons */
+        flex: 0 0 80%;
+        scroll-snap-align: center;
     }
+    .image, .main-image {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+    }
+    .main-heading { font-size: 28px; }
+    .sub-heading { font-size: 16px; }
+    #header-info-container { margin-bottom: 20px; }
+}
 
-    #header-info-container {
-        margin-bottom: 20px; /* Spacing adjustment */
-    }
-
-    /* Additional styles for small portrait devices */
-    @media screen and (max-width: 500px) and (orientation: portrait) {
-        /* Any specific overrides for portrait orientation can go here */
-    }
+@media (prefers-reduced-motion: reduce) {
+    .service-item, .reason, .image img,
+    .button-link, .custom-button-link, .custom-column { transition: none; }
+    .service-item:hover, .reason:hover,
+    .button-link:hover, .custom-column:hover,
+    .image:hover img { transform: none; }
 }

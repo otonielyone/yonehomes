@@ -100,7 +100,7 @@ def replace_and_cleanup_tables():
     temp_table = 'mls_rentals_temp'
     
     try:
-        conn = sqlite3.connect('brightscrape/brightmls.db')
+        conn = sqlite3.connect('/var/www/html/yonehomes/databases/brightmls.db')
         cursor = conn.cursor()
 
         cursor.execute(f"DELETE FROM {original_table}")

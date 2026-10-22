@@ -19,7 +19,7 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 
-DATABASE_URL = "sqlite:///brightscrape/brightmls.db"
+DATABASE_URL = 'sqlite:////var/www/html/yonehomes/databases/brightmls.db'
 homes_engine = create_engine(DATABASE_URL)
 homes_sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=homes_engine)
 Base = declarative_base()
@@ -97,7 +97,7 @@ class Mls_homes_temp(Base):
         return '<Mls_homes_temp {}>'.format(self.mls)
 
 def init_homes_db():
-    db_path = 'brightscrape/brightmls.db'
+    db_path = '/var/www/html/yonehomes/databases/brightmls.db'
     db_dir = os.path.dirname(db_path)
     os.makedirs(db_dir, exist_ok=True)
     

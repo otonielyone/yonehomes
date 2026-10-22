@@ -1,0 +1,9 @@
+# Add to the EXISTING /var/www/html/yonehomes/.env. Do not replace that file.
+# Point to the EXISTING FastAPI application database. No new database is created.
+APP_DATABASE_PATH=/var/www/html/yonehomes/brightscrape/brightmls.db
+APP_HISTORY_DIR=/var/www/html/yonehomes/history
+APP_HISTORY_FILE=n8n_dns_foundation_history.json
+
+# Optional: use your existing secret FASTAPI_API or API_KEY instead.
+# If FASTAPI_API is a URL rather than a secret, set HISTORY_API_KEY explicitly.
+# HISTORY_API_KEY=<your actual secret API key>

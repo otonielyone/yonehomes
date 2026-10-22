@@ -18,7 +18,7 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
-DATABASE_URL = "sqlite:///brightscrape/brightmls.db"
+DATABASE_URL = 'sqlite:////var/www/html/yonehomes/databases/brightmls.db'
 rentals_engine = create_engine(DATABASE_URL)
 rentals_sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=rentals_engine)
 Base = declarative_base()
@@ -76,7 +76,7 @@ class Mls_rentals_temp(Base):
 
 
 def init_rentals_db():
-    db_path = 'brightscrape/brightmls.db'
+    db_path = '/var/www/html/yonehomes/databases/brightmls.db'
     db_dir = os.path.dirname(db_path)
     os.makedirs(db_dir, exist_ok=True)
     
@@ -163,7 +163,7 @@ def process_row(row):
 
 
 def get_rentals_from_db():
-    DATABASE_URL = "sqlite:///brightscrape/brightmls.db"
+    DATABASE_URL = 'sqlite:////var/www/html/yonehomes/databases/brightmls.db'
     rentals_engine = create_engine(DATABASE_URL)
     rentals_sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=rentals_engine)
 

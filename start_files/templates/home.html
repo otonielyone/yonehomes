@@ -16,13 +16,81 @@
 {% block twitter_description %}Explore Yone Homes for all your real estate needs in Northern Virginia and the DC Metro area. We help you find the perfect home or rental with ease.{% endblock %}
 {% block twitter_image %}https://www.yonehomes.com/static/images/home-twitter.jpg{% endblock %}
 
-{% block body %}    
+{% block body %}
+    <!-- Under Construction Banner -->
+    <style>
+        .uc-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 44px 12px 14px;
+            box-sizing: border-box;
+            color: #ffffff;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.4;
+            background: linear-gradient(135deg, #14354d, #2a6d9a);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+        .uc-banner::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 4px;
+            background: repeating-linear-gradient(-45deg, #2596be 0 12px, #ffffff 12px 24px);
+            background-size: 34px 100%;
+            animation: uc-stripes 1.4s linear infinite;
+        }
+        .uc-icon {
+            font-size: 20px;
+            animation: uc-spin 6s linear infinite;
+        }
+        .uc-title {
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .uc-close {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            width: 26px;
+            height: 26px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .uc-close:hover {
+            background: #ffffff;
+            color: #14354d;
+        }
+        @keyframes uc-stripes {
+            to { background-position: 34px 0; }
+        }
+        @keyframes uc-spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    <div class="uc-banner" role="status">
+        <span class="uc-icon">&#9881;</span>
+        <span><span class="uc-title">Site Under Construction</span> &mdash; Yonehomes is now with Dalton Wade. We are updating our website and will be back shortly.</span>
+        <button class="uc-close" aria-label="Dismiss banner" onclick="this.parentNode.remove()">&times;</button>
+    </div>
     <div class="home-page-menu">
         <!-- Main Menu Bar -->
-
-
         <nav class="menu-bar">
-            <!-- Left Column with Menu Links -->
             <div class="menu-column left-column">
                 <a href="/buying" class="menu-link">BUYING</a>
                 <a href="/rentals" class="menu-link">RENTALS</a>
@@ -30,42 +98,23 @@
                 <a href="/contact" class="menu-link">CONTACT</a>
             </div>
 
-           <!-- Right Column with Logo and Language Icon -->
-           <div class="menu-column right-column" style="display: flex; align-items: center;">
-                <a href="#" class="language-icon">
+            <div class="menu-column right-column" style="display: flex; align-items: center;">
+                <a href="#" class="language-icon" aria-label="Change language">
                 <img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="Language Icon" />
                 </a>
             </div>
         </nav>
-                    
+
         <!-- Hamburger Menu Icon -->
-        <nav class="hamburger-menu" id="hamburger-menu">
+        <nav class="hamburger-menu" id="hamburger-menu" aria-label="Open menu">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </nav>
 
-        <script>
-            document.addEventListener("scroll", function() {
-                const footerInfo = document.getElementById("header-info-container");
-                const headerTexts = document.querySelectorAll(".header-text"); // Select all header-text elements
-                const scrollPosition = window.scrollY;
-        
-                // Change this value to determine when to hide the text (e.g., 50px from top)
-                if (scrollPosition > 50) {
-                    footerInfo.classList.add("hidden");
-                    headerTexts.forEach(headerText => headerText.classList.add("hidden")); // Hide all header-text elements
-                } else {
-                    footerInfo.classList.remove("hidden");
-                    headerTexts.forEach(headerText => headerText.classList.remove("hidden")); // Show all header-text elements
-                }
-            });
-        </script>
-              
-
         <!-- Mobile Menu -->
         <nav class="mobile-menu" id="mobile-menu">
-            <div class="close-menu">X</div> <!-- Close icon -->
+            <div class="close-menu" aria-label="Close menu">X</div>
             <a href="/buying" class="menu-item">BUYING</a>
             <a href="/rentals" class="menu-item">RENTALS</a>
             <a href="/resources" class="menu-item">RESOURCES</a>
@@ -73,31 +122,27 @@
         </nav>
     </div>
 
-
     <!-- Image/Video Background Container -->
     <div class="image-header-container">
-        <!-- Video Background Section -->
         <div class="video-background-wrapper">
-            <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="video-background-frame"
+            <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" preload="metadata" class="video-background-frame"
             poster="https://lirp.cdn-website.com/94fbcdbc/dms3rep/multi/opt/eBDyby3ZSoyoF57tIbLK_NAR+VIDEO+.v2.0000000-1920w.jpg"
             src="/static/icons/homevideo.mp4"></video>
 
-            <!-- Overlay Content Section -->
             <div class="overlay-content">
                 <div class="text-content">
                     <div id="header-info-container">
-                        <!-- <img src="/static/icons/united3.png" alt="United Logo" class="header-logo"> -->
-                        <img src="/static/icons/samson.png" alt="Samson Properties Logo" class="header-logo">
-                        <p class="header-text">TONI YONE - LICENSE STATE: VA 
+                        <img src="/static/icons/logo-white.webp" alt="Yonehomes Logo" class="header-logo">
+                        <p class="header-text">With Dalton Wade<br>Licensed States: VA &amp; MD</p>
                     </div>
-                    
+
                     <h1 class="main-heading">Exceeding Expectations</h1>
                     <h1 class="sub-heading">Gain What You DESERVE, Don't Settle For Less</h1>
                 </div>
 
                 <div class="button-group">
                     <a class="button-link" href="/buying" id="button-search-homes">
-                        FIND HOMES 
+                        FIND HOMES
                     </a>
                     <a class="button-link" href="/rentals" id="button-rentals">
                         FIND RENTALS
@@ -105,7 +150,6 @@
                     <a class="button-link" href="/resources" id="button-pre-approved">
                         GET PRE-APPROVED
                     </a>
-
                     <a class="button-link" href="/contact" id="contact">
                         CONTACT
                     </a>
@@ -113,7 +157,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Home Services Section -->
     <div class="home-services" id="home-services">
@@ -126,7 +169,7 @@
                 </div>
                 <div class="service-item">
                     <h2>Seller's Representative</h2>
-                    <p>Selling a house on your own can be a daunting task, but with Yonehome's Toni Yone, a trusted realtor by your side, it becomes a breeze.</p>
+                    <p>Selling a house on your own can be a daunting task, but with Yonehomes' Toni Yone, a trusted realtor by your side, it becomes a breeze.</p>
                 </div>
                 <div class="service-item">
                     <h2>Looking for a Room or Apartment?</h2>
@@ -135,7 +178,7 @@
             </div>
 
             <div class="image">
-                <img src="/static/icons/merged_image.jpg" alt="Home Services">
+                <img src="/static/icons/merged_image.jpg" alt="Home Services" loading="lazy">
             </div>
         </div>
     </div>
@@ -147,11 +190,11 @@
         <div class="why-us-container">
             <div class="reason">
                 <h2>Market Expertise</h2>
-                <p>Yonehomes provide's detailed information about neighborhoods, opportunities, and programs to guide you through the process.</p>
+                <p>Yonehomes provides detailed information about neighborhoods, opportunities, and programs to guide you through the process.</p>
             </div>
             <div class="reason">
                 <h2>Client-Focused</h2>
-                <p>Yonehomes values your time and work to understand your needs and preferences, ensuring a productive collaboration.</p>
+                <p>Yonehomes values your time and works to understand your needs and preferences, ensuring a productive collaboration.</p>
             </div>
             <div class="reason">
                 <h2>Responsive</h2>
@@ -167,22 +210,20 @@
     <!-- Custom Section with Parallax Effect -->
     <div class="custom-section" id="main-section">
         <div class="custom-header">
-
             <h2 class="custom-heading">YONEHOMES IS HERE TO HELP</h2>
         </div>
 
         <div class="custom-container">
             <div class="custom-row">
                 <div class="custom-column">
-            
                     <div class="custom-icon-widget">
                         <span class="custom-icon-home"></span>
                     </div>
-                    <a class="custom-button-link" href="/buying" id="button-search-homes">
+                    <a class="custom-button-link" href="/buying">
                         <span class="button-text">SEARCH HOMES</span>
                     </a>
                 </div>
-                
+
                 <div class="custom-column">
                     <div class="custom-icon-widget">
                         <span class="custom-icon-rentals"></span>
@@ -200,7 +241,7 @@
                         <span class="button-text">FIND RESOURCES</span>
                     </a>
                 </div>
-                
+
                 <div class="custom-column">
                     <div class="custom-icon-widget">
                         <span class="custom-icon-contact"></span>
@@ -209,10 +250,34 @@
                         <span class="button-text">LEAVE A MESSAGE</span>
                     </a>
                 </div>
-            
             </div>
         </div>
-    </div>  
-    
+    </div>
+
+    <style>
+        .home-page-menu.menu-hidden,
+        .home-page-menu.menu-hidden * {
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+    </style>
+
+    <script>
+        (() => {
+            const menu = document.querySelector('.home-page-menu');
+            if (!menu) return;
+
+            function updateMenu() {
+                const hidden = window.scrollY > 100;
+                menu.classList.toggle('menu-hidden', hidden);
+                menu.inert = hidden;
+            }
+
+            window.addEventListener('scroll', updateMenu, { passive: true });
+            window.addEventListener('pageshow', updateMenu);
+            updateMenu();
+        })();
+    </script>
+
 {% endblock %}
 

@@ -29,7 +29,7 @@ def get_templates() -> Jinja2Templates:
     return Jinja2Templates(directory="start_files/templates")
 
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'default_secret_key')
-SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///models/brightmls.db')
+SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.environ["APP_DATABASE_PATH"]
+
 
 

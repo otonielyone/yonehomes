@@ -8,10 +8,12 @@ from fastapi.responses import HTMLResponse
 from fastapi import APIRouter, Request
 from typing import Any, Dict, List
 from fastapi import HTTPException, Depends
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv
 from pydantic import BaseModel
 import logging
 import httpx
+import secrets
 import os
 
 router = APIRouter()
@@ -24,6 +26,13 @@ MAILJET_API = os.getenv("MAILJET_API")
 MAILJET_SECRET = os.getenv("MAILJET_SECRET")
 GA_VIEW_ID = os.getenv("GA_VIEW_ID")
 ALLOWED_IPS = os.getenv("ALLOWED_IPS")
+API_KEY = os.getenv("API_KEY")
+
+bearer = HTTPBearer()
+
+def check_key(creds: HTTPAuthorizationCredentials = Depends(bearer)):
+    if not API_KEY or not secrets.compare_digest(creds.credentials, API_KEY):
+        raise HTTPException(status_code=401, detail="Invalid API key")
 
 # Set up logger
 logger = logging.getLogger(__name__)
@@ -42,7 +51,8 @@ logger.addHandler(console_handler)
 async def read_root(request: Request):
     logger.info("Rendering home page")
     templates = request.app.state.templates
-    return templates.TemplateResponse("home.html", {"request": request})
+    return templates.TemplateResponse(request, "home.html")
+
 
 @router.get("/idx")
 async def home_search(request: Request):
@@ -88,19 +98,19 @@ async def error_page(request: Request):
 async def buying(request: Request):
     logger.info("Rendering buying page")
     templates = request.app.state.templates
-    return templates.TemplateResponse("buying.html", {"request": request})
+    return templates.TemplateResponse(request, "buying.html")
 
 
 @router.get("/rentals", response_class=HTMLResponse)
 async def rentals(request: Request):
     templates = request.app.state.templates
-    return templates.TemplateResponse("rentals.html", {"request": request})
+    return templates.TemplateResponse(request, "rentals.html")
 
 @router.get("/contact", response_class=HTMLResponse, name="contact")
 async def contact(request: Request):
     logger.info("Rendering contact page")
     templates = request.app.state.templates
-    return templates.TemplateResponse("contact.html", {"request": request})
+    return templates.TemplateResponse(request, "contact.html")
 
 @router.post("/contact")
 async def handle_contact_form(
@@ -111,10 +121,10 @@ async def handle_contact_form(
     phone: str = Form(None),
     general_inquiry: str = Form(...)
 ):
-    logger.info(f"Received contact form submission from {email}")    
+    logger.info(f"Received contact form submission from {email}")
     data = {
         'FromEmail': SENDER,
-        'FromName': email, 
+        'FromName': email,
         'Subject': 'New Contact Form Submission',
         'Text-part': 'Hey Toni, here is another support lead!',
         'Html-part': f'''
@@ -123,7 +133,7 @@ async def handle_contact_form(
             <p>Email: {email}</p>
             <p>Phone: {phone}</p>
             <p>General Inquiry: {general_inquiry}</p>
-        ''',        
+        ''',
         'Recipients': [{ "Email": RECIPIENT }]
     }
     try:
@@ -132,7 +142,7 @@ async def handle_contact_form(
                 'https://api.mailjet.com/v3/send',
                 json=data,
                 auth=(MAILJET_API, MAILJET_SECRET)
-            )        
+            )
         logger.info(f"Mailjet response status code: {response.status_code}")
         if response.status_code != 200:
             logger.error(f"Mailjet error: {response.text}")
@@ -148,7 +158,7 @@ async def handle_contact_form(
 async def resources(request: Request):
     logger.info("Rendering resources page")
     templates = request.app.state.templates
-    return templates.TemplateResponse("resources.html", {"request": request})
+    return templates.TemplateResponse(request, "resources.html")
 
 
 #########################################
@@ -157,18 +167,18 @@ async def resources(request: Request):
 @router.get("/api/dashboard", response_class=HTMLResponse)
 async def dashboard(request: Request):
         templates = request.app.state.templates
-        return templates.TemplateResponse("dashboard.html", {"request": request})
+        return templates.TemplateResponse(request, "dashboard.html")
 
 #########################################
 ############ POPULATE TABLES ############
 #########################################
-@router.get("/api/populate_homes_database", response_model=dict, name="import")
+@router.get("/api/populate_homes_database", response_model=dict, name="import", dependencies=[Depends(check_key)])
 async def get_home_data(background_tasks: BackgroundTasks, request: Request, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, min_images: int = 2, max_images: int = 100, max_price: int = 500000):
     logger.info("Starting MLS homes gathering task")
     background_tasks.add_task(start_homes,concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
     return JSONResponse(content={"message": "MLS data gathering home task started in the background"})
 
-@router.get("/api/populate_rentals_database", response_model=dict, name="import")
+@router.get("/api/populate_rentals_database", response_model=dict, name="import", dependencies=[Depends(check_key)])
 async def get_rental_data(background_tasks: BackgroundTasks, request: Request, concurrency_limit: int = 10,  max_retries: int = 20, delay: int= 1, timeout: int = 300, min_images: int = 2, max_images: int = 50, max_price: int =3000):
     logger.info("Starting MLS rentals gathering task")
     background_tasks.add_task(start_rentals, concurrency_limit, timeout, max_images, min_images, max_price, max_retries, delay)
@@ -178,7 +188,7 @@ async def get_rental_data(background_tasks: BackgroundTasks, request: Request, c
 ######################################
 ############ VIEW TABLES ############
 ######################################
-@router.get('/view_homes_database')
+@router.get('/view_homes_database', dependencies=[Depends(check_key)])
 async def api_homes(request: Request):
     try:
         listings_data = get_homes_from_db()
@@ -186,7 +196,7 @@ async def api_homes(request: Request):
     except Exception:
         raise HTTPException(status_code=500)
 
-@router.get('/view_rentals_database')
+@router.get('/view_rentals_database', dependencies=[Depends(check_key)])
 async def api_rentals(request: Request):
     try:
         listings_data = get_rentals_from_db()
@@ -198,20 +208,18 @@ async def api_rentals(request: Request):
 ######################################
 ############ TABLE COUNTS ############
 ######################################
-@router.get('/count_homes_database')
+@router.get('/count_homes_database', dependencies=[Depends(check_key)])
 async def get_total_count(request: Request):
     try:
         listings_data = get_homes_from_db()
         return {"homes count":len(listings_data)}
     except Exception:
         raise HTTPException(status_code=500)
-    
-@router.get('/count_rentals_database')
+
+@router.get('/count_rentals_database', dependencies=[Depends(check_key)])
 async def get_total_count(request: Request):
     try:
         listings_data = get_rentals_from_db()
         return {"rentals Count":len(listings_data)}
     except Exception:
         raise HTTPException(status_code=500)
-
-

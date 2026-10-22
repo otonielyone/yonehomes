@@ -9,3 +9,4 @@ start_files/static/rentals_images/
 
 # Ignore .env file
 .env
+*.json
